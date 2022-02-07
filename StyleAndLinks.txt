@@ -1,9 +1,34 @@
 Font 
 
+Roboto Font
+
+Place this in <head> tag
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 
+Then for Thin Font add this to the <head> also:
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+For Bold add this:
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+CSS Format:
+font-family: 'Roboto', sans-serif;
+
+---------------------------------------------------------------------
 Colors
 
 
 
+
+
+---------------------------------------------------------------------
 Icons Libraries
+
+Place this in the <head> tag to use it:
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
+----------------------------------------------------------------------
