@@ -22,7 +22,7 @@ font-family: 'Roboto', sans-serif;
 Colors
 
 #111B47  --> 'PetHouse' Color
-
+#37447E --> 'About us' color
 
 
 ---------------------------------------------------------------------
