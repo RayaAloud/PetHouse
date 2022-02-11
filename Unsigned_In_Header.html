@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--Meta tags-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!--Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <!--jQuery-->
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <!--Embedded CSS-->
+  <style>
+    body{
+      margin: 0;
+    }
+    #Logo{
+      width: 95px;
+      height: 95px;
+    }
+    #verticalLine{
+      align-self: center;
+      border-left-width:1px;
+      margin-top: 0.5em;
+      height: 50px;
+      border-left: solid;
+      border-left-color: #DBDBDC;
+      display: inline;
+    }
+    header div h4{
+      display: inline;
+      margin-left: 1em;
+      color: #111B47;
+      font-weight: bold;
+      align-self: center;
+      margin-top: 22px;
+    }
+    #navbarNav{
+      margin-left: 1em;
+    }
+    #navbarNav ul li a{
+      color: #111B47;
+    }
+    #navbarNav ul li{
+      margin-left: 1.5em;
+      margin-right: 1.5em;  
+    }
+    #signInBtn{
+      background-color:#111B47;
+      color: white;
+      font-weight: 400;
+      font-size: 16px;
+      border: none;
+      height: 35px;
+      width: 90px;
+      border-radius: 35px;
+      align-self: center;
+      margin-left: auto;
+      margin-right: 2em;   
+    }
+    #signInBtn:hover{
+      cursor: pointer;
+      background-color: #2F3964;
+    }
+    #sidemenu-btn:focus{
+      box-shadow: none;
+    }
+
+  </style>
+  <!--Scripts-->
+  <script>
+    function checkMediaQuery() {
+        if (window.innerWidth < 992) {         
+        }
+        else{
+          document.getElementById("closebtn").click() 
+        }
+    }
+     $(document).ready(function() {
+         checkMediaQuery();
+      });
+      window.addEventListener('resize', checkMediaQuery);
+
+  </script>
+</head>
+<body>
+
+  <header class="header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <div class="d-flex">
+          <a class="navbar-brand" href="#"><img src="Images/Logo.png" id="Logo"></a>
+          <div id="verticalLine" class="ml-lg-2 ml-sm-1"></div>
+          <h4>PetHouse</h4>
+        </div>
+          <div class="collapse navbar-collapse mt-3" id="navbarNav">
+            <ul class="navbar-nav h6 p-0">
+              <li class="nav-item">
+                <a class="nav-link nav-li nav-li" href="#">Home&nbsp;</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-li" href="#">About us&nbsp;</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-li" href="#">Services&nbsp;</a>
+              </li>
+            </ul>
+            <button id="signInBtn" class="">Sign in</button>
+          </div>
+          <button class="navbar-toggler float-left mt-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" aria-expanded="false" aria-label="Toggle navigation" id="sidemenu-btn">
+            <span class="navbar-toggler-icon">&#9776;</span>
+          </button>
+      </div>
+
+
+   <!---------------Canvas---------------->
+   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" id="closebtn"></button>
+    </div>
+    <div class="offcanvas-body navbar-light text-center"> 
+      <a class="navbar-brand " href="#"><img src="Images/Logo.png" id="Logo"></a>
+      <ul class="container navbar-nav h6 fw-1 text-center mt-5">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <span class="dropdown-divider col-6 m-auto"></span>
+        <li class="nav-item">
+          <a class="nav-link"  href="#">About us</a>
+        </li>
+        <span class="dropdown-divider col-6 m-auto"></span>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
+        </li>
+        <button id="signInBtn" class="m-auto mt-5">Sign in</button>
+      </ul> 
+    </div>
+  </div>
+   <!--------------------------------------> 
+  </nav>
+</header>
+</body>
+</html>
