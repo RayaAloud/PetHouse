@@ -2,6 +2,8 @@ To import the header place this script in the <head>
 if you want the signed in user header replace the 'Unsigned_In_Header.html'
 at the end of this code by 'Signed_In_Header.html'
 
+ But First add this to the <head> also: <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
 <script>
       function makeRequest(){
           var req;
