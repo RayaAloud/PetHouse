@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styleMyPets.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>   
+        <title>Add new pet</title>
+    </head>
+    
+    <body>
+
+        <div class="frame">
+            <form method="post" action="#">
+                <label for="petname">Pet Name</label> <br>
+                  <input type="text" name="petname" id="aPetname">
+
+                <label for="birthDate">Date of birth</label> <br>
+                  <input type="date" name="birthDate" id="abirthDate">
+                 
+                <label for="petgender">Gender</label>
+                  <select name="petgender" id="pet-gender">
+                      <option >Male</option>
+                      <option>Female</option>
+                  </select>
+
+                <label for="petbreed">Breed</label>
+                  <input type="text" name="petbreed">
+                <label for="petstatus">Status</label>
+                  <input type="text" name="petstatus">
+
+                <label for="vaccinatiom">Vaccinatiom List <p class="p-to-Line">(optional)</p></label> <!-- <input type="file"> عشان احط الفايل -->
+                  <textarea name="vaccinatiom" id="text-vaccinatiom" cols="30" rows="5"> </textarea>
+
+                <label for="medicalHistory">Medical History<p class="p-to-Line">(optional)</p></label>
+                  <textarea name="medicalHistory" id="medical-History" cols="30" rows="5"></textarea>
+                 <!--???????????-->
+                 
+            </form>
+             <div id="addinPic">
+                <img id="pet-image" src="images/catPurple.png" alt="pet picture">
+                <h2 id="plusS">+</h2>
+              </div>
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,123 @@
+
+body {
+ background-color: #ffffff;
+ 
+  }
+div{
+    margin: 10%;
+    background-color:#FFFFFF;
+    
+}
+form{
+    display: inline;
+    
+}
+.frame{
+    position:relative;
+    border-radius: 17px;
+    box-shadow: 1px 1px 15px 1px ;
+    padding: 20px;
+    border: 2px;
+    width:65%;
+    content: "";
+    clear: both;
+    display: table;
+}
+input, textarea , select{
+    display: block;
+    column-count: 20;
+    overflow: scroll;
+    width: 40%;
+    
+}
+
+
+.p-to-Line{
+ display: inline;
+ color: rgb(199, 199, 199);
+}
+#MyPet-Listing{
+    display: inline; 
+    top: 15px;
+}
+a{
+    text-decoration: none;
+    color: white ;
+}
+ul{
+    
+    list-style: none;
+}
+div.petList{
+    
+    border-style:none;
+    background-color: rgb(236, 236, 236);
+    padding: 15px;
+    border-radius: 6%;
+    width: 70%;
+    overflow: auto;
+}
+h4.petName{
+    margin-top: 0px;
+}
+h6.pet-information{
+    padding: 0px;
+    color: rgb(84, 97, 110);
+    display: inline;
+}
+h6.the-info{
+   
+   /* position: relative;*/
+    color: rgb(84, 97, 110);
+    display: inline;
+}
+table{
+    font-size: small;
+    width: 50%;
+}
+
+button{
+ color: cornsilk;
+ background-color: darkblue;
+ top: 15px;
+ left: 80%;
+ position: absolute;
+ border-radius: 30%;
+ 
+ padding: 0.375rem 0.75rem;
+ width:15%; 
+ display: inline-block;
+ border-radius: 25px;
+    margin-top: 15px;
+   /* height: calc(2.6rem + 2px);*/
+    line-height: 1.8;
+    overflow: hidden;
+    max-width: 155px;
+    text-overflow: ellipsis;
+}
+
+#pet-image{
+    float: right;
+    width: 25%;
+    position: absolute;
+    top: 30%;
+    left: 60%;
+}
+#addinPic{
+background-color: tomato;
+content: "";
+  clear: both;
+  display: table;
+}
+#plusS{
+    color: white;
+    float: right;
+    width: 30px;
+    height: 30px;
+    border-radius: 90%;
+    position: absolute;
+    text-align: center;
+    top: 45%;
+    left: 80%;
+    background-color: #858baa;
+}
