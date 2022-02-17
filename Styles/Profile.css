@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
@@ -145,3 +146,152 @@ input[placeholder] {
     top: 95vh;
   }
 }
+=======
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: aliceblue;
+  height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.wrapper{
+  padding: 30px 50px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  margin: 10px auto;
+  max-width: 780px;
+
+}
+
+#bcimg {
+  height: 250px;
+}
+
+#profile-pic-div{
+    height: 160px;
+    width: 160px;
+    overflow: hidden;  
+    border-radius: 50%;
+    border: 1px grey;
+}
+
+#photo{
+  height: 100%;
+  width: 100%;
+} 
+
+#file {
+  display: none;
+}
+#bcBluePath{
+  width: 1100px;
+  height: 1000px;
+  position: absolute;
+  top:20vh;
+  left: -9em;
+  z-index: -1;
+}
+
+#uploadBtn {
+  height: 40px;
+  width: 100%;
+  margin-top: -2.5em;
+  bottom: 0;
+  text-align: center;
+  background: rgb(0, 0, 0, 0.6);
+  color: rgb(194, 194, 194);
+  line-height: 25px;
+  font-family: sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+.form-control  {
+  border-radius: 10px
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border: 1.5px solid #ffffff
+}
+
+select {
+  display: block;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  height: 40px;
+  padding: 5px 10px
+}
+
+select:focus {
+  outline: none
+}
+
+label {
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+  padding-left: 3px
+}
+#saveBtn{
+  background-color: #111B47;
+  color: white;
+  border: none;
+  border-radius: 30px;  
+}
+#saveBtn:hover{
+  background-color: #1f2c68;
+}
+input[placeholder] {
+  font-weight: 400
+}
+
+.button {
+  background-color: #fff;
+  color: #0779e4 
+}
+
+.button:hover {
+  background-color: #0779e4 ;
+  color: #fff
+}
+
+.btn-primary {
+  background-color: #0779e4 
+}
+
+.danger {
+  background-color: #fff;
+  color: #e20404;
+  border: 1px solid #ddd 
+}
+
+.danger:hover {
+  background-color: #e20404;
+  color: #fff
+}
+
+@media(max-width:576px) {
+  .wrapper {
+      padding: 25px 20px;
+  }
+
+  #deactivate {
+      line-height: 18px
+  }
+  #bcimg{
+    height: 100px;
+    margin-top: 2em;
+  }
+  #bcBluePath{
+    height: 300px;
+    width: 400px;
+    top: 95vh;
+  }
+}
+>>>>>>> d36a7c5b0900a4540863a47ff9afa06855c8b1a6
