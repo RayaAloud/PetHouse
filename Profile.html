@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
     <title> Pet Owner | Profile </title>
-<link rel="stylesheet" href="Styles/Profile.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="Profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
 <script>
     function makeRequest(){
@@ -44,20 +44,21 @@
 
 <body>
 <span id="header"></span>
-  
-<div class="wrapper bg-white mt-sm-5 ">
-
-         <div class="d-flex align-items-start py-3 profile-pic-div"> 
-             <img src="Images/undraw_profile_pic_ic.png"  id="photo" alt=""> 
+  <img src="Images/designer_1.png" id="bcBluePath">
+  <div class="container-fluid d-flex mt-5 justify-content-center">
+<div class="wrapper bg-white mt-sm-5 col-sm-10">
+     <div class="container-fluid d-flex justify-content-center">
+         <div id="profile-pic-div" class="d-flex flex-column align-items-center"> 
+             <img src="Images/undraw_profile_pic_ic.png" id="photo" alt="profile image"> 
              <input type="file" id="file">
              <label for="file" id="uploadBtn">Choose Photo</label>
-            </div>
-       
-
-    <div class = "py-2"> 
+        </div>
+    </div>
+<div class="container mt-5">
+    <div class = "row py-2 mt-3"> 
             <div class="col-md-6"> <label for="firstname"> First Name </label> <input type="text" class="bg-light form-control" placeholder="Raya"> </div>
             <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname"> Last Name </label> <input type="text" class="bg-light form-control" placeholder="Aloud"> </div>
-        </div>
+    </div>
         
         <div class="row py-2"> 
             <div class="col-md-6"> <label for="email"> Email Address </label> <input type="text" class="bg-light form-control" placeholder="Ex: rayaali@gmail.com"> </div>
@@ -71,18 +72,19 @@
                 <option value="female"> Female </option> 
             </select> </div>
         </div>
-        
-        <div class="py-3 pb-4"> <button class="btn btn-primary mr-3">Save Changes</button> <button type="button" class="btn btn-light">Cancel</button>    
-            <div class="d-sm-flex align-items-center pt-3" id="deactivate">
-            <div class="ml-auto"> <button type="button" class="btn btn-outline-danger">Delete Account</button> </div>
-            </div>     
+    </div>   
+        <div class="py-3 pb-4 d-flex justify-content-center mt-3"> <button class="mr-3 py-2 px-3" id="saveBtn">Save Changes</button>     
+                
         </div>
-          
+         <div class="d-flex justify-content-center pt-3 mt-5" id="deactivate">
+            <div class="ml-auto"> <button type="button" class="btn btn-outline-danger">Delete Account</button></div>
+        </div> 
     </div>
+</div>
 </div>
 
 <div>
-    <img src="Images/undraw_playful_cat_re_ac9g.png" alt="cat" class="img_background">
+    <img src="Images/undraw_playful_cat_re_ac9g.png" alt="cat" class="img_background" id="bcimg">
 </div>
 
 </body>

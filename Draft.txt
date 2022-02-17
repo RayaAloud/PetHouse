@@ -1,0 +1,5 @@
+ <div class="d-flex align-items-start py-3 profile-pic-div"> 
+             <img src="Images/undraw_profile_pic_ic.png"  id="photo" alt=""> 
+             <input type="file" id="file">
+             <label for="file" id="uploadBtn">Choose Photo</label>
+        </div>
