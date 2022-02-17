@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title> Pet Owner | Profile </title>
+<link rel="stylesheet" href="Styles/Profile.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+<script>
+    function makeRequest(){
+        var req;
+        if(window.XMLHttpRequest)
+          req = new XMLHttpRequest();
+        else{
+            req = new ActiveXObject(Microsoft.XMLHttpRequest);
+        }
+        return req;
+    }
+
+    function showPage(page, elem){
+        var request = makeRequest();
+        
+        request.onreadystatechange = function(){
+            if(request.readyState == 4 && request.status)
+              document.getElementById(elem).innerHTML = request.responseText;
+        }
+
+        request.open("Get", page, true);
+        request.send();
+    }
+
+  $(document).ready(function(){
+    showPage('Signed_In_Header.html', 'header');
+  })
+</script>
+
+</head>
+
+<body>
+<span id="header"></span>
+  
+<div class="wrapper bg-white mt-sm-5 ">
+
+         <div class="d-flex align-items-start py-3 profile-pic-div"> 
+             <img src="Images/undraw_profile_pic_ic.png"  id="photo" alt=""> 
+             <input type="file" id="file">
+             <label for="file" id="uploadBtn">Choose Photo</label>
+            </div>
+       
+
+    <div class = "py-2"> 
+            <div class="col-md-6"> <label for="firstname"> First Name </label> <input type="text" class="bg-light form-control" placeholder="Raya"> </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname"> Last Name </label> <input type="text" class="bg-light form-control" placeholder="Aloud"> </div>
+        </div>
+        
+        <div class="row py-2"> 
+            <div class="col-md-6"> <label for="email"> Email Address </label> <input type="text" class="bg-light form-control" placeholder="Ex: rayaali@gmail.com"> </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="phonenumber"> Phone Number </label> <input type="text" class="bg-light form-control" placeholder="+966 53-888-1823"> </div>
+        </div>
+        
+
+        <div class="row py-2">
+            <div class="col-md-6"> <label for="gender"> Gender </label> <select name = "gender" id="gender" class="bg-light"> 
+                <option value = "male" selected> Male </option>
+                <option value="female"> Female </option> 
+            </select> </div>
+        </div>
+        
+        <div class="py-3 pb-4"> <button class="btn btn-primary mr-3">Save Changes</button> <button type="button" class="btn btn-light">Cancel</button>    
+            <div class="d-sm-flex align-items-center pt-3" id="deactivate">
+            <div class="ml-auto"> <button type="button" class="btn btn-outline-danger">Delete Account</button> </div>
+            </div>     
+        </div>
+          
+    </div>
+</div>
+
+<div>
+    <img src="Images/undraw_playful_cat_re_ac9g.png" alt="cat" class="img_background">
+</div>
+
+</body>
+
+</html>
