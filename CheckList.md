@@ -5,7 +5,7 @@
 - [ ] Owner Login
 - [ ] Owner Register
 - [ ] Pet Profile
-- [ ] Owner Profile
+- [x] Owner Profile
 - [ ] Owner Dashboard
 - [ ] Pets list
 - [ ] Admin Login
