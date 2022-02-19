@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Request Appointment</title>
+  <!--Meta tags-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Favicon-->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="Images/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="Images/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="Images/favicon_io/site.webmanifest">
+  <!--Font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!--External CSS-->
+  <link rel="stylesheet" href="#">
+  <!--jQuery-->
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <!--Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   <!--Icons-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <!--Embedded CSS-->
+  <style>
+
+   #appointmentInfo{
+       background-color: #FBFBFB;
+       box-shadow: 1px 1px 15px 1px #ebebeb;
+       border-radius: 20px;
+       padding-top: 1em;
+       
+   }
+   #appointmentInfo h5{
+       color: #828bb3;
+   }
+   hr{
+       color:#afafaf;
+   }
+   th{
+       color: #828bb3;
+   }
+   td{
+       padding: 1em 1em 1em 1.5em;
+       color:#414141;
+   }
+   
+   
+  </style>
+  <!--Scripts-->
+  <script>
+    function makeRequest(){
+      var req;
+      if(window.XMLHttpRequest)
+        req = new XMLHttpRequest();
+       else{
+           req = new ActiveXObject(Microsoft.XMLHttpRequest);
+       }
+       return req;
+   }
+  
+   function showPage(page, elem){
+       var request = makeRequest();
+      
+       request.onreadystatechange = function(){
+           if(request.readyState == 4 && request.status)
+             $("#"+elem).html(request.responseText);
+       }
+  
+       request.open("Get", page, true);
+       request.send();
+   }
+  
+   $(document).ready(function(){
+     
+   })
+   
+  </script>
+</head>
+<body>
+
+    <div class="container d-flex justify-content-center pt-5">
+        <div id="appointmentInfo" class="col-12 col-md-9 mt-3">
+            <h5 class="text-center">Appointment Details</h5>
+            <hr>
+            <div class="d-flex col-11 col-md-9 mt-3 p-4">
+                <table>
+                    <tr>
+                      <th colspan="2">Pet</th>
+                      <td>Java &nbsp;
+                          <img src="Images/catBabyBlue.png" height="35px" width="35px">
+                      </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Service</th>
+                        <td>Washing</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">Date</th>
+                        <td>4/4/2022</td>
+                      </tr>
+                      <tr>
+                        <th colspan="2">Time</th>
+                        <td>9:00</td>
+                      </tr>
+                </table>
+            </div>
+        </div>
+       
+    </div>
+
+</body>
+</html>
