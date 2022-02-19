@@ -1,0 +1,170 @@
+body{
+    margin: 0%;
+}
+#container{
+    margin-top: 3em;
+    
+    display: flex;
+    justify-content: space-around;
+}
+#leftimages{
+    /*position: relative;*/
+    display: flex;
+   /* margin-right: 800px;*/
+   margin-left:0px;
+   margin-right: 0px;
+   width: 1200px;
+}
+.leftimg{
+    position: relative;
+    width:300px;
+    height:400px;
+    z-index: 1;
+    left: 150px;
+    top: 9.5em;
+    
+}
+
+.leftbackground{
+    
+    position: absolute;
+    z-index: -1;
+    width:500px;
+    height:550px;
+    margin-right: 500px;
+    
+}
+/*.img{
+    width: 350px;
+    height: 350px;
+    align-self: center;
+}*/
+
+#box{
+    width: 400px;
+    height: 500px;
+    box-shadow: 1px 1px 15px 1px #ebebeb;
+    border-radius: 17px;
+    padding-bottom: 2em;
+    align-self: center;
+    margin-right: 10em;
+    
+}
+#smallImg{
+    height: 70px;
+}
+#top{
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    background-color: #e4e8fc;
+    border-top-right-radius: 17px;
+    border-top-left-radius: 17px;
+}
+#signInBtn2{
+    background-color: #111B47;
+    color: white;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    border-radius: 30px;
+    border: none;
+    
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    opacity: 0.9;
+  margin-left: 6rem ;
+  margin-top: 1rem ;
+}
+#signInBtn2:hover {
+    opacity: 1;
+  }
+#inputs{
+    padding: 2em;
+    
+}
+input[type="password"] ,input[type="email"]{
+    border-radius: 10px;
+    padding-left: 1em;
+    width: 300px;
+    height: 40px;
+    border-color: #85858573;
+}
+#toSignup{
+    padding-top: 0.1em;
+    font-size: 13px;
+
+}
+a:link {
+    
+    
+    text-decoration: none;
+  }
+#forgetpass,#toSignup{
+    margin-top: 1rem ;
+    margin-left: 6em;
+  
+}
+
+input[type="password"],[type="email"]{
+    width: 300px;
+    margin-top: 0.5em;
+    
+}
+i{
+color: #111B47;
+padding-right: 0.5em;
+}
+/* Manager login page 
+
+#managerbox{
+    width: 400px;
+    height: 400px;
+    background-color: #A2ABD1;
+    box-shadow: 1px 1px 15px 1px #ebebeb;
+    border-radius: 17px;
+    padding-bottom: 2em;
+    align-self: center;
+    z-index: 1;
+    margin-right: 14em;
+    margin-top: 8em;
+    
+}
+#managerinputs{
+    padding: 2em;
+    
+    
+}
+
+#managerinputs input[type="password"] {
+    border-radius: 30px;
+    padding-left: 1em;
+    width: 300px;
+    height: 40px;
+    border: none;
+    
+}
+#managerinputs input[type="email"]{
+    border-radius: 30px;
+    padding-left: 1em;
+    width: 300px;
+    height: 40px;
+    border: none;
+    
+}
+#toplogoimg{
+    position: relative;
+    height: 90px;
+    left: 230px;
+    top: 50px;
+}*/
+/*Add appointment*/
+#addService{
+    display: flexbox;
+    justify-content: space-around;
+    background-color: rgb(244, 232, 255);
+    text-align: center;
+     
+}
