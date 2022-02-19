@@ -54,7 +54,8 @@ body {
   margin-top: -2.5em;
   bottom: 0;
   text-align: center;
-  background: rgb(0, 0, 0, 0.6);
+  background: rgb(0, 0, 0, 0.1);
+  opacity: 70%;
   color: rgb(194, 194, 194);
   line-height: 25px;
   font-family: sans-serif;
