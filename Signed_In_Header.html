@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--Meta tags-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!--Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <!--jQuery-->
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <!--Icons-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <!--Embedded CSS-->
+  <style>
+    body{
+      margin: 0;
+    }
+    #Logo{
+      width: 95px;
+      height: 95px;
+    }
+    #verticalLine{
+      align-self: center;
+      border-left-width:1px;
+      margin-top: 0.5em;
+      height: 50px;
+      border-left: solid;
+      border-left-color: #DBDBDC;
+      display: inline;
+    }
+    header div h4{
+      display: inline;
+      margin-left: 1em;
+      color: #111B47;
+      font-weight: bold;
+      align-self: center;
+      margin-top: 22px;
+    }
+    #navbarNav{
+      margin-left: 1em;
+    }
+    #navbarNav ul li a{
+      color: #111B47;
+    }
+    #navbarNav ul li {
+      margin-left: 1.5em;
+      margin-right: 1.5em;  
+    }
+    #sidemenu-btn:focus{
+      box-shadow: none;
+    }
+    #User-Icon-Container{
+      margin-left: auto;
+      margin-right: 1.5em;
+        
+    }
+    #User-Icon-subContainer{
+      display: flex;
+    }
+    #UserIcon{
+      width: 60px;
+      height: 60px;
+      border: none;
+    }
+    #triangle{
+      font-size: 30px;
+      align-self: center;
+      margin-left: 2px;
+      color: #5E5F61;
+    }
+    #triangle:hover, #UserIcon:hover{
+      cursor: pointer;
+    }
+    #User-Icon-Container nav{
+      display: none;
+      margin-top: 0.1em;
+      margin-left: -5em;
+      position: absolute;
+    }
+    #User-Icon-Container nav ul li{
+      display: flex;
+      text-align: center;
+      border-bottom: solid #f0f0f0;
+      padding: 0.5em;
+    }
+    #User-Icon-Container nav ul li:hover{
+      background-color: #e6e6e6;
+    }
+    #User-Icon-Container nav ul li a{
+      align-self: center;
+      justify-self: center;
+    }
+    #User-Icon-Container:hover nav{
+      display: block;
+    }
+    #User-Icon-Container:hover nav ul{
+      list-style: none;
+      box-shadow: 1px 1px 15px 1px #dddddd;
+      padding: 0%;
+      text-align: center;
+      width: 180px;
+    }
+    .User-nav-items{
+      margin-left: 15px;
+    }
+    #User-Icon-Container:hover nav ul li a{
+      text-decoration: none;
+      color:#5E5F61;
+    }
+    .User-nav-items-icons{
+      margin-left: 5px;
+    }
+    .bi-grid-1x2-fill, .bi-person-circle{
+      color:#b6b6b6;
+    }
+    .bi-box-arrow-right{
+      color: rgb(165, 32, 32);
+    }
+    /*    Media Queries   */
+    @media screen and (max-width: 991px) {
+      #User-Icon-Container{
+        margin-right: 2px;    
+      }
+      #UserIcon{
+        width: 45px;
+        height: 45px;
+      }
+      #Logo{
+        width: 82px;
+        height: 82px;
+      }
+      header div h4{
+        font-size: 20px;
+        margin-left: 0.5em;    
+      }
+      #verticalLine{
+        height: 45px;  
+      }
+      #User-Icon-Container:hover nav ul{
+        width: 150px;
+      }
+      #User-Icon-Container nav{
+        margin-left: -3em;
+      }
+  } 
+  </style>
+  <!--Scripts-->
+  <script>
+    function checkMediaQuery() {
+        if (window.innerWidth < 992) {         
+        }
+        else{
+          document.getElementById("closebtn").click() 
+        }
+    }
+      $(document).ready(function() {
+          checkMediaQuery();
+      });
+      window.addEventListener('resize', checkMediaQuery);
+
+  </script>
+</head>
+<body>
+
+  <header class="header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <div class="d-flex">
+          <a class="navbar-brand" href="#"><img src="Images/Logo.png" id="Logo"></a>
+          <div id="verticalLine" class="ml-lg-2 ml-sm-1"></div>
+          <h4>PetHouse</h4>
+        </div>
+          <div class="collapse navbar-collapse mt-3" id="navbarNav">
+            <ul class="navbar-nav h6 p-0">
+              <li class="nav-item">
+                <a class="nav-link nav-li nav-li" href="index.html">Home&nbsp;</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-li" href="index.html#aboutus">About us&nbsp;</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-li" href="index.html#services">Services&nbsp;</a>
+              </li>
+            </ul>
+          </div>
+          <div id="User-Icon-Container">
+              <div id="User-Icon-subContainer">
+                <img src="Images/undraw_profile_pic_ic.png" id="UserIcon">
+                <span id="triangle">&#9662;</span>
+              </div>
+              <nav>
+                <ul>
+                  <li>
+                    <i class="bi bi-person-circle User-nav-items-icons"></i>
+                    <a href="#" class="User-nav-items">My Profile</a>
+                  </li>
+                
+                  <li>
+                    <i class="bi bi-grid-1x2-fill User-nav-items-icons"></i>
+                    <a href="#" class="User-nav-items">Dashboard</a>
+                  </li>
+      
+                  <li>
+                    <i class="bi bi-box-arrow-right User-nav-items-icons"></i>
+                    <a href="#" class="User-nav-items">Logout</a>
+                  </li>
+                </ul>
+              </nav>
+          </div>
+          <button class="navbar-toggler float-left mt-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" aria-expanded="false" aria-label="Toggle navigation" id="sidemenu-btn">
+            <span class="navbar-toggler-icon">&#9776;</span>
+          </button>
+      </div>
+
+
+   <!---------------Canvas---------------->
+   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" id="closebtn"></button>
+    </div>
+    <div class="offcanvas-body navbar-light text-center"> 
+      <a class="navbar-brand " href="#"><img src="Images/Logo.png" id="Logo"></a>
+      <ul class="container navbar-nav h6 fw-1 text-center mt-5">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <span class="dropdown-divider col-6 m-auto"></span>
+        <li class="nav-item">
+          <a class="nav-link"  href="#">About us</a>
+        </li>
+        <span class="dropdown-divider col-6 m-auto"></span>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
+        </li>
+      </ul> 
+    </div>
+  </div>
+   <!--------------------------------------> 
+  </nav>
+</header>
+</body>
+</html>
