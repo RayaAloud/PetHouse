@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: aliceblue;
+  }
+
+        
+.card-title {
+  text-align: center;
+  margin: 100px 60px;
+  padding-left: 0;
+  font-family: Damascus;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  color: #A2ABD1;
+  
+}
+
+.bg-img {
+  position: absolute;
+  width: 88px;
+  height: 82px;
+  left: 1229px;
+  top: 374px;
+}
+
+.rectangle { 
+   position: absolute;
+   left: 0%;
+   right: 40%;
+   top: 0%;
+   bottom: 0%;
+   width: 70px;
+   background: linear-gradient(180deg, #FAF1FB 0%, #E4EEFD 100%);
+ }
+.card {
+   margin: 26px;
+   }
+
+  .service1 {
+    position: absolute;
+    background-image: url("Vector.png");
+    background-repeat: no-repeat;
+    background-position: center;
+  } 
+
+  .service2{
+          position: absolute;
+          background-image: url("mdi_page-previous-outline.png");
+          background-repeat: no-repeat;
+          background-position: center;
+        }    
+
+        .service3 {
+          position: absolute;
+          background-image: url("icons8_cat-footprint.png");
+          background-repeat: no-repeat;
+          background-position: center;
+        
+        }
+
+        .line {
+          background-color: #A2ABD1;
+          width: 200px;
+          height: 2px;
+          margin-top: 10px;
+          margin-left: 5%;
+        }
+
+         p {
+            margin-left: 5%;
+            font-weight: bold;
+            color: #A2ABD1;
+            font-size: 20px;
+        }
+
+        
+
+        .upcoming-apt p {
+          padding-top: 70px; 
+          
+         
+        }
+
+        .upcoming-apt {
+          margin: 5px 20px;
+        }
+        
+        .t-img {
+          width: 56px;
+          height: 56px;
+          left: 131px;
+         
+        }
+
+        th, td {
+          padding: 30px 30px;
+          text-align: center;
+            border-bottom: 1px solid #ddd;
+          
+        }
+        .box table{
+          padding: 1em;
+           margin: 15px 80px;
+          position: absolute;
+          width: 964px;
+          height: 392px;
+          background: #FFFFFF;
+          box-shadow: 0px 3.43363px 3.43363px 1px rgba(0, 0, 0, 0.25);
+          border-radius: 10px;
+          border-collapse: separate;
+          border-bottom: #A2ABD1;
+        }
+
+        button{
+          border: none;
+          background: none;
+        }
