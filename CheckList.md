@@ -1,7 +1,7 @@
-- [ ] Home page
-- [ ] Request Appointment1
-- [ ] Request Appointment2
-- [ ] Request Appointment3
+- [x] Home page
+- [x] Request Appointment1
+- [x] Request Appointment2
+- [x] Request Appointment3
 - [ ] Owner Login
 - [x] Owner Register
 - [ ] Pet Profile
