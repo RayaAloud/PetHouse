@@ -25,7 +25,10 @@
     #Container{
         margin-left: 0;
         padding-left: 0;
-        overflow-y: scroll;
+        
+    }
+    #content{
+       
     }
     
 </style>
@@ -53,6 +56,14 @@
    }
     function showContent(id){
        switch(id){
+         case 1:showPage('AboutUs.html', 'content');
+         break;
+         case 2:showPage('ManagerServices.html', 'content');
+         break;
+         case 3:
+         break;
+         case 4:showPage('AppointmentsRequests.html', 'content');
+         break;
          case 5: showPage('UpcomingApponintment.html', 'content');
          break;
          case 6:showPage('ApponintmentPrevious.html', 'content');
@@ -62,7 +73,7 @@
        }
     }
     $(document).ready(function(){   
-     showPage('Reviews.html', 'content');
+     showPage('AboutUs.html', 'content');
    })
 </script>
 <title>Upcoming Appointments | Admin</title>
@@ -113,7 +124,7 @@
                         </li class="pb-3">
 
                         <li onclick="showContent(7)">
-                            <a href="javascript:showContent(7);" data-bs-toggle="collapse" class="nav-link px-0 align-middle sideMenuColor">
+                            <a href="#" data-bs-toggle="collapse" class="nav-link px-0 align-middle sideMenuColor">
                                 <i class="fa-solid fa-comments"></i> <span class="ms-1 d-none d-sm-inline"> Reviews</span> </a>           
                         </li>
                     </ul>
@@ -122,7 +133,7 @@
                 </div>
             </div>
         </div>
-        <div id="content" class=""></div>
+        <div id="content"></div>
     </div>
 </body>
 </html>

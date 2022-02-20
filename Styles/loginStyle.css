@@ -9,7 +9,7 @@ body{
 }
 .leftimg{
     position: relative;
-    width:400px;
+    width:450px;
     height:400px;
     z-index: 1;
     left:0;
@@ -22,7 +22,7 @@ body{
     bottom: 0;
     position: absolute;
     z-index: -1;
-    width:500px;
+    width:650px;
     height:550px;
     left:0;
     
@@ -41,10 +41,11 @@ body{
     height: 70px;
 }
 #top{
-    padding: 1em;
+    padding: 1.5em 1.5em 1em 1.5em;
     display: flex;
+    color: #5a638d;
     justify-content: space-between;
-    background-color: #e4e8fc;
+    background-color: #edeffb;
     border-top-right-radius: 17px;
     border-top-left-radius: 17px;
 }
@@ -56,14 +57,13 @@ body{
     padding-bottom: 0.5em;
     padding-top: 0.5em;
     border-radius: 30px;
-    border: none;
-    
+    border: none;  
     cursor: pointer;
     width: 200px;
     height: 40px;
     opacity: 0.9;
-  margin-left: 6rem ;
-  margin-top: 1rem ;
+    margin-left: 6rem ;
+    margin-top: 1rem ;
 }
 #signInBtn2:hover {
     opacity: 1;
@@ -100,49 +100,7 @@ i{
 color: #111B47;
 padding-right: 0.5em;
 }
-/* Manager login page 
 
-#managerbox{
-    width: 400px;
-    height: 400px;
-    background-color: #A2ABD1;
-    box-shadow: 1px 1px 15px 1px #ebebeb;
-    border-radius: 17px;
-    padding-bottom: 2em;
-    align-self: center;
-    z-index: 1;
-    margin-right: 14em;
-    margin-top: 8em;
-    
-}
-#managerinputs{
-    padding: 2em;
-    
-    
-}
-
-#managerinputs input[type="password"] {
-    border-radius: 30px;
-    padding-left: 1em;
-    width: 300px;
-    height: 40px;
-    border: none;
-    
-}
-#managerinputs input[type="email"]{
-    border-radius: 30px;
-    padding-left: 1em;
-    width: 300px;
-    height: 40px;
-    border: none;
-    
-}
-#toplogoimg{
-    position: relative;
-    height: 90px;
-    left: 230px;
-    top: 50px;
-}*/
 /*Add appointment*/
 #addService{
     display: flexbox;

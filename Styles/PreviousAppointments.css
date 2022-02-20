@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: aliceblue;
+  overflow-x: hidden;
+}
+       
+.card-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  color: #A2ABD1;
+  
+}
+.rectangle {  
+   left: 0%;
+   height: 100%;
+   width: 70px;
+   background: linear-gradient(180deg, #FAF1FB 0%, #E4EEFD 100%);
+ }
+.cards {
+  box-shadow: 1px 1px 15px 1px #ebebeb;
+   }
+
+  
+.line {
+  background-color: #A2ABD1;
+  width: 200px;
+  height: 2px;
+  margin-top: 10px;
+  margin-left: 5%;
+}
+
+p {
+    margin-left: 5%;
+    font-weight: bold;
+    color: #A2ABD1;
+    font-size: 20px;
+}
+.upcoming-apt p {
+  padding-top: 70px;   
+}
+
+.upcoming-apt {
+  margin: 5px 20px;
+}
+
+.t-img {
+  width: 56px;
+  height: 56px;
+  
+}
+tr{
+  border-bottom: 1px solid rgb(161, 161, 161);
+}
+th{
+  color: #646d95;
+}
+td {
+  padding: 0.8em;
+  text-align: center;
+}
+.box{
+  overflow-y: scroll;
+  max-height: 450px;
+  max-width: 1100px;
+}
+.box table{         
+  padding: 1em;
+  padding-top: 1.5em;
+  margin: 15px 80px;
+  width: 964px;
+  height: 392px; 
+  box-shadow: 1px 1px 15px 1px #ebebeb;
+  border-radius: 10px;
+  border-spacing: 0.5em;
+}
+
+.noteBtn{
+  border: none;
+  background:none;
+  width: 70px;
+  color:#A2ABD1;
+  height: 70px;
+  font-size: 1.5em;
+}
+.reviewBtn{
+  border-radius: 30px;
+  border: none;
+  background-color: #9197b4;
+  width: 70px;
+  color:white;
+  font-size: 1em;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+}
+.noteIcon{
+  color: #A2ABD1;
+  font-size: 1.7em;
+}
+#myPets{
+  margin-left: -20px;
+}
+.reviewed{
+  color:rgb(66, 134, 82);
+  font-weight: 500;
+}
