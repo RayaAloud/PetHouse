@@ -3,7 +3,7 @@
 - [x] Request Appointment2
 - [x] Request Appointment3
 - [X] Owner Login
-- [ ] Owner Register
+- [x] Owner Register
 - [ ] Pet Profile
 - [x] Owner Profile
 - [x] Owner Dashboard
