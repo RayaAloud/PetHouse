@@ -6,7 +6,7 @@
 - [ ] Owner Register
 - [ ] Pet Profile
 - [x] Owner Profile
-- [x ] Owner Dashboard
+- [x] Owner Dashboard
 - [ ] Pets list
 - [ ] Admin Login
 - [ ] Admin Available appointment
