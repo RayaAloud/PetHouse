@@ -44,9 +44,8 @@ form{
 .frame{
     position:relative;
     border-radius: 17px;
-    box-shadow: 1px 1px 15px 1px ;
-    padding: 20px;
-    border: 2px;
+    box-shadow: 1px 1px 15px 1px #ebebeb;
+    padding: 2em;
     width:65%;
     content: "";
     clear: both;
@@ -54,13 +53,15 @@ form{
 }
 input, textarea , select{
     display: block;
+    margin-bottom: 1em;
     column-count: 20;
     overflow: scroll;
     width: 40%;
+    height: 30px;
+    border-radius: 30px;
+    border: 1px solid #444;
     
 }
-
-
 .p-to-Line{
  display: inline;
  color: rgb(199, 199, 199);
@@ -148,9 +149,7 @@ button{
     border-radius: 90%;
     position: absolute;
     text-align: center;
-    top: 45%;
-    left: 80%;
-    background-color: #858baa;
+    
 }
 /*ACCORDION*/
 .accordion {
@@ -191,4 +190,7 @@ button{
     content: "\F22C";
   }
   */
+  #medical-History{
+      height: 90px;
+  }
   

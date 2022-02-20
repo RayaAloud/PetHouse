@@ -7,18 +7,12 @@ body{
     display: flex;
     justify-content: space-around;
 }
-#leftimages{
-   display: flex;
-   margin-left:0px;
-   margin-right: 0px;
-   width: 1300px;
-}
 .leftimg{
     position: relative;
     width:400px;
     height:400px;
     z-index: 1;
-    left: 150px;
+    left:0;
     top: 9.5em;
     bottom:0;
     
@@ -30,15 +24,9 @@ body{
     z-index: -1;
     width:500px;
     height:550px;
-    margin-right: 500px;
+    left:0;
     
 }
-/*.img{
-    width: 350px;
-    height: 350px;
-    align-self: center;
-}*/
-
 #box{
     width: 400px;
     height: 500px;
@@ -85,11 +73,12 @@ body{
     
 }
 input[type="password"] ,input[type="email"]{
-    border-radius: 10px;
+    border-radius: 30px;
     padding-left: 1em;
+    margin-top: 0.5em;
     width: 300px;
     height: 40px;
-    border-color: #85858573;
+    border: 1px solid #85858573;
 }
 #toSignup{
     padding-top: 0.1em;
@@ -107,11 +96,6 @@ a:link {
   
 }
 
-input[type="password"],[type="email"]{
-    width: 300px;
-    margin-top: 0.5em;
-    
-}
 i{
 color: #111B47;
 padding-right: 0.5em;

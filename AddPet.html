@@ -2,19 +2,53 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="styleMyPets.css">
+        <link rel="stylesheet" href="Styles/styleMyPets2.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>   
         <title>Add new pet</title>
         <!--Icons-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    
+        <!--Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <!--jQuery-->
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
       </head>
-    
+    <!--Scripts-->
+  <script>
+    function makeRequest(){
+      var req;
+      if(window.XMLHttpRequest)
+        req = new XMLHttpRequest();
+       else{
+           req = new ActiveXObject(Microsoft.XMLHttpRequest);
+       }
+       return req;
+   }
+  
+   function showPage(page, elem){
+       var request = makeRequest();
+      
+       request.onreadystatechange = function(){
+           if(request.readyState == 4 && request.status)
+            $("#"+elem).html(request.responseText);
+       }
+  
+       request.open("Get", page, true);
+       request.send();
+   }
+  
+   $(document).ready(function(){
+     showPage('Signed_In_Header.html','header')
+   })
+   
+  </script>
     <body>
-
-        <div class="frame">
-            <form method="post" action="#">
+      <span id="header"></span>
+  <div class="container d-flex justify-content-center p-5">
+        <div id="box">
+          <div class="container d-flex justify-content-between align-items-center">
+            <form method="post" action="#" class="col-6">
                 <label for="petname">Pet Name</label> <br>
                   <input type="text" name="petname" id="aPetname">
 
@@ -36,16 +70,15 @@
                   <textarea name="vaccinatiom" id="text-vaccinatiom" cols="30" rows="5"> </textarea>
 
                 <label for="medicalHistory">Medical History<p class="p-to-Line">(optional)</p></label>
-                  <textarea name="medicalHistory" id="medical-History" cols="30" rows="5"></textarea>
-                 <!--???????????-->
-                 
+                  <textarea name="medicalHistory" id="medical-History" cols="30" rows="10"></textarea>     
             </form>
-             <div id="addinPic">
+             <div id="addinPic" class="d-flex flex-column">
                 <img id="pet-image" src="images/catPurple.png" alt="pet picture">
-                <h2 id="plusS"><i class="bi bi-plus-circle-fill"></i></h2>
-                
-              </div>
+                <i class="bi bi-plus-circle-fill" id="plusS"></i>
+             </div>
+            </div>
         </div>
+      </div>
     </body>
 
 </html>

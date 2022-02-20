@@ -2,13 +2,13 @@
 - [x] Request Appointment1
 - [x] Request Appointment2
 - [x] Request Appointment3
-- [ ] Owner Login
+- [X] Owner Login
 - [ ] Owner Register
 - [ ] Pet Profile
 - [x] Owner Profile
-- [ ] Owner Dashboard
+- [x] Owner Dashboard
 - [ ] Pets list
-- [ ] Admin Login
+- [x] Admin Login
 - [ ] Admin Available appointment
 - [ ] Admin appointment requests
 - [ ] Admin previous appointment
