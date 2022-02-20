@@ -7,8 +7,9 @@ body {
     border-radius: 17px;
     box-shadow: 1px 1px 15px 1px #ebebeb;
     padding: 2em;
-    width:65%;
-    min-height: 500px;
+    min-width:65%;
+    min-height: 490px;
+    background-color: #ffffff;
 }
 input, textarea , select{
     display: block;
@@ -39,5 +40,21 @@ input, textarea , select{
     align-self: flex-end;
 }
 #medical-History{
-    height: 90px;
+    height: 70px;
+}
+#bcImg1{
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    bottom: 0;
+    left: -3em;
+    z-index: -1;
+}
+#bcImg2{
+    position: absolute;
+    width: 550px;
+    height:500px;
+    bottom: 0;
+    right: -10em;
+    z-index: -1;
 }
