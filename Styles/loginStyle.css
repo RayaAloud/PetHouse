@@ -8,25 +8,24 @@ body{
     justify-content: space-around;
 }
 #leftimages{
-    /*position: relative;*/
-    display: flex;
-   /* margin-right: 800px;*/
+   display: flex;
    margin-left:0px;
    margin-right: 0px;
-   width: 1200px;
+   width: 1300px;
 }
 .leftimg{
     position: relative;
-    width:300px;
+    width:400px;
     height:400px;
     z-index: 1;
     left: 150px;
     top: 9.5em;
+    bottom:0;
     
 }
 
 .leftbackground{
-    
+    bottom: 0;
     position: absolute;
     z-index: -1;
     width:500px;

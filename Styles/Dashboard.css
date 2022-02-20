@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
+
   body {
     font-family: 'Poppins', sans-serif;
     background-color: aliceblue;
@@ -14,59 +9,25 @@
         
 .card-title {
   text-align: center;
-  margin: 100px 60px;
-  padding-left: 0;
-  font-family: Damascus;
-  font-style: normal;
   font-weight: bold;
   font-size: 22px;
   color: #A2ABD1;
   
 }
 
-.bg-img {
-  position: absolute;
-  width: 88px;
-  height: 82px;
-  left: 1229px;
-  top: 374px;
-}
 
 .rectangle { 
-   position: absolute;
+  
    left: 0%;
-   right: 40%;
-   top: 0%;
-   bottom: 0%;
+   height: 100%;
    width: 70px;
    background: linear-gradient(180deg, #FAF1FB 0%, #E4EEFD 100%);
  }
-.card {
-   margin: 26px;
+.cards {
+  box-shadow: 1px 1px 15px 1px #ebebeb;
    }
 
-  .service1 {
-    position: absolute;
-    background-image: url("Vector.png");
-    background-repeat: no-repeat;
-    background-position: center;
-  } 
-
-  .service2{
-          position: absolute;
-          background-image: url("mdi_page-previous-outline.png");
-          background-repeat: no-repeat;
-          background-position: center;
-        }    
-
-        .service3 {
-          position: absolute;
-          background-image: url("icons8_cat-footprint.png");
-          background-repeat: no-repeat;
-          background-position: center;
-        
-        }
-
+  
         .line {
           background-color: #A2ABD1;
           width: 200px;
@@ -97,30 +58,45 @@
         .t-img {
           width: 56px;
           height: 56px;
-          left: 131px;
+          
          
         }
-
-        th, td {
-          padding: 30px 30px;
+        tr{
+          border-bottom: 1px solid rgb(161, 161, 161);
+        }
+       td {
+          padding: 0.8em;
           text-align: center;
-            border-bottom: 1px solid #ddd;
-          
+          border-bottom:  1px solid rgb(173, 173, 173);   
         }
-        .box table{
+        .box{
+          overflow-y: scroll;
+          max-height: 450px;
+          max-width: 1100px;
+        }
+        .box table{         
           padding: 1em;
-           margin: 15px 80px;
-          position: absolute;
+          padding-top: 1.5em;
+          margin: 15px 80px;
           width: 964px;
-          height: 392px;
-          background: #FFFFFF;
-          box-shadow: 0px 3.43363px 3.43363px 1px rgba(0, 0, 0, 0.25);
+          height: 392px; 
+          box-shadow: 1px 1px 15px 1px #ebebeb;
           border-radius: 10px;
-          border-collapse: separate;
-          border-bottom: #A2ABD1;
+          border-spacing: 0.5em;
         }
-
+        
         button{
           border: none;
           background: none;
+          width: 70px;
+          color:#A2ABD1;
+          height: 70px;
+          font-size: 1.5em;
+        }
+        .noteIcon{
+          color: #A2ABD1;
+          font-size: 1.7em;
+        }
+        #myPets{
+          margin-left: -20px;
         }

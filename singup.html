@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Sign up</title> 
-    <link rel="stylesheet" href="Style_signup.css">
+    <link rel="stylesheet" href="Styles/Style_signup.css">
     <script src="https://kit.fontawesome.com/508ef41e7b.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,53 +49,42 @@
 
     <div id="box">
             
-             <div id="top">
-                 <div>
-               <h4>Welcome to PetHouse!</h4>
-               <p>Sign up to continue</p>
-                 </div>
-               <img src="Images/undraw_safe_re_kiil.svg" id="smallImg">
+            <div id="top">
+              <div>
+                 <h4>Welcome to PetHouse!</h4>
+                 <p>Sign up to continue</p>
+              </div>
+              <img src="Images/undraw_safe_re_kiil.svg" id="smallImg">
             </div>
             
             
              <div id="inputs">
                 <img src="Images/undraw_profile_pic_ic.png" id="profile_image">
                <form> 
-                 <p>
                      <label>
                          First Name <br>
                          <input name="fname" type="text"  placeholder="Enter first name" required>
                          
                      </label>
-                 </p>
-                 <p>
                     <label>
                         Last Name <br>
                         <input name="lname" type="text" placeholder="Enter last name" required>
                         
                     </label>
-                </p>
-                <p>
                     <label>
                         Email <br>
                         <input name="email" type="email"  placeholder="Enter email" required>
                         
                     </label>
-                </p>
-                <p>
                     <label>
                         Password <br>
                         <input name="password" type="password" placeholder="Enter your password" required>
                         
                     </label>
-                </p>
-                <p>
                     <label>
                         Phone Number <br>
                         <input name="phonen" type="tel" placeholder="Enter your phone number" required >
                     </label>
-                </p> 
-                <p>
                     <label>
                         Gender <br>
                         <input name="gender" type="radio" >
@@ -108,17 +97,18 @@
                         
                             
                     </label>
-                </p>
+                </div>
                 <button type="submit" id="signInBtn2">Sign up</button>    
-            </div>
+         
                  </form> 
                 
     </div>
+</div>
     <div id="images">
-     <img class="img" src="Images/Park_Picture.png" alt="sign up image"> 
-     <img class="background" src="Images/Path_signin.png" alt="background image"> 
+     <img id="bcImg" src="Images/Park_Picture.png" alt="sign up image"> 
+     <img id="background" src="Images/Path_signin.png" alt="background image"> 
     </div> 
 
-    </div>
+    
     </body>
 </html>
