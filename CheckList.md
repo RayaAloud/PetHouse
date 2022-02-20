@@ -3,9 +3,9 @@
 - [x] Request Appointment2
 - [x] Request Appointment3
 - [ ] Owner Login
-- [x] Owner Register
+- [ ] Owner Register
 - [ ] Pet Profile
-- [ ] Owner Profile
+- [x] Owner Profile
 - [ ] Owner Dashboard
 - [ ] Pets list
 - [ ] Admin Login

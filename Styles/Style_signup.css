@@ -1,0 +1,91 @@
+body{
+    margin: 0;
+    overflow-x: hidden;
+}
+#container{
+    width: 650px;
+    margin-top: 3em;   
+    display: flex;
+    justify-content: center;
+    
+}
+
+#box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    max-height: 780px;
+    box-shadow: 1px 1px 15px 1px #ebebeb;
+    border-radius: 17px;
+    padding-bottom: 2em; 
+    margin-bottom: 1em;    
+}
+
+#bcImg{
+   position: absolute;
+   right: 0;
+   width: 800px;
+   bottom: 0;
+   top: 40vh;
+}
+#background{
+    position: absolute;
+    width:850px;
+    height:850px;
+    z-index: -1;
+    right: 0;
+    bottom:0;
+    top: 20vh;
+    filter: saturate(400%);
+}
+#smallImg{
+    height: 70px;
+}
+#top{
+    padding: 1em 1em 0.5em 1em;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background-color: #e4e8fc;
+    border-top-right-radius: 17px;
+    border-top-left-radius: 17px;
+}
+#profile_image{
+    height: 70px; 
+}
+#signInBtn2{
+    background-color: #111B47;
+    color: white;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    border-radius: 30px;
+    border: none;
+    width: 120px;
+    height: 40px;
+    opacity: 0.9;
+    margin-top: 1rem ;
+}
+#signInBtn2:hover {
+    opacity: 1;
+  }
+#inputs{
+    padding: 2em;    
+}
+
+input[type="text"], [type="password"],[type="email"],[type="tel"]{
+    width: 300px;
+    margin-top: 0.5em;
+    border-radius: 10px;
+    padding-left: 1em;
+    height: 40px;
+    border-color: #85858573;    
+}
+input[type="radio"]{  
+    margin-top: 0.5em;
+    margin-left: 1em;  
+}
+
+  
