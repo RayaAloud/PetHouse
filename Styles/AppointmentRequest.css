@@ -1,12 +1,5 @@
 
-div{
-    margin: 10%; /*لو بحط الهدر لازم اعرف البعد عن الtop */
-    background-color:#FFFFFF;
-    display: block;
-    margin-left: auto;
-    margin-right: auto; 
-    
-}
+
 .frame{
     position: relative;
     border-radius: 17px;
@@ -37,16 +30,86 @@ th{
 }
 .pet-image{
     width:40%;
-    
-    
+      
 }
-.bi-chat-square-dots{
-    color: #696f8a;
 
-}
 .bi-x-circle-fill{
   color: rgb(199, 74, 74);
+  font-size: 1.5em;
 }
 .bi-check-circle-fill{
   color: rgb(94, 214, 94);
+  font-size: 1.5em;
 }
+
+/*RAYA and REEM*/
+.line {
+    background-color: #A2ABD1;
+    width: 200px;
+    height: 2px;
+    margin-top: 10px;
+    margin-left: 5%;
+  }
+
+   p {
+      margin-left: 5%;
+      font-weight: bold;
+      color: #A2ABD1;
+      font-size: 20px;
+  }
+
+  
+
+  .upcoming-apt p {
+    padding-top: 70px; 
+   }
+
+  .upcoming-apt {
+    margin: 5px 20px;
+  }
+  
+  .t-img {
+    width: 56px;
+    height: 56px;
+    
+   
+  }
+  tr{
+    border-bottom: 1px solid rgb(161, 161, 161);
+  }
+ td {
+    padding: 0.8em;
+    text-align: center;
+     
+  }
+  .box{
+    overflow-y: scroll;
+    max-height: 450px;
+    max-width: 1100px;
+  }
+  .box table{         
+    padding: 1em;
+    padding-top: 1.5em;
+    margin: 15px 80px;
+    width: 964px;
+    height: 392px; 
+    box-shadow: 1px 1px 15px 1px #ebebeb;
+    border-radius: 10px;
+    border-spacing: 0.5em;
+  }
+  
+  button{
+    border: none;
+    background: none;
+    width: 70px;
+    color:#A2ABD1;
+    height: 70px;
+    font-size: 1.5em;
+  }
+  .noteIcon{
+    color: #A2ABD1;
+    font-size: 1.7em;
+  }
+  #myPets{
+    margin-left: -20px;
+  }
