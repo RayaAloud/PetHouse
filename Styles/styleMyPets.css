@@ -115,9 +115,12 @@ table{
     border-radius: 25px;
     margin-top: 15px;
     line-height: 1.8;
-    overflow: hidden;
+    border:none;
     max-width: 155px;
     text-overflow: ellipsis;
+}
+.btns:hover{
+    color:#ffffff;
 }
 #plusS{
     position: absolute;
@@ -176,4 +179,7 @@ table{
     z-index: -1;
     top: 90%;
     transform: rotate(270deg);
+}
+#addNew:hover{
+    color:white;
 }
