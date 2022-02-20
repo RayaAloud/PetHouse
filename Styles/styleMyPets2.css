@@ -2,6 +2,7 @@
 body {
     background-color: #ffffff;
     font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
 }
 #box{
     border-radius: 17px;
@@ -38,6 +39,7 @@ input, textarea , select{
     border-radius: 90%;
     text-align: center;
     align-self: flex-end;
+    cursor: pointer;
 }
 #medical-History{
     height: 70px;
@@ -52,9 +54,20 @@ input, textarea , select{
 }
 #bcImg2{
     position: absolute;
-    width: 550px;
-    height:500px;
+    width: 600px;
+    height:650px;
     bottom: 0;
     right: -10em;
     z-index: -1;
+    top: 30vh;
+}
+.btns{
+    border: none;
+    padding: 0.5em 1.5em 0.5em 1.5em;
+    background-color:#111B47;
+    color: white;
+    border-radius: 30px;
+}
+.btns:hover{
+    background-color:#252e5c;
 }
