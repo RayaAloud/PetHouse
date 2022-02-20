@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="Styles/styleMyPets.css">
-        <link rel="stylesheet" href="styles/styleMyPets.css">
         <title>My pets</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Font -->
@@ -15,23 +14,61 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
        <!--Icons-->
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+      <!--jQuery-->
+      <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+      <!--Scripts-->
+     <script>
+      function makeRequest(){
+        var req;
+        if(window.XMLHttpRequest)
+            req = new XMLHttpRequest();
+        else{
+            req = new ActiveXObject(Microsoft.XMLHttpRequest);
+        }
+        return req;
+   }
+  
+   function showPage(page, elem){
+       var request = makeRequest();
+      
+       request.onreadystatechange = function(){
+           if(request.readyState == 4 && request.status)
+            $("#"+elem).html(request.responseText);
+       }
+  
+       request.open("Get", page, true);
+       request.send();
+   }
+  
+   $(document).ready(function(){
+     showPage('Signed_In_Header.html','header')
+   })
+   
+  </script>
     </head>
     
     <body class="MyPetPage">
-     <span id="header">
-        <div class="frame">
+        <span id="header"></span>
+        <img src="Images/Vector.png" id="bcImg1">
+        <img src="Images/designer_1.png" id="bcImg2">
+        <div class="frame div">
            <p>
-           <h3 id="MyPet-Listing">My Pet</h3>
-           <button type="button"><a href="AddPet.html">Add New</a> </button>
+           <h2 id="MyPet-Listing">My Pet</h2>
+           <button type="button" class="btns"><a class="anchors" href="AddPet.html">Add New</a> </button>
           </p>
           
-          <ul>
+          <ul class="ul">
               <li> <!-- need to be fixed -->
-                  <div class="petList">
-                       <span id="deletedit"><h5 class="delete"> <i class="bi bi-trash3"></i>DELETE </h5>
-                        <h5 class="edit"> <i class="bi bi-pencil"></i>EDIT </h5>
+                  <div class="petList div">
+                    <div class="p-3"> 
+                       <span id="deletedit"><h6 class="delete"> <i class="bi bi-trash3"></i>&nbsp;DELETE</h6>
+                        <h6 class="edit"> <i class="bi bi-pencil"></i>&nbsp;EDIT</h6>
                        </span>
-                      <h4 class="petName">Java</h4>
+                       <div class="d-flex align-items-center mb-3">
+                        <img src="Images/catPurple.png" width="50px" height="50px">
+                        <span>&nbsp;&nbsp;</span>
+                        <h4 class="petName">Java</h4>
+                     </div>
                       
                       <table>
                           <tr>
@@ -55,21 +92,26 @@
                               <td></td>
                           </tr>
                       </table>
+                       </div>
                        <hr>
                        <!--ACCORDION-->
                        <h5 class="accordion"><i class="bi bi-chevron-down"></i></h5>
-                       <div class="panel">
+                       <div class="panel div">
                          <p>Lorem ipsum...</p>
                        </div>
                   </div>
               </li> 
               <li>
-                 <div class="petList">
-                     
-                       <span id="deletedit"><h5 class="delete"> <i class="bi bi-trash3"></i>DELETE </h5>
-                        <h5 class="edit"> <i class="bi bi-pencil"></i>EDIT </h5>
+                 <div class="petList div">
+                    <div class="p-3"> 
+                       <span id="deletedit"><h6 class="delete"> <i class="bi bi-trash3"></i>&nbsp;DELETE</h6>
+                        <h6 class="edit"> <i class="bi bi-pencil"></i>&nbsp;EDIT</h6>
                        </span>
-                      <h4 class="petName">Loly</h4>
+                       <div class="d-flex align-items-center mb-3">
+                        <img src="Images/catBabyBlue.png" width="50px" height="50px">
+                        <span>&nbsp;&nbsp;</span>
+                        <h4 class="petName">Loly</h4>
+                     </div>
                       <table>
                         <tr>
                             <td>Pet Name</td>
@@ -92,21 +134,27 @@
                             <td></td>
                         </tr>
                     </table>
-                     <hr>
+                </div>
+                <hr>
+                    
                      <!--ACCORDION-->
                      <h5 class="accordion"><i class="bi bi-chevron-down"></i></h5>
-                     <div class="panel">
+                     <div class="panel div">
                        <p>Lorem ipsum...</p>
                      </div>
                   </div>
               </li> 
               <li>
-                <div class="petList">
-                    
-                    <span id="deletedit"><h5 class="delete"> <i class="bi bi-trash3"></i>DELETE </h5>
-                        <h5 class="edit"> <i class="bi bi-pencil"></i>EDIT </h5>
+                <div class="petList div">
+                    <div class="p-3"> 
+                    <span id="deletedit"><h6 class="delete"> <i class="bi bi-trash3"></i>&nbsp;DELETE</h6>
+                        <h6 class="edit"> <i class="bi bi-pencil"></i>&nbsp;EDIT</h6>
                      </span>
-                     <h4 class="petName">Roy</h4>
+                     <div class="d-flex align-items-center mb-3">
+                       <img src="Images/catPurple.png" width="50px" height="50px">
+                       <span>&nbsp;&nbsp;</span>
+                       <h4 class="petName">Roy</h4>
+                    </div>
                     <table>
                         <tr>
                            
@@ -132,6 +180,7 @@
                             <td></td>
                         </tr>
                     </table>
+                     </div>
                      <hr>
                      <!--ACCORDION-->
                      <h5 class="accordion"><i class="bi bi-chevron-down"></i></h5>

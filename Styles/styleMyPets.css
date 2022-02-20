@@ -2,10 +2,10 @@
 body {
  background-color: #ffffff;
  font-family: 'Roboto', sans-serif;
- 
-  }
-div{
-    margin: 10%; /*لو بحط الهدر لازم اعرف البعد عن الtop */
+  overflow-x: hidden;
+}
+.div{
+    margin: 10%; 
     background-color:#FFFFFF;
     display: block;
     margin-left: auto;
@@ -47,9 +47,6 @@ form{
     box-shadow: 1px 1px 15px 1px #ebebeb;
     padding: 2em;
     width:65%;
-    content: "";
-    clear: both;
-    display: table;
 }
 input, textarea , select{
     display: block;
@@ -69,24 +66,23 @@ input, textarea , select{
 #MyPet-Listing{
     display: inline; 
     top: 15px;
+    color:#37447E;
 }
-a{
+.anchors{
     text-decoration: none;
     color: white ;
 }
-ul{
+.ul{
     
     list-style: none;
 }
-div.petList{
-    
+div.petList{  
     border-style:none;
-    background-color: rgb(236, 236, 236);
-    padding: 15px;
+    background-color: rgb(241, 241, 241);
     padding-bottom: 2px;
     margin: 5%;
-    border-radius: 6%;
-    width: 70%;
+    border-radius: 1em;
+    width: 80%;
     overflow: auto;
 }
 h4.petName{
@@ -98,8 +94,6 @@ h6.pet-information{
     display: inline;
 }
 h6.the-info{
-   
-   /* position: relative;*/
     color: rgb(84, 97, 110);
     display: inline;
 }
@@ -108,37 +102,22 @@ table{
     width: 50%;
 }
 
-button{
- color: cornsilk;
- background-color: #37447E;
- top: 15px;
- left: 80%;
- position: absolute;
- border-radius: 30%;
- 
- padding: 0.375rem 0.75rem;
- width:15%; 
- display: inline-block;
- border-radius: 25px;
+.btns{
+    color: cornsilk;
+    background-color: #37447E;
+    top: 15px;
+    left: 80%;
+    position: absolute;
+    border-radius: 30%;
+    padding: 0.375rem 0.75rem;
+    width:15%; 
+    display: inline-block;
+    border-radius: 25px;
     margin-top: 15px;
-   /* height: calc(2.6rem + 2px);*/
     line-height: 1.8;
     overflow: hidden;
     max-width: 155px;
     text-overflow: ellipsis;
-}
-
-#pet-image{
-    float: right;
-    width: 25%;
-    position: absolute;
-    top: 30%;
-    left: 60%;
-}
-#addinPic{
-  content: "";
-  clear: both;
-  display: table;
 }
 #plusS{
     position: absolute;
@@ -172,25 +151,29 @@ button{
   /* Style the accordion panel. Note: hidden by default */
   .panel {
     padding: 0 18px;
-    background-color: white;
+    background-color: rgb(236, 236, 236);
     display: none;
     overflow: hidden;
     margin: 1px;
   }
-  
-  /*
-  .accordion:after {
-    content: '\002B';
-    color: #777;
-    font-weight: bold;
-    margin-left: 5px;
-  }
-  
-  .active:after {
-    content: "\F22C";
-  }
-  */
   #medical-History{
       height: 90px;
   }
-  
+  #bcImg1{
+      position: absolute;
+      width: 400px;
+      height: 600px;
+      bottom: 0;
+      left: -3em;
+      z-index: -1;
+  }
+  #bcImg2{
+    position: absolute;
+    width: 800px;
+    height: 900px;
+    bottom: 0;
+    right: -3em;
+    z-index: -1;
+    top: 90%;
+    transform: rotate(270deg);
+}

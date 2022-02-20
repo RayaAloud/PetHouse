@@ -7,7 +7,7 @@
 - [ ] Pet Profile
 - [x] Owner Profile
 - [x] Owner Dashboard
-- [ ] Pets list
+- [x] Pets list
 - [x] Add pet
 - [x] Admin Login
 - [ ] Admin Available appointment
