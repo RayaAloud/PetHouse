@@ -1,0 +1,52 @@
+
+div{
+    margin: 10%; /*لو بحط الهدر لازم اعرف البعد عن الtop */
+    background-color:#FFFFFF;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    
+}
+.frame{
+    position: relative;
+    border-radius: 17px;
+    box-shadow: 1px 1px 15px 1px;
+    padding: 20px;
+    border: 2px;
+    width: auto;
+    content: "";
+    clear: both;
+    display: table;
+}
+h1{
+    color: #A2ABD1;
+    padding-bottom: 4%;
+}
+table{
+    
+    text-align: center;
+   
+}
+tr{
+    border: bottom 1px ;
+   
+}
+th{
+    width:1%;
+    color: #A2ABD1;
+}
+.pet-image{
+    width:40%;
+    
+    
+}
+.bi-chat-square-dots{
+    color: #696f8a;
+
+}
+.bi-x-circle-fill{
+  color: rgb(199, 74, 74);
+}
+.bi-check-circle-fill{
+  color: rgb(94, 214, 94);
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Request Appointment</title>
+  <!--Meta tags-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Favicon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="Images/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="Images/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="Images/favicon_io/site.webmanifest">
+  <!--Font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!--External CSS-->
+  <link rel="stylesheet" href="#">
+  <!--jQuery-->
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <!--Icons-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <!--Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <!--Embedded CSS-->
+  <style>
+    #timeSelect{
+        height: 40px;
+        width: 170px;
+        border-radius: 35px;
+    }
+    #timeLabel{
+        color: #202b5c;
+        font-size: 1.5em;
+        margin-left: 2px;
+        font-weight: 400;
+    }
+    #calender{
+      height: 390px;
+      width: 330px;
+      border-radius: 17px;
+      box-shadow: 1px 1px 15px 1px #ebebeb;
+      border: solid  #d3d3d3
+   }
+   table{
+       border-spacing: 10px;
+   }
+   th{
+       font-size: 14px;
+       padding-bottom: 1em
+   }
+   td{
+       padding: 0.5em;
+   }
+   td:hover{
+       cursor: pointer;
+   }
+   .next-previous{
+       background-color: transparent;
+       border: none;
+   }
+   .next-previous:hover{
+       cursor: pointer;
+       background-color: #dbdbdb;
+       border-radius: 35px;
+   }
+   
+   td:active{
+       background-color: #8891bb;
+       color:white;
+       border-radius: 35px;
+   }
+   #year{
+       align-items: center;
+       justify-content: center;
+       padding: 0.6em;
+       background-color: #8891bb;
+       font-weight: bold;
+       color: white;
+       text-align: center;
+       border-top-right-radius: 17px;
+       border-top-left-radius: 17px;
+   }
+   #month{
+       font-size: 20px;
+       font-weight: bold;
+   }
+   textarea{
+     border-radius: 20px;
+     border: 1px solid #b8b8b8;
+     height: 130px;
+   }
+  </style>
+  
+  <script>
+    function makeRequest(){
+      var req;
+      if(window.XMLHttpRequest)
+        req = new XMLHttpRequest();
+       else{
+           req = new ActiveXObject(Microsoft.XMLHttpRequest);
+       }
+       return req;
+   }
+  
+   function showPage(page, elem){
+       var request = makeRequest();
+      
+       request.onreadystatechange = function(){
+           if(request.readyState == 4 && request.status)
+             $("#"+elem).html(request.responseText);
+             setInitMonth();
+       }
+  
+       request.open("Get", page, true);
+       request.send();
+   }
+   
+   $(document).ready(function(){
+    showPage('Calender.html', 'calenderContainer');
+
+   });
+
+    
+   
+
+  </script>
+</head>
+<body>
+
+   <div class="col-12 d-flex flex-column justify-content-between mt-3 align-items-center">
+     <div class="col-12 container d-flex align-items-center justify-content-around">
+     <div id="calenderContainer"></div>
+     <div class="d-flex flex-column">
+        <label for="timeSelect" class="mb-4" id="timeLabel">Time</label>
+        <select id="timeSelect" class="px-2 mb-3">
+          <option>13:00</option>
+          <option>9:00</option>
+          <option>10:30</option>
+        </select>
+        <textarea class="col-12 p-2 mt-5" placeholder="Notes..."></textarea>
+     </div>
+    </div>
+   </div>
+
+</body>
+</html>
