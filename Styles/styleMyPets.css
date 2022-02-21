@@ -27,8 +27,7 @@ body {
     float: right;
     padding: 5px;
 }
-.delete{
-    color: red;
+.delete{  
     text-align: right;
     display:inline;
     position:relative;
@@ -182,4 +181,16 @@ table{
 }
 #addNew:hover{
     color:white;
+}
+
+
+#editBtn {
+    background: none;
+    border: none;
+}
+
+#deleteBtn {
+    color: red;
+    background: none;
+    border: none;
 }
