@@ -3,15 +3,21 @@ h1{
     color: #717ca7;
     padding-bottom: 4%;
 }
-table{   
+#table{   
     text-align: center;  
 }
-tr{
+#table tr{
     border: bottom 1px ;  
 }
-th{
+#table th{
     width:1%;
     color: #A2ABD1;
+}
+#div th{
+  color: #A2ABD1;
+}
+#div table{
+  
 }
 .pet-image{
     width:40%;     

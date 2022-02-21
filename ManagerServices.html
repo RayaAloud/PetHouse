@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointments Requests</title>
     <link rel="stylesheet" href="styles/ManagerServices.css">
+    <!--jQuery-->
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <!--Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <!--Embedded Style-->
+
     <style>
     #menu{
        height: 400px;
@@ -21,18 +24,18 @@
       box-shadow: 1px 1px 15px 1px #ebebeb;
       min-width: 220px;
       background-color: white;
-      height: 260px;
+      height: 270px;
       margin-right: 1.5em;
       margin-left: 1em;
       display: flex;
       align-items: center;
-      padding: 0.8em;
+      padding: 0.9em;
       justify-content: center;
       text-align: center;
       flex-direction: column;
      }
     .cards p{
-        margin-top: 2em;
+        margin-top: 0.5em;
         color: #737ca7;
         font-weight: bold;
     }
@@ -60,7 +63,14 @@
   .garbage{
     margin-left: 7em;
     color: rgb(175, 44, 44);
-    font-size: 1.5em;
+    font-size: 1.3em;
+
+  }
+  .edit{
+ 
+    font-size: 1.3em;
+    color:#6e6e6e;
+
   }
   #servicesContainer{
     margin-left: 2em;
@@ -91,7 +101,9 @@ function showPage(page, elem){
    request.open("Get", page, true);
    request.send();
 }
-
+function show(){
+  showPage('UpdateService.html','addService')
+}
 
 </script>
 </head>
@@ -108,12 +120,12 @@ function showPage(page, elem){
           <button id="previous" class="next-previous"><i class="bi bi-chevron-left"></i></button>     
         <div>
           <div id="menu" class="mt-5">
-              <div class="cards"><i class="bi bi-trash3 garbage"></i><img src="Images/bath.png" width="130px" height="130px"><p>Washing</p></div>
-              <div class="cards"><i class="bi bi-trash3 garbage"></i><img src="Images/Component 41.png" width="130px" height="130px"><p>Grooming</p></div>
-              <div class="cards"><i class="bi bi-trash3 garbage"></i><img src="Images/Component40.png" width="130px" height="130px"><p>Checkup</p></div>
-              <div class="cards"><i class="bi bi-trash3 garbage"></i><img src="Images/bath.png" width="130px" height="130px"><p>Washing</p></div>
-              <div class="cards"><i class="bi bi-trash3 garbage"></i><img src="Images/Component 41.png" width="130px" height="130px"><p>Grooming</p></div>
-              <div class="cards"><i class="bi bi-trash3 garbage"></i><img src="Images/Component40.png" width="130px" height="130px"><p>Checkup</p></div>
+              <div class="cards"><div><i class="bi bi-pencil-square edit" onclick="show()"></i><i class="bi bi-trash3 garbage"></i></div><img src="Images/bath.png" width="130px" height="130px"><p>Washing</p><p>120SR</p></div>
+              <div class="cards"><div><i class="bi bi-pencil-square edit" onclick="show()"></i></i><i class="bi bi-trash3 garbage"></i></div><img src="Images/Component 41.png" width="130px" height="130px"><p>Grooming</p><p>90SR</p></div>
+              <div class="cards"><div><i class="bi bi-pencil-square edit" onclick="show()"></i></i><i class="bi bi-trash3 garbage"></i></div><img src="Images/Component40.png" width="130px" height="130px"><p>Checkup</p><p>180SR</p></div>
+              <div class="cards"><div><i class="bi bi-pencil-square edit" onclick="show()"></i></i><i class="bi bi-trash3 garbage"></i></div><img src="Images/bath.png" width="130px" height="130px"><p>Washing</p><p>120SR</p></div>
+              <div class="cards"><div><i class="bi bi-pencil-square edit" onclick="show()"></i></i><i class="bi bi-trash3 garbage"></i></div><img src="Images/Component 41.png" width="130px" height="130px"><p>Grooming</p><p>90SR</p></div>
+              <div class="cards"><div><i class="bi bi-pencil-square edit" onclick="show()"></i></i><i class="bi bi-trash3 garbage"></i></div><img src="Images/Component40.png" width="130px" height="130px"><p>Checkup</p><p>180SR</p></div>
           </div>
         </div>
         <button id="next" class="next-previous"><i class="bi bi-chevron-right"></i></button>

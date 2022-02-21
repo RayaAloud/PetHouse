@@ -7,6 +7,8 @@
      <!--Bootstrap-->
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+     <!--jQuery-->
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
      <style>
        #AddBtn{
            border: none;
@@ -48,15 +50,15 @@
         <div class="d-flex flex-column" id="inputFields">
         <div class="row">
             <label>Service Name</label>
-            <input type="text">
+            <input type="text" value="Checkup">
         </div>
         <div class="row">
             <label>Service Price</label>
-            <input type="number">
+            <input type="number" value="180">
         </div>
         <div class="row">
             <label>Description</label>
-            <textarea></textarea>
+            <textarea>This service includes full check up for your pet with our excellent veterinaries</textarea>
         </div>
         </div>
         <div class="d-flex flex-column justify-content-center">
@@ -67,7 +69,7 @@
              </div>
         </div>
         </div>
-        <div class="container d-flex justify-content-center mt-5"><button id="AddBtn">Add Service</button></div>
+        <div class="container d-flex justify-content-center mt-5"><button id="AddBtn">Update Service</button></div>
     </div>
  
 </body>
