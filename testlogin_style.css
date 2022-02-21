@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    }
+   
+.img{
+    width: 350px;
+    height: 350px;
+    margin-top: 24%;
+}
+.box{
+    /*background: #FFFFFF;
+    box-shadow: 1px 1px 15px 1px #ebebeb;
+    position: absolute;
+    left: 969px;
+    top: 257px;
+    height:  400px;
+    width: 400px;
+    border-radius: 17px;
+    flex-basis: left;
+    margin-bottom: 5%;
+    text-align: left;
+    padding: 25px;
+    cursor: pointer;
+    display: flex;*/
+    background: #FFFFFF; 
+    box-shadow: 1px 1px 15px 1px #ebebeb;
+    position: absolute;
+    left: 969px;
+    top: 257px;
+    height: 400px;
+    width: 400px;
+    border-radius: 17px;
+    flex-basis: left;
+    margin-bottom: 5%;
+    text-align: left;
+    padding: 25px;
+    /* cursor: pointer; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.box img{
+    
+    height: 70px;
+    margin-right: 0px;
+    margin-left: 120px;
+}
+
+.box h4 {
+    margin-left: 5%;
+    margin-top: 5%;
+    font-size: 25px;
+    color: #5A6598;
+    white-space: nowrap; /*to make h4 in one line*/
+    font-family: 'Roboto', sans-serif;
+
+    
+}
+.box p{
+    margin-left: 5%;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    color: #5A6598;
+    font-family: 'Roboto', sans-serif;
+}
+.input {
+    margin-top: 10%;
+}
+input[type="email"] {
+    border-radius: 4px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    margin-top: 4px;
+    padding-left: 8px;
+    border: #CED4DA solid 2px;
+}
+input[type="password"] {
+    border-radius: 4px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    margin-top: 4px;
+    padding-left: 8px;
+    border: #CED4DA solid 2px;
+}
+button {
+    margin-left: 150px;
+    background-color: #111B47;
+    color: white;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    margin-top: 12.1%;
+    border-radius: 17px;
+    border: none;
+    /* display: inline-block; */
+    text-align: center;
+}
+i.fa-solid.fa-lock {
+    padding-left: 150px;
+    padding-right: 5px;
+    font-size: 5px;
+}
+p {
+    font-size: 10px;
+}
+.top p {
+    font-size: 15px;
+}
+label {
+    font-size: 16px;
+}
+.toSignup {
+    margin-left: 75%;
+}
