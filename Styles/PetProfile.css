@@ -21,6 +21,9 @@ input, textarea , select{
     border-radius: 30px;
     border: 1px solid rgb(143, 143, 143);    
 }
+input, textarea{
+padding: 10px;
+}
 .p-to-Line{
     display: inline;
     color: rgb(199, 199, 199);
@@ -31,6 +34,9 @@ input, textarea , select{
 }
 #addinPic{
     margin-right: 4em;
+}
+#addinPic label{
+    margin-top: -2em;
 }
 #plusS{
     font-size: 2.2em;
@@ -56,6 +62,9 @@ input, textarea , select{
     bottom: 0;
     left: -3em;
     z-index: -1;
+}
+#uploadFile{
+    display: none;
 }
 #bcImg2{
     position: absolute;

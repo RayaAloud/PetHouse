@@ -27,6 +27,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <!--Icons-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  
   <!--Embedded CSS-->
   <style>
     body{
@@ -76,8 +77,8 @@
     }
     #locationContainer{
       background-color: #BAE3F4;
-      height: 450px;
-      padding-top: 1em;
+      min-height: 450px;
+      padding-top: 2em;
       margin-top: 5em;
       display: flex;
       color: #111B47;
@@ -141,6 +142,13 @@
        background-color: #dbdbdb;
        border-radius: 35px;
    }
+   #ContactUs{
+     width: 100%;
+     color:#2f3969;
+     /*background-color: #cbd1f1;*/
+     padding-top: 0.5em;
+     padding-bottom: 2em;
+   }
    @media screen and (max-width: 991px) {
        #menu{
            max-width: 170px;
@@ -159,6 +167,18 @@
       color: #808080;
       font-size: 14px;
       margin: auto;
+    }
+    .contact{
+      color: white;
+      background-color: #293568;
+      border-radius: 120px;
+      padding: 9px 10px 9px 10px;
+      font-size: 15px;
+      cursor: pointer;
+      margin-bottom: -20px;
+    }
+    .contact:hover{
+      color: white !important;
     }
   
     
@@ -217,10 +237,7 @@
         <div class="align-self-center">
         <p><strong>Light, Fast & Powerful</strong></p>
         <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-            Aenean commodo<br> ligula eget dolor. Aenean massa. 
-            Cum sociis natoque penatibus <br>et magnis dis parturient montes, 
-            nascetur ridiculus 
+          A pet service platform for your pet! <br>we have a bunch of services which are shaving, sanitizing, grooming your pet and a lot more!
         </p>
         </div>
         <img src="Images/undraw_searching.png" id="about-us-img">
@@ -250,8 +267,20 @@
       <p class="text-center mt-3 mb-4">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <br> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque<br> penatibus et magnis dis parturient montes, nascetur ridiculus </p>
       <i class="bi bi-geo-alt-fill mt-3" id="locationIcon"></i>
       <p id="location">Saudi Arabia, Riyadh</p>
+<!--
+      <div id="ContactUs" class="d-flex flex-column align-items-center">
+        <h2 class="mt-5">Contact Us</h2>
+        
+      </div>
+      -->
     </div>
+
     <footer>
+      <div class="">
+        <a class="contact text-decoration-none" href="tel:966544705344"><i class="bi bi-telephone-fill"></i></a>
+        <span>&nbsp;</span>
+        <a class="contact text-decoration-none" href="mailto:ReAlmuqbil@mail.com"><i class="bi bi-envelope-fill"></i></a>
+      </div>
       <h6 class="m-auto">PetHouse</h6>
       <hr>
       <span id="copyRight">&#169; 2022 PetHouse</span>

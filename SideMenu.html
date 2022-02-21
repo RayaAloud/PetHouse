@@ -15,6 +15,7 @@
     body{
         margin: 0;
         padding: 0;
+        overflow-x: hidden;
     } 
     .sideMenuColor{
         color: #111B47;
@@ -30,6 +31,23 @@
     a img{
         margin-left: -1em;
     }
+    #bcImg3{
+    position: absolute;
+    z-index: -1;
+    height: 650px;
+    width: 700px;
+    right: -10em;
+    bottom: 0;
+
+}
+#logoutBtn{
+    border:none;
+    background-color: #111B47;
+    border-radius: 50px;
+    color: white;
+    padding: 0.5em 1em 0.5em 1em;
+}
+
 
 </style>
 <script>
@@ -128,12 +146,13 @@
                                 <i class="fa-solid fa-comments"></i> <span class="ms-1 d-none d-sm-inline"> Reviews</span> </a>           
                         </li>
                     </ul>
+                     <a class="text-decoration-none" href="loginManager.html"><button id="logoutBtn">Logout</button></a>
                     <hr>
-                
                 </div>
             </div>
         </div>
         <div id="content"></div>
+        <img src="Images/designer_1.png" id="bcImg3">
     </div>
 </body>
 </html>
