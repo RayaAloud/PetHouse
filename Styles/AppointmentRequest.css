@@ -1,6 +1,6 @@
 
 h1{
-    color: #A2ABD1;
+    color: #717ca7;
     padding-bottom: 4%;
 }
 table{   
@@ -71,8 +71,9 @@ td {
   box-shadow: 1px 1px 15px 1px #ebebeb;
   border-radius: 10px;
   border-spacing: 0.5em;
+  background-color: white;
 }
-button{
+.btns{
   border: none;
   background: none;
   width: 70px;

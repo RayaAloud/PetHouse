@@ -1,4 +1,6 @@
-
+body{
+    overflow: hidden;
+}
 #container{
     margin: 5%;
     padding: 5%;
@@ -20,9 +22,18 @@ textarea{
     padding: 10px;
     margin: 10px;
     margin-bottom: 15px;
+    background-color: white;
 }
 .loc{
     
+}
+#bcImg3{
+    position: absolute;
+    z-index: -1;
+    height: 600px;
+    width: 700px;
+    right: -10em;
+    bottom: 0;
 }
 .bi-pencil{
     color: #111B47;
