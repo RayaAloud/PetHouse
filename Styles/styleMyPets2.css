@@ -32,6 +32,12 @@ input, textarea , select{
 #addinPic{
     margin-right: 4em;
 }
+#addinPic label{
+    margin-top: -3em;
+}
+#uploadFile{
+    display: none;
+}
 #plusS{
     font-size: 2.2em;
     margin-top: -1.5em;
