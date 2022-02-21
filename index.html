@@ -27,7 +27,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <!--Icons-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-  
+
   <!--Embedded CSS-->
   <style>
     body{
@@ -42,11 +42,11 @@
       margin-top: -8em;
       height: inherit;
       margin-left: auto;
-      width: 65%;    
+      width: 65%;
 
     }
-    #container{  
-      justify-content: space-around;  
+    #container{
+      justify-content: space-around;
     }
     #container img{
       width: 500px;
@@ -55,11 +55,11 @@
     #textDiv{
       flex-direction: column;
       align-self: center;
-      
+
     }
     .titles{
       color: #1a2350;
-      
+
     }
     #join-us-Btn{
       border: none;
@@ -180,8 +180,8 @@
     .contact:hover{
       color: white !important;
     }
-  
-    
+
+
   </style>
   <!--Scripts-->
   <script>
@@ -197,7 +197,7 @@
 
       function showPage(page, elem){
           var request = makeRequest();
-          
+
           request.onreadystatechange = function(){
               if(request.readyState == 4 && request.status)
                 document.getElementById(elem).innerHTML = request.responseText;
@@ -213,31 +213,34 @@
 </script>
 </head>
 <body>
-  
+
   <span id="header"></span>
 
     <img src="Images/PinkPath.png" id="bcPinkPath">
     <div id="container" class="d-flex flex-lg-row flex-column p-sm-5 p-lg-5">
       <div id="textDiv" class="d-flex">
-          <p><strong>Introduce Your Product Quickly & Effectively</strong></p>
+          <p><strong>Your pet is our first priority!</strong></p>
           <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-            Aenean commodo<br> ligula eget dolor. Aenean massa. 
-            Cum sociis natoque penatibus <br>et magnis dis parturient montes, 
-            nascetur ridiculus 
+            We have the most talented vetrinerians to make your pet
+            <br> the prettiest and most groomed pet in the world:)
+           <br>Feel good, your pet is at good hands.
           </p>
-          <button id="join-us-Btn">Join us</button>
+          <button id="join-us-Btn">Sign up now!</button>
       </div>
       <img src="Images/undraw_friends_r511.png" class="align-self-sm-center">
     </div>
-    
+
     <div class="container pt-5 mt-5" id="aboutus">
       <h1 class="text-center titles mt-4">About us</h1>
       <div class="d-flex pt-5 mt-3 justify-content-around">
         <div class="align-self-center">
-        <p><strong>Light, Fast & Powerful</strong></p>
+        <p><strong>From a pet owner, to a pet service provider</strong></p>
         <p>
-          A pet service platform for your pet! <br>we have a bunch of services which are shaving, sanitizing, grooming your pet and a lot more!
+            We saw what pet owners suffer from, as we are one of them,<br>
+            having to wait in a pet clinic for hours is really time consuming <br>
+            so we said why don't we as software engineers make things easier for all of our pet friends?
+            <br> Now we serve over 400 clients that are very happy with the smooth appointments.
+
         </p>
         </div>
         <img src="Images/undraw_searching.png" id="about-us-img">
@@ -247,7 +250,7 @@
     <div class="container pt-5 mt-3 d-flex flex-column align-items-center text-center" id="services">
       <h1 class="text-center titles">Our Services</h1>
       <div class="d-flex align-items-center mt-5">
-        <button id="previous" class="next-previous"><i class="bi bi-chevron-left"></i></button>     
+        <button id="previous" class="next-previous"><i class="bi bi-chevron-left"></i></button>
     <div>
         <div id="menu" class="mt-5">
             <div class="cards"><img src="Images/bath.png" width="130px" height="130px"><p>Washing</p></div>
@@ -270,7 +273,7 @@
 <!--
       <div id="ContactUs" class="d-flex flex-column align-items-center">
         <h2 class="mt-5">Contact Us</h2>
-        
+
       </div>
       -->
     </div>
