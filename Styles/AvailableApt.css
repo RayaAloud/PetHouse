@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');*/
 
 
   body {
-    font-family: 'Poppins', sans-serif;
-    background-color: aliceblue;
+    font-family: 'Roboto', sans-serif;
   }
-
-
-    
+  
   .line {
     background-color: #A2ABD1;
     width: 200px;
@@ -23,15 +20,14 @@
     font-size: 20px;
 }
 .availabel-apt p {
-    padding-top: 70px;  
+ 
  
     
-  }
+}
 
-  .available-apt {
- 
-    margin-right: 0px;
-  }
+.available-apt {
+
+}
   
   .t-img {
     width: 56px;
@@ -39,19 +35,22 @@
     
    
   }
+  th{
+    color:#6e79a7;
+    font-weight: 600;
+    font-size: 20px;
+  }
   tr{
     border-bottom: 1px solid rgb(161, 161, 161);
   }
  td {
     padding: 0.8em;
-    text-align: center;
-    border-bottom:  1px solid rgb(173, 173, 173);   
+    text-align: center;  
   }
   .box{
     overflow-y: scroll;
-    max-height: 392px;
+    max-height: 550px;
     max-width: 900px;
-
     
   }
   .box table{         
@@ -65,13 +64,13 @@
     border-spacing: 0.5em;
   }
   
-  .button{
+  .buttons{
     border: none;
     background: none;
     width: 70px;
     color:#A2ABD1;
     height: 70px;
-    font-size: 1.5em;
+    font-size: 1em;
   }
   .trashIcon{
     color: #ff0000;
@@ -91,7 +90,9 @@
       height: 50px;
       color: white;
       font-size: 2em;
-      padding-top: 0px;
-      margin-top: 0px;
       border: none;
+
+  }
+  #topContainer{
+    margin-left: 4em;
   }

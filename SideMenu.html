@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/e920294da5.js" crossorigin="anonymous"></script>
     <style>
     body{
-        margin: 0%;
+        margin: 0;
         padding: 0;
     } 
     .sideMenuColor{
@@ -27,10 +27,10 @@
         padding-left: 0;
         
     }
-    #content{
-       
+    a img{
+        margin-left: -1em;
     }
-    
+
 </style>
 <script>
     function makeRequest(){
@@ -60,13 +60,13 @@
          break;
          case 2:showPage('ManagerServices.html', 'content');
          break;
-         case 3:
+         case 3:showPage('AvailableAppointment.html', 'content');
          break;
          case 4:showPage('AppointmentsRequests.html', 'content');
          break;
-         case 5: showPage('UpcomingApponintment.html', 'content');
+         case 5: showPage('UpcomingAppointments.html', 'content');
          break;
-         case 6:showPage('ApponintmentPrevious.html', 'content');
+         case 6:showPage('PreviousAppointment.html', 'content');
          break;
          case 7:showPage('Reviews.html', 'content');
          break;       
@@ -82,8 +82,8 @@
 
 <body>
     <div class="container d-flex" id="Container">
-        <div class="" >
-            <div class="col-lg-11 col-xl-12 px-sm-5 px-0 pt-2 h-100" style="padding-top: 25px; background-color: #A2ABD1; ">
+        <div class="">
+            <div class="col-lg-12 col-xl-12 px-sm-5 px-0 pt-2 h-100" style="padding-top: 25px; background-color: #A2ABD1; ">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-5 text-white min-vh-100" >
                     <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                         <span class="fs-5 d-none d-sm-inline"><img src="assets/Images/Logo.png" width="100px" height="100px" alt="PetHouse" >
@@ -91,40 +91,40 @@
                     </a>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" style="padding-top: 50px;"  id="menu">
                         
-                        <li class="#submenu3 pb-3" onclick="showContent(1)">
-                            <a href="#" class="nav-link align-middle px-0 sideMenuColor">
-                                <i class="fa-solid fa-address-card"></i><span class="ms-1 d-none d-sm-inline"  > About us</span>
+                        <li class="#submenu3 pb-4" onclick="showContent(1)">
+                            <a href="#" class="text-decoration-none align-middle px-0 sideMenuColor">
+                                <i class="fa-solid fa-address-card"></i><span class="ms-1 d-none d-sm-inline">About us</span>
                             </a>
                         </li>
-                        <li class="pb-3" onclick="showContent(2)">
-                            <a href="#submenu1 " data-bs-toggle="collapse" class="nav-link px-0 align-middle sideMenuColor">
-                                <i class="fa-solid fa-bell-concierge"></i> <span class="ms-1 d-none d-sm-inline"> Services</span> </a>
+                        <li class="pb-4" onclick="showContent(2)">
+                            <a href="#submenu1 " data-bs-toggle="collapse" class="text-decoration-none px-0 align-middle sideMenuColor">
+                                <i class="fa-solid fa-hand-holding-heart"></i> <span class="ms-1 d-none d-sm-inline"> Services</span> </a>
                            
                         </li>
-                        <li  class="pb-3"  onclick="showContent(3)">
-                            <a href="#" class="nav-link px-0 align-middle sideMenuColor">
+                        <li  class="pb-4"  onclick="showContent(3)">
+                            <a href="#" class="text-decoration-none px-0 align-middle sideMenuColor">
                                 <i class="fa-solid fa-calendar-check"></i> <span class="ms-1 d-none d-sm-inline"> Available Apponintments</span></a>
                         </li> 
                         
                         
-                        <li class="pb-3"  onclick="showContent(4)"> 
-                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle sideMenuColor">
+                        <li class="pb-4"  onclick="showContent(4)"> 
+                            <a href="#submenu3" data-bs-toggle="collapse" class="text-decoration-none px-0 align-middle sideMenuColor">
                                 <i class="fa-solid fa-calendar-day"></i> <span class="ms-1 d-none d-sm-inline"> Apponintment Requests</span> </a>
                                 
                         </li>
                        
-                        <li class="pb-3"  onclick="showContent(5)">
-                            <a href="#" class="nav-link px-0 align-middle sideMenuColor">
+                        <li class="pb-4"  onclick="showContent(5)">
+                            <a href="#" class="text-decoration-none px-0 align-middle sideMenuColor">
                                 <i class="fa-solid fa-calendar-week"></i> <span class="ms-1 d-none d-sm-inline"> Upcoming Apponintments</span> </a>
                         </li>
 
-                        <li class="pb-3"  onclick="showContent(6)">
-                            <a href="#" class="nav-link px-0 align-middle sideMenuColor">
+                        <li class="pb-4"  onclick="showContent(6)">
+                            <a href="#" class="text-decoration-none px-0 align-middle sideMenuColor">
                                 <i class="fa-solid fa-calendar-days"></i> <span class="ms-1 d-none d-sm-inline"> Previous Apponintments</span> </a>
-                        </li class="pb-3">
+                        </li class="pb-4">
 
                         <li onclick="showContent(7)">
-                            <a href="#" data-bs-toggle="collapse" class="nav-link px-0 align-middle sideMenuColor">
+                            <a href="#" data-bs-toggle="collapse" class="text-decoration-none px-0 align-middle sideMenuColor">
                                 <i class="fa-solid fa-comments"></i> <span class="ms-1 d-none d-sm-inline"> Reviews</span> </a>           
                         </li>
                     </ul>

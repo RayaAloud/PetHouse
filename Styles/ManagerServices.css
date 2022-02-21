@@ -1,0 +1,57 @@
+
+h1{
+    color: #A2ABD1;
+    padding-bottom: 4%;
+}
+.pet-image{
+    width:40%;     
+}
+.bi-x-circle-fill{
+  color: rgb(199, 74, 74);
+  font-size: 1.5em;
+}
+.bi-check-circle-fill{
+  color: rgb(94, 214, 94);
+  font-size: 1.5em;
+}
+/*RAYA and REEM*/
+.line {
+    background-color: #8992bd;
+    width: 200px;
+    height: 2px;
+    margin-top: 10px;
+    margin-left: 5%;
+  }
+
+#title {
+    margin-left: 5%;
+    font-weight: bold;
+    color: #8690bb;
+    font-size: 25px;
+}
+.upcoming-apt p {
+  padding-top: 70px; 
+  }
+
+.upcoming-apt {
+  margin: 5px 20px;
+}
+.t-img {
+  width: 56px;
+  height: 56px;  
+}
+#addServiceBtn{
+  position: fixed;
+   border-radius: 30px;
+   border: none;
+   width: 10em;
+   background-color: #111B47;
+   color: white;
+   padding: 0.8em 1.2em 0.8em 1.2em;
+   bottom: 2em;
+   right: 2em;
+   font-size: 1.2em;
+}
+#myPets{
+  margin-left: -20px;
+}

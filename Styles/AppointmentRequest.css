@@ -1,38 +1,21 @@
 
-
-.frame{
-    position: relative;
-    border-radius: 17px;
-    box-shadow: 1px 1px 15px 1px;
-    padding: 20px;
-    border: 2px;
-    width: auto;
-    content: "";
-    clear: both;
-    display: table;
-}
 h1{
     color: #A2ABD1;
     padding-bottom: 4%;
 }
-table{
-    
-    text-align: center;
-   
+table{   
+    text-align: center;  
 }
 tr{
-    border: bottom 1px ;
-   
+    border: bottom 1px ;  
 }
 th{
     width:1%;
     color: #A2ABD1;
 }
 .pet-image{
-    width:40%;
-      
+    width:40%;     
 }
-
 .bi-x-circle-fill{
   color: rgb(199, 74, 74);
   font-size: 1.5em;
@@ -51,65 +34,56 @@ th{
     margin-left: 5%;
   }
 
-   p {
-      margin-left: 5%;
-      font-weight: bold;
-      color: #A2ABD1;
-      font-size: 20px;
-  }
-
-  
-
-  .upcoming-apt p {
-    padding-top: 70px; 
-   }
-
-  .upcoming-apt {
-    margin: 5px 20px;
-  }
-  
-  .t-img {
-    width: 56px;
-    height: 56px;
-    
-   
-  }
-  tr{
-    border-bottom: 1px solid rgb(161, 161, 161);
-  }
- td {
-    padding: 0.8em;
-    text-align: center;
-     
-  }
-  .box{
-    overflow-y: scroll;
-    max-height: 450px;
-    max-width: 1100px;
-  }
-  .box table{         
-    padding: 1em;
-    padding-top: 1.5em;
-    margin: 15px 80px;
-    width: 964px;
-    height: 392px; 
-    box-shadow: 1px 1px 15px 1px #ebebeb;
-    border-radius: 10px;
-    border-spacing: 0.5em;
-  }
-  
-  button{
-    border: none;
-    background: none;
-    width: 70px;
-    color:#A2ABD1;
-    height: 70px;
-    font-size: 1.5em;
-  }
-  .noteIcon{
+p {
+    margin-left: 5%;
+    font-weight: bold;
     color: #A2ABD1;
-    font-size: 1.7em;
+    font-size: 20px;
+}
+.upcoming-apt p {
+  padding-top: 70px; 
   }
-  #myPets{
-    margin-left: -20px;
-  }
+
+.upcoming-apt {
+  margin: 5px 20px;
+}
+.t-img {
+  width: 56px;
+  height: 56px;  
+}
+td {
+  padding: 0.8em;
+  text-align: center;
+  border-bottom: 1px solid rgb(199, 199, 199);
+}
+.box{
+  overflow-y: scroll;
+  max-height: 550px;
+  max-width: 955px;
+  margin-top: 4em;
+}
+.box table{         
+  padding: 1em;
+  padding-top: 1.5em;
+  margin: 1em 80px;
+  width: 860px;
+  height: 392px; 
+  box-shadow: 1px 1px 15px 1px #ebebeb;
+  border-radius: 10px;
+  border-spacing: 0.5em;
+}
+button{
+  border: none;
+  background: none;
+  width: 70px;
+  color:#A2ABD1;
+  height: 70px;
+  font-size: 1.5em;
+}
+.noteIcon{
+  color: #A2ABD1;
+  font-size: 1.5em;
+}
+#myPets{
+  margin-left: -20px;
+}
