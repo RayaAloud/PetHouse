@@ -35,7 +35,9 @@ body {
   height: 100%;
   width: 100%;
 } 
-
+#delAccountBtn{
+  border-radius: 50px;
+}
 #file {
   display: none;
 }

@@ -1,18 +1,18 @@
 body{
-    overflow: hidden;
+    overflow-x: hidden;
 }
 #container{
     margin: 5%;
     padding: 5%;
 }
 label{
-color: #111B47;
-padding: 3px;
-margin-bottom: 4px; 
-margin: 10px;
-font-family: 'Roboto', sans-serif;
-font-size:large;
-font-weight: 700;
+    color: #111B47;
+    padding: 3px;
+    margin-bottom: 4px; 
+    margin: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size:large;
+    font-weight: 700;
 }
 textarea{
     display: block;
@@ -33,6 +33,7 @@ textarea{
     height: 600px;
     width: 700px;
     right: -10em;
+    top: 50vh;
     bottom: 0;
 }
 .bi-pencil{

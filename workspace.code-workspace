@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../Desktop/PHPMailer"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "PetHouse"
+	}
+}

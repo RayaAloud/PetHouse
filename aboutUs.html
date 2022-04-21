@@ -46,6 +46,21 @@
             padding: 1em;
             border-radius: 60px;
         }
+        #UpdatePhoto{
+            align-self: center;
+        }
+        #UpdatePhoto label{
+            background-color: #6d79af;
+            color: white;
+            padding: 5px 10px 5px 10px;
+            height: 40px;
+            border-radius: 50px;
+            cursor: pointer;
+
+        }
+        #UpdatePhoto input{
+            display: none;
+        }
     </style>
     <script>
         function makeItEditable(id){
@@ -61,23 +76,29 @@
  </head>
 <body>
     <div id="container" class="container">
-    <div>
-        <h3 class="d-inline titles"><i class="bi bi-file-text"></i>&nbsp;&nbsp;Description</h3>
-        <div class="d-flex container">
-        <textarea class="des" name="description" cols="90" rows="10" disabled id="desc">A pet service platform for your pet! we have a bunch of services: shaving, sanitizing, grooming your pet and a lot more!</textarea>
-        <button class="editBtn" onclick="makeItEditable('des')"><i class="bi bi-pencil pencil"></i></button>
-        </div>
+        <h3 class="d-inline titles"><i class="bi bi-image-fill"></i>&nbsp;&nbsp;Photo</h3>
+        
+        <div class="col-9 mb-5 mt-5 d-flex justify-content-between">
+            <div id="UpdatePhoto" class="justify-self-start"><label for="PhotoInput">Change Photo</label><input type="file" id="PhotoInput"></div>
+            <img src="Images/undraw_searching.png" height="150px">
+       </div>
+        <div>
+            <h3 class="d-inline titles"><i class="bi bi-file-text"></i>&nbsp;&nbsp;Description</h3>
+            <div class="d-flex container">
+            <textarea class="des" name="description" cols="90" rows="10" disabled id="desc">A pet service platform for your pet! we have a bunch of services: shaving, sanitizing, grooming your pet and a lot more!</textarea>
+            <button class="editBtn" onclick="makeItEditable('des')"><i class="bi bi-pencil pencil"></i></button>
+            </div>
 
-    <div class="mt-5">
-        <h3 class="d-inline titles"><i class="bi bi-geo-alt-fill"></i>&nbsp;&nbsp;Location</h3>
-        <div class="d-flex container justify-content-around">
-        <textarea class="loc" name="location"  cols="90" rows="2" disabled id="loca">Saudi Arabia, Riyadh</textarea> 
-        <button class="editBtn" onclick="makeItEditable('loc')"><i class="bi bi-pencil pencil"></i></button>
-        </div>   
-    </div>  
-    </div>
-     <div class="container d-flex justify-content-center mt-5">
-      <button id="saveBtn" class="mt-5">Save Chnages</button>
+        <div class="mt-5">
+            <h3 class="d-inline titles"><i class="bi bi-geo-alt-fill"></i>&nbsp;&nbsp;Location</h3>
+            <div class="d-flex container justify-content-around">
+            <textarea class="loc" name="location"  cols="90" rows="2" disabled id="loca">Saudi Arabia, Riyadh</textarea> 
+            <button class="editBtn" onclick="makeItEditable('loc')"><i class="bi bi-pencil pencil"></i></button>
+            </div>   
+        </div>  
+        </div>
+        <div class="container d-flex justify-content-center mt-5">
+        <button id="saveBtn" class="mt-5">Save Chnages</button>
      </div>
     </div>
     
