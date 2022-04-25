@@ -6,12 +6,10 @@ h2{
     color: #6974a5;
 }
 #addService{
-  padding: 3em;
+    padding: 3em;
 }
 #Servandtime{
-    margin-top: 4em;
-    
-    
+    margin-top: 4em;    
 }
 #serv{
     font-size: 30px;
@@ -55,22 +53,18 @@ h2{
    
 }
 #addbtn{
-background-color: #A2ABD1;
-color: white;
-
-border-radius: 30px;
-
-border:none;
-cursor: pointer;
-width: 200px;
-height: 50px;
-opacity: 0.9;
-margin-top: 1em ;
-font-size:30px;
-text-align: center;
-
-
+    background-color: #A2ABD1;
+    color: white;
+    border-radius: 30px;
+    border:none;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    opacity: 0.9;
+    margin-top: 1em ;
+    font-size:30px;
+    text-align: center;
 }
 #addbtn:hover {
-opacity: 1;
+    opacity: 1;
 }
