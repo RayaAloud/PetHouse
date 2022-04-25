@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+} 
+.sideMenuColor{
+    color: #111B47;
+}
+.sideMenuColor:hover{
+    color: white;
+}
+#Container{
+    margin-left: 0;
+    padding-left: 0;
+    
+}
+a img{
+    margin-left: -1em;
+}
+#bcImg3{
+position: absolute;
+z-index: -1;
+height: 650px;
+width: 700px;
+right: -10em;
+bottom: 0;
+
+}
+#logoutBtn{
+border:none;
+background-color: #111B47;
+border-radius: 50px;
+color: white;
+padding: 0.5em 1em 0.5em 1em;
+}
+#logoutBtn:hover{
+background-color: #1f2b5f;
+}

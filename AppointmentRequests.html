@@ -4,27 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
     <title> Pet Owner | Dashboard </title>
-
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="Images/favicon_io/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon_io/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="Images/favicon_io/favicon-16x16.png">
-  
-<link rel="stylesheet" href="Styles/PreviousAppointments.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
-<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-<!--Icons-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-<!--jQuery-->
-<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<!--Bootstrap-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!--Favicon-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> 
+    <link rel="apple-touch-icon" sizes="180x180" href="Images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Images/favicon_io/favicon-16x16.png">
+    <!--External CSS-->
+    <link rel="stylesheet" href="Styles/Appointments.css">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    <!--Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <style>
       #divv{
         display: none;
@@ -164,7 +162,7 @@ function show(){
         <td>27/1/2022</td>
         <td>10:30am</td>
         <td> <button class="noteBtn" onclick="show2()"> <i class="bi bi-chat-square-dots-fill noteIcon"></i></button> </td>
-        <td> <button class="reviewBtn" onclick="show()">Review</button></td>
+        <td>Denied</td>
       </tr>
 
       <tr>
@@ -173,7 +171,7 @@ function show(){
         <td>27/10/2022</td>
         <td>10:30am</td>
         <td> <button class="noteBtn" onclick="show2()"> <i class="bi bi-chat-square-dots-fill noteIcon"> </button></td>
-        <td class="reviewed">Reviewed</td>
+        <td class="reviewed">Approved</td>
       </tr>
 
       <tr>
@@ -182,7 +180,7 @@ function show(){
         <td>14/11/2022</td>
         <td>10:30am</td>
         <td> <button class="noteBtn" onclick="show2()"> <i class="bi bi-chat-square-dots-fill noteIcon"></button></td>
-        <td> <button class="reviewBtn" onclick="show()">Review</button></td>
+        <td>Denied</td>
       </tr>
 
       <tr>
@@ -191,7 +189,7 @@ function show(){
         <td>27/2/2022</td>
         <td>10:30am</td>
         <td> <button class="noteBtn" onclick="show2()"><i class="bi bi-chat-square-dots-fill noteIcon"></i></button></td>
-        <td class="reviewed">Reviewed</td>
+        <td class="reviewed">Approved</td>
       </tr>
       <tr>
         <td><img class="t-img" src="Images/catBabyBlue.png" alt=""></td>
@@ -199,7 +197,7 @@ function show(){
         <td>27/2/2022</td>
         <td>10:30am</td>
         <td> <button class="noteBtn" onclick="show2()"> <i class="bi bi-chat-square-dots-fill noteIcon"></i></button></td>
-        <td> <button class="reviewBtn" onclick="show()">Review</button></td>
+        <td>Denied</td>
       </tr>
    
       <tr>
@@ -208,7 +206,7 @@ function show(){
         <td>27/2/2022</td>
         <td>10:30am</td>
         <td> <button class="noteBtn" onclick="show2()"><i class="bi bi-chat-square-dots-fill noteIcon"></i></button></td>
-        <td class="reviewed">Reviewed</td>
+        <td class="reviewed">Approved</td>
       </tr>
     </tbody>
   </table>

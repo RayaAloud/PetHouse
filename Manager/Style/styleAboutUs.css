@@ -1,0 +1,91 @@
+body{
+    overflow-x: hidden;
+}
+#container{
+    margin: 5%;
+    padding: 5%;
+}
+label{
+    color: #111B47;
+    padding: 3px;
+    margin-bottom: 4px; 
+    margin: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size:large;
+    font-weight: 700;
+}
+#desc{
+    height: 15em;
+}
+.inputs{
+    display: block;
+    border-style:none;
+    box-shadow: 0.1px 0.1px 2px 0.1px;
+    border-radius: 17px;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 15px;
+    background-color: white;
+    margin-top: 2em;
+    width: 40em;
+}
+#bcImg3{
+    position: absolute;
+    z-index: -1;
+    height: 600px;
+    width: 700px;
+    right: -10em;
+    top: 50vh;
+    bottom: 0;
+}
+.bi-pencil{
+    color: #111B47;
+    display: inline;
+    position: relative;
+}
+.editBtn{
+    height: 50px;
+    width: 50px;
+    align-self: center;
+    border:none;
+    background-color: #1f2852;
+    border-radius: 50%;
+    color: white;
+    margin-left: 2em;
+    box-shadow: 1px 1px 15px 1px #ebebeb;
+}
+.pencil{
+    color: white
+}
+.titles{
+    padding-bottom: 1em;
+    color:#53609c;
+}
+#saveBtn{
+    border:none;
+    background-color: #1f2852;
+    color: white;
+    padding: 1em;
+    border-radius: 70px;
+}
+#saveBtn:hover{
+    background-color: #253372;
+}
+#UpdatePhoto{
+    align-self: center;
+}
+#UpdatePhoto label{
+    background-color: #6d79af;
+    color: white;
+    padding: 5px 15px 5px 15px;
+    height: 40px;
+    border-radius: 50px;
+    cursor: pointer;
+
+}
+#UpdatePhoto label:hover{
+    background-color: #566294;
+}
+#UpdatePhoto input{
+    display: none;
+}

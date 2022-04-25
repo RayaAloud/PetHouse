@@ -1,0 +1,154 @@
+body{
+    overflow-x: hidden;
+  }
+  #sub{
+    background-image: url('Images/PinkPath.png');
+    background-size:cover;
+    z-index: -1;
+    position: absolute;
+    margin-right: -3em;
+    margin-top: -8em;
+    height: inherit;
+    margin-left: auto;
+    width: 65%;
+
+  }
+  #container{
+    justify-content: space-around;
+  }
+  #container img{
+    width: 500px;
+    height: 500px;
+  }
+  #textDiv{
+    flex-direction: column;
+    align-self: center;
+
+  }
+  .titles{
+    color: #1a2350;
+
+  }
+  #join-us-Btn{
+    border: none;
+    color: white;
+    background-color: #111B47;
+    padding: 4px 2em 4px 2em;
+    width: 10em;
+    align-self: center;
+    margin-top: 2em;
+    border-radius: 20px;
+
+  }
+  #join-us-Btn:hover{
+    background-color: #2F3964;
+  }
+  #about-us-img{
+    width: 400px;
+    height: 400px;
+  }
+  #locationContainer{
+    background-color: #BAE3F4;
+    min-height: 450px;
+    padding-top: 2em;
+    margin-top: 5em;
+    display: flex;
+    color: #111B47;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #locationIcon{
+    font-size: 5em;
+    color:#37447E;
+  }
+  #location{
+    color:#37447E;
+  }
+  #bcPinkPath{
+    position: absolute;
+    top: -3em;
+    right: -15em;
+    filter: saturate(160%);
+    z-index: -1;
+    width: 1030px;
+    height: 105vh;
+
+  }
+  #menu{
+     height: 400px;
+     display: flex;
+     overflow: auto;
+     max-width: 1150px;
+ }
+ .cards{
+     margin-top: 1em;
+     box-shadow: 1px 1px 15px 1px #ebebeb;
+     min-width: 250px;
+     height: 290px;
+     margin-right: 1.5em;
+     margin-left: 1em;
+     display: flex;
+     align-items: center;
+     padding: 0.8em;
+     justify-content: center;
+     text-align: center;
+     flex-direction: column;
+ }
+ .cards p{
+     margin-top: 2em;
+     color: #737ca7;
+     font-weight: bold;
+ }
+ .cards:hover{
+     cursor:pointer;
+ }
+ .next-previous{
+     background-color: transparent;
+     border: none;
+     font-size: 1.5em;
+     color: #6e6e6e;
+ }
+ .next-previous:hover{
+     cursor: pointer;
+     background-color: #dbdbdb;
+     border-radius: 35px;
+ }
+ #ContactUs{
+   width: 100%;
+   color:#2f3969;
+   /*background-color: #cbd1f1;*/
+   padding-top: 0.5em;
+   padding-bottom: 2em;
+ }
+ @media screen and (max-width: 991px) {
+     #menu{
+         max-width: 170px;
+     }
+ }
+  footer{
+    background-color: #ECEFF9;
+    padding: 4em 6em 1em 6em;
+    display: flex;
+    flex-direction: column;
+  }
+  footer h6{
+    color: #192453;
+  }
+  #copyRight{
+    color: #808080;
+    font-size: 14px;
+    margin: auto;
+  }
+  .contact{
+    color: white;
+    background-color: #293568;
+    border-radius: 120px;
+    padding: 9px 10px 9px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-bottom: -20px;
+  }
+  .contact:hover{
+    color: white !important;
+  }

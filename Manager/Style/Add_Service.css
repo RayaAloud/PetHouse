@@ -1,0 +1,34 @@
+#AddBtn{
+    border: none;
+    background-color: #111B47;
+    color: white;
+    border-radius: 30px;
+    padding: 0.5em 1em 0.5em 1em;
+}
+#AddBtn:hover{
+    background-color: #1f2b5f;
+}
+#inputFields input, textarea{
+    border-radius: 30px;
+    border: 1px solid #858585;
+    margin-bottom: 0.8em;
+}
+#addinPic{
+    margin-right: 4em;
+}
+#addinPic label{
+    margin-top: -1.8em;
+}
+#plusS{
+    font-size: 1.5em;
+    margin-top: -1.5em;
+    color: #6571a7;
+    border-radius: 90%;
+    text-align: center;
+    align-self: flex-end;
+    cursor: pointer;
+
+}
+ #imgUpload{
+    display: none;
+}    

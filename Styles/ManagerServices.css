@@ -52,6 +52,9 @@ h1{
    right: 2em;
    font-size: 1.2em;
 }
+#addServiceBtn:hover{
+  background-color: #1f2b5f;
+}
 #myPets{
   margin-left: -20px;
 }

@@ -22,20 +22,19 @@ try {
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
     $mail->Username   = 'PetHouse.coo@gmail.com';                     //SMTP username
     $mail->Password   = 'Pethouse123';                               //SMTP password
-    $mail->SMTPSecure = 'tls';           //Enable implicit TLS encryption
+    $mail->SMTPSecure = 'PHPMailer::ENCRYPTION_STARTTLS';           //Enable implicit TLS encryption
     $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
     $mail->setFrom('PetHouse.coo@gmail.com', 'PetHouse');
     $mail->addAddress($email);     //Add a recipient
     
+    $otp = random_int(1000, 9999);
     
-
-
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'OTP';
-    $mail->Body    = 'Here is your secure code 4377 <br><br> !PetHouse Glad That You Are Part of It';
+    $mail->Body    = 'Here is your secure code '.$otp.' <br><br> !PetHouse Glad That You Are Part of It';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();
