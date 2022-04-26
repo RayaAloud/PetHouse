@@ -14,9 +14,6 @@ body{
     padding-left: 0;
     
 }
-a img{
-    margin-left: -1em;
-}
 #bcImg3{
 position: absolute;
 z-index: -1;
@@ -24,7 +21,6 @@ height: 650px;
 width: 700px;
 right: -10em;
 bottom: 0;
-
 }
 #logoutBtn{
 border:none;
@@ -35,4 +31,24 @@ padding: 0.5em 1em 0.5em 1em;
 }
 #logoutBtn:hover{
 background-color: #1f2b5f;
+}
+li{
+    font-size: 1.2em;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+}
+li:hover{
+    cursor: pointer;
+}
+li a{
+    margin-left: 1em !important;
+}
+#Logospan{
+    margin-left: 0.8em !important;
+}
+@media (min-width: 768px){
+.container, .container-md, .container-sm {
+    min-width: 340px !important;
+    padding-left: 0 !important;
+ }
 }
