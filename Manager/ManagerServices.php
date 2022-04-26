@@ -57,31 +57,7 @@ function show(){
         <div>
           <div id="menu" class="mt-5">
 
-            <div class="cards">
-              <div class="pl-3 pt-3 pr-3">
-                <div>
-                  <i class="bi bi-pencil-square edit" onclick="show()"></i>
-                  <i class="bi bi-trash3 garbage"></i>
-                </div>
-                <img src="../Images/Component40.png" width="130px" height="130px">
-                <p class="main-info">Checkup</p><p class="main-info">180SR</p>
-              </div>
-              <hr>
-                <h5 class="collap w-100">
-                  <i class="bi bi-chevron-down"></i>
-                </h5>
-                  <div class="content">
-                    <p class="main-info">Description</p>
-                    <p>content</p>
-                  </div>
-            </div>
-           
-              
-
-           
-
-           
-             
+            
           </div>
         </div>
         <button id="next" class="next-previous"><i class="bi bi-chevron-right"></i></button>
@@ -108,6 +84,7 @@ function show(){
         j++;
       }
     </script>
+    <?php include 'PHP/Retrieve_Services.php'?>
  </body>
  
 </html>
