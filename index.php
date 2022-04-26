@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--Favicon-->
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-
   <link rel="apple-touch-icon" sizes="180x180" href="Images/favicon_io/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon_io/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="Images/favicon_io/favicon-16x16.png">
@@ -18,8 +17,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <!--External CSS-->
-  <link rel="stylesheet" href="#">
   <!--jQuery-->
   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
   <!--Bootstrap-->
@@ -97,13 +94,8 @@
       <div class="d-flex align-items-center mt-5">
         <button id="previous" class="next-previous"><i class="bi bi-chevron-left"></i></button>
     <div>
-        <div id="menu" class="mt-5">
-            <div class="cards"><img src="Images/bath.png" width="130px" height="130px"><p>Washing</p></div>
-            <div class="cards"><img src="Images/Component 41.png" width="130px" height="130px"><p>Grooming</p></div>
-            <div class="cards"><img src="Images/Component40.png" width="130px" height="130px"><p>Checkup</p></div>
-            <div class="cards"><img src="Images/bath.png" width="130px" height="130px"><p>Washing</p></div>
-            <div class="cards"><img src="Images/Component 41.png" width="130px" height="130px"><p>Grooming</p></div>
-            <div class="cards"><img src="Images/Component40.png" width="130px" height="130px"><p>Checkup</p></div>
+        <div id="ServicesList" class="mt-5">
+            
         </div>
     </div>
     <button id="next" class="next-previous"><i class="bi bi-chevron-right"></i></button>
@@ -128,5 +120,24 @@
       <span id="copyRight">&#169; 2022 PetHouse</span>
     </footer>
     <?php include 'PHP/index.php'?>
+    <script>
+      var acc = document.getElementsByClassName("collap");
+      var acc2 = document.getElementsByClassName("content");
+      var i;
+      for(i = 0; i<acc.length; i++){
+        alert(i);
+        $(acc[i]).click(function(){
+          this.classList.toggle('active');
+          var j = 0;
+          if($(acc2[j]).css('display') === "block"){
+            $(acc2[j]).css('display', 'none');  
+          }
+          else if($(acc2[j]).css('display') === "none"){
+            $(acc2[j]).css('display', 'block');    
+          }
+        });
+        j++;
+      }
+    </script>
 </body>
 </html>

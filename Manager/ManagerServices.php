@@ -71,7 +71,9 @@ function show(){
     <script>
       var acc = document.getElementsByClassName("collap");
       var acc2 = document.getElementsByClassName("content");
-      for(var i = 0; i<acc.length; i++){
+      var i;
+      for(i = 0; i<acc.length; i++){
+        alert(i);
         $(acc[i]).click(function(){
           this.classList.toggle('active');
           var j = 0;

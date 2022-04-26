@@ -24,8 +24,7 @@ while($row = mysqli_fetch_array($result)){
     echo "<p class=\'main-info\'>Description</p><p>content</p>";
     echo "</div>";
     echo "</div>'";
-    echo "</script>";
-    
+    echo "</script>";    
 }
 mysqli_close($connection);
 ?>
