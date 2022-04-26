@@ -7,11 +7,11 @@
     <title>Services</title>
     <!--Exetrnal CSS-->
     <link rel="stylesheet" href="Style/ManagerServices.css">
-    <!--jQuery-->
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+     <!--jQuery-->
+     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <!--Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
    
@@ -44,7 +44,7 @@ function show(){
 </script>
 </head>
 <body>
-
+ 
     <div class="mb-4">
         <div class="upcoming-apt">
           <p id="title">Services</p>
@@ -56,19 +56,58 @@ function show(){
           <button id="previous" class="next-previous"><i class="bi bi-chevron-left"></i></button>     
         <div>
           <div id="menu" class="mt-5">
-              <div class="cards"><div><i class="bi bi-pencil-square edit" onclick="show()"></i><i class="bi bi-trash3 garbage"></i></div><img src="../Images/bath.png" width="130px" height="130px"><p>Washing</p><p>120SR</p></div>
-              <div class="cards"><div><i class="bi bi-pencil-square edit" onclick="show()"></i></i><i class="bi bi-trash3 garbage"></i></div><img src="../Images/Component 41.png" width="130px" height="130px"><p>Grooming</p><p>90SR</p></div>
-              <div class="cards"><div><i class="bi bi-pencil-square edit" onclick="show()"></i></i><i class="bi bi-trash3 garbage"></i></div><img src="../Images/Component40.png" width="130px" height="130px"><p>Checkup</p><p>180SR</p></div>
-              <div class="cards"><div><i class="bi bi-pencil-square edit" onclick="show()"></i></i><i class="bi bi-trash3 garbage"></i></div><img src="../Images/bath.png" width="130px" height="130px"><p>Washing</p><p>120SR</p></div>
-              <div class="cards"><div><i class="bi bi-pencil-square edit" onclick="show()"></i></i><i class="bi bi-trash3 garbage"></i></div><img src="../Images/Component 41.png" width="130px" height="130px"><p>Grooming</p><p>90SR</p></div>
-              <div class="cards"><div><i class="bi bi-pencil-square edit" onclick="show()"></i></i><i class="bi bi-trash3 garbage"></i></div><img src="../Images/Component40.png" width="130px" height="130px"><p>Checkup</p><p>180SR</p></div>
+
+            <div class="cards">
+              <div class="pl-3 pt-3 pr-3">
+                <div>
+                  <i class="bi bi-pencil-square edit" onclick="show()"></i>
+                  <i class="bi bi-trash3 garbage"></i>
+                </div>
+                <img src="../Images/Component40.png" width="130px" height="130px">
+                <p class="main-info">Checkup</p><p class="main-info">180SR</p>
+              </div>
+              <hr>
+                <h5 class="collap w-100">
+                  <i class="bi bi-chevron-down"></i>
+                </h5>
+                  <div class="content">
+                    <p class="main-info">Description</p>
+                    <p>content</p>
+                  </div>
+            </div>
+           
+              
+
+           
+
+           
+             
           </div>
         </div>
         <button id="next" class="next-previous"><i class="bi bi-chevron-right"></i></button>
       </div>
+      
       <div id="addService" class="col-8"></div>
     </div> 
     <button id="addServiceBtn" class="" onclick="showPage('AddService.html','addService')">Add New Service</button>
-     
-</body>
+   
+    <script>
+      var acc = document.getElementsByClassName("collap");
+      var acc2 = document.getElementsByClassName("content");
+      for(var i = 0; i<acc.length; i++){
+        $(acc[i]).click(function(){
+          this.classList.toggle('active');
+          var j = 0;
+          if($(acc2[j]).css('display') === "block"){
+            $(acc2[j]).css('display', 'none');  
+          }
+          else if($(acc2[j]).css('display') === "none"){
+            $(acc2[j]).css('display', 'block');    
+          }
+        });
+        j++;
+      }
+    </script>
+ </body>
+ 
 </html>
