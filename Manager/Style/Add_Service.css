@@ -32,3 +32,6 @@
  #imgUpload{
     display: none;
 }    
+#iframe{
+    height: 0px;
+}
