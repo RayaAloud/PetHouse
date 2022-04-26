@@ -13,4 +13,5 @@ if(isset($_POST['add'])){
     $result = mysqli_query($connection,$query);
     //header('Location: ../sideMenu.html');  
 }
+mysqli_close($connection);
 ?>

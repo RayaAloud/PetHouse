@@ -55,7 +55,8 @@ function show(){
       <div class="d-flex align-items-center mt-5" id="servicesContainer">
           <button id="previous" class="next-previous"><i class="bi bi-chevron-left"></i></button>     
         <div>
-          <div id="menu" class="mt-5">
+          <div id="ServicesList" class="mt-5">
+          
 
             
           </div>
@@ -66,7 +67,7 @@ function show(){
       <div id="addService" class="col-8"></div>
     </div> 
     <button id="addServiceBtn" class="" onclick="showPage('AddService.html','addService')">Add New Service</button>
-   
+    <?php include 'PHP/Retrieve_Services.php'?>
     <script>
       var acc = document.getElementsByClassName("collap");
       var acc2 = document.getElementsByClassName("content");
@@ -84,7 +85,5 @@ function show(){
         j++;
       }
     </script>
-    <?php include 'PHP/Retrieve_Services.php'?>
- </body>
- 
+ </body> 
 </html>
