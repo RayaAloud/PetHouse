@@ -34,19 +34,6 @@
       box-shadow: 1px 1px 15px 1px #ebebeb;
       border: solid  #d3d3d3
    }
-   table{
-       border-spacing: 10px;
-   }
-   th{
-       font-size: 14px;
-       padding-bottom: 1em
-   }
-   td{
-       padding: 0.5em;
-   }
-   td:hover{
-       cursor: pointer;
-   }
    .next-previous{
        background-color: transparent;
        border: none;
@@ -54,12 +41,6 @@
    .next-previous:hover{
        cursor: pointer;
        background-color: #dbdbdb;
-       border-radius: 35px;
-   }
-   
-   td:active{
-       background-color: #8891bb;
-       color:white;
        border-radius: 35px;
    }
    #year{
@@ -193,6 +174,13 @@ var months = ['January', 'February', 'March','April', 'May', 'June', 'July', 'Au
             <div class="container" id="innerCalender"></div>        
         </div>     
     </div>
-
+  <script>
+      var arr = document.getElementsByTagName('td');
+      for(var i = 0; i< arr.length; i++){
+          $(arr[i]).click(function(){
+             this.classList.toggle('active');
+          });
+      }
+  </script>
 </body>
 </html>

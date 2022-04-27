@@ -35,6 +35,11 @@
         color:white;
         border-radius: 35px;
     }
+    .active{
+       background-color: #8891bb;
+       color:white;
+       border-radius: 35px;
+    }
   </style>
 </head>
   <body>
@@ -93,5 +98,16 @@
             <td>31</td>
         </tr>
     </table>
+    <script>
+        var arr = document.getElementsByTagName('td');
+        for(var i = 0; i< arr.length; i++){
+            $(arr[i]).click(function(){
+               for(var j = 0; j< arr.length; j++){
+                 $(arr[j]).removeClass('active');
+               }
+               this.classList.toggle('active');
+            });
+        }
+    </script>
   </body>
 </html>
