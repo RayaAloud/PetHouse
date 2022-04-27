@@ -17,8 +17,12 @@
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/e920294da5.js" crossorigin="anonymous"></script>
-   <!--External CSS-->
-   <link rel="stylesheet" href="Style/Side_Menu.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <!--External CSS-->
+    <link rel="stylesheet" href="Style/Side_Menu.css">
 <script>
     function makeRequest(){
       var req;
@@ -77,6 +81,30 @@
      showPage('About_Us.php', 'content');
    })
 </script>
+<script>
+    $( function() {
+      $( "#datepicker" ).datepicker({
+        onSelect: function(){var currentDate = $( "#datepicker" ).datepicker( "getDate" )
+        },
+        minDate:0 ,
+        beforeShowDay: function(date) {
+          var day = date.getDate();
+          var month = date.getMonth();
+          return [true, ''];;
+       }
+      });
+    });
+   
+    </script>
+    <style>
+        .ui-widget-header{
+            background: #A2ABD1 ;
+        }
+        .ui-datepicker-month, .ui-datepicker-year{
+            color: white;
+        }
+       
+    </style>
 </head>
 
 

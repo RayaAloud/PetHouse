@@ -20,6 +20,10 @@
   <link rel="stylesheet" href="#">
   <!--jQuery-->
   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
   <!--Icons-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <!--Bootstrap-->
@@ -94,7 +98,6 @@
      height: 130px;
    }
   </style>
-  
   <script>
     function makeRequest(){
       var req;
@@ -120,20 +123,48 @@
    }
    
    $(document).ready(function(){
-    showPage('Calender.html', 'calenderContainer');
+    //showPage('Calender.html', 'calenderContainer');
 
    });
 
-    
-   
-
   </script>
+  <script>
+    $( function() {
+      $( "#datepicker" ).datepicker({
+        onSelect: function(){var currentDate = $( "#datepicker" ).datepicker( "getDate" )
+        },
+        minDate:0 ,
+        beforeShowDay: function(date) {
+          var day = date.getDate();
+          var month = date.getMonth();
+          return [(day == 1 || day == 5), ''];;
+       }
+      });
+    });
+   
+    </script>
+    <style>
+        .ui-widget-header{
+            background: #A2ABD1 ;
+        }
+        td{
+            border-radius: 50px;
+        }
+        .ui-datepicker-month, .ui-datepicker-year{
+            color: white;
+        }
+        #datepicker{
+            margin-left: 2em;
+            margin-top: 2em;
+        }
+       
+    </style>
 </head>
 <body>
 
    <div class="col-12 d-flex flex-column justify-content-between mt-3 align-items-center">
      <div class="col-12 container d-flex align-items-center justify-content-around">
-     <div id="calenderContainer"></div>
+     <div id="datepicker"></div>
      <div class="d-flex flex-column">
         <label for="timeSelect" class="mb-4" id="timeLabel">Time</label>
         <select id="timeSelect" class="px-2 mb-3">

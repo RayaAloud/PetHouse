@@ -68,3 +68,7 @@ h2{
 #addbtn:hover {
     opacity: 1;
 }
+#datepicker{
+    margin-top: 2.5em;
+    margin-bottom: .5em;
+}
