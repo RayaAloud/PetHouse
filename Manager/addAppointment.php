@@ -17,7 +17,8 @@
     <script>
       $( function() {
         $( "#datepicker" ).datepicker({
-          onSelect: function(){var currentDate = $( "#datepicker" ).datepicker( "getDate" )
+          onSelect: function(){var currentDate = $("#datepicker").datepicker("getDate")
+            document.getElementById('dateInput').value = currentDate.getFullYear() + "-" + (currentDate.getMonth()+1) + "-" + currentDate.getDate();
           },
           minDate:0 ,
           beforeShowDay: function(date) {
@@ -59,28 +60,31 @@
   <div id="addService">
      <h2>Add Appointment</h2>
      <div class="line"></div>
+       <form method="POST" action="PHP/Add_Appointment.php">
           <div id="Servandtime" class="d-flex flex-column">
-            <div id="serv">
-                <label>
-                    Service 
-                    <select id="serviceOptions">
-                    </select>
-                </label>
-            </div>
+              <div id="serv">
+                  <label>
+                      Service 
+                      <select id="serviceOptions" name="service">
+                      </select>
+                  </label>
+              </div>
 
-            <div class="d-flex">
-                <div id="datepicker" class="mt-5"></div>
-                <div class="d-flex flex-column justify-content-center">
-                <div id="time">
-                    <span class="d-block">Time </span><input type="time" name="time1" id="time1" />
-                </div>
+              <div class="d-flex">
+                  <div id="datepicker" class="mt-5"></div>
+                  <input type="hidden" name="date" id="dateInput">
+                  <div class="d-flex flex-column justify-content-center">
+                  <div id="time">
+                      <span class="d-block">Time </span><input type="time" name="time" id="time1"/>
+                  </div>
+              </div>
+                  
             </div>
-                
-          </div>
-          <div id="add" class="align-self-center">
-            <button id="addbtn" type="submit" >Add</button>
-          </div>
+            <div id="add" class="align-self-center">
+              <button id="addbtn" type="submit" name="add">Add</button>
+            </div>
         </div>
+       </form>
       </div>
     </div>
   </body>
