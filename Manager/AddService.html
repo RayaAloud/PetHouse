@@ -11,8 +11,11 @@
      <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
      <!--External CSS-->
      <link rel="stylesheet" href="Style/Add_Service.css">
-
-    
+    <script>
+        $('#imgUpload').change(function(){
+            document.getElementById('pet-image').src = window.URL.createObjectURL(this.files[0]);
+        })
+    </script>   
 </head>
 <body>
     <div class="container d-flex flex-column offset-1">

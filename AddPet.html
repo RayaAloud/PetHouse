@@ -39,16 +39,14 @@
        request.open("Get", page, true);
        request.send();
    }
-  
    $(document).ready(function(){
      showPage('Signed_In_Header.html','header')
    })
-   
   </script>
     <body>
       <span id="header"></span>
       <img src="Images/Vector.png" id="bcImg1">
-  <div class="container d-flex justify-content-center p-5" id="Container">
+      <div class="container d-flex justify-content-center p-5" id="Container">
         <div id="box">
           <div class="container d-flex justify-content-between align-items-center flex-column-reverse flex-md-row">
             <form method="post" action="#" class="col-6">
@@ -91,5 +89,9 @@
       </div>
       <img src="Images/PinkPath.png" id="bcImg2">
     </body>
-
+    <script>
+      $('#uploadFile').change(function(){ 
+            document.getElementById('pet-image').src = window.URL.createObjectURL(this.files[0]);
+      })
+    </script>
 </html>

@@ -16,37 +16,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<script>
-    function makeRequest(){
-        var req;
-        if(window.XMLHttpRequest)
-          req = new XMLHttpRequest();
-        else{
-            req = new ActiveXObject(Microsoft.XMLHttpRequest);
-        }
-        return req;
-    }
-
-    function showPage(page, elem){
-        var request = makeRequest();
-        
-        request.onreadystatechange = function(){
-            if(request.readyState == 4 && request.status)
-            $("#"+elem).html(request.responseText);
+    <script>
+        function makeRequest(){
+            var req;
+            if(window.XMLHttpRequest)
+            req = new XMLHttpRequest();
+            else{
+                req = new ActiveXObject(Microsoft.XMLHttpRequest);
+            }
+            return req;
         }
 
-        request.open("Get", page, true);
-        request.send();
-    }
+        function showPage(page, elem){
+            var request = makeRequest();
+            
+            request.onreadystatechange = function(){
+                if(request.readyState == 4 && request.status)
+                $("#"+elem).html(request.responseText);
+            }
 
-  $(document).ready(function(){
-    showPage('Signed_In_Header.html', 'header');
-  })
-</script>
+            request.open("Get", page, true);
+            request.send();
+        }
 
+        $(document).ready(function(){
+            showPage('Signed_In_Header.html', 'header');
+        })
+  
+   </script>
 </head>
 
 <body>
@@ -85,13 +84,17 @@
           <button type="button" class="btn btn-outline-danger" id="delAccountBtn">Delete Account</button></div>
         </div> 
     </div>
-</div>
-</div>
+  </div>
+ </div>
 
-<div>
-    <img src="Images/undraw_playful_cat_re_ac9g.png" alt="cat" class="img_background" id="bcimg">
-</div>
+    <div>
+        <img src="Images/undraw_playful_cat_re_ac9g.png" alt="cat" class="img_background" id="bcimg">
+    </div>
 
-</body>
-
+ </body>
+    <script>
+        $('#file').change(function(){ 
+            document.getElementById('photo').src = window.URL.createObjectURL(this.files[0]);
+        })
+    </script>
 </html>
