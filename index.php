@@ -123,20 +123,18 @@
     <script>
       var acc = document.getElementsByClassName("collap");
       var acc2 = document.getElementsByClassName("content");
-      var i;
-      for(i = 0; i<acc.length; i++){
-        alert(i);
+      for(let i = 0; i<acc.length; i++){
         $(acc[i]).click(function(){
           this.classList.toggle('active');
           var j = 0;
-          if($(acc2[j]).css('display') === "block"){
-            $(acc2[j]).css('display', 'none');  
+          if($(acc2[i]).css('display') === "block"){
+            $(acc2[i]).css('display', 'none');  
           }
-          else if($(acc2[j]).css('display') === "none"){
-            $(acc2[j]).css('display', 'block');    
+          else if($(acc2[i]).css('display') === "none"){
+            $(acc2[i]).css('display', 'block');    
           }
+          j++;
         });
-        j++;
       }
     </script>
 </body>
