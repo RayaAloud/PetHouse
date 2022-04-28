@@ -1,4 +1,4 @@
-- [] Home page
+- [x] Home page
 - [] Request Appointment1
 - [] Request Appointment2
 - [] Request Appointment3
