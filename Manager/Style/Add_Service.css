@@ -35,3 +35,6 @@
 #iframe{
     height: 0px;
 }
+#pet-image{
+    border-radius: 50%;
+}

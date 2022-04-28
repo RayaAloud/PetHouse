@@ -130,6 +130,9 @@ margin-left: 2em;
   width: fit-content;
   padding: 1em;
 }
+.ServiceImg{
+  border-radius: 50%;
+}
 hr{
   width: 100%;
 }

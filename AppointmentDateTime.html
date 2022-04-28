@@ -99,36 +99,6 @@
    }
   </style>
   <script>
-    function makeRequest(){
-      var req;
-      if(window.XMLHttpRequest)
-        req = new XMLHttpRequest();
-       else{
-           req = new ActiveXObject(Microsoft.XMLHttpRequest);
-       }
-       return req;
-   }
-  
-   function showPage(page, elem){
-       var request = makeRequest();
-      
-       request.onreadystatechange = function(){
-           if(request.readyState == 4 && request.status)
-             $("#"+elem).html(request.responseText);
-             setInitMonth();
-       }
-  
-       request.open("Get", page, true);
-       request.send();
-   }
-   
-   $(document).ready(function(){
-    //showPage('Calender.html', 'calenderContainer');
-
-   });
-
-  </script>
-  <script>
     $( function() {
       $( "#datepicker" ).datepicker({
         onSelect: function(){var currentDate = $( "#datepicker" ).datepicker( "getDate" )
@@ -137,7 +107,7 @@
         beforeShowDay: function(date) {
           var day = date.getDate();
           var month = date.getMonth();
-          return [(day == 1 || day == 5), ''];;
+          return [true, ''];;
        }
       });
     });

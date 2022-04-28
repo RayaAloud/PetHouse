@@ -13,7 +13,7 @@ while($row = mysqli_fetch_array($result)){
     echo "<i class=\'bi bi-pencil-square edit\' onclick=\'show()\'></i>";
     echo "<i class=\'bi bi-trash3 garbage\'></i>";
     echo "</div>";
-    echo "<img src=\'data:image/png;charset=utf8;base64,".base64_encode($row[3])."\' width=\'130px\' height=\'130px\'>";
+    echo "<img src=\'data:image/png;charset=utf8;base64,".base64_encode($row[3])."\' width=\'130px\' height=\'130px\' class=\'ServiceImg\'>";
     echo "<p class=\'main-info\'>".$row[0]."</p><p class=\'main-info\'>".$row[2]."</p>";
     echo "</div>";
     echo "<hr>";

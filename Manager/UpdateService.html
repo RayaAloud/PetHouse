@@ -22,6 +22,9 @@
            border: 1px solid #858585;
            margin-bottom: 0.8em;
        }
+       #pet-image{
+           border-radius: 50%;
+       }
        #addinPic{
            margin-right: 4em;
        }
@@ -70,6 +73,10 @@
         </div>
         <div class="container d-flex justify-content-center mt-5"><button id="AddBtn">Update Service</button></div>
     </div>
- 
 </body>
+<script>
+    $('#imgUpload').change(function(){
+        document.getElementById('pet-image').src = window.URL.createObjectURL(this.files[0]);
+    })
+</script>  
 </html>
