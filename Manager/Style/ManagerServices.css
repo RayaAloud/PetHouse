@@ -61,13 +61,13 @@ h1{
   overflow: auto;
   min-height: 420px;
   display: flex;
-  max-width: 765px;
+  max-width: 830px;
 }
 .cards{
  margin-top: 0.3em;
  margin-bottom: 0.3em;
  box-shadow: 1px 1px 15px 1px #ebebeb;
- width: 240px;
+ min-width: 240px;
  background-color: white;
  height: fit-content;
  margin-right: 1.5em;

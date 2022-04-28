@@ -11,6 +11,7 @@
 - [] Add pet
 - [] Admin Login
 - [ ] Admin Available appointment
+- [x] Admin Add appointment
 - [ ] Admin appointment requests
 - [ ] Admin previous appointment
 - [ ] Admin about us

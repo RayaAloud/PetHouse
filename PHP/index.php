@@ -35,4 +35,5 @@ $value = mysqli_fetch_array($result);
         echo "</div>'";
         echo "</script>";    
     }
+mysqli_close($connection);
 ?>
