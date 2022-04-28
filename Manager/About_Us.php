@@ -59,4 +59,9 @@
  </div>  
  <?php include 'PHP/About_us.php' ?>
 </body>
+<script>
+        $('#PhotoInput').change(function(){ 
+            document.getElementById('aboutus-img').src = window.URL.createObjectURL(this.files[0]);
+        })
+    </script>
 </html>

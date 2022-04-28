@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -149,7 +147,7 @@ input[placeholder] {
     top: 95vh;
   }
 }
-=======
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
@@ -297,4 +295,3 @@ input[placeholder] {
     top: 95vh;
   }
 }
->>>>>>> d36a7c5b0900a4540863a47ff9afa06855c8b1a6
