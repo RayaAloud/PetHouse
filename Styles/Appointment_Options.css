@@ -1,0 +1,74 @@
+#pet img{
+    height: 60px;
+    width: 60px;
+}
+#petsList{
+    border-radius: 30px;
+    padding: 5px .5em 5px 1.5em;
+    width: 120px;
+}
+#pet label{
+ color: #737ca7;
+ font-weight: bold;
+ font-size: 1.2em;
+}
+#ServicesList{
+    height: fit-content;
+    display: flex;
+    overflow: auto;
+    max-width: 600px;
+}
+.cards{
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    box-shadow: 1px 1px 15px 1px #ebebeb;
+    min-width: 160px;
+    height: fit-content;
+    margin-right: 1.5em;
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+}
+.main-info{
+     margin-top: 0.5em;
+     color: #737ca7;
+     font-weight: bold;
+ }
+ .cards:hover{
+     cursor:pointer;
+ }
+ .next-previous{
+     background-color: transparent;
+     border: none;
+     font-size: 1.5em;
+     color: #6e6e6e;
+ }
+ .next-previous:hover{
+     cursor: pointer;
+     background-color: #dbdbdb;
+     border-radius: 35px;
+ }
+ .serviceImg{
+     border-radius: 50%;
+ }
+ .collap:hover{
+ background-color: #ebebeb;
+ }
+ .active{
+ background-color: #ebebeb;
+ }
+ .content{
+     display: none;
+     height: fit-content;
+     width: fit-content;
+     padding: 1em;
+ }
+ hr{
+     width: 100%;
+     margin: 0  0 0.3em 0 !important;
+ }
+ @media screen and (max-width: 991px) {
+     #ServicesList{
+         max-width: 170px;
+     }
+ }

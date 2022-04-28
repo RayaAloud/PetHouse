@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <!--External CSS-->
-  <link rel="stylesheet" href="#">
+  <link rel="stylesheet" href="Styles/Appointment_Options.css">
   <!--jQuery-->
   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
   <!--Bootstrap-->
@@ -26,68 +26,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <!--Bootstrap Icons-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-  <!--Embedded CSS-->
-  <style>
-
-   #pet img{
-       height: 60px;
-       width: 60px;
-   }
-   #petsList{
-       border-radius: 30px;
-       padding: 5px .5em 5px 1.5em;
-       width: 120px;
-   }
-   #pet label{
-    color: #737ca7;
-    font-weight: bold;
-    font-size: 1.2em;
-   }
-   #menu{
-       height: 250px;
-       display: flex;
-       overflow: auto;
-       max-width: 530px;
-   }
-   .cards{
-       margin-top: 1em;
-       margin-bottom: 0.5em;
-       box-shadow: 1px 1px 15px 1px #ebebeb;
-       min-width: 140px;
-       height: 220px;
-       margin-right: 1.5em;
-       margin-left: 1em;
-       display: flex;
-       padding: 0.8em;
-       text-align: center;
-       flex-direction: column;
-   }
-   .cards p{
-       margin-top: 0.5em;
-       color: #737ca7;
-       font-weight: bold;
-   }
-   .cards:hover{
-       cursor:pointer;
-   }
-   .next-previous{
-       background-color: transparent;
-       border: none;
-       font-size: 1.5em;
-       color: #6e6e6e;
-   }
-   .next-previous:hover{
-       cursor: pointer;
-       background-color: #dbdbdb;
-       border-radius: 35px;
-   }
-   @media screen and (max-width: 991px) {
-       #menu{
-           max-width: 170px;
-       }
-   }
-   
-  </style>
   <!--Scripts-->
   <script>
     function makeRequest(){
@@ -128,39 +66,37 @@
                 <label for="petsList">Pet</label>
             </div>
             <select id="petsList">
-                <option>Java</option>
-                <option>Meow</option>
-                <option>Oreo</option>
+                
             </select>
         </div>
         <div class="d-flex align-items-center mt-4">
             <button id="previous" class="next-previous mr-5"><i class="bi bi-chevron-left"></i></button>     
         <div>
-            <div id="menu" class="mt-5">
-                <div class="cards">
-                    <input type="radio" name="service">
-                    <div class="align-self-center">
-                        <img src="Images/bath.png" width="100px" height="100px">
-                        <p>Washing</p><p>120SR</p>
-                    </div>
-                </div>
-                <div class="cards">
-                    <input type="radio" name="service">
-                    <div class="align-self-center">
-                        <img src="Images/Component 41.png" width="100px" height="100px">
-                        <p>Grooming</p><p>90SR</p>
-                    </div>
-                </div>
-                <div class="cards"><img src="Images/Component40.png" width="100px" height="100px"><p>Checkup</p><p>180SR</p></div>
-                <div class="cards"><img src="Images/bath.png" width="100px" height="100px"><p>Washing</p><p>120SR</p></div>
-                <div class="cards"><img src="Images/Component 41.png" width="100px" height="100px"><p>Grooming</p><p>90SR</p></div>
-                <div class="cards"><img src="Images/Component40.png" width="100px" height="100px"><p>Checkup</p><p>180SR</p></div>
+            <div id="ServicesList" class="mt-5">
+                
             </div>
         </div>
         <button id="next" class="next-previous"><i class="bi bi-chevron-right"></i></button>
         </div>
        
     </div>
-
+    <?php include 'PHP/Appointment_Options.php' ?>
+    <script>
+      var acc = document.getElementsByClassName("collap");
+      var acc2 = document.getElementsByClassName("content");
+      for(let i = 0; i<acc.length; i++){
+        $(acc[i]).click(function(){
+          this.classList.toggle('active');
+          var j = 0;
+          if($(acc2[i]).css('display') === "block"){
+            $(acc2[i]).css('display', 'none');  
+          }
+          else if($(acc2[i]).css('display') === "none"){
+            $(acc2[i]).css('display', 'block');    
+          }
+          j++;
+        });
+      }
+    </script>
 </body>
 </html>
