@@ -66,14 +66,14 @@
                 <label for="petsList">Pet</label>
             </div>
             <select id="petsList">
-                
+            <!--Owner's Pets Here-->  
             </select>
         </div>
-        <div class="d-flex align-items-center mt-4">
+        <div class="d-flex align-items-center">
             <button id="previous" class="next-previous mr-5"><i class="bi bi-chevron-left"></i></button>     
         <div>
             <div id="ServicesList" class="mt-5">
-                
+            <!--Serives Here-->   
             </div>
         </div>
         <button id="next" class="next-previous"><i class="bi bi-chevron-right"></i></button>

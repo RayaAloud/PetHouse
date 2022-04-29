@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+ session_start();
+?>
 <html>
 <head>
   <title>Request Appointment</title>
@@ -6,11 +9,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--Favicon-->
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="Images/favicon_io/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon_io/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="Images/favicon_io/favicon-16x16.png">
-  <link rel="manifest" href="Images/favicon_io/site.webmanifest">
+  <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../Images/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../Images/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../Images/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="../Images/favicon_io/site.webmanifest">
   <!--Font-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,22 +59,32 @@
      document.getElementById(id1).style.backgroundColor = '#ffffff';
      document.getElementById(id2).style.backgroundColor = '#111B47';
    }
-   
+   function checkService(){
+     var services = document.getElementsByName('service');
+     for(var i = 0; i < services.length; i++){
+       if(services[i].checked){
+        var service = services[i].parentNode.childNodes[1].childNodes[1].innerHTML;
+        sessionStorage.setItem('Request_Appoinemtent_Service',service);
+         return true;  
+       }    
+     }
+     return false;
+   }
    var currentPage = 0;
    function move(id){  
      var backBtn =  document.getElementById('backBtn');
      var nextBtn =  document.getElementById('nextBtn');
+     let move = true;
      switch(id){
        case "cancelBtn": window.location.href = "#"; break;
        case "backBtn": 
      
           if(currentPage == 1){
-            showPage('AppointmentOptions.php', 'AppointmentOptions');
-            backBtn.style.display = 'none';
-            document.getElementById('btnsContainer').classList.remove('col-6');
-            document.getElementById('btnsContainer').classList.add('col-4');
-            activeCircle('circle2','circle1');
-           
+              showPage('AppointmentOptions.php', 'AppointmentOptions');
+              backBtn.style.display = 'none';
+              document.getElementById('btnsContainer').classList.remove('col-6');
+              document.getElementById('btnsContainer').classList.add('col-4');
+              activeCircle('circle2','circle1');    
           }
           else if(currentPage == 2){
             showPage('AppointmentDateTime.html', 'AppointmentOptions');
@@ -81,10 +94,17 @@
           }      
           currentPage--;
        break;
-       case "nextBtn":       
+       case "nextBtn":    
           if(currentPage == 0){
+            if(checkService()){
             showPage('AppointmentDateTime.html', 'AppointmentOptions');
             activeCircle('circle1','circle2');
+            document.getElementById('msg').innerHTML = "";
+            }
+            else{
+              document.getElementById('msg').innerHTML = "<div class=\'alert alert-warning\' role=\'alert\'>Please select a service</div>";
+              move = false;
+            }
         
           }
           else if(currentPage == 1){
@@ -93,10 +113,12 @@
             activeCircle('circle2','circle3');
             
           }
-          document.getElementById('btnsContainer').classList.remove('col-4');
-          document.getElementById('btnsContainer').classList.add('col-6');
-          backBtn.style.display = 'block';
-          currentPage++;
+          if(move){
+            document.getElementById('btnsContainer').classList.remove('col-4');
+            document.getElementById('btnsContainer').classList.add('col-6');
+            backBtn.style.display = 'block';
+            currentPage++;
+          }
        break;
      }
      
@@ -132,9 +154,9 @@
 <img src="../Images/designer_1.png" id="bcBluePath">
 <img src="../Images/undraw_playful_cat_re_ac9g.png" id="bcImg">
 
-<div class="container pt-4 d-flex justify-content-end px-2 mb-4">
+<div class="container pt-4 d-flex justify-content-end px-2 mb-5">
   <div class="d-flex flex-column px-5">
-    <div class="row">
+    <div class="row mb-3">
         <div id="timeLine" class="d-flex">
             <div class="outerCircle d-flex"><div id="circle1" class="innerCircle align-self-center active m-auto"></div></div>
             <span class="lines align-self-center"></span>
@@ -144,10 +166,11 @@
         </div>
       </div>
       <div class="row d-flex justify-content-center">
+        <span id="msg" class="col-7"></span>
         <div id="AppointmentOptions" class=""></div>
       </div>
       <div class="row justify-content-center mt-2">
-        <div class="btnContainer col-4 d-flex justify-content-between mt-5" id="btnsContainer">
+        <div class="btnContainer col-4 d-flex justify-content-between mt-4" id="btnsContainer">
            <a class="text-decoration-none" href="Dashboard.html"><button class="movingBtns lightBtn" onclick="move('cancelBtn')" id="cancelBtn">Cancel</button></a>
             <button class="movingBtns darkBtn d-hidden" id="backBtn" onclick="move('backBtn')">Back</button>
             <button class="movingBtns darkBtn" onclick="move('nextBtn')" id="nextBtn">Next</button>
@@ -155,8 +178,5 @@
     </div>
   </div>
 </div>
-  
-
-
 </body>
 </html>

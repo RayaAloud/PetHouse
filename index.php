@@ -68,7 +68,7 @@
             <br> the prettiest and most groomed pet in the world
            <br>Feel good, your pet is at good hands.
           </p>
-          <a class="text-decoration-none" href="signup.html"><button id="join-us-Btn">Sign up now!</button></a>
+          <a class="text-decoration-none" href="signup.php"><button id="join-us-Btn">Sign up now!</button></a>
     
       </div>
       <img src="Images/undraw_friends_r511.png" class="align-self-sm-center">

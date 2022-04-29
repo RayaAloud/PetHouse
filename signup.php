@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php 
+    session_start();
+    // Check if the user has already logged in
+    if(isset($_SESSION['Logged_in'])) 
+        header("Location: indexsigned.php");
+  
+?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -69,7 +76,7 @@
             
             
              <div id="inputs" class="d-flex flex-column col-8">
-               <form class="d-flex flex-column"> 
+               <form class="d-flex flex-column" action="Sign_up.php" method="post"> 
                 <div id="addinPic" class="d-flex flex-column align-self-center">
                     <img id="profile-image" src="images/undraw_profile_pic_ic.png" alt="pet picture">
                     <input type="file" id="uploadFile">
@@ -116,7 +123,7 @@
                        <label>
                     </div>
                    
-                    <button type="submit" id="signInBtn2" class="align-self-center mt-5">Sign up</button>   
+                    <button type="submit" id="signInBtn2" name="signup-submit" class="align-self-center mt-5">Sign up</button>   
                 </form> 
                 <div id="toSignup" class="m-auto mt-4">
                     <p>Already have an account? <a href="login.html">Sign in</a></p>

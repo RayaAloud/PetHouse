@@ -99,9 +99,23 @@
    }
   </style>
   <script>
+    function processDateTime(list){
+
+    }
+    $.ajax({
+      url: 'PHP/Retrieve_Available_Appt_for_Service.php',
+      method: 'POST',
+      data: {serviceName : sessionStorage.getItem('Request_Appoinemtent_Service')}
+    }).done(function(msg){
+        alert(msg);
+        let dates_and_times = jQuery.parseJSON(msg[0]);
+        alert(dates_and_times.Date);
+    })
+    let currentDate;
     $( function() {
       $( "#datepicker" ).datepicker({
-        onSelect: function(){var currentDate = $( "#datepicker" ).datepicker( "getDate" )
+        onSelect: function(){
+            currentDate = $( "#datepicker" ).datepicker( "getDate" )
         },
         minDate:0 ,
         beforeShowDay: function(date) {
@@ -142,10 +156,9 @@
           <option>9:00</option>
           <option>10:30</option>
         </select>
-        <textarea class="col-12 p-2 mt-5" placeholder="Notes..."></textarea>
+        <textarea class="col-12 p-2 mt-5" placeholder="Notes (Optional)..."></textarea>
      </div>
     </div>
    </div>
-
 </body>
 </html>
