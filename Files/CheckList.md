@@ -14,7 +14,7 @@
 - [x] Admin Add appointment
 - [ ] Admin appointment requests
 - [ ] Admin previous appointment
-- [ ] Admin about us
+- [x] Admin about us
 - [ ] Admin Reviews
 - [x] Admin services
 - [ ] Admin Available date and times
