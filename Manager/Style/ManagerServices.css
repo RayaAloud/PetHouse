@@ -127,7 +127,7 @@ margin-left: 2em;
 .content{
   display: none;
   height: fit-content;
-  width: fit-content;
+  max-width: 240px;
   padding: 1em;
 }
 .ServiceImg{

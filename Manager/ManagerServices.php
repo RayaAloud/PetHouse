@@ -10,11 +10,12 @@
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-     <!--jQuery-->
-     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <!--AJAX-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-   
 <script>
   function makeRequest(){
     var req;
@@ -37,14 +38,16 @@ function showPage(page, elem){
    request.open("Get", page, true);
    request.send();
 }
-function show(){
-  showPage('UpdateService.html','addService')
+function show(btn){
+    showPage('UpdateService.php','addService');
+    let service_name = btn.parentNode.parentNode.childNodes[2].innerHTML;
+    sessionStorage.setItem('ServiceToBeEdited',service_name);   
+    
 }
-
 </script>
 </head>
 <body>
- 
+
     <div class="mb-4">
         <div class="upcoming-apt">
           <p id="title">Services</p>
@@ -56,9 +59,7 @@ function show(){
           <button id="previous" class="next-previous"><i class="bi bi-chevron-left"></i></button>     
         <div>
           <div id="ServicesList" class="mt-5">
-          
-
-            
+          <!--Services here..--> 
           </div>
         </div>
         <button id="next" class="next-previous"><i class="bi bi-chevron-right"></i></button>
@@ -85,5 +86,20 @@ function show(){
         });
       }
     </script>
+    <script>
+       var deleteBtns = document.getElementsByClassName('DeleteBtn');
+       for(let i = 0; i<deleteBtns.length; i++){
+         $(deleteBtns[i]).click(function(){
+          let name = deleteBtns[i].parentNode.parentNode.childNodes[2].innerHTML;
+          $.ajax({
+            url: 'PHP/Delete_Service.php',
+            method: 'POST',
+            data: {ServiceName : name}
+        }).done(function( msg ) {
+         alert( "Data Saved: " + msg );
+        });
+       })
+      }
+  </script>
  </body> 
 </html>

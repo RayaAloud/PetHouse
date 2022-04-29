@@ -60,7 +60,7 @@
  .content{
      display: none;
      height: fit-content;
-     width: fit-content;
+     max-width: 160px;
      padding: 1em;
  }
  hr{

@@ -21,13 +21,12 @@
 }
 #plusS{
     font-size: 1.5em;
-    margin-top: -1.5em;
+    margin-top: -1em;
     color: #6571a7;
     border-radius: 90%;
     text-align: center;
     align-self: flex-end;
     cursor: pointer;
-
 }
  #imgUpload{
     display: none;
