@@ -72,18 +72,11 @@
             }
             .ui-datepicker-month, .ui-datepicker-year{
                 color: white;
-            }
-           
+            } 
         </style>
-    
 </head>
 <body>
-
     <span id="header"></span>
-    
-
-
-
     <div class="mb-4 mt-5">
         <div class="available-apt col-10 d-flex justify-content-between" id="topContainer">
             <div class="col-10">
@@ -95,7 +88,6 @@
         <!--table-->
      <div class="box mb-4 mt-5">
         <table>
-        
             <thead>
             <tr>
                 <th class="text-center pt-4 pb-2">Service</th>
@@ -104,56 +96,12 @@
                 <th class="text-center pt-4 pb-2"></th>
             </tr>
             </thead>
-        
             <tbody>
-                <tr >
-                <td>Checkup</td>
-                <td>27/1/2022</td>
-                <td>10:30am</td>
-                <td> <button class="buttons"> <i class="bi bi-trash3 trashIcon"></i> </button> <button class="buttons" onclick="showPage('UpdateAppointment.html','content')"><i class="bi bi-pencil-square pencilIcon"></i></button> </td>
-                </tr>
-        
-                <tr>
-                <td>Washing</td>
-                <td>27/10/2022</td>
-                <td>10:30am</td>
-                <td><button class="buttons"> <i class="bi bi-trash3 trashIcon"></i> </button> <button class="buttons" onclick="showPage('UpdateAppointment.html','content')"><i class="bi bi-pencil-square pencilIcon"></i></button></td>
-                </tr>
-        
-                <tr>
-                <td>Checkup</td>
-                <td>14/11/2022</td>
-                <td>10:30am</td>
-                <td> <button class="buttons"> <i class="bi bi-trash3 trashIcon"></i> </button> <button class="buttons" onclick="showPage('UpdateAppointment.html','content')"><i class="bi bi-pencil-square pencilIcon"></i></button></td>
-                </tr>
-        
-                <tr>
-                <td>Washing</td>
-                <td>27/2/2022</td>
-                <td>10:30am</td>
-                <td> <button class="buttons"> <i class="bi bi-trash3 trashIcon"></i> </button> <button class="buttons" onclick="showPage('UpdateAppointment.html','content')"><i class="bi bi-pencil-square pencilIcon"></i></button></td>
-                </tr>
-                <tr>
-                <td>Washing</td>
-                <td>27/2/2022</td>
-                <td>10:30am</td>
-                <td> <button class="buttons"> <i class="bi bi-trash3 trashIcon"></i> </button> <button class="buttons" onclick="showPage('UpdateAppointment.html','content')"><i class="bi bi-pencil-square pencilIcon"></i></button></td>
-                </tr>
-            
-                <tr>
-                <td>Washing</td>
-                <td>27/2/2022</td>
-                <td>10:30am</td>
-                <td> <button class="buttons"> <i class="bi bi-trash3 trashIcon"></i> </button> <button class="buttons" onclick="showPage('UpdateAppointment.html','content')"><i class="bi bi-pencil-square pencilIcon"></i></button></td>
-                </tr>
+            <!--Available Appointments Here--> 
             </tbody>
-            </table>
-        
-        
-        
-        </div>
-  
+        </table> 
+     </div>
   </div>
- 
+ <?php include 'PHP/Retrieve_Available_Apppointments.php' ?>
 </body>
 </html>

@@ -1,0 +1,41 @@
+<?php
+include 'Connection.php';
+$connection = mysqli_connect(host,Username,Password,db);
+  if(!$connection)
+   die();
+$query = "Select * from Available_Appointment";
+$result = mysqli_query($connection,$query);
+
+while($row = mysqli_fetch_array($result)){
+    $time = explode(":",$row['Time']);
+    if($time[0] < 12){
+      if($time[0] == 0)
+        $time = ($time[0]+12).":".$time[1]." AM";
+      else{
+        $time = $time[0].":".$time[1]." AM";
+      }
+    }
+    else{
+        if($time[0] == 12){
+            $time = $time[0].":".$time[1]." PM";
+        }
+        else{
+            $time = ($time[0]-12).":".$time[1]." PM";
+        }
+    }
+    $date = explode("-",$row['Date']);
+    $date = $date[2]."/".$date[1]."/".$date[0];
+     
+    echo "<script> document.getElementsByTagName('tbody')[0].innerHTML +='";
+    echo "<tr id=\'".$row['Appointment_ID']."\'>";
+    echo "<td>".$row['Service_Name']."</td>";
+    echo "<td>".$date."</td>";
+    echo "<td>".$time."</td>";
+    echo "<td> <button class=\'buttons\'>"."<i class=\'bi bi-trash3 trashIcon\'></i> </button> <button class=\'buttons\' onclick=\'showPage"."(\'UpdateAppointment.html\',\'content\')"."\'>"."<i class=\'bi bi-pencil-square pencilIcon\'></i></button></td>";
+    echo "</tr>'";
+    echo "</script>";
+}
+
+mysqli_close($connection);
+
+?>
