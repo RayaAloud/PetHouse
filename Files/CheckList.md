@@ -10,8 +10,7 @@
 - [ ] Pets list
 - [ ] Add pet
 - [ ] Admin Login
-- [ ] Admin Available appointment
-- [x] Admin Add appointment
+- [x] Admin Available appointment
 - [ ] Admin appointment requests
 - [ ] Admin previous appointment
 - [x] Admin about us

@@ -31,7 +31,11 @@ while($row = mysqli_fetch_array($result)){
     echo "<td>".$row['Service_Name']."</td>";
     echo "<td>".$date."</td>";
     echo "<td>".$time."</td>";
-    echo "<td> <button class=\'buttons\'>"."<i class=\'bi bi-trash3 trashIcon\'></i> </button> <button class=\'buttons\' onclick=\'showPage"."(\'UpdateAppointment.html\',\'content\')"."\'>"."<i class=\'bi bi-pencil-square pencilIcon\'></i></button></td>";
+    echo "<td> <button class=\'buttons\'>";
+    echo "<i class=\'bi bi-trash3 trashIcon\'></i></button>";
+    echo "<button class=\'buttons editBtn\'>";
+    echo "<i class=\'bi bi-pencil-square pencilIcon\'>";
+    echo "</i></button></td>";
     echo "</tr>'";
     echo "</script>";
 }

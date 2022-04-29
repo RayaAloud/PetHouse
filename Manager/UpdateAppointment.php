@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -18,9 +19,12 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
 <script>
+  let currentDate;
   $( function() {
     $( "#datepicker" ).datepicker({
-      onSelect: function(){var currentDate = $( "#datepicker" ).datepicker( "getDate" )
+      onSelect: function(){
+        currentDate = $( "#datepicker" ).datepicker( "getDate" );
+        currentDate = currentDate.getFullYear() + "-" + (currentDate.getMonth()+1) + "-" + currentDate.getDate();
       },
       minDate:0 ,
       beforeShowDay: function(date) {
@@ -65,34 +69,46 @@
      <div class="line"></div>
 
          <div id="Servandtime" class="d-flex flex-column">
-         <div id="serv">
-             <label>
-                Service 
-                <select id="serviceOptions">
-                  <option value="washing">Washing</option>
-                  <option value="grooming">Grooming</option>
-                  <option value="checkup">checkup</option>
-                </select>
-             </label>
-         </div>
-
-         <div class="d-flex">
-            <div id="datepicker"></div>
-            <div class="d-flex flex-column justify-content-center">
-            <div id="time">
-                <span class="d-block">Time </span><input type="time" name="time1" id="time1" />
+          <form id="form">
+            <div id="serv">
+                <label>
+                    Service 
+                    <select id="serviceOptions">
+                    </select>
+                </label>
             </div>
-        </div>
-            
-       </div>
-       <div id="add" class="align-self-center">
-        <button id="addbtn" type="submit">Update</button>
-      </div>
 
+            <div class="d-flex">
+                <div id="datepicker"></div>
+                <div class="d-flex flex-column justify-content-center">
+                  <div id="time">
+                      <span class="d-block">Time </span><input type="time" name="time1" id="time1" />
+                  </div>
+                </div>
+            </div>
+          <div id="add" class="align-self-center">
+            <button id="addbtn" type="submit">Update</button>
+          </div>
+        </form>
     </div>
     </div>
      </div>
     </body>
-    
+    <?php include 'PHP/Get_Services_Names.php'?>
+    <?php $id =  $_GET['ID'] ;
+     $_SESSION['Appointment_ID_to_be_Edited'] = $id;?>
+    <script>
+      $('#form').submit(function(event){
+        event.preventDefault();
+        $.ajax({
+          url: 'PHP/Edit_appointment.php',
+          method: 'POST',
+          data: {service : $('#serviceOptions').val(), date : currentDate, time: $('#time1').val()}
+        }).done(function(msg){
+          alert(msg);
+          
+        })
+      })
 
+    </script>
 </html>

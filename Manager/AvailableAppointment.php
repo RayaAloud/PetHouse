@@ -23,33 +23,11 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <!--Bootstrap Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+     <!--AJAX-->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Script-->
     <script>
-        function makeRequest(){
-            var req;
-            if(window.XMLHttpRequest)
-              req = new XMLHttpRequest();
-            else{
-                req = new ActiveXObject(Microsoft.XMLHttpRequest);
-            }
-            return req;
-        }
-    
-        function showPage(page, elem){
-            var request = makeRequest();
-            
-            request.onreadystatechange = function(){
-                if(request.readyState == 4 && request.status)
-                $("#"+elem).html(request.responseText);
-            }
-    
-            request.open("Get", page, true);
-            request.send();
-        }
-    
-      $(document).ready(function(){
-       
-      })
+        
     </script>
     <script>
         $( function() {
@@ -103,5 +81,38 @@
      </div>
   </div>
  <?php include 'PHP/Retrieve_Available_Apppointments.php' ?>
+    <script>
+        function makeRequest(){
+            var req;
+            if(window.XMLHttpRequest)
+              req = new XMLHttpRequest();
+            else{
+                req = new ActiveXObject(Microsoft.XMLHttpRequest);
+            }
+            return req;
+        }
+    
+        function showPage(page, elem){
+            var request = makeRequest();
+            
+            request.onreadystatechange = function(){
+                if(request.readyState == 4 && request.status)
+                $("#"+elem).html(request.responseText);
+            }
+    
+            request.open("Get", page, true);
+            request.send();
+        }
+    
+        var editBtns = document.getElementsByClassName('editBtn');
+        for(let i = 0; i < editBtns.length; i++){
+            $(editBtns[i]).click(function(){
+                let apptID = editBtns[i].parentNode.parentNode;
+                apptID = $(apptID).attr('id');
+                showPage('UpdateAppointment.php?ID='+apptID,'content');
+            })
+           
+        }
+    </script>
 </body>
 </html>
