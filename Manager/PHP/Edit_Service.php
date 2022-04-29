@@ -24,7 +24,7 @@ if(isset($_FILES['img']['tmp_name'])){
     $img = addslashes(file_get_contents($img));
     $query = "Update Service Set Photo = '".$img."' Where Name = '".$service_old_name."';";
     $result  = mysqli_query($connection,$query);
+    setcookie('service_old_name', "", time() - (86400 * 30),  "/");
 }
 mysqli_close($connection);
-setcookie('service_old_name', "", time() - (86400 * 30),  "/");
 ?>
