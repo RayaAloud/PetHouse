@@ -1,15 +1,15 @@
 - [x] Home page
-- [] Request Appointment1
-- [] Request Appointment2
-- [] Request Appointment3
-- [] Owner Login
-- [] Owner Register
-- [] Pet Profile
-- [] Owner Profile
-- [] Owner Dashboard
-- [] Pets list
-- [] Add pet
-- [] Admin Login
+- [ ] Request Appointment1
+- [ ] Request Appointment2
+- [ ] Request Appointment3
+- [ ] Owner Login
+- [ ] Owner Register
+- [ ] Pet Profile
+- [ ] Owner Profile
+- [ ] Owner Dashboard
+- [ ] Pets list
+- [ ] Add pet
+- [ ] Admin Login
 - [ ] Admin Available appointment
 - [x] Admin Add appointment
 - [ ] Admin appointment requests
