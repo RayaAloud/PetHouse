@@ -16,7 +16,6 @@
 - [x] Admin about us
 - [ ] Admin Reviews
 - [x] Admin services
-- [ ] Admin Available date and times
 - [ ] Admin upcoming appointments
 
 
