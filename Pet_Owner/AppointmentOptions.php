@@ -61,7 +61,7 @@
     <div class="container-fluid d-flex flex-column align-items-center pt-5">
         <div id="pet" class="col-6 d-flex justify-content-around align-items-center">
             <div>
-                <img src="Images/catBabyBlue.png" class="mr-5">
+                <img src="../Images/catBabyBlue.png" class="mr-5">
                 <span>&nbsp;</span>
                 <label for="petsList">Pet</label>
             </div>
