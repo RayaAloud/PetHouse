@@ -29,91 +29,41 @@
   <!--Bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <!--Embedded CSS-->
-  <style>
-    #timeSelect{
-        height: 40px;
-        width: 170px;
-        border-radius: 35px;
-    }
-    #timeLabel{
-        color: #202b5c;
-        font-size: 1.5em;
-        margin-left: 2px;
-        font-weight: 400;
-    }
-    #calender{
-      height: 390px;
-      width: 330px;
-      border-radius: 17px;
-      box-shadow: 1px 1px 15px 1px #ebebeb;
-      border: solid  #d3d3d3
-   }
-   table{
-       border-spacing: 10px;
-   }
-   th{
-       font-size: 14px;
-       padding-bottom: 1em
-   }
-   td{
-       padding: 0.5em;
-   }
-   td:hover{
-       cursor: pointer;
-   }
-   .next-previous{
-       background-color: transparent;
-       border: none;
-   }
-   .next-previous:hover{
-       cursor: pointer;
-       background-color: #dbdbdb;
-       border-radius: 35px;
-   }
-   
-   td:active{
-       background-color: #8891bb;
-       color:white;
-       border-radius: 35px;
-   }
-   #year{
-       align-items: center;
-       justify-content: center;
-       padding: 0.6em;
-       background-color: #8891bb;
-       font-weight: bold;
-       color: white;
-       text-align: center;
-       border-top-right-radius: 17px;
-       border-top-left-radius: 17px;
-   }
-   #month{
-       font-size: 20px;
-       font-weight: bold;
-   }
-   textarea{
-     border-radius: 20px;
-     border: 1px solid #b8b8b8;
-     height: 130px;
-   }
-  </style>
+  <!--External CSS-->
+  <link rel="stylesheet" href="Styles/Appointment_DateTime.css">
   <script>
-    function processDateTime(list){
-
+   let list1;
+   function setList(list){
+       list1 = list;
+   }   
+    function getList(list){
+      console.log(list1);
+      return list1
     }
-    $.ajax({
+    function checkIfExists(day,month,year){
+      console.log("in check " + day+ " "+month+" "+year)
+      var dates = getList();
+       for(var i = 0; i < dates.length; i++){
+           var date = dates[i].Date.split("-");
+           var availableYear = date[0];
+           var availableMonth = date[1];
+           var availableDay = date[2]
+           if(availableYear == year && availableMonth == (1+month) && availableDay == day)
+             return true
+       }
+       return false
+    }
+    let currentDate;
+ 
+     $.ajax({
       url: 'PHP/Retrieve_Available_Appt_for_Service.php',
       method: 'POST',
+      dataType: 'JSON',
+      cache: false,
       data: {serviceName : sessionStorage.getItem('Request_Appoinemtent_Service')}
-    }).done(function(msg){
-        alert(msg);
-        let dates_and_times = jQuery.parseJSON(msg[0]);
-        alert(dates_and_times.Date);
-    })
-    let currentDate;
-    $( function() {
-      $( "#datepicker" ).datepicker({
+      }).done(function(msg){
+        setList(msg);
+        $( "#datepicker" ).datepicker({
         onSelect: function(){
             currentDate = $( "#datepicker" ).datepicker( "getDate" )
         },
@@ -121,28 +71,12 @@
         beforeShowDay: function(date) {
           var day = date.getDate();
           var month = date.getMonth();
-          return [true, ''];;
+          var year = date.getFullYear();
+          return [checkIfExists(day,month,year), ''];;
        }
       });
-    });
-   
+      })
     </script>
-    <style>
-        .ui-widget-header{
-            background: #A2ABD1 ;
-        }
-        td{
-            border-radius: 50px;
-        }
-        .ui-datepicker-month, .ui-datepicker-year{
-            color: white;
-        }
-        #datepicker{
-            margin-left: 2em;
-            margin-top: 2em;
-        }
-       
-    </style>
 </head>
 <body>
 

@@ -76,7 +76,7 @@
             
             
              <div id="inputs" class="d-flex flex-column col-8">
-               <form class="d-flex flex-column" action="Sign_up.php" method="post"> 
+               <form class="d-flex flex-column" action="PHP/Sign_up.php" method="post"> 
                 <div id="addinPic" class="d-flex flex-column align-self-center">
                     <img id="profile-image" src="images/undraw_profile_pic_ic.png" alt="pet picture">
                     <input type="file" id="uploadFile">

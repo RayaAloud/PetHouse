@@ -1,0 +1,79 @@
+#timeSelect{
+    height: 40px;
+    width: 170px;
+    border-radius: 35px;
+}
+#timeLabel{
+    color: #202b5c;
+    font-size: 1.5em;
+    margin-left: 2px;
+    font-weight: 400;
+}
+#calender{
+  height: 390px;
+  width: 330px;
+  border-radius: 17px;
+  box-shadow: 1px 1px 15px 1px #ebebeb;
+  border: solid  #d3d3d3
+}
+table{
+   border-spacing: 10px;
+}
+th{
+   font-size: 14px;
+   padding-bottom: 1em
+}
+td{
+   padding: 0.5em;
+}
+td:hover{
+   cursor: pointer;
+}
+.next-previous{
+   background-color: transparent;
+   border: none;
+}
+.next-previous:hover{
+   cursor: pointer;
+   background-color: #dbdbdb;
+   border-radius: 35px;
+}
+
+td:active{
+   background-color: #8891bb;
+   color:white;
+   border-radius: 35px;
+}
+#year{
+   align-items: center;
+   justify-content: center;
+   padding: 0.6em;
+   background-color: #8891bb;
+   font-weight: bold;
+   color: white;
+   text-align: center;
+   border-top-right-radius: 17px;
+   border-top-left-radius: 17px;
+}
+#month{
+   font-size: 20px;
+   font-weight: bold;
+}
+textarea{
+ border-radius: 20px;
+ border: 1px solid #b8b8b8;
+ height: 130px;
+}
+.ui-widget-header{
+    background: #A2ABD1 ;
+}
+td{
+    border-radius: 50px;
+}
+.ui-datepicker-month, .ui-datepicker-year{
+    color: white;
+}
+#datepicker{
+    margin-left: 2em;
+    margin-top: 2em;
+}
