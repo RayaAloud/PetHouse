@@ -4,7 +4,7 @@ session_start();
         
         require_once("Connection.php");
         
-        $con = mysqli_connect(DBHOST,DBUSER,DBPWD,DBNAME);
+        $con = mysqli_connect(host,Username,Password,db);
 
         if(mysqli_connect_errno())
             die("Fail to connect to database :" . mysqli_connect_error());
