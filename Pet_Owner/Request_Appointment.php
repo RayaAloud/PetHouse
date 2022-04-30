@@ -20,8 +20,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <!--External CSS-->
-  <link rel="stylesheet" href="Styles/Request_Appointment.css">
   <!--jQuery-->
   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
@@ -33,6 +31,8 @@
   <!--Bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <!--External CSS-->
+  <link rel="stylesheet" href="Styles/Request_Appointment.css">
   <!--Scripts-->
   <script>
     function makeRequest(){
@@ -77,7 +77,7 @@
    function move(id){  
      var backBtn =  document.getElementById('backBtn');
      var nextBtn =  document.getElementById('nextBtn');
-     let move = true;
+     var move = true;
      switch(id){
        case "cancelBtn": window.location.href = "#"; break;
        case "backBtn": 
@@ -143,7 +143,7 @@
   <div class="d-flex flex-column px-5">
     <div class="row mb-3">
         <div id="timeLine" class="d-flex">
-            <div class="outerCircle d-flex"><div id="circle1" class="innerCircle align-self-center active m-auto"></div></div>
+            <div class="outerCircle d-flex"><div id="circle1" class="innerCircle align-self-center activeCircle m-auto"></div></div>
             <span class="lines align-self-center"></span>
             <div class="outerCircle d-flex"><div id="circle2" class="innerCircle align-self-center nonActive m-auto"></div></div>
             <span class="lines align-self-center"></span>
