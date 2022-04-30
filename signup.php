@@ -76,10 +76,10 @@
             
             
              <div id="inputs" class="d-flex flex-column col-8">
-               <form class="d-flex flex-column" action="PHP/Sign_up.php" method="post"> 
-                <div id="addinPic" class="d-flex flex-column align-self-center">
+               <form class="d-flex flex-column" action="PHP/Sign_up.php" method="post" enctype="multipart/form-data"> 
+                <div id="addinPic" class="d-flex flex-column align-self-center mt-4">
                     <img id="profile-image" src="images/undraw_profile_pic_ic.png" alt="pet picture">
-                    <input type="file" id="uploadFile">
+                    <input type="file" id="uploadFile" name="profile-img">
                     <label class="align-self-end" for="uploadFile"><i class="bi bi-plus-circle-fill" id="plusS"></i></label>
                  </div>
                     <div class="d-flex justify-content-between mb-2">

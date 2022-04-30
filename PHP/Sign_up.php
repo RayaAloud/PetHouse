@@ -11,13 +11,15 @@ session_start();
 
         /*$username = $_POST['user'];
         $password = $_POST['pw'];
-        $password2 = $_POST['re-pw'];*/
+        $password2 = $_POST['re-pw'];*/ 
+        $Email = $_POST['email'];
         $First_Name = $_POST['fname'];
         $Last_Name = $_POST['lname'];
-        $Email = $_POST['email'];
-        $Password = $_POST['password'];
-        $PhoneNo = $_POST['phonen'];
+        $PhoneNo = $_POST['phone'];
         $Gender = $_POST['gender'];
+        $Password = $_POST['password'];
+        $img = $_FILES['profile-img']['tmp_name'];
+        $img = addslashes(file_get_contents($img));
 
         /*if ($password !== $password2) {
         header("Location: signup.php?error=password doesn't match");
@@ -30,7 +32,7 @@ session_start();
         $result=mysqli_query($con,$query);
         if (mysqli_num_rows($result)>0)
         {
-            header("Location: singup.php?error=Email exist"); 
+            header("Location: ../signup.php?error=Email exist"); 
             $con -> close();
             exit;
         }
@@ -44,7 +46,7 @@ session_start();
         if (mysqli_query($con, $query)) {
             echo "New record created successfully !";
             $_SESSION['Logged_in'] = true; //!sure if email
-            header("Location: indexsigned.php");
+            header("Location: ../indexsigned.php");
             $con -> close();
             exit;
         } else {
