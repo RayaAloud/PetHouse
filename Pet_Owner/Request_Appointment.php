@@ -26,8 +26,8 @@
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-   <!--AJAX-->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!--AJAX-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!--Bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -72,7 +72,15 @@
      }
      return false;
    }
-   
+   function checkDate(){
+      var date = sessionStorage.getItem('Current_Selected_Date');
+      if (date == null)
+        return false;
+      return true;
+   }
+   function checkTime(){
+      
+   }
    var currentPage = 0;
    function move(id){  
      var backBtn =  document.getElementById('backBtn');
@@ -88,12 +96,13 @@
               document.getElementById('btnsContainer').classList.remove('col-6');
               document.getElementById('btnsContainer').classList.add('col-4');
               activeCircle('circle2','circle1');    
+              document.getElementById('msg').innerHTML = "";
           }
           else if(currentPage == 2){
             showPage('AppointmentDateTime.html', 'AppointmentOptions');
             nextBtn.innerHTML = 'Next';
             activeCircle('circle3','circle2');
-            
+            document.getElementById('msg').innerHTML = "";  
           }      
           currentPage--;
        break;
@@ -111,9 +120,16 @@
         
           }
           else if(currentPage == 1){
-            showPage('AppointmentDetails.html', 'AppointmentOptions');
-            nextBtn.innerHTML = 'Confirm';
-            activeCircle('circle2','circle3');
+            if(checkDate()){
+              showPage('AppointmentDetails.html', 'AppointmentOptions');
+              nextBtn.innerHTML = 'Confirm';
+              activeCircle('circle2','circle3');
+              document.getElementById('msg').innerHTML = "";
+            }
+            else{
+              document.getElementById('msg').innerHTML = "<div class=\'alert alert-warning\' role=\'alert\'>Please select a date</div>";
+              move = false;
+            }
             
           }
           if(move){

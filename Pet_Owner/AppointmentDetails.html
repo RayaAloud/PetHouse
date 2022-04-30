@@ -82,7 +82,13 @@
        request.open("Get", page, true);
        request.send();
    }
-  
+   $().ready(function(){
+      $('#Appt-Service').html(sessionStorage.getItem('Request_Appoinemtent_Service'));
+      var date = sessionStorage.getItem('Current_Selected_Date');
+      console.log(date);
+      $('#Appt-Date').html(date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear());
+      $('#Appt-Time').html(sessionStorage.getItem('Request_Appoinemtent_Service'));
+   })
   </script>
 </head>
 <body>
@@ -95,21 +101,21 @@
                 <table>
                     <tr>
                       <th colspan="2">Pet</th>
-                      <td>Java &nbsp;
+                      <td id="Appt-Pet">Java &nbsp;
                           <img src="../Images/catBabyBlue.png" height="40px" width="40px">
                       </td>
                     </tr>
                     <tr>
                         <th colspan="2">Service</th>
-                        <td>Washing</td>
+                        <td id="Appt-Service"></td>
                       </tr>
                       <tr>
                         <th colspan="2">Date</th>
-                        <td>4/4/2022</td>
+                        <td id="Appt-Date"></td>
                       </tr>
                       <tr>
                         <th colspan="2">Time</th>
-                        <td>9:00</td>
+                        <td id="Appt-Time"></td>
                       </tr>
                 </table>
             </div>

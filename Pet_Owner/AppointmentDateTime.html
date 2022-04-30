@@ -96,6 +96,7 @@
         onSelect: function(){
             currentDate = $("#datepicker").datepicker("getDate");
             displayTimes();
+            sessionStorage.setItem('Current_Selected_Date', currentDate);
         },
         minDate:0 ,
         beforeShowDay: function(date) {
