@@ -16,8 +16,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <!--External CSS-->
-  <link rel="stylesheet" href="#">
   <!--jQuery-->
   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
@@ -32,7 +30,8 @@
   <!--External CSS-->
   <link rel="stylesheet" href="Styles/Appointment_DateTime.css">
   <script>
-   let list1;
+   var list1;
+   var currentDate;
    function setList(list){
        list1 = list;
    }   
@@ -41,7 +40,6 @@
       return list1
     }
     function checkIfExists(day,month,year){
-      console.log("in check " + day+ " "+month+" "+year)
       var dates = getList();
        for(var i = 0; i < dates.length; i++){
            var date = dates[i].Date.split("-");
@@ -53,9 +51,40 @@
        }
        return false
     }
-    let currentDate;
+    function displayTimes(){
+      document.getElementById('timeSelect').innerHTML = "";
+      var dates = getList();
+      var times = [];
+      var counter = 0;
+       for(var i = 0; i < dates.length; i++){
+           var date = dates[i].Date.split("-");
+           var availableYear = date[0];
+           var availableMonth = date[1];
+           var availableDay = date[2];
+           var time = dates[i].Time.split(":");
+           console.log(currentDate.getFullYear() +" " +currentDate.getMonth()+" "+currentDate.getDate());
+           if(availableYear == currentDate.getFullYear() && availableMonth == (currentDate.getMonth()+1) && availableDay == currentDate.getDate()){
+              if(time[0] < 12){
+                if(time[0] == 0)
+                time = (parseInt(time[0])+12)+":"+time[1]+" AM";
+                else
+                time = time[0]+":"+time[1]+" AM";
+              }
+              else{
+                if(time[0] == 12){
+                  time = time[0]+":"+time[1]+" PM";
+                  }
+                  else{
+                  time = (time[0]-12)+":"+time[1]+" PM";
+                  }
+              }  
+            document.getElementById('timeSelect').innerHTML += "<option>"+time+"</option>";
+           }
+       }     
+    }
  
-     $.ajax({
+   $(document).ready(function(){
+    $.ajax({
       url: 'PHP/Retrieve_Available_Appt_for_Service.php',
       method: 'POST',
       dataType: 'JSON',
@@ -65,7 +94,8 @@
         setList(msg);
         $( "#datepicker" ).datepicker({
         onSelect: function(){
-            currentDate = $( "#datepicker" ).datepicker( "getDate" )
+            currentDate = $("#datepicker").datepicker("getDate");
+            displayTimes();
         },
         minDate:0 ,
         beforeShowDay: function(date) {
@@ -76,6 +106,9 @@
        }
       });
       })
+   })
+     
+
     </script>
 </head>
 <body>
@@ -86,9 +119,7 @@
      <div class="d-flex flex-column">
         <label for="timeSelect" class="mb-4" id="timeLabel">Time</label>
         <select id="timeSelect" class="px-2 mb-3">
-          <option>13:00</option>
-          <option>9:00</option>
-          <option>10:30</option>
+          <option>Select Time</option>
         </select>
         <textarea class="col-12 p-2 mt-5" placeholder="Notes (Optional)..."></textarea>
      </div>

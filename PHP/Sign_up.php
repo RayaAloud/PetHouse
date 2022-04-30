@@ -32,7 +32,7 @@ session_start();
         $result=mysqli_query($con,$query);
         if (mysqli_num_rows($result)>0)
         {
-            header("Location: ../signup.php?error=Email exist"); 
+            header("Location: ../signup.php?error=Email exists!"); 
             $con -> close();
             exit;
         }

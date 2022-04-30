@@ -95,5 +95,7 @@ input[type="radio"]{
     margin-top: 0.5em;
     margin-left: 1em;  
 }
-
+.alert{
+    padding: 0.5em !important;
+}
   

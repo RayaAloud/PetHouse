@@ -28,6 +28,8 @@
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+   <!--AJAX-->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!--Bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -70,6 +72,7 @@
      }
      return false;
    }
+   
    var currentPage = 0;
    function move(id){  
      var backBtn =  document.getElementById('backBtn');
@@ -120,31 +123,13 @@
             currentPage++;
           }
        break;
-     }
-     
+     }  
    }
-   
   
    $(document).ready(function(){
      showPage('Signed_In_Header.html', 'header');
      showPage('AppointmentOptions.php', 'AppointmentOptions');
-
    })
-   
-  </script>
-  <script>
-    $( function() {
-      $( "#datepicker" ).datepicker({
-        onSelect: function(){var currentDate = $( "#datepicker" ).datepicker( "getDate" )
-        },
-        minDate:0 ,
-        beforeShowDay: function(date) {
-          var day = date.getDate();
-          var month = date.getMonth();
-          return [true, ''];;
-       }
-      });
-    });
    
     </script>
 </head>

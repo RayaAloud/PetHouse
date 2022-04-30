@@ -28,6 +28,7 @@ input, textarea , select{
 #pet-image{
     width: 180px;
     height: 180px;
+    border-radius: 50%;
 }
 #addinPic{
     margin-right: 4em;

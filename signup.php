@@ -53,7 +53,6 @@
             request.open("Get", page, true);
             request.send();
         }
-  
       $(document).ready(function(){
         showPage('Unsigned_In_Header.html', 'header');
       })
@@ -76,6 +75,7 @@
             
             
              <div id="inputs" class="d-flex flex-column col-8">
+               <span id="msg" class="col-7"><div class='alert alert-danger' role='alert'><?php echo $_GET['error']?></div></span>
                <form class="d-flex flex-column" action="PHP/Sign_up.php" method="post" enctype="multipart/form-data"> 
                 <div id="addinPic" class="d-flex flex-column align-self-center mt-4">
                     <img id="profile-image" src="images/undraw_profile_pic_ic.png" alt="pet picture">
