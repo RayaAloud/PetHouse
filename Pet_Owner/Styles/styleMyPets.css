@@ -145,7 +145,16 @@ table{
   .active, .accordion:hover {
     background-color: #ccc;
   }
-  
+  td{
+      padding: 0.5em;
+  }
+  .data{
+    font-size: 1.5em;
+  }
+  .properity{
+      font-weight: 600;
+      font-size: 1.3em;
+  }
   /* Style the accordion panel. Note: hidden by default */
   .panel {
     padding: 0 18px;

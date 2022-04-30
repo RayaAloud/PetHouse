@@ -52,7 +52,7 @@
        return false
     }
     function displayTimes(){
-      document.getElementById('timeSelect').innerHTML = "";
+      document.getElementById('timeSelect').innerHTML = "<option>Select Time</option>";
       var dates = getList();
       var times = [];
       var counter = 0;
@@ -84,6 +84,7 @@
     }
  
    $(document).ready(function(){
+     sessionStorage.setItem('Current_Selected_Date','');
     $.ajax({
       url: 'PHP/Retrieve_Available_Appt_for_Service.php',
       method: 'POST',
@@ -122,7 +123,7 @@
         <select id="timeSelect" class="px-2 mb-3">
           <option>Select Time</option>
         </select>
-        <textarea class="col-12 p-2 mt-5" placeholder="Notes (Optional)..."></textarea>
+        <textarea class="col-12 p-2 mt-5" placeholder="Notes (Optional)..." id="note"></textarea>
      </div>
     </div>
    </div>

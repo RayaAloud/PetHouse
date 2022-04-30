@@ -7,11 +7,11 @@
         <!--AJAX-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!--Favicon-->
-        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-        <link rel="apple-touch-icon" sizes="180x180" href="Images/favicon_io/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon_io/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="Images/favicon_io/favicon-16x16.png">
-        <link rel="manifest" href="Images/favicon_io/site.webmanifest">
+        <link rel="icon" type="/image/x-icon" href="../images/favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="../Images/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../Images/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../Images/favicon_io/favicon-16x16.png">
+        <link rel="manifest" href="../Images/favicon_io/site.webmanifest">
         <!-- Font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,7 +66,7 @@
           
           <ul class="ul">
               <li> <!-- need to be fixed -->
-                  <div class="petList div">
+                  <div class="petList div" id="1">
                     <div class="p-3"> 
                        <span id="deletedit"><h6 class="delete"> <button id="deleteBtn"><i class="bi bi-trash3"></i>&nbsp;DELETE</button></h6>
                        <h6 class="edit"><button id="editBtn"> <i class="bi bi-pencil"></i>&nbsp;EDIT</button></h6>
@@ -164,26 +164,24 @@
                         </div>
                         <table>
                             <tr>
-                                <td>Pet Name</td>
-                                <td>Roy</td>
+                                <td class="properity">Pet Name</td>
+                                <td class="data">Roy</td>
+                            </tr>
+                            <tr> 
+                                <td class="properity">Date of Birth</td>
+                                <td class="data">8/1/2022</td>
                             </tr>
                             <tr>
-                                
-                                <td>Date of Birth</td>
-                                <td>8/1/2022</td>
+                                <td class="properity">Gender</td>
+                                <td class="data">Male</td>
                             </tr>
                             <tr>
-
-                                <td>Gender</td>
-                                <td>Male</td>
+                                <td class="properity">Breed</td>
+                                <td class="data"></td>
                             </tr>
                             <tr>
-                                <td>Breed</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Status</td>
-                                <td></td>
+                                <td class="properity">Status</td>
+                                <td class="data"></td>
                             </tr>
                         </table>
                     </div>

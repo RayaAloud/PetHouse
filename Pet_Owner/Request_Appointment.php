@@ -74,12 +74,17 @@
    }
    function checkDate(){
       var date = sessionStorage.getItem('Current_Selected_Date');
-      if (date == null)
+      console.log(date);
+      if (date == '')
         return false;
       return true;
    }
    function checkTime(){
-      
+      var time = $('#timeSelect').val();
+      if(time == "Select Time")
+        return false;
+      sessionStorage.setItem('Request_Appoinemtent_Time',time);
+      return true;
    }
    var currentPage = 0;
    function move(id){  
@@ -97,21 +102,23 @@
               document.getElementById('btnsContainer').classList.add('col-4');
               activeCircle('circle2','circle1');    
               document.getElementById('msg').innerHTML = "";
+              $(nextBtn).removeClass('confirm');
           }
           else if(currentPage == 2){
             showPage('AppointmentDateTime.html', 'AppointmentOptions');
             nextBtn.innerHTML = 'Next';
             activeCircle('circle3','circle2');
             document.getElementById('msg').innerHTML = "";  
+            $(nextBtn).removeClass('confirm');
           }      
           currentPage--;
        break;
        case "nextBtn":    
           if(currentPage == 0){
             if(checkService()){
-            showPage('AppointmentDateTime.html', 'AppointmentOptions');
-            activeCircle('circle1','circle2');
-            document.getElementById('msg').innerHTML = "";
+              showPage('AppointmentDateTime.html', 'AppointmentOptions');
+              activeCircle('circle1','circle2');
+              document.getElementById('msg').innerHTML = "";
             }
             else{
               document.getElementById('msg').innerHTML = "<div class=\'alert alert-warning\' role=\'alert\'>Please select a service</div>";
@@ -120,17 +127,23 @@
         
           }
           else if(currentPage == 1){
-            if(checkDate()){
+            if(checkDate() && checkTime()){
               showPage('AppointmentDetails.html', 'AppointmentOptions');
               nextBtn.innerHTML = 'Confirm';
+              nextBtn.classList.toggle('confirm');
+              confirm();
               activeCircle('circle2','circle3');
               document.getElementById('msg').innerHTML = "";
             }
             else{
-              document.getElementById('msg').innerHTML = "<div class=\'alert alert-warning\' role=\'alert\'>Please select a date</div>";
+              if(checkDate())
+                document.getElementById('msg').innerHTML = "<div class=\'alert alert-warning\' role=\'alert\'>Please select a time</div>";
+              else if(checkTime())
+                document.getElementById('msg').innerHTML = "<div class=\'alert alert-warning\' role=\'alert\'>Please select a date</div>";
+              else 
+                document.getElementById('msg').innerHTML = "<div class=\'alert alert-warning\' role=\'alert\'>Please select a date and time</div>";
               move = false;
-            }
-            
+            }  
           }
           if(move){
             document.getElementById('btnsContainer').classList.remove('col-4');
@@ -141,7 +154,26 @@
        break;
      }  
    }
-  
+   function removeListener(){
+    //document.getElementById('nextBtn');
+   }
+   function confirm(){
+     document.getElementsByClassName('confirm')[0].addEventListener('click', function(){
+       var date = new Date(sessionStorage.getItem('Current_Selected_Date'));
+       var time = sessionStorage.getItem('Request_Appoinemtent_Time');
+       var service = sessionStorage.getItem('Request_Appoinemtent_Service');
+       var note = $('#note').val();
+       console.log(note);
+       date = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
+        $.ajax({
+           url: 'PHP/Add_Appt_Request.php',
+           method: 'POST',
+           data: {petName : 'Java', date : date, time : time, service : service, note : (note == null)? null : note},
+        }).done(function(msg){
+           alert(msg)
+        })
+     }, false)
+   }
    $(document).ready(function(){
      showPage('Signed_In_Header.html', 'header');
      showPage('AppointmentOptions.php', 'AppointmentOptions');
@@ -179,5 +211,8 @@
     </div>
   </div>
 </div>
+  <script> 
+  
+  </script>
 </body>
 </html>

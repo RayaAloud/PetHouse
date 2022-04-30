@@ -84,20 +84,19 @@
    }
    $().ready(function(){
       $('#Appt-Service').html(sessionStorage.getItem('Request_Appoinemtent_Service'));
-      var date = sessionStorage.getItem('Current_Selected_Date');
-      console.log(date);
+      var date = new Date(sessionStorage.getItem('Current_Selected_Date'));
       $('#Appt-Date').html(date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear());
-      $('#Appt-Time').html(sessionStorage.getItem('Request_Appoinemtent_Service'));
+      $('#Appt-Time').html(sessionStorage.getItem('Request_Appoinemtent_Time'));
    })
   </script>
 </head>
 <body>
 
-    <div class="container d-flex justify-content-center pt-4">
+    <div class="container d-flex justify-content-center pt-1">
         <div id="appointmentInfo" class="col-12 col-md-9 mt-3">
             <h5 class="text-center">Appointment Details</h5>
             <hr>
-            <div class="d-flex col-11 col-md-9 mt-3 p-4">
+            <div class="d-flex col-11 col-md-9 mt-1 p-4 pb-2 pt-1">
                 <table>
                     <tr>
                       <th colspan="2">Pet</th>
