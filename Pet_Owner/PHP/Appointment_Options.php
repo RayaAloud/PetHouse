@@ -6,7 +6,7 @@ $connection = mysqli_connect(host,Username,Password,db);
 if(!$connection)
 die();
 
-$query = "Select Name from Pet";//where belong to this owner
+$query = "Select Name from Pet where Owner_Email = 'reem@gmail.com'";//where belong to this owner
 $result  = mysqli_query($connection, $query);
 while($row = mysqli_fetch_array($result)){
    echo "<script>";

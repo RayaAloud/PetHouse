@@ -82,7 +82,6 @@
            }
        }     
     }
- 
    $(document).ready(function(){
      sessionStorage.setItem('Current_Selected_Date','');
     $.ajax({
@@ -96,19 +95,34 @@
         $( "#datepicker" ).datepicker({
         onSelect: function(){
             currentDate = $("#datepicker").datepicker("getDate");
-            displayTimes();
             sessionStorage.setItem('Current_Selected_Date', currentDate);
+            displayTimes();    
         },
         minDate:0 ,
         beforeShowDay: function(date) {
           var day = date.getDate();
           var month = date.getMonth();
           var year = date.getFullYear();
-          return [checkIfExists(day,month,year), ''];;
-       }
-      });
-      })
+          return [checkIfExists(day,month,year), ''];
+          }
+        });
+       })
+    })
+      /*
+      var today =  document.getElementsByClassName('ui-state-default');
+          console.log(today[0]);
+          today[0].removeClass('ui-state-highlight');
+          today[0].addClass('today');
+      var h = $('.ui-state-highlight')[0]
+      $('.ui-state-highlight').removeClass()
+      
    })
+   $('.today')[0].click(function(){
+        this.classList.toggle('ui-state-active');
+        this.parentNode.classList.toggle('ui-datepicker-current-day');
+    })
+*/
+      
      
 
     </script>

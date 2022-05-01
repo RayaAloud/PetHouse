@@ -9,7 +9,7 @@ if(isset($_POST['save'])){
     $img = addslashes(file_get_contents($img)); 
     $description = $_POST['description'];
     $loc = $_POST['location'];
-    $query = "update About_Us set Description ='".$description."', Location ='".$loc."', Photo = '".$img."' where ID = 1;";
+    $query = "UPDATE About_Us set Description ='".$description."', Location ='".$loc."', Photo = '".$img."' where ID = 1;";
     $result = mysqli_query($connection,$query);
     header('Location: ../sideMenu.html');
   }

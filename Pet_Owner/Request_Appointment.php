@@ -102,14 +102,12 @@
               document.getElementById('btnsContainer').classList.add('col-4');
               activeCircle('circle2','circle1');    
               document.getElementById('msg').innerHTML = "";
-              $(nextBtn).removeClass('confirm');
           }
           else if(currentPage == 2){
             showPage('AppointmentDateTime.html', 'AppointmentOptions');
-            nextBtn.innerHTML = 'Next';
             activeCircle('circle3','circle2');
             document.getElementById('msg').innerHTML = "";  
-            $(nextBtn).removeClass('confirm');
+            switchBtns('confirm');
           }      
           currentPage--;
        break;
@@ -129,11 +127,10 @@
           else if(currentPage == 1){
             if(checkDate() && checkTime()){
               showPage('AppointmentDetails.html', 'AppointmentOptions');
-              nextBtn.innerHTML = 'Confirm';
-              nextBtn.classList.toggle('confirm');
-              confirm();
+              switchBtns('next');
               activeCircle('circle2','circle3');
               document.getElementById('msg').innerHTML = "";
+              sessionStorage.setItem('Notes',$('#note').val());
             }
             else{
               if(checkDate())
@@ -154,16 +151,39 @@
        break;
      }  
    }
-   function removeListener(){
-    //document.getElementById('nextBtn');
+   function switchBtns(btn){
+     if(btn == "next"){
+      var button = document.getElementById('nextBtn')
+      var btnParent = button.parentNode;
+      btnParent.removeChild(button);
+      var newBtn = document.createElement('button');
+      newBtn.setAttribute('class', 'movingBtns darkBtn');
+      newBtn.setAttribute('id', 'confirmBtn');
+      newBtn.innerHTML = "Confirm";
+      btnParent.appendChild(newBtn);
+      newBtn.addEventListener('click', function(){
+        confirm();
+      }, false);
+     }
+     else if(btn == "confirm"){
+      var button = document.getElementById('confirmBtn')
+      var btnParent = button.parentNode;
+      btnParent.removeChild(button);
+      var newBtn = document.createElement('button');
+      newBtn.setAttribute('class', 'movingBtns darkBtn');
+      newBtn.setAttribute('id', 'nextBtn');
+      newBtn.innerHTML = "Next";
+      btnParent.appendChild(newBtn);
+      newBtn.addEventListener('click', function(){
+        move('nextBtn');
+      }, false);
+     }
    }
    function confirm(){
-     document.getElementsByClassName('confirm')[0].addEventListener('click', function(){
        var date = new Date(sessionStorage.getItem('Current_Selected_Date'));
        var time = sessionStorage.getItem('Request_Appoinemtent_Time');
        var service = sessionStorage.getItem('Request_Appoinemtent_Service');
-       var note = $('#note').val();
-       console.log(note);
+       var note = sessionStorage.getItem('Notes');
        date = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
         $.ajax({
            url: 'PHP/Add_Appt_Request.php',
@@ -172,7 +192,6 @@
         }).done(function(msg){
            alert(msg)
         })
-     }, false)
    }
    $(document).ready(function(){
      showPage('Signed_In_Header.html', 'header');

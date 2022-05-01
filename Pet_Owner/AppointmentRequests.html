@@ -5,10 +5,10 @@
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
     <title> Pet Owner | Dashboard </title>
     <!--Favicon-->
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> 
-    <link rel="apple-touch-icon" sizes="180x180" href="Images/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="Images/favicon_io/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico"> 
+    <link rel="apple-touch-icon" sizes="180x180" href="../Images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../Images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../Images/favicon_io/favicon-16x16.png">
     <!--External CSS-->
     <link rel="stylesheet" href="Styles/Appointments.css">
     <!--Fonts-->
@@ -152,6 +152,7 @@ function show(){
       <th class="text-center pt-4 pb-2">Time</th>
       <th class="text-center pt-4 pb-2">Notes</th>
       <th class="text-center pt-4 pb-2">Status</th>
+      <th class="text-center pt-4 pb-2"></th>
     </tr>
     </thead>
 
@@ -162,7 +163,15 @@ function show(){
         <td>27/1/2022</td>
         <td>10:30am</td>
         <td> <button class="noteBtn" onclick="show2()"> <i class="bi bi-chat-square-dots-fill noteIcon"></i></button> </td>
-        <td>Denied</td>
+        <td class="cancelled">Cancelled</td>
+        <td> 
+          <button class='buttons editBtn'>
+            <i class='bi bi-pencil-square pencilIcon'></i>
+          </button>
+          <button class='cancelButtons'>
+            Cancel
+            </button>
+        </td>
       </tr>
 
       <tr>
@@ -171,7 +180,15 @@ function show(){
         <td>27/10/2022</td>
         <td>10:30am</td>
         <td> <button class="noteBtn" onclick="show2()"> <i class="bi bi-chat-square-dots-fill noteIcon"> </button></td>
-        <td class="reviewed">Approved</td>
+        <td class="reviewed">Accepted</td>
+        <td> 
+          <button class='buttons editBtn'>
+            <i class='bi bi-pencil-square pencilIcon'></i>
+          </button>
+          <button class='cancelButtons'>
+            Cancel
+            </button>
+        </td>
       </tr>
 
       <tr>
@@ -180,7 +197,15 @@ function show(){
         <td>14/11/2022</td>
         <td>10:30am</td>
         <td> <button class="noteBtn" onclick="show2()"> <i class="bi bi-chat-square-dots-fill noteIcon"></button></td>
-        <td>Denied</td>
+        <td class="Declined">Declined</td>
+        <td> 
+          <button class='buttons editBtn'>
+            <i class='bi bi-pencil-square pencilIcon'></i>
+          </button>
+          <button class='cancelButtons'>
+            Cancel
+            </button>
+        </td>
       </tr>
 
       <tr>
@@ -189,24 +214,15 @@ function show(){
         <td>27/2/2022</td>
         <td>10:30am</td>
         <td> <button class="noteBtn" onclick="show2()"><i class="bi bi-chat-square-dots-fill noteIcon"></i></button></td>
-        <td class="reviewed">Approved</td>
-      </tr>
-      <tr>
-        <td><img class="t-img" src="../Images/catBabyBlue.png" alt=""></td>
-        <td>Washing</td>
-        <td>27/2/2022</td>
-        <td>10:30am</td>
-        <td> <button class="noteBtn" onclick="show2()"> <i class="bi bi-chat-square-dots-fill noteIcon"></i></button></td>
-        <td>Denied</td>
-      </tr>
-   
-      <tr>
-        <td><img class="t-img" src="../Images/catBabyBlue.png" alt=""></td>
-        <td>Washing</td>
-        <td>27/2/2022</td>
-        <td>10:30am</td>
-        <td> <button class="noteBtn" onclick="show2()"><i class="bi bi-chat-square-dots-fill noteIcon"></i></button></td>
-        <td class="reviewed">Approved</td>
+        <td class="pending">Pending</td>
+        <td> 
+          <button class='buttons editBtn'>
+            <i class='bi bi-pencil-square pencilIcon'></i>
+          </button>
+          <button class='cancelButtons'>
+            Cancel
+            </button>
+        </td>
       </tr>
     </tbody>
   </table>

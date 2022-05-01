@@ -4,13 +4,15 @@ $connection = mysqli_connect(host,Username,Password,db);
 if(!$connection)
 die();
 
-$pet = $_POST['petName'];
+$owner_email = 'reem@gmail.com';
+$petName = $_POST['petName'];
+$petID = '1';
 $service = $_POST['service'];
 $date = $_POST['date'];
 $time = $_POST['time'];
-$query;
-print_r($_POST);
-
+$note = $_POST['note'];
+$query = "insert into Appointment_Requests values (1, '".$owner_email."', ".$petID.", '".$note."', 'Pending');";
+mysqli_query($connection,$query);
 $connection -> close();
 
 ?>

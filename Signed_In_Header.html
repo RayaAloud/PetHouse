@@ -75,7 +75,7 @@
                     <a href="Pet_Owner/Dashboard.html" class="User-nav-items">Dashboard</a>
                   </li>
       
-                  <li>
+                  <li id="logout-tab">
                     <i class="bi bi-box-arrow-right User-nav-items-icons"></i>
                     <a href="#" class="User-nav-items">Logout</a>
                   </li>
@@ -113,5 +113,16 @@
    <!--------------------------------------> 
   </nav>
 </header>
+<script>
+  document.getElementById('logout-tab').addEventListener('click', function(){
+    //alert("hi")
+     $.ajax({
+      url: 'PHP/Sign_out.php',
+      method: 'POST',
+    }).done(function(msg){
+      alert(msg)
+    })
+  },false)
+</script>
 </body>
 </html>
