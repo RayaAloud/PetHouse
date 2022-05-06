@@ -1,11 +1,5 @@
 <!DOCTYPE html>
-<?php 
-    session_start();
-    // Check if the user has already logged in
-    if(isset($_SESSION['Logged_in'])) 
-        header("Location: indexsigned.php");
-  
-?>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -76,6 +70,7 @@
             
              <div id="inputs" class="d-flex flex-column col-8">
                <span id="msg" class="col-7"><div class='alert alert-danger' role='alert'><?php if(isset($_GET['error']))echo $_GET['error']?></div></span>
+              <!-- <span id="msg" class="col-7"><div class='alert alert-danger' role='alert'><?php //echo $_GET['error']?></div></span> تطلع لي حتى بدون الايرور-->
                <form class="d-flex flex-column" action="PHP/Sign_up.php" method="post" enctype="multipart/form-data"> 
                 <div id="addinPic" class="d-flex flex-column align-self-center mt-4">
                     <img id="profile-image" src="images/undraw_profile_pic_ic.png" alt="pet picture">
@@ -114,9 +109,9 @@
                         <label class="col-3">
                             <span>Gender</span>
                             <br>
-                            <input class="mt-3" name="gender" type="radio">
+                            <input class="mt-3" name="gender" type="radio" value="male">
                             <span>male</span>
-                            <input class="mt-3" name="gender" type="radio">
+                            <input class="mt-3" name="gender" type="radio" value="female">
                             <span>female</span>       
                         </label>
                         </label>
