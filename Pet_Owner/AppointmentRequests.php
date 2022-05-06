@@ -125,8 +125,7 @@
       $(cancelBtns[i]).click(function(){
           appointmentID = $(this).parent().parent().attr('id');
           $('#darkBcground').css('display','block');
-          $('#delete-confirmation').css('display','block');  
-          
+          $('#delete-confirmation').css('display','block');     
       })
     }
     $('#cancelButton').click(function(){
@@ -179,7 +178,7 @@
     <div id="delete-confirmation">
       <div id="content-container" class="d-flex flex-column align-items-center m-auto">
         <button id="cancelBtn" class="align-self-end" onclick="closeMsg()">X</button>
-        <h3 class="mb-5">Are you sure you want to cancel this appointment?</h3>
+        <h3 class="mb-5">Cancel this appointment?</h3>
         <div id="btns-container">
             <button id="cancelButton">No</button>
             <button class="confirm-action-Button" id="cancel-appt-Button">Yes</button>

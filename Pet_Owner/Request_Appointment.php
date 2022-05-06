@@ -179,6 +179,11 @@
       }, false);
      }
    }
+   function closeMsg(){
+         $("#delete-confirmation").css('display','none'); 
+         $('#darkBcground').css('display','none');
+         window.location.href = "AppointmentRequests.php";
+   }
    function confirm(){
        var note = sessionStorage.getItem('Notes');
         $.ajax({
@@ -186,21 +191,38 @@
            method: 'POST',
            data: {ApptID : sessionStorage.getItem('Available_Appt_ID'), note : (note == null)? null : note},
         }).done(function(msg){
-           alert(msg)
+           if(msg == 1){
+            $('#darkBcground').css('display','block');
+            $('#delete-confirmation').css('display','block');  
+           }
         })
    }
    $(document).ready(function(){
      showPage('Signed_In_Header.html', 'header');
      showPage('AppointmentOptions.php', 'AppointmentOptions');
+     $('#okButton').click(function(){
+       closeMsg();
+    })
    })
    
     </script>
 </head>
 <body>
-
+<div id="darkBcground"></div>
 <span id="header"></span>
 <img src="../Images/designer_1.png" id="bcBluePath">
 <img src="../Images/undraw_playful_cat_re_ac9g.png" id="bcImg">
+<!--Msg-->
+<div id="delete-confirmation">
+      <div id="content-container" class="d-flex flex-column align-items-center m-auto">
+        <button id="cancelButton" class="align-self-end" onclick="closeMsg()">X</button>
+        <i class="bi bi-check-circle-fill"></i>
+        <h4 class="mb-5 text-center msg">Appointment Requested Successfully</h4>
+        <div id="btns-container">
+            <button id="okButton">OK</button>
+        </div>
+      </div>
+</div>
 
 <div class="container pt-4 d-flex justify-content-end px-2 mb-5">
   <div class="d-flex flex-column px-5">
