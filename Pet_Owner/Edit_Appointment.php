@@ -171,9 +171,27 @@
           var month = date.getMonth();
           var year = date.getFullYear();
           return [checkIfExists(day,month,year), ''];
+          },
+        })
+        var appt_date = new Date(sessionStorage.getItem('Appt_Request_Date'));
+        var cells = document.getElementsByClassName('ui-state-default');
+        for(var k = 0; k < cells.length; k++){
+          console.log(cells[k].parentNode.getAttribute('month'))
+          if(cells[k].parentNode.getAttribute('data-year') == appt_date.getFullYear() &&
+          cells[k].parentNode.getAttribute('data-month') == appt_date.getMonth() &&
+          cells[k].getAttribute('data-date') == appt_date.getDate()){
+            cells[k].click();
           }
-        });
+        }
+        $('#timeSelect').val(sessionStorage.getItem('Appt_Request_Time'));
        })
+      // sessionStorage.setItem('Appt_Request_ID', $(appointment).attr('id'));
+          //sessionStorage.setItem('Appt_Request_Service', $(appointment).children()[1].innerHTML);
+        $('#petsList').val(sessionStorage.getItem('Appt_Request_Pet'));
+        $('#'+sessionStorage.getItem('Appt_Request_Service')).prop('checked', true);
+       // $("#datepicker").datepicker("setDate", sessionStorage.getItem('Appt_Request_Date'));
+         // sessionStorage.setItem('Appt_Request_Note', $(appointment).children()[1].innerHTML);
+        $('#note').val(sessionStorage.getItem('Appt_Request_Note'));
     })
    
     </script>
@@ -191,13 +209,14 @@
       <div class="d-flex flex-column align-items-center mt-5">
         <span id="msg" class="col-7"></span>
         <div id="AppointmentOptions" class="text-center">
-          <div id="pet" class="pb-5 d-flex justify-content-between align-items-center">
+          <div id="pet" class="pb-5 d-flex justify-content-around align-items-center">
             <div>
                 <img src="../Images/catBabyBlue.png" class="">
                 <span>&nbsp;</span>
                 <label for="petsList">Pet</label>
             </div>
             <select id="petsList">
+              <option>Roy</option>
             <!--Owner's Pets Here-->  
             </select>
           </div>

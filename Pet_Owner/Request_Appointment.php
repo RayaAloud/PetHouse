@@ -241,7 +241,7 @@
       </div>
       <div class="row justify-content-center mt-2">
         <div class="btnContainer col-4 d-flex justify-content-between mt-4" id="btnsContainer">
-           <a class="text-decoration-none" href="Dashboard.html"><button class="movingBtns lightBtn" onclick="move('cancelBtn')" id="cancelBtn">Cancel</button></a>
+           <a class="text-decoration-none" href="Dashboard.php"><button class="movingBtns lightBtn" onclick="move('cancelBtn')" id="cancelBtn">Cancel</button></a>
             <button class="movingBtns darkBtn d-hidden" id="backBtn" onclick="move('backBtn')">Back</button>
             <button class="movingBtns darkBtn" onclick="move('nextBtn')" id="nextBtn">Next</button>
         </div>

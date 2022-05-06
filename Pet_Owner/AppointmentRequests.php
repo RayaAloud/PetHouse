@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
-    <title> Pet Owner | Dashboard </title>
+    <title>Appointment Requests</title>
     <!--Favicon-->
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico"> 
     <link rel="apple-touch-icon" sizes="180x180" href="../Images/favicon_io/apple-touch-icon.png">
@@ -115,7 +115,17 @@
           sessionStorage.setItem('Appt_Request_ID', $(appointment).attr('id'));
           sessionStorage.setItem('Appt_Request_Service', $(appointment).children()[1].innerHTML);
           sessionStorage.setItem('Appt_Request_Pet', $(appointment).children()[0].getAttribute('pet_name'));
-          sessionStorage.setItem('Appt_Request_Note', $(appointment).children()[1].innerHTML);
+          var dateString = ($(appointment).children()[2].innerHTML).split("/");
+          dateString = dateString[2] + "-" + dateString[1] + "-" + dateString[0];
+          sessionStorage.setItem('Appt_Request_Date', new Date(dateString));
+          sessionStorage.setItem('Appt_Request_Time', $(appointment).children()[3].innerHTML);
+          $.ajax({
+            url: 'PHP/Retrieve_Notes.php',
+            method: 'POST',
+            data: {Appt_ID : $(appointment).attr('id')},
+          }).done(function(msg){
+            sessionStorage.setItem('Appt_Request_Note', msg);
+          })
           window.location.href = "Edit_Appointment.php";
       })
     }
@@ -143,18 +153,17 @@
     })
   })
   
-</script>
-<script>
+
       function showNote(btn){
-         var appointmentID = $(btn).parent().parent().attr('id');
+         var appointmentID = $(btn).parent().parent().attr('id'); 
          $.ajax({
            url: 'PHP/Retrieve_Notes.php',
            method: 'POST',
            data: {Appt_ID : appointmentID},
          }).done(function(msg){
-           $('#note').html(msg);
-           $('#divv2').css('display', 'block');
-         })  
+          $('#note').html(msg);
+          $('#divv2').css('display', 'block'); 
+         })
       }
       function closeNote(){
          document.getElementById("divv2").style.display ='none';

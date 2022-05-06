@@ -6,7 +6,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
-    <title> Pet Owner | Dashboard </title>
+    <title>Dashboard</title>
     <!--Favicon-->
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="../Images/favicon_io/apple-touch-icon.png">
