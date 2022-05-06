@@ -23,7 +23,7 @@ $value = mysqli_fetch_array($result);
         echo "document.getElementById('ServicesList').innerHTML += '<div class=\'cards\'>";
         echo "<div class=\'pl-3 pt-3 pr-3\'>";
         echo "<img src=\'data:image/png;charset=utf8;base64,".base64_encode($row[3])."\' width=\'130px\' height=\'130px\'>";
-        echo "<p class=\'main-info\'>".$row[0]."</p><p class=\'main-info\'>".$row[2]."</p>";
+        echo "<p class=\'main-info\'>".$row[0]."</p><p class=\'main-info\'>".$row[2]." SR</p>";
         echo "</div>";
         echo "<hr>";
         echo "<h5 class=\'collap w-100\'>";

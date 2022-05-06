@@ -3,16 +3,21 @@ include 'Connection.php';
 $connection = mysqli_connect(host,Username,Password,db);
   if(!$connection)
    die();
-if(isset($_POST['save'])){  
-  if(isset($_FILES['photo'])){
+if(isset($_POST['save'])){ 
+  if($_FILES['photo']['size'] > 0){
     $img = $_FILES['photo']['tmp_name'];
     $img = addslashes(file_get_contents($img)); 
     $description = $_POST['description'];
     $loc = $_POST['location'];
     $query = "UPDATE About_Us set Description ='".$description."', Location ='".$loc."', Photo = '".$img."' where ID = 1;";
-    $result = mysqli_query($connection,$query);
-    header('Location: ../sideMenu.html');
   }
+  else{
+    $description = $_POST['description'];
+    $loc = $_POST['location'];
+    $query = "UPDATE About_Us set Description ='".$description."', Location ='".$loc."' where ID = 1;";
+  }
+  $result = mysqli_query($connection,$query);
+  header('Location: ../sideMenu.html');
 }
 else{
   $query = 'select * from About_Us';

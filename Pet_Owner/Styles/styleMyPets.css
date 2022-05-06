@@ -98,7 +98,7 @@ table{
 }
 
 .btns{
-    color: cornsilk;
+    color: white;
     background-color: #37447E;
     top: 15px;
     left: 80%;
@@ -114,8 +114,8 @@ table{
     max-width: 155px;
     text-overflow: ellipsis;
 }
-.btns:hover{
-    color:#ffffff;
+#addNew:hover{
+    background-color: #2b376a;
 }
 #plusS{
     position: absolute;
@@ -174,7 +174,7 @@ table{
       left: -3em;
       z-index: -1;
   }
-  #bcImg2{
+#bcImg2{
     position: absolute;
     width: 800px;
     height: 900px;

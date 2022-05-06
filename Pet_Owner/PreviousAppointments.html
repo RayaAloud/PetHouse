@@ -30,6 +30,7 @@
         position: absolute;
         margin-left: 25em;
         background-color: white;
+        z-index: 3;
       }
       #divCont{
         box-shadow: 1px 1px 15px 2px #d8d8d8;
@@ -108,12 +109,14 @@
   })
 </script>
 <script>
-function show(){
-         document.getElementById("divv").style.display ='block';
-         document.getElementByTagName("body").style.backgroundColor ='black';
+      function show(){
+        $('#star1, #star2, #star3, #star4, #star5').html('&#9734;').css('color','#a1a1a1');
+        document.getElementById("divv").style.display ='block';
+        $('#darkBcground').css('display','block');
       }
       function closeDiv(){
          document.getElementById("divv").style.display ='none';
+         $('#darkBcground').css('display','none');
       }
       function show2(){
          document.getElementById("divv2").style.display ='block';
@@ -122,12 +125,32 @@ function show(){
       function closeDiv2(){
          document.getElementById("divv2").style.display ='none';
       }
+      function selectRate(starID){
+        $('#star1, #star2, #star3, #star4, #star5').html('&#9734;').css('color','#a1a1a1');
+        switch(starID){
+          case "star1": 
+          $('#star1').html('&#9733;').css('color','#111B47');
+          break;
+          case "star2": 
+          $('#star1, #star2').html('&#9733;').css('color','#111B47');
+          break;
+          case "star3":
+          $('#star1, #star2, #star3').html('&#9733;').css('color','#111B47');
+          break;
+          case "star4": 
+          $('#star1, #star2, #star3, #star4').html('&#9733;').css('color','#111B47');
+          break;
+          case "star5": 
+          $('#star1, #star2, #star3, #star4, #star5').html('&#9733;').css('color','#111B47');
+          break;
+        }
+      }
 </script>
 </head>
 
 <body>
-  <div  id="cont">
- 
+<div id="darkBcground"></div>
+  <div id="cont">
     <span id="header"></span>
    <img src="../Images/Vector.png" id="bcImg">
     <div id="divv">
@@ -135,7 +158,13 @@ function show(){
         <button id="cancelBtn" class="align-self-end" onclick="closeDiv()">X</button>
         <h1 id="q" class="mb-5">How was the appointment?</h1>
         <img class="mb-3" src="../Images/Component 42.png" height="120px">
-        <img class="mb-3" src="../Images/3.png"  height="40px">
+        <div class="d-flex">
+          <span class="star" id="star1" onclick="selectRate('star1')">&#9734;</span>
+          <span class="star" id="star2" onclick="selectRate('star2')">&#9734;</span>
+          <span class="star" id="star3" onclick="selectRate('star3')">&#9734;</span>
+          <span class="star" id="star4" onclick="selectRate('star4')">&#9734;</span>
+          <span class="star" id="star5" onclick="selectRate('star5')">&#9734;</span>
+        </div>
         <textarea class="mb-3" placeholder="Notes..." id="text" rows="6"></textarea>
         <button id="submitReviewBtn">Submit</button>
       </div>
@@ -150,8 +179,8 @@ function show(){
 <div class="mb-5">
   <div class="upcoming-apt">
     <p>Previous Appointments</p>
-  <div class="line"></div>
-</div>
+    <div class="line"></div>
+  </div>
 <div class="box mb-5 mt-5">
  <table>
 

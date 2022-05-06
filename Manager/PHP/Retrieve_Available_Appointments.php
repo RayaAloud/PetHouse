@@ -31,7 +31,7 @@ while($row = mysqli_fetch_array($result)){
     echo "<td>".$row['Service_Name']."</td>";
     echo "<td>".$date."</td>";
     echo "<td>".$time."</td>";
-    echo "<td> <button class=\'buttons\'>";
+    echo "<td> <button class=\'buttons deleteBtns\'>";
     echo "<i class=\'bi bi-trash3 trashIcon\'></i></button>";
     echo "<button class=\'buttons editBtn\'>";
     echo "<i class=\'bi bi-pencil-square pencilIcon\'>";

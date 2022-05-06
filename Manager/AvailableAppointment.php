@@ -27,9 +27,6 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Script-->
     <script>
-        
-    </script>
-    <script>
         $( function() {
           $( "#datepicker" ).datepicker({
             onSelect: function(){var currentDate = $( "#datepicker" ).datepicker( "getDate" )
@@ -54,7 +51,17 @@
         </style>
 </head>
 <body>
-    <span id="header"></span>
+<div id="darkBcground"></div>
+    <div id="delete-confirmation">
+      <div id="content-container" class="d-flex flex-column align-items-center m-auto">
+        <button id="cancelBtn" class="align-self-end" onclick="closeMsg()">X</button>
+        <h3 class="mb-5">Are you sure you want to delete this appointment?</h3>
+        <div>
+            <button id="cancelButton">Cancel</button>
+            <button class="confirm-action-Button" id="delete-Btn">Delete</button>
+        </div>
+      </div>
+    </div>
     <div class="mb-4 mt-5">
         <div class="available-apt col-10 d-flex justify-content-between" id="topContainer">
             <div class="col-10">
@@ -80,7 +87,7 @@
         </table> 
      </div>
   </div>
- <?php include 'PHP/Retrieve_Available_Apppointments.php' ?>
+ <?php include 'PHP/Retrieve_Available_Appointments.php'?>
     <script>
         function makeRequest(){
             var req;
@@ -103,16 +110,41 @@
             request.open("Get", page, true);
             request.send();
         }
-    
+        function closeMsg(){
+         $("#delete-confirmation").css('display','none'); 
+         $('#darkBcground').css('display','none');
+        }
         var editBtns = document.getElementsByClassName('editBtn');
         for(let i = 0; i < editBtns.length; i++){
             $(editBtns[i]).click(function(){
                 let apptID = editBtns[i].parentNode.parentNode;
                 apptID = $(apptID).attr('id');
                 showPage('UpdateAppointment.php?ID='+apptID,'content');
-            })
-           
+            })   
         }
+        var apptID;
+        var deleteBtns = document.getElementsByClassName('deleteBtns');
+        for(let i = 0; i < deleteBtns.length; i++){
+            $(deleteBtns[i]).click(function(){
+                apptID = deleteBtns[i].parentNode.parentNode;
+                apptID = $(apptID).attr('id');
+                $('#darkBcground').css('display','block');
+                $('#delete-confirmation').css('display','block');  
+            })   
+        } 
+        $('#delete-Btn').click(function(){
+           $.ajax({
+            url: 'PHP/Delete_Appointment.php',
+            method: 'POST',
+            data: {ApptID : apptID}
+           }).done(function(msg){
+               alert(msg);
+               closeMsg();
+           })
+        })
+        $('#cancelButton').click(function(){
+            closeMsg();
+        })
     </script>
 </body>
 </html>

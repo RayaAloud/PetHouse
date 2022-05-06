@@ -128,12 +128,12 @@ hr{
   width: 100%;
 }
 
- .next-previous:hover{
-     cursor: pointer;
-     background-color: #dbdbdb;
-     border-radius: 35px;
- }
- #ContactUs{
+.next-previous:hover{
+    cursor: pointer;
+    background-color: #dbdbdb;
+    border-radius: 35px;
+}
+#ContactUs{
    width: 100%;
    color:#2f3969;
    /*background-color: #cbd1f1;*/

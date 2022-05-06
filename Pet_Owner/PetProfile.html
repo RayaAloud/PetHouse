@@ -85,9 +85,19 @@
               <label for="uploadFile" class="align-self-end"><i class="fa-solid fa-square-pen" id="plusS"></i></label>
            </div>
             </div>
+            <div class="d-flex justify-content-center mt-4">
+              <div class="col-5 d-flex justify-content-around">
+                <a href="MyPets.html"><button class="btns">Cancel</button></a>
+                <button class="btns">Save Changes</button>
+              </div>
+           </div>
         </div>
       </div>
-      <img src="Images/PinkPath.png" id="bcImg2">
+      <img src="../Images/PinkPath.png" id="bcImg2">
     </body>
-
+   <script>
+     $('#uploadFile').change(function(){ 
+            document.getElementById('pet-image').src = window.URL.createObjectURL(this.files[0]);
+      })
+   </script>
 </html>

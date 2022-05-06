@@ -1,7 +1,4 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');*/
-
-
-  body {
+body {
     font-family: 'Roboto', sans-serif;
   }
   
@@ -21,9 +18,7 @@
 }
   .t-img {
     width: 56px;
-    height: 56px;
-    
-   
+    height: 56px; 
   }
   th{
     color:#6e79a7;
@@ -54,7 +49,6 @@
     border-radius: 10px;
     border-spacing: 0.5em;
   }
-  
   .buttons{
     border: none;
     background: none;
@@ -67,13 +61,10 @@
     color: #ff0000;
     font-size: 1.7em;
   }
-
   .pencilIcon{
     color: #c3c3c3;
     font-size: 1.7em;
   }
-
-
   #Add {
       background-color: #A2ABD1;
       border-radius: 100%;
@@ -82,8 +73,74 @@
       color: white;
       font-size: 2em;
       border: none;
-
   }
   #topContainer{
     margin-left: 4em;
   }
+  #delete-confirmation{
+    display: none;
+    position: absolute;
+    background-color: white;
+    margin-left: 20%;
+    margin-top: 25vh;
+    z-index: 3;
+  }
+  #content-container{
+    box-shadow: 1px 1px 15px 2px #d8d8d8;
+    width: 400px;
+    min-height: 100px;
+    z-index: 3;
+    padding: 2em;
+  }
+  #content-container p{
+    overflow-y: scroll;
+  }
+#darkBcground{
+    width: 100%;
+    background-color: black;
+    height: 100vh;
+    position: absolute;
+    z-index: 2;
+    opacity: 25%;
+    display: none;
+ }
+ #deleteButton{
+  border: none;
+  background-color: rgb(185, 63, 63);
+  border-radius: 50px;
+  padding: 0.2em 0.8em 0.2em 0.8em;
+  color: white;
+  font-size: 1.2em;
+  margin-left: 0.5em;
+}
+#cancelButton{
+  border: none;
+  background-color: rgb(182, 182, 182);
+  border-radius: 50px;
+  padding: 0.2em 0.8em 0.2em 0.8em;
+  color: white;
+  font-size: 1.2em;
+  margin-right: 0.5em;
+}
+#deleteButton:hover{
+  background-color: rgb(162, 52, 52);
+}
+#cancelButton:hover{
+  background-color: rgb(158, 158, 158);
+}
+#cancelBtn{
+  border: none;
+  background: none;
+}
+.confirm-action-Button{
+  border: none;
+  background-color: rgb(185, 63, 63);
+  border-radius: 50px;
+  padding: 0.2em 0.8em 0.2em 0.8em;
+  color: white;
+  font-size: 1.2em;
+  margin-left: 0.5em;
+}
+.confirm-action-Button:hover{
+  background-color: rgb(162, 52, 52);
+}

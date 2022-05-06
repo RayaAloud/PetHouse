@@ -20,13 +20,22 @@ h1{
 }
 .bi-x-circle-fill{
   color: rgb(199, 74, 74);
-  font-size: 1.5em;
+  font-size: 2em;
+  margin-left: .4em;
 }
 .bi-check-circle-fill{
   color: rgb(94, 214, 94);
-  font-size: 1.5em;
+  font-size: 2em;
+  margin-right: .4em;
 }
-
+.bi-check-circle-fill:hover{
+  cursor: pointer;
+  color: rgb(81, 186, 81);
+} 
+.bi-x-circle-fill:hover{
+  cursor: pointer;
+  color: rgb(173, 66, 66);
+}
 /*RAYA and REEM*/
 .line {
     background-color: #A2ABD1;
@@ -70,7 +79,6 @@ td {
   padding-top: 1.5em;
   margin: 1em 80px;
   width: 860px;
-  height: 392px; 
   box-shadow: 1px 1px 15px 1px #ebebeb;
   border-radius: 10px;
   border-spacing: 0.5em;
@@ -90,4 +98,71 @@ td {
 }
 #myPets{
   margin-left: -20px;
+}
+#darkBcground{
+  width: 100%;
+  background-color: black;
+  height: 100vh;
+  position: absolute;
+  z-index: 2;
+  opacity: 25%;
+  display: none;
+}
+#delete-confirmation{
+  display: none;
+  position: absolute;
+  background-color: white;
+  margin-left: 20%;
+  margin-top: 25vh;
+  z-index: 3;
+}
+#content-container{
+  box-shadow: 1px 1px 15px 2px #d8d8d8;
+  width: 400px;
+  min-height: 100px;
+  z-index: 3;
+  padding: 2em;
+}
+#content-container p{
+  overflow-y: scroll;
+}
+.confirm-action-Button{
+  border: none;
+  background-color: rgb(185, 63, 63);
+  border-radius: 50px;
+  padding: 0.2em 0.8em 0.2em 0.8em;
+  color: white;
+  font-size: 1.2em;
+  margin-left: 0.5em;
+}
+.confirm-action-Button2{
+  border: none;
+  background-color: rgb(82, 165, 65);
+  border-radius: 50px;
+  padding: 0.2em 0.8em 0.2em 0.8em;
+  color: white;
+  font-size: 1.2em;
+  margin-left: 0.5em;
+}
+#cancelButton{
+  border: none;
+  background-color: rgb(182, 182, 182);
+  border-radius: 50px;
+  padding: 0.2em 0.8em 0.2em 0.8em;
+  color: white;
+  font-size: 1.2em;
+  margin-right: 0.5em;
+}
+.confirm-action-Button:hover{
+  background-color: rgb(162, 52, 52);
+}
+.confirm-action-Button2:hover{
+  background-color: rgb(71, 148, 56);
+}
+#cancelButton:hover{
+  background-color: rgb(158, 158, 158);
+}
+#cancelBtn{
+  border: none;
+  background: none;
 }

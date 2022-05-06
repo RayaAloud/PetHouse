@@ -103,6 +103,9 @@ body{
   .bi-box-arrow-right{
     color: rgb(165, 32, 32);
   }
+  ul{
+    margin-block-end: 0;
+  }
   /*    Media Queries   */
   @media screen and (max-width: 991px) {
     #User-Icon-Container{

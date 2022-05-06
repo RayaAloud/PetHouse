@@ -21,10 +21,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <!--jQuery-->
-  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
   <!--Bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -121,7 +120,6 @@
       document.getElementById('timeSelect').innerHTML = "<option>Select Time</option>";
       var dates = getList();
       var times = [];
-      var counter = 0;
        for(var i = 0; i < dates.length; i++){
            var date = dates[i].Date.split("-");
            var availableYear = date[0];
@@ -161,7 +159,7 @@
       data: {serviceName : 'Checkup'}
       }).done(function(msg){
         setList(msg);
-        $( "#datepicker" ).datepicker({
+        $("#datepicker").datepicker({
         onSelect: function(){
             currentDate = $("#datepicker").datepicker("getDate");
             sessionStorage.setItem('Current_Selected_Date', currentDate);
@@ -181,15 +179,18 @@
     </script>
 </head>
 <body>
-
 <span id="header"></span>
 <img src="../Images/Vector.png" id="bcImg1">
 <img src="../Images/designer_1.png" id="bcImg2">
 <div class="container pt-4 d-flex mb-5 justify-content-center">
   <div class="box col-sm-11 col-lg-8 d-flex flex-column px-5">
-      <div class="d-flex flex-column align-items-center">
+    <div class="title">
+      <p>Edit Appointment</p>
+      <div class="line"></div>
+    </div>
+      <div class="d-flex flex-column align-items-center mt-5">
         <span id="msg" class="col-7"></span>
-        <div id="AppointmentOptions" class="">
+        <div id="AppointmentOptions" class="text-center">
           <div id="pet" class="pb-5 d-flex justify-content-between align-items-center">
             <div>
                 <img src="../Images/catBabyBlue.png" class="">
@@ -226,7 +227,7 @@
       </div>
       <div class="row col-sm-10 col-lg-6 justify-content-center align-self-center mt-5">
         <div class="btnContainer d-flex justify-content-evenly mt-4" id="btnsContainer">
-           <a class="text-decoration-none" href="AppointmentRequests.html"><button class="movingBtns lightBtn" id="cancelBtn">Cancel</button></a>
+           <a class="text-decoration-none" href="AppointmentRequests.php"><button class="movingBtns lightBtn" id="cancelBtn">Cancel</button></a>
             <button class="movingBtns darkBtn" id="updateBtn">Update</button>
         </div>
     </div>

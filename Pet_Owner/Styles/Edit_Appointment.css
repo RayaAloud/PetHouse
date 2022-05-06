@@ -1,3 +1,7 @@
+body{
+    overflow-x: hidden;
+    margin: 0;
+}
 .box{
    background-color: white;
    box-shadow: 1px 1px 15px 1px #ebebeb;
@@ -94,9 +98,19 @@ hr{
     position: absolute;
     width: 400px;
     height: 600px;
-    bottom: 0;
+    bottom: -2em;
     left: -3em;
     z-index: -1;
+}
+#bcImg2{
+    position: absolute;
+    width: 800px;
+    height: 900px;
+    bottom: 0;
+    right: -3em;
+    z-index: -1;
+    top: 50%;
+    transform: rotate(270deg);
 }
 .next-previous{
     background-color: transparent;
@@ -123,13 +137,15 @@ hr{
 #datepicker{
    align-self: center;
 }
-#bcImg2{
-    position: absolute;
-    width: 800px;
-    height: 900px;
-    bottom: 0;
-    right: -3em;
-    z-index: -1;
-    top: 50%;
-    transform: rotate(270deg);
+.title p {
+  padding-top: 1em;   
+  font-weight: bold;
+  color: #A2ABD1;
+  font-size: 22px;
+}
+.line {
+    background-color: #A2ABD1;
+    width: 200px;
+    height: 2px;
+    margin-top: 8px;
 }

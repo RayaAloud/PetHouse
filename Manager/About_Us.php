@@ -17,17 +17,6 @@
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script>
-        function makeItEditable(id){
-            switch(id){
-                case "loc": document.getElementById('loc').disabled = false;
-                break;
-                case "des": document.getElementById('desc').disabled = false;
-                break;
-
-            }
-        }
-    </script>
  </head>
 <body>
   
@@ -41,15 +30,13 @@
         <div class="">
             <h3 class="d-inline titles"><i class="bi bi-file-text"></i>&nbsp;&nbsp;Description</h3>
             <div class="d-flex container justify-content-between">
-              <input type="text" class="inputs" name="description" id="desc" disabled required>
-              <button class="editBtn" onclick="makeItEditable('des')" type="button"><i class="bi bi-pencil pencil"></i></button>
+              <input type="text" class="inputs" name="description" id="desc" required>
             </div>
         </div>
         <div class="mt-5">
             <h3 class="d-inline titles"><i class="bi bi-geo-alt-fill"></i>&nbsp;&nbsp;Location</h3>
             <div class="d-flex container justify-content-between">
-              <input type="text" class="inputs" name="location" id="loc" disabled required>
-              <button class="editBtn" onclick="makeItEditable('loc')" type="button"><i class="bi bi-pencil pencil"></i></button>
+              <input type="text" class="inputs" name="location" id="loc" required>
             </div>   
         </div>  
         <div class="container d-flex justify-content-center mt-5">

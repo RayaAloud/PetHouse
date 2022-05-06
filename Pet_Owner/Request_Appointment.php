@@ -21,7 +21,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <!--jQuery-->
-  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -80,10 +79,11 @@
       return true;
    }
    function checkTime(){
-      var time = $('#timeSelect').val();
-      if(time == "Select Time")
+      var time = $('#timeSelect');
+      if(time.val() == "Select Time")
         return false;
-      sessionStorage.setItem('Request_Appoinemtent_Time',time);
+      sessionStorage.setItem('Request_Appoinemtent_Time',time.val());
+      sessionStorage.setItem('Available_Appt_ID',time.find(':selected').attr('appt_Id'));
       return true;
    }
    var currentPage = 0;
@@ -180,15 +180,11 @@
      }
    }
    function confirm(){
-       var date = new Date(sessionStorage.getItem('Current_Selected_Date'));
-       var time = sessionStorage.getItem('Request_Appoinemtent_Time');
-       var service = sessionStorage.getItem('Request_Appoinemtent_Service');
        var note = sessionStorage.getItem('Notes');
-       date = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
         $.ajax({
            url: 'PHP/Add_Appt_Request.php',
            method: 'POST',
-           data: {petName : 'Java', date : date, time : time, service : service, note : (note == null)? null : note},
+           data: {ApptID : sessionStorage.getItem('Available_Appt_ID'), note : (note == null)? null : note},
         }).done(function(msg){
            alert(msg)
         })

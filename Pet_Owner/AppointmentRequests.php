@@ -102,40 +102,91 @@
         request.open("Get", page, true);
         request.send();
     }
+    function closeMsg(){
+         $("#delete-confirmation").css('display','none'); 
+         $('#darkBcground').css('display','none');
+    }
   $(document).ready(function(){
     showPage('Signed_In_Header.html', 'header');
+    var editBtns = $('.editBtn');
+    for(var i = 0; i < editBtns.length; i++){
+      $(editBtns[i]).click(function(){
+          var appointment = $(this).parent().parent();
+          sessionStorage.setItem('Appt_Request_ID', $(appointment).attr('id'));
+          sessionStorage.setItem('Appt_Request_Service', $(appointment).children()[1].innerHTML);
+          sessionStorage.setItem('Appt_Request_Pet', $(appointment).children()[0].getAttribute('pet_name'));
+          sessionStorage.setItem('Appt_Request_Note', $(appointment).children()[1].innerHTML);
+          window.location.href = "Edit_Appointment.php";
+      })
+    }
+    var cancelBtns = $('.cancelButtons');
+    var appointmentID;
+    for(var i = 0; i < cancelBtns.length; i++){
+      $(cancelBtns[i]).click(function(){
+          appointmentID = $(this).parent().parent().attr('id');
+          $('#darkBcground').css('display','block');
+          $('#delete-confirmation').css('display','block');  
+          
+      })
+    }
+    $('#cancelButton').click(function(){
+       closeMsg();
+    })
+    $('#cancel-appt-Button').click(function(){
+      $.ajax({
+        url: 'PHP/Cancel_Appt.php',
+        method: 'POST',
+        data: {apptID : appointmentID}
+        }).done(function(msg){
+            alert(msg);
+            closeMsg();
+        })
+    })
   })
+  
 </script>
 <script>
-function show(){
-         document.getElementById("divv").style.display ='block';
-         document.getElementByTagName("body").style.backgroundColor ='black';
+      function showNote(btn){
+         var appointmentID = $(btn).parent().parent().attr('id');
+         $.ajax({
+           url: 'PHP/Retrieve_Notes.php',
+           method: 'POST',
+           data: {Appt_ID : appointmentID},
+         }).done(function(msg){
+           $('#note').html(msg);
+           $('#divv2').css('display', 'block');
+         })  
       }
-      function closeDiv(){
-         document.getElementById("divv").style.display ='none';
-      }
-      function show2(){
-         document.getElementById("divv2").style.display ='block';
-         document.getElementByTagName("body").style.backgroundColor ='black';
-      }
-      function closeDiv2(){
+      function closeNote(){
          document.getElementById("divv2").style.display ='none';
       }
 </script>
 </head>
 
 <body>
-  <div  id="cont">
- 
+ <div id="darkBcground"></div>
+  <div id="cont">
     <span id="header"></span>
    <img src="../Images/Vector.png" id="bcImg">
     <div id="divv2">
       <div id="divCont2" class="d-flex flex-column align-items-center m-auto">
-        <button id="cancelBtn" class="align-self-end" onclick="closeDiv2()">X</button>
+        <button id="cancelBtn" class="align-self-end" onclick="closeNote()">X</button>
         <h3>Note</h3>
-        <p>My pet has allergy</p>
+        <p id="note"></p>
       </div>
     </div>
+
+    <div id="delete-confirmation">
+      <div id="content-container" class="d-flex flex-column align-items-center m-auto">
+        <button id="cancelBtn" class="align-self-end" onclick="closeMsg()">X</button>
+        <h3 class="mb-5">Are you sure you want to cancel this appointment?</h3>
+        <div id="btns-container">
+            <button id="cancelButton">No</button>
+            <button class="confirm-action-Button" id="cancel-appt-Button">Yes</button>
+        </div>
+      </div>
+    </div>
+
 <div class="mb-5">
   <div class="upcoming-apt">
     <p>My Appointments Requests</p>
@@ -155,84 +206,13 @@ function show(){
       <th class="text-center pt-4 pb-2"></th>
     </tr>
     </thead>
-
     <tbody>
-      <tr >
-        <td><img class="t-img" src="../Images/catPurple.png" alt=""></td>
-        <td>Checkup</td>
-        <td>27/1/2022</td>
-        <td>10:30am</td>
-        <td> <button class="noteBtn" onclick="show2()"> <i class="bi bi-chat-square-dots-fill noteIcon"></i></button> </td>
-        <td class="cancelled">Cancelled</td>
-        <td> 
-          <button class='buttons editBtn'>
-            <i class='bi bi-pencil-square pencilIcon'></i>
-          </button>
-          <button class='cancelButtons'>
-            Cancel
-            </button>
-        </td>
-      </tr>
-
-      <tr>
-        <td><img class="t-img" src="../Images/catBabyBlue.png" alt=""></td>
-        <td>Washing</td>
-        <td>27/10/2022</td>
-        <td>10:30am</td>
-        <td> <button class="noteBtn" onclick="show2()"> <i class="bi bi-chat-square-dots-fill noteIcon"> </button></td>
-        <td class="reviewed">Accepted</td>
-        <td> 
-          <button class='buttons editBtn'>
-            <i class='bi bi-pencil-square pencilIcon'></i>
-          </button>
-          <button class='cancelButtons'>
-            Cancel
-            </button>
-        </td>
-      </tr>
-
-      <tr>
-        <td><img class="t-img" src="../Images/catPurple.png" alt=""></td>
-        <td>Checkup</td>
-        <td>14/11/2022</td>
-        <td>10:30am</td>
-        <td> <button class="noteBtn" onclick="show2()"> <i class="bi bi-chat-square-dots-fill noteIcon"></button></td>
-        <td class="Declined">Declined</td>
-        <td> 
-          <button class='buttons editBtn'>
-            <i class='bi bi-pencil-square pencilIcon'></i>
-          </button>
-          <button class='cancelButtons'>
-            Cancel
-            </button>
-        </td>
-      </tr>
-
-      <tr>
-        <td><img class="t-img" src="../Images/catBabyBlue.png" alt=""></td>
-        <td>Washing</td>
-        <td>27/2/2022</td>
-        <td>10:30am</td>
-        <td> <button class="noteBtn" onclick="show2()"><i class="bi bi-chat-square-dots-fill noteIcon"></i></button></td>
-        <td class="pending">Pending</td>
-        <td> 
-          <button class='buttons editBtn'>
-            <i class='bi bi-pencil-square pencilIcon'></i>
-          </button>
-          <button class='cancelButtons'>
-            Cancel
-            </button>
-        </td>
-      </tr>
+      <!--Appointment Requests Here..-->
     </tbody>
   </table>
-
-
-
 </div>
 </div>
-
 </div>
 </body>
-
+<?php include'PHP/Retrieve_Appt_Requests.php'?>
 </html>

@@ -19,88 +19,79 @@ body {
   transform: rotate(90deg);
   top: 45vh;
 }
-
 .rectangle { 
-  
    left: 0%;
    height: 100%;
    width: 70px;
    background: linear-gradient(180deg, #FAF1FB 0%, #E4EEFD 100%);
+   filter: saturate(150%);
  }
 .cards {
   box-shadow: 1px 1px 15px 1px #ebebeb;
   background-color: white;
-   }
+}
+.line {
+  background-color: #A2ABD1;
+  width: 200px;
+  height: 2px;
+  margin-top: 10px;
+  margin-left: 5%;
+}
 
+p {
+  margin-left: 5%;
+  font-weight: bold;
+  color: #A2ABD1;
+  font-size: 20px;
+}
+.upcoming-apt p {
+  padding-top: 70px;  
+}
+.upcoming-apt {
+  margin: 5px 20px;
+}
+
+.t-img {
+  width: 56px;
+  height: 56px;
   
-        .line {
-          background-color: #A2ABD1;
-          width: 200px;
-          height: 2px;
-          margin-top: 10px;
-          margin-left: 5%;
-        }
+  
+}
+tr{
+  border-bottom: 1px solid rgb(161, 161, 161);
+}
+td {
+  padding: 0.8em;
+  text-align: center;
+}
+.box{
+  overflow-y: scroll;
+  max-height: 450px;
+  max-width: 1100px;
+}
+.box table{         
+  padding: 1em;
+  padding-top: 1.5em;
+  margin: 15px 80px;
+  width: 964px;
+  height: 392px; 
+  box-shadow: 1px 1px 15px 1px #ebebeb;
+  border-radius: 10px;
+  border-spacing: 0.5em;
+}
 
-         p {
-            margin-left: 5%;
-            font-weight: bold;
-            color: #A2ABD1;
-            font-size: 20px;
-        }
-
-        
-
-        .upcoming-apt p {
-          padding-top: 70px; 
-          
-         
-        }
-
-        .upcoming-apt {
-          margin: 5px 20px;
-        }
-        
-        .t-img {
-          width: 56px;
-          height: 56px;
-          
-         
-        }
-        tr{
-          border-bottom: 1px solid rgb(161, 161, 161);
-        }
-       td {
-          padding: 0.8em;
-          text-align: center;
-        }
-        .box{
-          overflow-y: scroll;
-          max-height: 450px;
-          max-width: 1100px;
-        }
-        .box table{         
-          padding: 1em;
-          padding-top: 1.5em;
-          margin: 15px 80px;
-          width: 964px;
-          height: 392px; 
-          box-shadow: 1px 1px 15px 1px #ebebeb;
-          border-radius: 10px;
-          border-spacing: 0.5em;
-        }
-        
-        button{
-          border: none;
-          background: none;
-          width: 70px;
-          color:#A2ABD1;
-          height: 70px;
-          font-size: 1.5em;
-        }
-        .noteIcon{
-          color: #A2ABD1;
-          font-size: 1.7em;
-        }
-        #myPets{
-          margin-left: -20px;
-        }
+button{
+  border: none;
+  background: none;
+  width: 70px;
+  color:#A2ABD1;
+  height: 70px;
+  font-size: 1.5em;
+}
+.noteIcon{
+  color: #A2ABD1;
+  font-size: 1.7em;
+}
+#myPets{
+  margin-left: -20px;
+}
