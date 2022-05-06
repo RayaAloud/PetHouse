@@ -8,10 +8,10 @@
   <!--Favicon-->
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="Images/favicon_io/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon_io/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="Images/favicon_io/favicon-16x16.png">
-  <link rel="manifest" href="Images/favicon_io/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="../Images/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../Images/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../Images/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="../Images/favicon_io/site.webmanifest">
   <!--Font-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <!--External CSS-->
-  <link rel="stylesheet" href="#">
+  <link rel="stylesheet" href="../Styles/index.css">
   <!--jQuery-->
   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
   <!--Bootstrap-->
@@ -28,6 +28,7 @@
   <!--Icons-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <!--Embedded CSS-->
+  <!--
   <style>
     body{
       overflow-x: hidden;
@@ -42,7 +43,6 @@
       height: inherit;
       margin-left: auto;
       width: 65%;    
-
     }
     #container{  
       justify-content: space-around;  
@@ -102,7 +102,7 @@
       height: 105vh;
 
     }
-    #menu{
+    #ServicesList{
        height: 400px;
        display: flex;
        overflow: auto;
@@ -163,6 +163,7 @@
   
     
   </style>
+  -->
   <!--Scripts-->
   <script>
       function makeRequest(){
@@ -196,7 +197,7 @@
   
   <span id="header"></span>
 
-    <img src="Images/PinkPath.png" id="bcPinkPath">
+    <img src="../Images/PinkPath.png" id="bcPinkPath">
     <div id="container" class="d-flex flex-lg-row flex-column p-sm-5 p-lg-5">
       <div id="textDiv" class="d-flex">
           <p><strong>Introduce Your Product Quickly & Effectively</strong></p>
@@ -206,9 +207,8 @@
             Cum sociis natoque penatibus <br>et magnis dis parturient montes, 
             nascetur ridiculus 
           </p>
-          <button id="join-us-Btn">Join us</button>
       </div>
-      <img src="Images/undraw_friends_r511.png" class="align-self-sm-center">
+      <img src="../Images/undraw_friends_r511.png" class="align-self-sm-center">
     </div>
     
     <div class="container pt-5 mt-5" id="aboutus">
@@ -223,7 +223,7 @@
             nascetur ridiculus 
         </p>
         </div>
-        <img src="Images/undraw_searching.png" id="about-us-img">
+        <img src="../Images/undraw_searching.png" id="about-us-img">
       </div>
     </div>
 
@@ -232,13 +232,8 @@
       <div class="d-flex align-items-center mt-5">
         <button id="previous" class="next-previous"><i class="bi bi-chevron-left"></i></button>     
     <div>
-        <div id="menu" class="mt-5">
-            <div class="cards"><img src="Images/bath.png" width="130px" height="130px"><p>Washing</p></div>
-            <div class="cards"><img src="Images/Component 41.png" width="130px" height="130px"><p>Grooming</p></div>
-            <div class="cards"><img src="Images/Component40.png" width="130px" height="130px"><p>Checkup</p></div>
-            <div class="cards"><img src="Images/bath.png" width="130px" height="130px"><p>Washing</p></div>
-            <div class="cards"><img src="Images/Component 41.png" width="130px" height="130px"><p>Grooming</p></div>
-            <div class="cards"><img src="Images/Component40.png" width="130px" height="130px"><p>Checkup</p></div>
+        <div id="ServicesList" class="mt-5">
+           
         </div>
     </div>
     <button id="next" class="next-previous"><i class="bi bi-chevron-right"></i></button>
@@ -258,5 +253,5 @@
     </footer>
 
 </body>
-<?php include 'PHP/index.php'?>
+<?php include '../PHP/index.php'?>
 </html>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-
+ 
 <html>
-<head>
+ <head>
+
     <meta charset="utf-8">
     <title>Sign up</title> 
     <!--Favicons-->
@@ -23,8 +24,10 @@
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <!--Bootstrap-->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
     <script>
         function makeRequest(){
             var req;
@@ -50,9 +53,7 @@
       $(document).ready(function(){
         showPage('Unsigned_In_Header.html', 'header');
       })
-  </script>
-  
-  
+  </script>  
 </head>
     <body>
         <span id="header"></span>
@@ -69,8 +70,12 @@
             
             
              <div id="inputs" class="d-flex flex-column col-8">
-               <span id="msg" class="col-7"><div class='alert alert-danger' role='alert'><?php if(isset($_GET['error']))echo $_GET['error']?></div></span>
-              <!-- <span id="msg" class="col-7"><div class='alert alert-danger' role='alert'><?php //echo $_GET['error']?></div></span> تطلع لي حتى بدون الايرور-->
+               <?php if(isset($_GET['error'])) {
+                    echo "<span id=\'msg\' class=\'col-7\'><div class=\'alert alert-danger\' role=\'alert\'>" ;
+                    echo $_GET['error'];
+                    echo "</div></span>";
+                 }
+               ?>  
                <form class="d-flex flex-column" action="PHP/Sign_up.php" method="post" enctype="multipart/form-data"> 
                 <div id="addinPic" class="d-flex flex-column align-self-center mt-4">
                     <img id="profile-image" src="images/undraw_profile_pic_ic.png" alt="pet picture">

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
 session_start();
+if(!isset($_SESSION['email'])){
+  header("Location: ../index.php");
+}
 ?>
 <html>
 <head>
@@ -71,7 +74,7 @@ session_start();
           </div>
         </div> 
       </a>
-      <a  class="col-4 text-decoration-none" href="PreviousAppointments.html">
+      <a  class="col-4 text-decoration-none" href="PreviousAppointments.php">
         <div class="cards d-flex" style="width: 358px; height: 170px;">
             <div class="rectangle"></div> 
             <div class="container d-flex align-items-center flex-column mt-4">
@@ -82,7 +85,7 @@ session_start();
             </div>
         </div>  
        </a>
-       <a  class="col-4 text-decoration-none" href="MyPets.html">
+       <a  class="col-4 text-decoration-none" href="MyPets.php">
           <div class="cards d-flex" style="width: 358px; height: 170px;">
             <div class="rectangle"></div> 
             <div class="container d-flex align-items-center flex-column mt-4">

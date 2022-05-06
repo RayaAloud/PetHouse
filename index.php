@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+if(isset($_SESSION['email']))
+ header("Location: Pet_Owner/Dashboard.php");
+?>
 <html>
 <head>
   <title>Home</title>

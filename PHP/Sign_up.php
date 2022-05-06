@@ -25,7 +25,7 @@ session_start();
         $result=mysqli_query($con,$query);
         if (mysqli_num_rows($result)>0)
         {
-            header("Location: signup.php?error=Email exists!"); 
+            header("Location: ../signup.php?error=Email exists!"); 
             $con -> close();
             exit;
         }
@@ -38,8 +38,8 @@ session_start();
         $query="INSERT INTO `pet_owner`(`Email`, `First_Name`, `Last_Name`, `PhoneNo` ,`Gender`, `Password`,`Profile_Photo`) VALUES ('$Email','$First_Name','$Last_Name','$PhoneNo','$Gender','$Password','$img')";
         if (mysqli_query($con, $query)) {
             echo "New record created successfully !";
-            $_SESSION['Logged_in'] = true; //!sure if email
-            header("Location: indexsigned.php");
+            $_SESSION['email'] = $Email ; //!sure if email
+            header("Location: ../PetOwner/Dashboard.php");
             $con -> close();
             exit;
         } else {

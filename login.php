@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php 
+    session_start();
+    
+    // Check if the user has already logged in
+    if(isset($_SESSION['email']))
+        // header() is used to send a raw HTTP header. It must be called before any actual output is sent.
+        header("Location: Pet_Owner/Dashboard.php");
+
+    else
+    {}
+?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -70,26 +81,28 @@
                <img src="Images/undraw_my_password_.svg" id="smallImg">
             </div>
             
-            
-             <div id="inputs">
-                 <p>
-                     <label>
-                         Email <br>
-                         <input name="email" type="email"  placeholder="Enter your email" required>
-                         
-                     </label>
-                 </p>
-                 <p>
-                    <label>
-                        Password <br>
-                        <input name="assword" type="password" placeholder="Enter your password" required>
-                        
-                    </label>
-                </p>
-            </div>
-                <a class="text-decoration-none" href="Dashboard.html"><button type="submit" id="signInBtn2">Sign in</button></a>
-                
-                <p id="forgetpass"><i class="fa-solid fa-lock"></i><a href="ForgotPassword.html" id="forgotPass">Forgot your password?</a></p>
+            <form class="form-signin" action="PHP/Login.php" method="post">
+                <?php if(isset($_GET['error']))
+                    echo "<div class='alert alert-danger' role='alert'>".$_GET['error']."</div>";
+                ?>
+                 <div id="inputs">
+                    <p>
+                        <label>
+                            Email <br>
+                            <input name="email" type="email"  placeholder="Enter your email" required>
+                            
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            Password <br>
+                            <input name="password" type="password" placeholder="Enter your password" required>
+                        </label>
+                    </p>
+                 </div>
+                 <a class="text-decoration-none" href="Dashboard.html"><button type="submit" id="signInBtn2">Sign in</button></a>
+            </form>  
+            <p id="forgetpass"><i class="fa-solid fa-lock"></i><a href="ForgotPassword.html" id="forgotPass">Forgot your password?</a></p>
              
              
        
