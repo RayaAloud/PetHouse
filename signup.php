@@ -70,12 +70,9 @@
             
             
              <div id="inputs" class="d-flex flex-column col-8">
-               <?php if(isset($_GET['error'])) {
-                    echo "<span id=\'msg\' class=\'col-7\'><div class=\'alert alert-danger\' role=\'alert\'>" ;
-                    echo $_GET['error'];
-                    echo "</div></span>";
-                 }
-               ?>  
+             <?php if(isset($_GET['error']))
+                    echo "<div class='alert alert-danger' role='alert'>".$_GET['error']."</div>";
+             ?>
                <form class="d-flex flex-column" action="PHP/Sign_up.php" method="post" enctype="multipart/form-data"> 
                 <div id="addinPic" class="d-flex flex-column align-self-center mt-4">
                     <img id="profile-image" src="images/undraw_profile_pic_ic.png" alt="pet picture">
@@ -126,7 +123,7 @@
                     <button type="submit" id="signInBtn2" name="signup-submit" class="align-self-center mt-5">Sign up</button>   
                 </form> 
                 <div id="toSignup" class="m-auto mt-4">
-                    <p>Already have an account? <a href="login.html">Sign in</a></p>
+                    <p>Already have an account? <a href="login.php">Sign in</a></p>
                 </div>
             </div>
        </div>

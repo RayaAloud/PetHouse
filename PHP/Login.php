@@ -11,17 +11,23 @@
     $Email = $_POST['email'];
     $Password = $_POST['password'];
 
-    $query = "SELECT * FROM pet_owner WHERE Email = '$Email' AND Password = '$Password'";
+    $query_pet_Owner = "SELECT * FROM pet_owner WHERE Email = '$Email' AND Password = '$Password'";
+    $query_manager = "SELECT * FROM Manager WHERE Email = '$Email' AND Password = '$Password'";
+    $result_owner = mysqli_query($con,$query_pet_Owner);
+    $result_manager = mysqli_query($con,$query_manager);
 
-    $result = mysqli_query($con,$query);
-
-    if(mysqli_num_rows($result) > 0){
+    if(mysqli_num_rows($result_owner) > 0){
         $_SESSION['email'] = $Email;
         $con -> close();
         header("Location: ../Pet_Owner/Dashboard.php");
     }
+    else if(mysqli_num_rows($result_manager) > 0){
+        $_SESSION['manager_email'] = $Email;
+        $con -> close();
+        header("Location: ../Manager/SideMenu.php");
+    }
     else {
         $con -> close();
-        header("Location: login.php?error=Wrong Email/Password");
+        header("Location: ../login.php?error=Wrong Email/Password");
     }
 ?>

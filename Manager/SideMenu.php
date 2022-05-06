@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+session_start();
+if(!isset($_SESSION['manager_email'])){
+  header("Location: ../Login.php");
+}
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -159,7 +165,7 @@
                             </a>           
                         </li>
                     </ul>
-                     <a class="text-decoration-none mb-5 mt-5" href="loginManager.html"><button id="logoutBtn">Logout</button></a>
+                     <a class="text-decoration-none mb-5 mt-5" href="PHP/Sign_out.php"><button id="logoutBtn">Logout</button></a>
                 </div>
             </div>
         </div>
