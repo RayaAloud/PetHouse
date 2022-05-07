@@ -82,8 +82,10 @@
                 </div>
                 
                 <form class="form-signin" action="PHP/Login.php" method="post">
-                    <?php if(isset($_GET['error']))
-                        echo "<div class='alert alert-danger' role='alert'>".$_GET['error']."</div>";
+                    <?php if(isset($_SESSION['error'])){
+                        echo "<div class='alert alert-danger' role='alert'>".$_SESSION['error']."</div>";
+                        unset($_SESSION['error']);
+                    }
                     ?>
                     <div id="inputs">
                         <p>

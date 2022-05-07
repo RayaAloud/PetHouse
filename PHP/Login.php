@@ -28,6 +28,8 @@
     }
     else {
         $con -> close();
-        header("Location: ../login.php?error=Wrong Email/Password");
+        session_start();
+        $_SESSION['error'] = "Wrong Email/Password";
+        header("Location: ../login.php");
     }
 ?>
