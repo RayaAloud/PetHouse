@@ -19,9 +19,9 @@ if(isset($_POST['email'])){
   $result = mysqli_query($con,$query);
   if(mysqli_num_rows($result) > 0){
        $otp_num = sendMail($email);
-       $_SESSION['otp'] = $otp_num;
+       $_SESSION['otp'] = md5($otp_num);
        $_SESSION['email_reset_pass'] = $email;
-       header("Location: ../OTP.html");      
+       header("Location: ../OTP.php");      
   }
   else{
     $query= "SELECT * FROM Manager WHERE Email = '$email';";

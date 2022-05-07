@@ -31,5 +31,6 @@ $pass = $_POST['newPass'];
       }
     }
   }
-
+session_unset();
+session_destroy();
 ?>

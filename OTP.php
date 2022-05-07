@@ -27,17 +27,22 @@
       <span id="header"></span>
       <img src="Images/Vector.png" id="bcImg1">
       <div class="container d-flex" id="container">
-         <div id="EmailBox" class="d-flex justify-content-between">
-           <form action="PHP/ValidateOTP.php" method="post" class="align-self-center d-flex flex-column" id="form">
-            <label for="emailInput" class="mb-4">Enter Your OTP</label><br>
-            <input type="text" id="emailInput" placeholder="OTP" name="otp">
-            
-            <div class="mt-5 col-6 d-flex justify-content-around align-self-center">
-              <a href="login.php"><button class="Btns" type="button">Cancel</button></a>
-              <input type="submit" value="Send" class="Btns send">
-            </div>
-          </form>
-          <img src="Images/Component 42.png" class="align-self-center" height="150px">
+         <div id="EmailBox" class="d-flex flex-column justify-content-between">
+         <?php if(isset($_GET['error']))
+                    echo "<div class='alert alert-danger' role='alert'>".$_GET['error']."</div>";
+          ?>
+          <div class="d-flex">
+            <form action="PHP/ValidateOTP.php" method="post" class="align-self-center d-flex flex-column" id="form">
+              <label for="emailInput" class="mb-4">Enter Your OTP</label><br>
+              <input type="text" id="emailInput" placeholder="OTP" name="otp">
+              
+              <div class="mt-5 col-6 d-flex justify-content-around align-self-center">
+                <a href="login.php"><button class="Btns" type="button">Cancel</button></a>
+                <input type="submit" value="Send" class="Btns send">
+              </div>
+            </form>
+            <img src="Images/Component 42.png" class="align-self-center" height="150px">
+          </div>
          </div>
       </div>
       <img src="Images/PinkPath.png" id="bcImg2">

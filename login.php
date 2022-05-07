@@ -7,8 +7,10 @@
         // header() is used to send a raw HTTP header. It must be called before any actual output is sent.
         header("Location: Pet_Owner/Dashboard.php");
 
-    else
-    {}
+    else if(isset($_SESSION['manager_email']))
+    {
+        header("Location: Manager/SideMenu.php");
+    }
 ?>
 <html>
 <head>
