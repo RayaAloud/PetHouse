@@ -2,8 +2,7 @@ body{
     margin: 0%;
 }
 #container{
-    margin-top: 3em;
-    
+    margin-top: 2.5em;  
     display: flex;
     justify-content: space-around;
 }
@@ -32,13 +31,13 @@ body{
 }
 #box{
     width: 400px;
-    height: 500px;
+    height: fit-content;
     box-shadow: 1px 1px 15px 1px #ebebeb;
     border-radius: 17px;
-    padding-bottom: 2em;
+    padding-bottom: 0.6em;
     align-self: center;
     margin-right: 10em;
-    
+    background-color: white;   
 }
 #smallImg{
     height: 70px;
@@ -57,7 +56,7 @@ body{
     color: white;
     padding-left: 1.5em;
     padding-right: 1.5em;
-    padding-bottom: 0.5em;
+    padding-bottom: 1em;
     padding-top: 0.5em;
     border-radius: 30px;
     border: none;  
@@ -65,6 +64,7 @@ body{
     width: 200px;
     height: 40px;
     opacity: 0.9;
+    font-size: 18px;
     margin-left: 6rem ;
     margin-top: 1rem ;
 }
@@ -72,8 +72,10 @@ body{
     opacity: 1;
   }
 #inputs{
-    padding: 2em;
-    
+    padding: 1.2em 2em 2em 2em;    
+}
+.labels{
+  font-size: 18px;
 }
 input[type="password"] ,input[type="email"]{
     border-radius: 30px;
@@ -85,30 +87,23 @@ input[type="password"] ,input[type="email"]{
 }
 #toSignup{
     padding-top: 0.1em;
-    font-size: 13px;
-
+    font-size: 16px;
+    text-align: center;
 }
-a:link {
-    
-    
+a:link { 
     text-decoration: none;
-  }
-#forgetpass,#toSignup{
-    margin-top: 1rem ;
-    margin-left: 6em;
-  
 }
-
+#forgetpass{
+    margin-top: 1rem ;
+    margin-left: 6em; 
+}
 i{
 color: #111B47;
 padding-right: 0.5em;
 }
-
-/*Add appointment*/
-#addService{
-    display: flexbox;
-    justify-content: space-around;
-    background-color: rgb(244, 232, 255);
-    text-align: center;
-     
+.alert{
+    width: 90%;
+    margin: auto;
+    margin-top: 0.8em;
+    padding: 0.8em !important;
 }

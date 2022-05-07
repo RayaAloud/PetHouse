@@ -68,50 +68,47 @@
 </head>
     <body>
         <span id="header"></span>
-    <div id="container">
-        <img class="leftimg" src="Images/undraw_sign_in.png" alt="Login image">
-        <img class="leftbackground" src="Images/Path.png" alt="background image"> 
+        <div id="container">
+            <img class="leftimg" src="Images/undraw_sign_in.png" alt="Login image">
+            <img class="leftbackground" src="Images/Path.png" alt="background image"> 
 
-
-    <div id="box">
-            
-             <div id="top">
-                 <div>
-               <h4>Welcome Back!</h4>
-               <p>Sign in to continue</p>
-            </div>
-               <img src="Images/undraw_my_password_.svg" id="smallImg">
-            </div>
-            
-            <form class="form-signin" action="PHP/Login.php" method="post">
-                <?php if(isset($_GET['error']))
-                    echo "<div class='alert alert-danger' role='alert'>".$_GET['error']."</div>";
-                ?>
-                 <div id="inputs">
-                    <p>
-                        <label>
-                            Email <br>
-                            <input name="email" type="email"  placeholder="Enter your email" required>
-                            
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            Password <br>
-                            <input name="password" type="password" placeholder="Enter your password" required>
-                        </label>
-                    </p>
-                 </div>
-                 <a class="text-decoration-none" href="Dashboard.html"><button type="submit" id="signInBtn2">Sign in</button></a>
-            </form>  
-            <p id="forgetpass"><i class="fa-solid fa-lock"></i><a href="ForgotPassword.html" id="forgotPass">Forgot your password?</a></p>
-             
-             
-       
-       <div id="toSignup">
-           <p>Don’t have an account? <a href="signup.php">Sign up now</a></p>
+        <div id="box">
+            <div id="top">
+                    <div>
+                <h4>Welcome Back!</h4>
+                <p>Sign in to continue</p>
+                </div>
+                <img src="Images/undraw_my_password_.svg" id="smallImg">
+                </div>
+                
+                <form class="form-signin" action="PHP/Login.php" method="post">
+                    <?php if(isset($_GET['error']))
+                        echo "<div class='alert alert-danger' role='alert'>".$_GET['error']."</div>";
+                    ?>
+                    <div id="inputs">
+                        <p>
+                            <label>
+                                <span class="labels">Email</span>
+                                <br>
+                                <input name="email" type="email"  placeholder="Enter your email" required>  
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <span class="labels">Password</span>
+                                <br>
+                                <input name="password" type="password" placeholder="Enter your password" required>
+                            </label>
+                        </p>
+                    </div>
+                    <a class="text-decoration-none"><button type="submit" id="signInBtn2">Sign in</button></a>
+                </form>  
+                <p id="forgetpass" class="mt-4"><i class="fa-solid fa-lock"></i><a href="ForgotPassword.html" id="forgotPass">Forgot your password?</a></p>
+          
+        <div id="toSignup" class="mt-4">
+            <p>Don’t have an account? <a href="signup.php">Sign up now</a></p>
+        </div>
        </div>
-    </div>
-    </div>
+      </div>
     </body>
 </html>
