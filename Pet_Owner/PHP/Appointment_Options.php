@@ -21,7 +21,7 @@ $query = "Select * from Service";
         echo "<script>";
         echo "document.getElementById('ServicesList').innerHTML += '<div class=\'cards\'>";
         echo "<div class=\'p-3 pb-0 d-flex flex-column\'>";
-        echo "<input type=\'radio\' name=\'service\' id=\'".$row[0]."\'>";
+        echo "<input type=\'radio\' name=\'service\' id=\'".$row[0]."\' value=\'".$row[0]."\'>";
         echo "<div class=\'text-center mt-2\'>";
         echo "<img src=\'data:image/png;charset=utf8;base64,".base64_encode($row[3])."\' width=\'100px\' height=\'100px\' class=\'serviceImg\'>";
         echo "<p class=\'main-info\'>".$row[0]."</p><p class=\'main-info\'>".$row[2]." SR</p>";

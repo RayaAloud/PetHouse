@@ -21,9 +21,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <!--jQuery-->
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
   <!--Bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -93,106 +93,9 @@
         }).done(function(msg){
            alert(msg)
         })
-   }
-   var list1;
-   var currentDate;
-   function setList(list){
-       console.log(list1)
-       list1 = list;
-   }   
-    function getList(list){
-      console.log(list1);
-      return list1
     }
-    function checkIfExists(day,month,year){
-      var dates = getList();
-       for(var i = 0; i < dates.length; i++){
-           var date = dates[i].Date.split("-");
-           var availableYear = date[0];
-           var availableMonth = date[1];
-           var availableDay = date[2]
-           if(availableYear == year && availableMonth == (1+month) && availableDay == day)
-             return true
-       }
-       return false
-    }
-    function displayTimes(){
-      document.getElementById('timeSelect').innerHTML = "<option>Select Time</option>";
-      var dates = getList();
-      var times = [];
-       for(var i = 0; i < dates.length; i++){
-           var date = dates[i].Date.split("-");
-           var availableYear = date[0];
-           var availableMonth = date[1];
-           var availableDay = date[2];
-           var time = dates[i].Time.split(":");
-           console.log(currentDate.getFullYear() +" " +currentDate.getMonth()+" "+currentDate.getDate());
-           if(availableYear == currentDate.getFullYear() && availableMonth == (currentDate.getMonth()+1) && availableDay == currentDate.getDate()){
-              if(time[0] < 12){
-                if(time[0] == 0)
-                time = (parseInt(time[0])+12)+":"+time[1]+" AM";
-                else
-                time = time[0]+":"+time[1]+" AM";
-              }
-              else{
-                if(time[0] == 12){
-                  time = time[0]+":"+time[1]+" PM";
-                  }
-                  else{
-                  time = (time[0]-12)+":"+time[1]+" PM";
-                  }
-              }  
-            document.getElementById('timeSelect').innerHTML += "<option>"+time+"</option>";
-           }
-       }     
-    }
-   $(document).ready(function(){
-    showPage('Signed_In_Header.html', 'header');
-    $('#updateBtn').click(function(){
-      alert("Hi");
-    })
-    $.ajax({
-      url: 'PHP/Retrieve_Available_Appt_for_Service.php',
-      method: 'POST',
-      dataType: 'JSON',
-      cache: false,
-      data: {serviceName : 'Checkup'}
-      }).done(function(msg){
-        setList(msg);
-        $("#datepicker").datepicker({
-        onSelect: function(){
-            currentDate = $("#datepicker").datepicker("getDate");
-            sessionStorage.setItem('Current_Selected_Date', currentDate);
-            displayTimes();    
-        },
-        minDate:0 ,
-        beforeShowDay: function(date) {
-          var day = date.getDate();
-          var month = date.getMonth();
-          var year = date.getFullYear();
-          return [checkIfExists(day,month,year), ''];
-          },
-        })
-        var appt_date = new Date(sessionStorage.getItem('Appt_Request_Date'));
-        var cells = document.getElementsByClassName('ui-state-default');
-        for(var k = 0; k < cells.length; k++){
-          console.log(cells[k].parentNode.getAttribute('month'))
-          if(cells[k].parentNode.getAttribute('data-year') == appt_date.getFullYear() &&
-          cells[k].parentNode.getAttribute('data-month') == appt_date.getMonth() &&
-          cells[k].getAttribute('data-date') == appt_date.getDate()){
-            cells[k].click();
-          }
-        }
-        $('#timeSelect').val(sessionStorage.getItem('Appt_Request_Time'));
-       })
-      // sessionStorage.setItem('Appt_Request_ID', $(appointment).attr('id'));
-          //sessionStorage.setItem('Appt_Request_Service', $(appointment).children()[1].innerHTML);
-        $('#petsList').val(sessionStorage.getItem('Appt_Request_Pet'));
-        $('#'+sessionStorage.getItem('Appt_Request_Service')).prop('checked', true);
-       // $("#datepicker").datepicker("setDate", sessionStorage.getItem('Appt_Request_Date'));
-         // sessionStorage.setItem('Appt_Request_Note', $(appointment).children()[1].innerHTML);
-        $('#note').val(sessionStorage.getItem('Appt_Request_Note'));
-    })
+   
+
    
     </script>
 </head>
@@ -253,7 +156,8 @@
   </div>
 </div>
 <?php include 'PHP/Appointment_Options.php'?>
-  <script> 
+</body>
+<script> 
     var acc = document.getElementsByClassName("collap");
     var acc2 = document.getElementsByClassName("content");
         for(let i = 0; i<acc.length; i++){
@@ -269,6 +173,145 @@
             j++;
           });
         }
+   var list1;
+   var currentDate;
+   function setList(list){
+       list1 = list;
+   }   
+    function getList(list){
+      return list1
+    }
+    function checkIfExists(day,month,year){
+      var dates = getList();
+       for(var i = 0; i < dates.length; i++){
+           var date = dates[i].Date.split("-");
+           var availableYear = date[0];
+           var availableMonth = date[1];
+           var availableDay = date[2]
+           if(availableYear == year && availableMonth == (1+month) && availableDay == day)
+             return true
+       }
+       return false
+    }
+
+    function displayTimes(){
+      document.getElementById('timeSelect').innerHTML = "<option>Select Time</option>";
+      var dates = getList();
+      var times = [];
+       for(var i = 0; i < dates.length; i++){
+           var date = dates[i].Date.split("-");
+           var availableYear = date[0];
+           var availableMonth = date[1];
+           var availableDay = date[2];
+           var time = dates[i].Time.split(":");
+           if(availableYear == currentDate.getFullYear() && availableMonth == (currentDate.getMonth()+1) && availableDay == currentDate.getDate()){
+              if(time[0] < 12){
+                if(time[0] == 0)
+                time = (parseInt(time[0])+12)+":"+time[1]+" AM";
+                else
+                time = time[0]+":"+time[1]+" AM";
+              }
+              else{
+                if(time[0] == 12){
+                  time = time[0]+":"+time[1]+" PM";
+                  }
+                  else{
+                  time = (time[0]-12)+":"+time[1]+" PM";
+                  }
+              }  
+            document.getElementById('timeSelect').innerHTML += "<option>"+time+"</option>";
+           }
+       }     
+    }
+    
+  function displayDates(service){
+    $.ajax({
+      url: 'PHP/Retrieve_Available_Appt_for_Service.php',
+      method: 'POST',
+      dataType: 'JSON',
+      cache: false,
+      data: {serviceName : service}
+      }).done(function(msg){
+        setList(msg);
+        $("#datepicker").datepicker({
+        onSelect: function(){
+            currentDate = $("#datepicker").datepicker("getDate");
+            sessionStorage.setItem('Current_Selected_Date', currentDate);
+            displayTimes();    
+        },
+        minDate:0,
+        beforeShowDay: function(date) {
+          var day = date.getDate();
+          var month = date.getMonth();
+          var year = date.getFullYear();
+          return [checkIfExists(day,month,year), ''];
+          },
+        })
+        var appt_date = new Date(sessionStorage.getItem('Appt_Request_Date'));
+        var cells = document.getElementsByClassName('ui-state-default');
+        for(var k = 0; k < cells.length; k++){
+          if(cells[k].parentNode.getAttribute('data-year') == appt_date.getFullYear() &&
+          cells[k].parentNode.getAttribute('data-month') == appt_date.getMonth() &&
+          cells[k].getAttribute('data-date') == appt_date.getDate()){
+            cells[k].click();
+          }
+        }
+        $('#timeSelect').val(sessionStorage.getItem('Appt_Request_Time'));
+       })
+    }
+
+    $(document).ready(function(){
+        showPage('Signed_In_Header.html', 'header');
+        $('#updateBtn').click(function(){
+          alert("Hi");
+        })
+        displayDates(sessionStorage.getItem('Appt_Request_Service'));
+         
+        //sessionStorage.setItem('Appt_Request_ID', $(appointment).attr('id'));  
+        $('#petsList').val(sessionStorage.getItem('Appt_Request_Pet'));
+        $('#'+sessionStorage.getItem('Appt_Request_Service')).prop('checked', true);
+       // $("#datepicker").datepicker("setDate", sessionStorage.getItem('Appt_Request_Date'));
+        $('#note').val(sessionStorage.getItem('Appt_Request_Note'));
+        
+    })
+    $('input:radio[name="service"]').change(function(){
+      $.ajax({
+            url: 'PHP/Retrieve_Available_Appt_for_Service.php',
+            method: 'POST',
+            dataType: 'JSON',
+            cache: false,
+            data: {serviceName : $(this).val()},
+            }).done(function(message){
+              if(message != 0){
+              setList(message);
+              $("#datepicker").datepicker('destroy');
+              $("#datepicker").datepicker({
+                
+              onSelect: function(){
+                  currentDate = $("#datepicker").datepicker("getDate");
+                  sessionStorage.setItem('Current_Selected_Date', currentDate);
+                  displayTimes();    
+              },
+              minDate:0,
+              beforeShowDay: function(date) {
+                var day = date.getDate();
+                var month = date.getMonth();
+                var year = date.getFullYear();
+                return [checkIfExists(day,month,year), ''];
+             },
+          })
+         }
+         else{
+          $("#datepicker").datepicker('destroy');
+          $("#datepicker").datepicker({
+                minDate:0,
+                beforeShowDay: function(date) {
+                  return [false, ''];
+               },
+            })
+         }
+        })
+      })
+    
   </script>
-</body>
 </html>
