@@ -1,10 +1,11 @@
 <?php
+session_start();
+
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-
 
 require '../PHPMailer/src/Exception.php';
 require '../PHPMailer/src/PHPMailer.php';
@@ -17,20 +18,23 @@ if(isset($_POST['email'])){
   $query = "SELECT * FROM Pet_Owner WHERE Email = '$email';";
   $result = mysqli_query($con,$query);
   if(mysqli_num_rows($result) > 0){
-       sendMail($email);
+       $otp_num = sendMail($email);
+       $_SESSION['otp'] = $otp_num;
+       $_SESSION['email_reset_pass'] = $email;
+       header("Location: ../OTP.html");      
   }
   else{
     $query= "SELECT * FROM Manager WHERE Email = '$email';";
     $result = mysqli_query($con,$query);
     if(mysqli_num_rows($result) > 0){
         sendMail($email);
+       
     }
     else{
         header("Location: ../ForgotPassword.html?error=Email not exists!");
     }
-  }
+  }  
 }
-
 function sendMail($userEmail){
  //Create an instance; passing `true` enables exceptions
  $mail = new PHPMailer(true);
@@ -49,7 +53,8 @@ function sendMail($userEmail){
         //Recipients
         $mail->setFrom('PetHouse.coo@gmail.com', 'PetHouse');
         $mail->addAddress($userEmail);     //Add a recipient
-        
+
+        //Generate random otp number
         $otp = random_int(1000, 9999);
         
         //Content
@@ -64,4 +69,6 @@ function sendMail($userEmail){
     catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
+    return $otp;
 }
+?>

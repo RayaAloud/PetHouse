@@ -1,10 +1,12 @@
 - [x] Home page
-- [ ] Request Appointment1
-- [ ] Request Appointment2
-- [ ] Request Appointment3
+- [ ] Forgot Password
+- [x] Request Appointment1
+- [x] Request Appointment2
+- [x] Request Appointment3
 - [ ] Owner Login
 - [ ] Owner Register 
 - [ ] Owner Appointment Requests
+- [ ] Owner Previous Appointment 
 - [ ] Pet Profile
 - [ ] Owner Profile
 - [ ] Owner Dashboard
