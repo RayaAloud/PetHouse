@@ -65,7 +65,7 @@ function show(btn){
         <button id="next" class="next-previous"><i class="bi bi-chevron-right"></i></button>
       </div>
       
-      <div id="addService" class="col-8"></div>
+      <div id="addService" class="col-9"></div>
     </div> 
     <button id="addServiceBtn" class="" onclick="showPage('AddService.html','addService')">Add New Service</button>
     <?php include 'PHP/Retrieve_Services.php'?>

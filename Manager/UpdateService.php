@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="Style/Add_Service.css">
 </head>
 <body>
-    <div class="container d-flex flex-column offset-1">
+    <div class="container d-flex flex-column offset-2">
       <form id="form" method="post" enctype="multipart/form-data">
         <div class="container d-flex justify-content-between">
         <div class="d-flex flex-column" id="inputFields">

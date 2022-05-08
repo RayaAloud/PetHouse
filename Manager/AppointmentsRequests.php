@@ -151,7 +151,7 @@
     <div id="delete-confirmation">
       <div id="content-container" class="d-flex flex-column align-items-center m-auto">
         <button id="cancelBtn" class="align-self-end" onclick="closeMsg()">X</button>
-        <h3 class="mb-5">Are you sure you want to delete this appointment?</h3>
+        <h3 class="mb-5 mt-3"><span id="action-word"></span> this appointment?</h3>
         <div id="btns-container">
             <button id="cancelButton">Cancel</button>
         </div>
@@ -187,8 +187,7 @@
          $("#delete-confirmation").css('display','none'); 
          $('#darkBcground').css('display','none');
     }
-    function decline_accept(apptID, status){
-      
+    function decline_accept(apptID, status){  
       $.ajax({
         url: 'PHP/Accept_Decline_Appt.php',
         method: 'POST',
@@ -212,6 +211,7 @@
                 $(btn).attr('class','confirm-action-Button'); 
                 $(btn).attr('onclick','decline_accept(apptID, "Declined")');
                 $(btn).attr('id','action-Button');
+                $('#action-word').html('Decline ');
                 $('#btns-container').append(btn);
                 $('#delete-confirmation').css('display','block');  
                 
@@ -230,6 +230,7 @@
               $(btn).attr('class','confirm-action-Button2'); 
               $(btn).attr('id','action-Button');
               $(btn).attr('onclick','decline_accept(apptID, "Accepted")');
+              $('#action-word').html('Accept ');
               $('#btns-container').append(btn);
               $('#delete-confirmation').css('display','block');  
           })   
