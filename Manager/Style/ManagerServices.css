@@ -136,3 +136,6 @@ margin-left: 2em;
 hr{
   width: 100%;
 }
+#addService{
+  height: fit-content;
+}

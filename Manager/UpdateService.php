@@ -23,15 +23,15 @@
         <div class="d-flex flex-column" id="inputFields">
         <div class="row">
             <label>Service Name</label>
-            <input type="text" value="Checkup" name="service" id="service">
+            <input type="text" name="service" id="service">
         </div>
         <div class="row">
             <label>Service Price</label>
-            <input type="number" value="180" name="price" id="price">
+            <input type="number" name="price" id="price">
         </div>
         <div class="row">
             <label>Description</label>
-            <textarea name="Description" id="Description">This service includes full check up for your pet with our excellent veterinaries</textarea>
+            <textarea name="Description" id="Description" class="p-3"></textarea>
         </div>
         </div>
         <div class="d-flex flex-column justify-content-center">
@@ -42,7 +42,10 @@
              </div>
         </div>
         </div>
-        <div class="container d-flex justify-content-center mt-5"><button id="AddBtn">Update Service</button></div>
+        <div class="col-6 d-flex m-auto justify-content-around mt-5">
+            <button class="cancelBtn" type="button" onclick="cancel()">Cancel</button>
+            <button id="AddBtn">Update Service</button>
+        </div>
         </form>
     </div>
 </body>
@@ -75,7 +78,14 @@
             data: img,
         }).done(function(msg){
             alert(msg);
-        })      
+        })    
    })
+   $(document).ready(function(){
+            $('#service').val(sessionStorage.getItem('ServiceToBeEdited_Name'));
+            $('#price').val(sessionStorage.getItem('ServiceToBeEdited_Price'));
+            $('#Description').html(sessionStorage.getItem('ServiceToBeEdited_Description'))
+            $('#pet-image').attr('src',sessionStorage.getItem('ServiceToBeEdited_Image'))
+    })
+       
 </script> 
 </html>

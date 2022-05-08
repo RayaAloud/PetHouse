@@ -13,6 +13,9 @@
     border: 1px solid #858585;
     margin-bottom: 0.8em;
 }
+#Description{
+    border-radius: 40px;
+}
 #addinPic label{
     margin-top: -1.8em;
 }
@@ -25,7 +28,7 @@
     align-self: flex-end;
     cursor: pointer;
 }
- #imgUpload{
+#imgUpload{
     display: none;
 }    
 #iframe{
@@ -33,4 +36,14 @@
 }
 #pet-image{
     border-radius: 50%;
+}
+.cancelBtn{
+    border: 1px solid #111B47;
+    color: #111B47;
+    background-color: white;
+    border-radius: 30px;
+    padding: 0.5em 1em 0.5em 1em;
+}
+.cancelBtn:hover{
+    background-color: rgb(240, 240, 240);
 }

@@ -33,7 +33,7 @@
         </div>
         <div class="row">
             <label>Description</label>
-            <textarea name="Description"></textarea>
+            <textarea name="Description" id="Description" class="p-3"></textarea>
         </div>
         </div>
         <div class="d-flex flex-column justify-content-center align-items-end">
@@ -44,7 +44,10 @@
              </div>
         </div>
         </div>
-        <div class="container d-flex justify-content-center mt-5"><button id="AddBtn" type="submit" name="add">Add Service</button></div>
+        <div class="col-6 d-flex m-auto justify-content-around mt-5">
+            <button class="cancelBtn" type="button" onclick="cancel()">Cancel</button>
+            <button id="AddBtn" type="submit" name="add">Add Service</button>
+        </div>
       </form>
     </div>
  

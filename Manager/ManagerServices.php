@@ -40,9 +40,15 @@ function showPage(page, elem){
 }
 function show(btn){
     showPage('UpdateService.php','addService');
-    let service_name = btn.parentNode.parentNode.childNodes[2].innerHTML;
-    sessionStorage.setItem('ServiceToBeEdited',service_name);   
-    
+    var service_name = btn.parentNode.parentNode.childNodes[2].innerHTML;
+    var service_price = btn.parentNode.parentNode.childNodes[3].innerHTML;
+    var service_Desc = btn.parentNode.parentNode.parentNode.childNodes[3].childNodes[1].innerHTML;
+    var service_img = btn.parentNode.parentNode.childNodes[1].getAttribute('src');
+    console.log(service_Desc);
+    sessionStorage.setItem('ServiceToBeEdited_Name',service_name); 
+    sessionStorage.setItem('ServiceToBeEdited_Price',parseInt(service_price)); 
+    sessionStorage.setItem('ServiceToBeEdited_Description',service_Desc);
+    sessionStorage.setItem('ServiceToBeEdited_Image',service_img);     
 }
 </script>
 </head>
@@ -100,6 +106,9 @@ function show(btn){
         });
        })
       }
+      function cancel(){
+        $('#addService').html("");
+      } 
   </script>
  </body> 
 </html>
