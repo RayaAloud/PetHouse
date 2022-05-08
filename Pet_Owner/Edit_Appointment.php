@@ -263,7 +263,15 @@
     $(document).ready(function(){
         showPage('Signed_In_Header.html', 'header');
         $('#updateBtn').click(function(){
-          alert("Hi");
+          if(checkService() && checkDate() && checkTime()){
+            $.ajax({
+              url: 'PHP/Edit_Appt_Request.php',
+              method: 'POST',
+              data: {},
+            }).done(function(msg){
+
+            })
+          }
         })
         displayDates(sessionStorage.getItem('Appt_Request_Service'));
          

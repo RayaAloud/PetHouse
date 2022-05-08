@@ -74,8 +74,8 @@ if(!isset($_SESSION['email'])){
               <li> <!-- need to be fixed -->
                   <div class="petList div" id="1">
                     <div class="p-3"> 
-                       <span id="deletedit"><h6 class="delete"> <button id="deleteBtn"><i class="bi bi-trash3"></i>&nbsp;DELETE</button></h6>
-                       <h6 class="edit"><button id="editBtn"> <i class="bi bi-pencil"></i>&nbsp;EDIT</button></h6>
+                       <span id="deletedit"><h6 class="delete"> <button id="deleteBtn"><i class="bi bi-trash3"></i>&nbsp;Delete</button></h6>
+                       <h6 class="edit"><button id="editBtn"> <i class="bi bi-pencil"></i>&nbsp;Edit</button></h6>
                        </span>
                        <div class="d-flex align-items-center mb-3">
                         <img src="../Images/catPurple.png" width="50px" height="50px">
@@ -117,8 +117,8 @@ if(!isset($_SESSION['email'])){
               <li>
                  <div class="petList div">
                     <div class="p-3"> 
-                        <span id="deletedit"><h6 class="delete"> <button id="deleteBtn"><i class="bi bi-trash3"></i>&nbsp;DELETE</button></h6>
-                        <h6 class="edit"><button id="editBtn"> <i class="bi bi-pencil"></i>&nbsp;EDIT</button></h6>
+                        <span id="deletedit"><h6 class="delete"> <button id="deleteBtn"><i class="bi bi-trash3"></i>&nbsp;Delete</button></h6>
+                        <h6 class="edit"><button id="editBtn"> <i class="bi bi-pencil"></i>&nbsp;Edit</button></h6>
                        </span>
                        <div class="d-flex align-items-center mb-3">
                         <img src="../Images/catBabyBlue.png" width="50px" height="50px">
@@ -160,8 +160,8 @@ if(!isset($_SESSION['email'])){
               <li>
                 <div class="petList div">
                     <div class="p-3"> 
-                        <span id="deletedit"><h6 class="delete"> <button id="deleteBtn"><i class="bi bi-trash3"></i>&nbsp;DELETE</button></h6>
-                            <h6 class="edit"><button id="editBtn"> <i class="bi bi-pencil"></i>&nbsp;EDIT</button></h6>
+                        <span id="deletedit"><h6 class="delete"> <button id="deleteBtn"><i class="bi bi-trash3"></i>&nbsp;Delete</button></h6>
+                            <h6 class="edit"><button id="editBtn"> <i class="bi bi-pencil"></i>&nbsp;Edit</button></h6>
                         </span>
                         <div class="d-flex align-items-center mb-3">
                         <img src="../Images/catPurple.png" width="50px" height="50px">
