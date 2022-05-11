@@ -1,5 +1,5 @@
 <?php
-Define("host","localhost:8889");
+Define("host","localhost");
 Define("Username", "root");
 Define("Password", "");
 Define("db", "PetHouse");
