@@ -73,7 +73,7 @@ function show(btn){
       
       <div id="addService" class="col-9"></div>
     </div> 
-    <button id="addServiceBtn" class="" onclick="showPage('AddService.html','addService')">Add New Service</button>
+    <button id="addServiceBtn" class="" onclick="showPage('AddService.php','addService')">Add New Service</button>
     <?php include 'PHP/Retrieve_Services.php'?>
     <script>
       var acc = document.getElementsByClassName("collap");

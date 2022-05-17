@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="Style/Add_Service.css">
 </head>
 <body>
-    <div class="container d-flex flex-column offset-2">
+    <div class="form-container d-flex flex-column offset-2">
       <form id="form" method="post" enctype="multipart/form-data">
         <div class="container d-flex justify-content-between">
         <div class="d-flex flex-column" id="inputFields">
@@ -66,8 +66,8 @@
             enctype: 'multipart/form-data',
             data: {name : $('#service').val(), price : $('#price').val(), description : $('#Description').val(),oldName : name},
             }).done(function(msg){
-            alert(msg);
-        })
+              alert(msg);
+            })
         $.ajax({
             method: 'POST',
             url: 'PHP/Edit_Service.php',
@@ -81,10 +81,10 @@
         })    
    })
    $(document).ready(function(){
-            $('#service').val(sessionStorage.getItem('ServiceToBeEdited_Name'));
-            $('#price').val(sessionStorage.getItem('ServiceToBeEdited_Price'));
-            $('#Description').html(sessionStorage.getItem('ServiceToBeEdited_Description'))
-            $('#pet-image').attr('src',sessionStorage.getItem('ServiceToBeEdited_Image'))
+        $('#service').val(sessionStorage.getItem('ServiceToBeEdited_Name'));
+        $('#price').val(sessionStorage.getItem('ServiceToBeEdited_Price'));
+        $('#Description').html(sessionStorage.getItem('ServiceToBeEdited_Description'))
+        $('#pet-image').attr('src',sessionStorage.getItem('ServiceToBeEdited_Image'))
     })
        
 </script> 

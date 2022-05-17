@@ -21,7 +21,6 @@ if(!isset($_SESSION['manager_email'])){
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> 
     <!--jQuery-->
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/e920294da5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">

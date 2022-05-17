@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php 
     session_start();
-    
     // Check if the user has already logged in
     if(isset($_SESSION['email']))
         // header() is used to send a raw HTTP header. It must be called before any actual output is sent.

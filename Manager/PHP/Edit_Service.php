@@ -19,7 +19,6 @@ if(isset($_POST['name']) && isset($_POST['oldName']) && isset($_POST['price']) &
 }
 if(isset($_FILES['img']['tmp_name'])){
     $service_old_name = $_COOKIE['service_old_name'];
-    echo $service_old_name;
     $img = $_FILES['img']['tmp_name'];
     $img = addslashes(file_get_contents($img));
     $query = "Update Service Set Photo = '".$img."' Where Name = '".$service_old_name."';";

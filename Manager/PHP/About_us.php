@@ -17,7 +17,7 @@ if(isset($_POST['save'])){
     $query = "UPDATE About_Us set Description ='".$description."', Location ='".$loc."' where ID = 1;";
   }
   $result = mysqli_query($connection,$query);
-  header('Location: ../sideMenu.html');
+  header('Location: ../sideMenu.php');
 }
 else{
   $query = 'select * from About_Us';

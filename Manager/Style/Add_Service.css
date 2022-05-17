@@ -47,3 +47,6 @@
 .cancelBtn:hover{
     background-color: rgb(240, 240, 240);
 }
+.form-container{
+    max-width: 500px;
+}

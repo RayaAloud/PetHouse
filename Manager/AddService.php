@@ -18,9 +18,15 @@
     </script>   
 </head>
 <body>
-    <div class="container d-flex flex-column offset-2">
-     <iframe id="iframe" name="my_iframe"></iframe>
-      <form method="POST" action="PHP/Add_Service.php" enctype="multipart/form-data" target="my_iframe">
+    <div class="form-container d-flex flex-column offset-2">
+        <?php if(isset($_SESSION['Add_Service_Error'])){
+            echo "<div class='alert alert-danger' role='alert'>".$_SESSION['Add_Service_Error']."</div>";
+            unset($_SESSION['Add_Service_Error']);
+        }
+        ?>
+        <iframe id="iframe" name="my_iframe">
+        </iframe>
+        <form method="POST" action="PHP/Add_Service.php" enctype="multipart/form-data" target="my_iframe" id="add_service_form">
         <div class="container d-flex justify-content-between">
         <div class="d-flex flex-column" id="inputFields">
         <div class="row">
@@ -50,6 +56,8 @@
         </div>
       </form>
     </div>
- 
 </body>
+    <script>
+
+    </script>
 </html>
