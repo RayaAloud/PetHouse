@@ -16,8 +16,13 @@ session_start();
         $PhoneNo = $_POST['phone'];
         $Gender = $_POST['gender'];
         $Password = $_POST['password'];
-        $img = $_FILES['profile-img']['tmp_name'];
-        $img = addslashes(file_get_contents($img));
+        if($_FILES['profile-img']['size'] > 0){
+            $img = $_FILES['profile-img']['tmp_name'];
+            $img = addslashes(file_get_contents($img));
+        }
+        else{
+            $img = null;
+        }
 
         //check if the email exits 
         $query = "SELECT * FROM pet_owner WHERE Email = '$Email' ";
@@ -34,12 +39,14 @@ session_start();
         //header("Location: signup.php?error=EMAIL syntax is wrong");
          //exit; -->
         //}
-
+        if($img == null)
+        $query="INSERT INTO `pet_owner` VALUES ('$Email','$First_Name','$Last_Name','$PhoneNo','$Gender','$Password', NULL)";
+        else
         $query="INSERT INTO `pet_owner` VALUES ('$Email','$First_Name','$Last_Name','$PhoneNo','$Gender','$Password','$img')";
         if (mysqli_query($con, $query)) {
             echo "New record created successfully !";
             $_SESSION['email'] = $Email ; //!sure if email
-            header("Location: ../PetOwner/Dashboard.php");
+            header("Location: ../Pet_Owner/Dashboard.php");
             $con -> close();
             exit;
         } else {
