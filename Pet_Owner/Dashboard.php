@@ -132,11 +132,12 @@ if(!isset($_SESSION['email'])){
     </tr>
     </thead>
 
-    <tbody>
-    <?php include 'PHP/UpcomingDashboard.php'?>
+      <tbody>
+      <?php include 'PHP/UpcomingDashboard.php'?>
       </tbody>
       </table>
     </div>
    </div>
+  
   </body>
 </html>

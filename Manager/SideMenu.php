@@ -70,7 +70,7 @@ if(!isset($_SESSION['manager_email'])){
          case 6:showPage('PreviousAppointment.html', 'content');
          changeTabsColor('PreviousAptTab');
          break;
-         case 7:showPage('Reviews.html', 'content');
+         case 7:showPage('Reviews.php', 'content');
          changeTabsColor('ReviewsTab');
          break;       
        }

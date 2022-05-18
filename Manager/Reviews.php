@@ -34,16 +34,11 @@
 </script>
 </head>
 <body>
-  <div id="div">
-    <div id="divCont" class="d-flex flex-column align-items-center m-auto">
-      <button id="cancelBtn" class="align-self-end" onclick="closeDiv()">X</button>
-      <a class="text-decoration-none" href="mailto:ReAlmuqbil@mail.com"><i class="bi bi-envelope-fill" id="emailIcon"></i></a>
-    </div>
-  </div>
     <div class="container-fluid">
         <div class="row flex-nowrap">
             
             <div class="col py-3 pt-5 ps-5">
+            <?php include 'PHP/ManagerReviews.php'?>
                 <div class="card w-100 pb-3" style="box-shadow: 1px 1px 15px 1px #ebebeb; border:none;border-radius:25px; padding: 4px;">
                     <div class="card-body">
                       <h5 class="card-title pb-3"> <i class="fa-solid fa-user" style="padding-right: 10px;" onclick="show()"></i>Noura</h5>
@@ -99,5 +94,4 @@
         </div>
     </div>   
 </body>
-<?php include 'PHP/ManagerReviews.php'?>
 </html>
