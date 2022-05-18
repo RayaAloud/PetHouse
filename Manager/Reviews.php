@@ -21,77 +21,14 @@
     <!--Bootstrap Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
-<script>
-
-     function show(){
-         document.getElementById("div").style.display ='block';
-      }
-      function closeDiv(){
-         document.getElementById("div").style.display ='none';
-      }
-      
-
-</script>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row flex-nowrap">
-            
-            <div class="col py-3 pt-5 ps-5">
-            <?php include 'PHP/ManagerReviews.php'?>
-                <div class="card w-100 pb-3" style="box-shadow: 1px 1px 15px 1px #ebebeb; border:none;border-radius:25px; padding: 4px;">
-                    <div class="card-body">
-                      <h5 class="card-title pb-3"> <i class="fa-solid fa-user" style="padding-right: 10px;" onclick="show()"></i>Noura</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                      <div>
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star" ></i><i class="fa-solid fa-star" style="color: gray;"></i>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="pb-3"></div>
-                  <div class="card w-100 pb-3" style="box-shadow: 1px 1px 15px 1px #ebebeb; border:none;border-radius:25px; padding: 4px;">
-                    <div class="card-body">
-                      <h5 class="card-title pb-3"> <i class="fa-solid fa-user" style="padding-right: 10px;" onclick="show()"></i>Mark</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                      <div>
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star" ></i><i class="fa-solid fa-star" style="color: gray;"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="pb-3"></div>
-                  <div class="card w-100 pb-3" style="box-shadow: 1px 1px 15px 1px #ebebeb; border:none;border-radius:25px; padding: 4px;">
-                    <div class="card-body">
-                      <h5 class="card-title pb-3"> <i class="fa-solid fa-user" style="padding-right: 10px;" onclick="show()"></i>Ghada</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                      <div>
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star" ></i><i class="fa-solid fa-star" style="color: gray;"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="pb-3"></div>
-                  <div class="card w-100 pb-3" style="box-shadow: 1px 1px 15px 1px #ebebeb; border:none;border-radius:25px; padding: 4px;">
-                    <div class="card-body">
-                      <h5 class="card-title pb-3"> <i class="fa-solid fa-user" style="padding-right: 10px;" onclick="show()"></i>Raya</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                      <div>
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star" ></i><i class="fa-solid fa-star" style="color: gray;"></i>
-                      </div>
-                    </div>
-                  </div> 
-                  
-                  <div class="pb-3"></div>
-                  <div class="card w-100 pb-3 b-none" style="box-shadow: 1px 1px 15px 1px #ebebeb; border:none;border-radius:25px; padding: 4px;">
-                    <div class="card-body">
-                      <h5 class="card-title pb-3"> <i class="fa-solid fa-user" style="padding-right: 10px;" onclick="show()"></i>Reem</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                      <div>
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star" ></i><i class="fa-solid fa-star" style="color: gray;"></i>
-                      </div>
-                    </div>
-                  </div>
-            </div>        
-        </div>
+    <div class="container p-5">  
+     <div class="upcoming-apt">
+          <p>Pets Owners Reviews</p>
+        <div class="line"></div>
+      </div>
+         <?php include 'PHP/ManagerReviews.php'?>
     </div>   
 </body>
 </html>
