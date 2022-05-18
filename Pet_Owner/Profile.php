@@ -68,13 +68,13 @@ if(!isset($_SESSION['email'])){
     </div>
 <div class="container mt-5">
     <div class = "row py-2 mt-3"> 
-            <div class="col-md-6"> <label for="firstname"> First Name </label> <input type="text" class="bg-light form-control" value="Raya"> </div>
-            <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname"> Last Name </label> <input type="text" class="bg-light form-control" value="Aloud"> </div>
+            <div class="col-md-6"> <label for="firstname"> First Name </label> <input type="text" class="bg-light form-control" placeholder = "First name" value="" required> </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname"> Last Name </label> <input type="text" class="bg-light form-control" placeholder = "Last name" value="" required> </div>
     </div>
         
         <div class="row py-2"> 
-            <div class="col-md-6"> <label for="email"> Email Address </label> <input type="text" class="bg-light form-control" value="rayaali@gmail.com"> </div>
-            <div class="col-md-6 pt-md-0 pt-3"> <label for="phonenumber"> Phone Number </label> <input type="text" class="bg-light form-control" value="+966 53-888-1823"> </div>
+            <div class="col-md-6"> <label for="email"> Email Address </label> <input type="text" class="bg-light form-control" placeholder = "Email address" value="" required> </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="phonenumber"> Phone Number </label> <input type="text" class="bg-light form-control" placeholder = "Phone number" value="" required> </div>
         </div>
         
 
