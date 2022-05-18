@@ -109,6 +109,7 @@
       <p>Edit Appointment</p>
       <div class="line"></div>
     </div>
+    <form id="Edit_Appt_Form">
       <div class="d-flex flex-column align-items-center mt-5">
         <span id="msg" class="col-7"></span>
         <div id="AppointmentOptions" class="text-center">
@@ -119,7 +120,6 @@
                 <label for="petsList">Pet</label>
             </div>
             <select id="petsList">
-              <option>Roy</option>
             <!--Owner's Pets Here-->  
             </select>
           </div>
@@ -146,16 +146,18 @@
             <textarea class="col-12 p-2 mt-5" placeholder="Notes (Optional)..." id="note"></textarea>
           </div>
        </div>
-      </div>
-      <div class="row col-sm-10 col-lg-6 justify-content-center align-self-center mt-5">
+      
+       <div class="row col-sm-10 col-lg-6 justify-content-center align-self-center mt-5">
         <div class="btnContainer d-flex justify-content-evenly mt-4" id="btnsContainer">
-           <a class="text-decoration-none" href="AppointmentRequests.php"><button class="movingBtns lightBtn" id="cancelBtn">Cancel</button></a>
+           <a class="text-decoration-none" href="AppointmentRequests.php"><button class="movingBtns lightBtn" id="cancelBtn" type="button">Cancel</button></a>
             <button class="movingBtns darkBtn" id="updateBtn">Update</button>
         </div>
+       </div>
     </div>
+    </form>
   </div>
 </div>
-<?php include 'PHP/Appointment_Options.php'?>
+<?php include 'PHP/Edit_Appt_Options.php'?>
 </body>
 <script> 
     var acc = document.getElementsByClassName("collap");
@@ -262,17 +264,6 @@
 
     $(document).ready(function(){
         showPage('Signed_In_Header.html', 'header');
-        $('#updateBtn').click(function(){
-          if(checkService() && checkDate() && checkTime()){
-            $.ajax({
-              url: 'PHP/Edit_Appt_Request.php',
-              method: 'POST',
-              data: {},
-            }).done(function(msg){
-
-            })
-          }
-        })
         displayDates(sessionStorage.getItem('Appt_Request_Service'));
          
         //sessionStorage.setItem('Appt_Request_ID', $(appointment).attr('id'));  
@@ -282,7 +273,9 @@
         $('#note').val(sessionStorage.getItem('Appt_Request_Note'));
         
     })
+    sessionStorage.setItem('Edit_Appt_service', sessionStorage.getItem('Appt_Request_Service'));
     $('input:radio[name="service"]').change(function(){
+      sessionStorage.setItem('Edit_Appt_service', $(this).val());
       $.ajax({
             url: 'PHP/Retrieve_Available_Appt_for_Service.php',
             method: 'POST',
@@ -320,6 +313,44 @@
          }
         })
       })
-    
+      var option = $('#petsList').find("option:selected");
+      sessionStorage.setItem('Edit_Appt_Pet', sessionStorage.setItem('Request_Appoinemtent_Pet'));
+      $('#petsList').change(function(){
+        var option = $(this).find("option:selected");
+        sessionStorage.setItem('Edit_Appt_Pet', $(option).attr('id'));
+      })
+      $('#Edit_Appt_Form').submit(function(e){
+         e.preventDefault();
+         if(checkService() && checkDate() && checkTime()){
+            var time = $('#timeSelect').val().split(" ");
+            var date = new Date(sessionStorage.getItem('Current_Selected_Date'));
+            date = date.getFullYear() + "-" + (date.getMonth() +1) + "-" + date.getDate();
+            var period = time[1];
+            time = time[0].split(":");
+            time[0] = parseInt(time[0]);
+            time[1] = parseInt(time[1]);
+            if(parseInt(time[0]) == 12){
+                if(period == "AM"){
+                  time = '00'+":"+time[1];
+                }
+                else if(period == "PM")
+                  time = time[0]+":"+time[1];
+            }
+            else if(parseInt(time[0]) < 12){
+                if(period == "AM"){
+                  time = time[0]+":"+time[1];
+                }
+                else if(period == "PM")
+                  time = (time[0]+12)+":"+time[1];
+            }
+         $.ajax({
+           method: 'POST',
+           url: 'PHP/Edit_Appt_Request.php',
+           data: {appt_ID : sessionStorage.getItem('Appt_Request_ID'), date : date, time : time, service : sessionStorage.getItem('Edit_Appt_service'), note : $('#note').val(), petID :  sessionStorage.getItem('Edit_Appt_Pet')}
+         }).done(function(msg){
+           alert(msg);
+         })
+        }
+      })
   </script>
 </html>

@@ -1,5 +1,4 @@
 <?php
-session_start();
 include 'Connection.php';
 $connection = mysqli_connect(host,Username,Password,db);
 if(!$connection)

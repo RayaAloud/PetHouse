@@ -97,6 +97,12 @@
           j++;
         });
       }
+      var option = $('#petsList').find("option:selected");
+      sessionStorage.setItem('Request_Appoinemtent_Pet', $(option).attr('id'));
+      $('#petsList').change(function(){
+        var option = $(this).find("option:selected");
+        sessionStorage.setItem('Request_Appoinemtent_Pet', $(option).attr('id'));
+      })
     </script>
 </body>
 </html>

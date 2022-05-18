@@ -106,7 +106,7 @@
                     <div class="d-flex justify-content-between">
                         <label>
                             Phone Number <br>
-                            <input name="phone" type="tel" placeholder="Enter your phone number" required >
+                            <input name="phone" type="tel" placeholder="Enter your phone number" required>
                         </label>
                         <label class="col-3">
                             <span>Gender</span>

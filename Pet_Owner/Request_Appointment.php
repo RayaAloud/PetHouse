@@ -86,7 +86,6 @@ if(!isset($_SESSION['email'])){
       if(time.val() == "Select Time")
         return false;
       sessionStorage.setItem('Request_Appoinemtent_Time',time.val());
-      sessionStorage.setItem('Available_Appt_ID',time.find(':selected').attr('appt_Id'));
       return true;
    }
    var currentPage = 0;
@@ -189,10 +188,31 @@ if(!isset($_SESSION['email'])){
    }
    function confirm(){
        var note = sessionStorage.getItem('Notes');
+       var time = sessionStorage.getItem('Request_Appoinemtent_Time').split(" ");
+       var date = new Date(sessionStorage.getItem('Current_Selected_Date'));
+       date = date.getFullYear() + "-" + (date.getMonth() +1) + "-" + date.getDate();
+       var period = time[1];
+       time = time[0].split(":");
+       time[0] = parseInt(time[0]);
+       time[1] = parseInt(time[1]);
+       if(parseInt(time[0]) == 12){
+          if(period == "AM"){
+            time = '00'+":"+time[1];
+          }
+          else if(period == "PM")
+            time = time[0]+":"+time[1];
+       }
+       else if(parseInt(time[0]) < 12){
+          if(period == "AM"){
+            time = time[0]+":"+time[1];
+          }
+          else if(period == "PM")
+            time = (time[0]+12)+":"+time[1];
+       }
         $.ajax({
            url: 'PHP/Add_Appt_Request.php',
            method: 'POST',
-           data: {ApptID : sessionStorage.getItem('Available_Appt_ID'), note : (note == null)? null : note},
+           data: {time : time, date : date, service_name : sessionStorage.getItem('Request_Appoinemtent_Service'), petID :  sessionStorage.getItem('Request_Appoinemtent_Pet'), note : (note == null)? null : note},
         }).done(function(msg){
            if(msg == 1){
             $('#darkBcground').css('display','block');

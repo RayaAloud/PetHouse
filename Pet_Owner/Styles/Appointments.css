@@ -3,14 +3,14 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: aliceblue;
   overflow-x: hidden;
-}
-       
+  padding: 0;
+  margin: 0;
+}       
 .card-title {
   text-align: center;
   font-weight: bold;
   font-size: 22px;
-  color: #A2ABD1;
-  
+  color: #A2ABD1;  
 }
 .rectangle {  
    left: 0%;
@@ -20,9 +20,7 @@ body {
  }
 .cards {
   box-shadow: 1px 1px 15px 1px #ebebeb;
-}
-
-  
+} 
 .line {
   background-color: #A2ABD1;
   width: 200px;
@@ -30,7 +28,6 @@ body {
   margin-top: 10px;
   margin-left: 5%;
 }
-
 p {
     margin-left: 5%;
     font-weight: bold;
@@ -40,15 +37,12 @@ p {
 .upcoming-apt p {
   padding-top: 70px;   
 }
-
 .upcoming-apt {
   margin: 5px 20px;
 }
-
 .t-img {
   width: 56px;
-  height: 56px;
-  
+  height: 56px;  
 }
 tr{
   border-bottom: 1px solid rgb(161, 161, 161);
@@ -92,6 +86,9 @@ td {
   color:white;
   font-size: 1em;
   padding: 0.2em 0.5em 0.2em 0.5em;
+}
+.reviewBtn:hover{
+  background-color: #757b99;
 }
 .noteIcon{
   color: #A2ABD1;

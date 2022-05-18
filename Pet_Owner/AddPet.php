@@ -93,7 +93,7 @@ if(!isset($_SESSION['email'])){
             </div>
             <div class="d-flex justify-content-center mt-4">
               <div class="col-4 d-flex justify-content-around">
-                <a href="MyPets.html"><button class="btns">Cancel</button></a>
+                <a href="MyPets.php"><button class="btns">Cancel</button></a>
                 <button class="btns">Add</button>
               </div>
            </div>

@@ -62,7 +62,7 @@ if(!isset($_SESSION['email'])){
     <img src="../Images/Vector.png" id="bcImg">
    <div class="container py-4 d-flex flex-column mt-5"> 
 
-   <div class="d-flex">
+   <div class="d-flex flex-column flex-lg-row">
      <a class="col-4 text-decoration-none" href="Request_Appointment.php">
         <div class="cards d-flex" style="width: 358px; height: 170px;">
           <div class="rectangle"></div> 
