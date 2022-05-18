@@ -64,10 +64,10 @@ if(!isset($_SESSION['manager_email'])){
          case 4:showPage('AppointmentsRequests.php', 'content');
          changeTabsColor('AptReqTab');
          break;
-         case 5: showPage('UpcomingAppointments.html', 'content');
+         case 5: showPage('UpcomingAppointments.php', 'content');
          changeTabsColor('UpcomingAptTab');
          break;
-         case 6:showPage('PreviousAppointment.html', 'content');
+         case 6:showPage('PreviousAppointment.php', 'content');
          changeTabsColor('PreviousAptTab');
          break;
          case 7:showPage('Reviews.php', 'content');
