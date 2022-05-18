@@ -113,7 +113,7 @@ if(!isset($_SESSION['email'])){
          $('#darkBcground').css('display','none');
     }
   $(document).ready(function(){
-    showPage('Signed_In_Header.html', 'header');
+    showPage('Signed_In_Header.php', 'header');
     var editBtns = $('.editBtn');
     for(var i = 0; i < editBtns.length; i++){
       $(editBtns[i]).click(function(){

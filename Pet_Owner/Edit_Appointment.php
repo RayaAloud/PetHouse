@@ -263,7 +263,7 @@
     }
 
     $(document).ready(function(){
-        showPage('Signed_In_Header.html', 'header');
+        showPage('Signed_In_Header.php', 'header');
         displayDates(sessionStorage.getItem('Appt_Request_Service'));
          
         //sessionStorage.setItem('Appt_Request_ID', $(appointment).attr('id'));  

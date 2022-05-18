@@ -63,8 +63,8 @@ if(!isset($_SESSION['email'])){
    <div class="container py-4 d-flex flex-column mt-5"> 
 
    <div class="d-flex flex-column flex-lg-row">
-     <a class="col-4 text-decoration-none" href="Request_Appointment.php">
-        <div class="cards d-flex" style="width: 358px; height: 170px;">
+     <a class="col-4 text-decoration-none sections" href="Request_Appointment.php">
+        <div class="cards d-flex" style="width: 360px; height: 170px;">
           <div class="rectangle"></div> 
           <div class="container d-flex align-items-center flex-column mt-4">
             <img src="../Images/box_icon.png"  width="75px" height="75px">
@@ -74,8 +74,8 @@ if(!isset($_SESSION['email'])){
           </div>
         </div> 
       </a>
-      <a  class="col-4 text-decoration-none" href="PreviousAppointments.php">
-        <div class="cards d-flex" style="width: 358px; height: 170px;">
+      <a class="col-4 text-decoration-none sections" href="PreviousAppointments.php">
+        <div class="cards d-flex" style="width: 360px; height: 170px;">
             <div class="rectangle"></div> 
             <div class="container d-flex align-items-center flex-column mt-4">
               <img src="../Images/mdi_page-previous-outline.png" width="80px" height="80px">
@@ -85,8 +85,8 @@ if(!isset($_SESSION['email'])){
             </div>
         </div>  
        </a>
-       <a  class="col-4 text-decoration-none" href="MyPets.php">
-          <div class="cards d-flex" style="width: 358px; height: 170px;">
+       <a class="col-4 text-decoration-none sections" href="MyPets.php">
+          <div class="cards d-flex" style="width: 360px; height: 170px;">
             <div class="rectangle"></div> 
             <div class="container d-flex align-items-center flex-column mt-4">
               <img src="../Images/icons8_cat-footprint.png"  width="100px" height="95px">
@@ -99,8 +99,8 @@ if(!isset($_SESSION['email'])){
     
       </div>
       <div class="mt-5">
-        <a  class="col-4 text-decoration-none" href="AppointmentRequests.php">
-          <div class="cards d-flex" style="width: 358px; height: 170px;">
+        <a  class="col-4 text-decoration-none sections" href="AppointmentRequests.php">
+          <div class="cards d-flex" style="width: 360px; height: 170px;">
             <div class="rectangle"></div> 
             <div class="container d-flex align-items-center flex-column mt-4">
               <img src="../Images/mdi_progress-clock.png"  width="80px" height="80px">

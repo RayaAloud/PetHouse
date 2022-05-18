@@ -51,7 +51,7 @@ if(!isset($_SESSION['email'])){
    }
   
    $(document).ready(function(){
-     showPage('Signed_In_Header.html','header')
+     showPage('Signed_In_Header.php','header')
    })
    
   </script>
