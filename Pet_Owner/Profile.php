@@ -4,13 +4,13 @@ session_start();
 if(!isset($_SESSION['email'])){
   header("Location: ../index.php");
 }
-
+include 'PHP/Connection.php';
 $connection = mysqli_connect(host,Username,Password,db);
 if(!$connection) {
     die('error in database'.mysqli_error($connection));
 }
 else {
-    $email = $_SESSION['Email'];
+    $email = $_SESSION['email'];
 
     $query = "SELECT * FROM pet_owner WHERE Email = '$email'";
     $result = mysqli_query($connection,$query);
@@ -24,25 +24,7 @@ else {
             $Gender = $row['Gender'];
             $ProfilePhoto = $row['Profile_Photo'];
         }
-    }
-
-    if(is_null($row['Profile_Photo'])) {
-        echo "<div id='profile-pic-div' class='d-flex flex-column align-items-center'> 
-        <img src='../Images/undraw_profile_pic_ic.png' id='photo' alt='profile image'> 
-        <input type='file' id='file'>
-        <label for='file' id='uploadBtn'>Choose Photo</label>
-        </div>";
-    }
-    else {
-        echo "<div id='profile-pic-div' class='d-flex flex-column align-items-center'> 
-        <img src='../Images/".$row[Profile_Photo]."' id='photo' alt='profile image'> 
-        <input type='file' id='file'>
-        <label for='file' id='uploadBtn'>Choose Photo</label>
-        </div>";
-    }
-
-
-}
+        
 
 ?>
 <html>
@@ -100,6 +82,25 @@ else {
   <div class="container-fluid d-flex mt-5 justify-content-center">
 <div class="wrapper bg-white mt-sm-5 col-sm-10">
      <div class="container-fluid d-flex justify-content-center">
+       <?php
+       if($ProfilePhoto == null) {
+        echo "<div id='profile-pic-div' class='d-flex flex-column align-items-center'> 
+        <img src='../Images/undraw_profile_pic_ic.png' id='photo' alt='profile image'> 
+        <input type='file' id='file'>
+        <label for='file' id='uploadBtn'>Choose Photo</label>
+        </div>";
+    }
+    else {
+        echo "<div id='profile-pic-div' class='d-flex flex-column align-items-center'> 
+        <img src='data:image/png;charset=utf8;base64,".base64_encode($ProfilePhoto)."' id='photo' alt='profile image'>  
+        <input type='file' id='file'>
+        <label for='file' id='uploadBtn'>Choose Photo</label>
+        </div>";
+    }
+  }
+
+    }
+       ?>
        <!--  <div id="profile-pic-div" class="d-flex flex-column align-items-center"> 
              <img src="../Images/undraw_profile_pic_ic.png" id="photo" alt="profile image"> 
              <input type="file" id="file">
