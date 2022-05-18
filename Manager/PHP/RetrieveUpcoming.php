@@ -3,7 +3,7 @@ include 'Connection.php';
 $connection = mysqli_connect(host,Username,Password,db);
   if(!$connection)
    die();
-$query = "Select * from Appointment_Requests";
+$query = "Select * from Appointment_Requests WHERE status = 'Accepted'";
 $result = mysqli_query($connection,$query);
 
 while($row = mysqli_fetch_array($result)){
