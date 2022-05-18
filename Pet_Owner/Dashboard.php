@@ -133,11 +133,11 @@ if(!isset($_SESSION['email'])){
     </thead>
 
       <tbody>
-      <?php include 'PHP/UpcomingDashboard.php'?>
       </tbody>
+      <?php include 'PHP/UpcomingDashboard.php'?>
       </table>
     </div>
    </div>
-  
   </body>
+  
 </html>
