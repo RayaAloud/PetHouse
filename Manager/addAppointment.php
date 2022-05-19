@@ -81,7 +81,7 @@
                   
             </div>
             <div id="add" class="align-self-center">
-              <button id="addbtn" type="submit" name="add">Add</button>
+              <button class="addbtn" type="submit" name="add">Add</button>
             </div>
         </div>
        </form>

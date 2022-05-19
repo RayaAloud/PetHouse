@@ -25,6 +25,7 @@
      <!--AJAX-->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Script-->
+    <!--
     <script>
         $( function() {
           $( "#datepicker" ).datepicker({
@@ -40,6 +41,7 @@
         });
        
         </script>
+    -->
         <style>
             .ui-widget-header{
                 background: #A2ABD1 ;
@@ -116,9 +118,13 @@
         var editBtns = document.getElementsByClassName('editBtn');
         for(let i = 0; i < editBtns.length; i++){
             $(editBtns[i]).click(function(){
-                let apptID = editBtns[i].parentNode.parentNode;
-                apptID = $(apptID).attr('id');
-                showPage('UpdateAppointment.php?ID='+apptID,'content');
+                var appt = editBtns[i].parentNode.parentNode;
+                var apptID = $(appt).attr('id');
+                sessionStorage.setItem('Available_appt_toBe_Edited_Id',apptID);
+                sessionStorage.setItem('Available_appt_toBe_Edited_service',appt.childNodes[0].innerHTML);
+                sessionStorage.setItem('Available_appt_toBe_Edited_Date',appt.childNodes[1].innerHTML);
+                sessionStorage.setItem('Available_appt_toBe_Edited_Time',appt.childNodes[2].innerHTML);
+                showPage('UpdateAppointment.php','content');
             })   
         }
         var apptID;

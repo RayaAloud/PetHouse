@@ -4,7 +4,7 @@ $connection = mysqli_connect(host,Username,Password,db);
 if(!$connection)
 die();
 $email = $_SESSION['email'];
-$query = "SELECT * FROM Appointment_Requests WHERE (NOT EXISTS (Status = 'Accepted' AND Date < CURRENT_DATE())) AND PetID IN (SELECT ID FROM Pet WHERE Owner_Email = '$email');";
+$query = "SELECT * FROM Appointment_Requests WHERE NOT ((Status = 'Accepted' And Date < CURRENT_DATE()) OR (Status = 'Accepted' And Date = CURRENT_DATE() AND Time < CURRENT_TIME())) AND (PetID IN (SELECT ID FROM Pet WHERE Owner_Email = '$email'));";
 $result = mysqli_query($connection, $query);
 while($row = mysqli_fetch_array($result)){
     $query = "SELECT Name, Photo FROM Pet WHERE ID = ".$row['PetID'].";";
@@ -17,13 +17,15 @@ while($row = mysqli_fetch_array($result)){
     echo "<td>".timeFormat($row['Time'])."</td>";
     echo "<td> <button class=\'noteBtn\' onclick=\'showNote(this)\'> <i class=\'bi bi-chat-square-dots-fill noteIcon\'></i></button></td>";
     echo "<td class=\'".$row['Status']."\'>".$row['Status']."</td>";
-    echo "<td>";
-    echo "<button class=\'buttons editBtn\'>";
-    echo "<i class=\'bi bi-pencil-square pencilIcon\'></i>";
-    echo "</button>";
-    echo "<button class=\'cancelButtons\'>Cancel</button>";
-    echo "</td></tr>'";
-    echo "</script>"; 
+    if($row['Status'] != 'Cancelled'){
+      echo "<td>";
+      echo "<button class=\'buttons editBtn\'>";
+      echo "<i class=\'bi bi-pencil-square pencilIcon\'></i>";
+      echo "</button>";
+      echo "<button class=\'cancelButtons\'>Cancel</button>";
+      echo "</td>";
+    }
+    echo "</tr>'</script>"; 
 }
 function timeFormat($time){
   $time = explode(":",$time);

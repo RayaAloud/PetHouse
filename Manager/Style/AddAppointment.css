@@ -52,8 +52,8 @@ h2{
     color: #111B47;
    
 }
-#addbtn{
-    background-color: #A2ABD1;
+.addbtn{
+    background-color: #9099be;
     color: white;
     border-radius: 30px;
     border:none;
@@ -65,10 +65,16 @@ h2{
     font-size:30px;
     text-align: center;
 }
-#addbtn:hover {
+.addbtn:hover {
     opacity: 1;
 }
 #datepicker{
     margin-top: 2.5em;
     margin-bottom: .5em;
 }
+ .ui-datepicker-today a:active{
+    border: 1px solid #003eff;
+    background: #007fff;
+    font-weight: normal;
+    color: #ffffff;
+ }
