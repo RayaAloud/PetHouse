@@ -3,7 +3,8 @@ include 'Connection.php';
 $connection = mysqli_connect(host,Username,Password,db);
   if(!$connection)
    die();
-$query = "Select * from Appointment_Requests";
+
+$query = "Select * from Appointment_Requests A , pet P WHERE A.status = 'Accepted' and A.PetID = P.ID";
 $result = mysqli_query($connection,$query);
 
 while($row = mysqli_fetch_array($result)){
@@ -25,18 +26,20 @@ while($row = mysqli_fetch_array($result)){
     }
     $date = explode("-",$row['Date']);
    // $stat = explode("",$row['Status']);
-    if($date < date("Y-m-d"))
-       // if($stat != "Accepted")
+    if($date > date("Y-m-d"))
+       // if($stat == "Accepted")
     {
         $date = $date[2]."/".$date[1]."/".$date[0];
         
         echo "<script> document.getElementsByTagName('tbody')[0].innerHTML +='";
         echo "<tr id=\'".$row['Request_ID']."\'>";
        // echo "<td>"./*pic*/."</td>";
+        echo "<td>".$row['Name']."</td>";
         echo "<td>".$row['Service_Name']."</td>";
         echo "<td>".$date."</td>";
         echo "<td>".$time."</td>";
-        echo "<td>".$row['Note']."</td>";
+        echo "<td><button class=\'btns\' onclick=\'showNote(this)\'>";
+        echo "<i class=\'bi bi-chat-square-dots-fill noteIcon\'></button></td>";  
         echo "</tr>'";
         echo "</script>";
     }
