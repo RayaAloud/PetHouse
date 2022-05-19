@@ -35,38 +35,42 @@ p {
     font-size: 20px;
 }
 .upcoming-apt p {
-  padding-top: 70px;   
+  color: #8991b4;
+  padding-top: 70px; 
+  font-size: 22px;  
 }
 .upcoming-apt {
   margin: 5px 20px;
 }
 .t-img {
   width: 56px;
-  height: 56px;  
+  height: 56px; 
+  border-radius: 50%; 
 }
 tr{
   border-bottom: 1px solid rgb(161, 161, 161);
 }
 th{
   color: #646d95;
+  font-size: 1.2em;
 }
 td {
-  padding: 0.8em;
+  padding: 1em;
   text-align: center;
+  font-size: 18px;
 }
 .box{
   overflow-y: scroll;
-  max-height: 460px;
-  max-width: 1060px;
+  max-height: 800px;
+  max-width: 1200px;
 }
 .box table{         
-  padding: 1em;
-  padding-top: 1.5em;
-  margin: 15px 80px;
-  width: 964px;
+  padding: 1.8em;
+  margin: 5px 80px;
+  width: 1100px;
   box-shadow: 1px 1px 15px 1px #ebebeb;
   border-radius: 10px;
-  border-spacing: 0.5em;
+  border-spacing: 1em;
   background-color: white;
 }
 

@@ -314,7 +314,7 @@
         })
       })
       var option = $('#petsList').find("option:selected");
-      sessionStorage.setItem('Edit_Appt_Pet', sessionStorage.setItem('Request_Appoinemtent_Pet'));
+      sessionStorage.setItem('Edit_Appt_Pet', sessionStorage.getItem('Request_Appoinemtent_Pet'));
       $('#petsList').change(function(){
         var option = $(this).find("option:selected");
         sessionStorage.setItem('Edit_Appt_Pet', $(option).attr('id'));

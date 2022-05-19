@@ -113,6 +113,20 @@ if(!isset($_SESSION['email'])){
         request.open("Get", page, true);
         request.send();
     }
+    function showNote(btn){
+         var appointmentID = $(btn).parent().parent().attr('id'); 
+         $.ajax({
+           url: 'PHP/Retrieve_Notes.php',
+           method: 'POST',
+           data: {Appt_ID : appointmentID},
+         }).done(function(msg){
+          $('#note').html(msg);
+          $('#divv2').css('display', 'block'); 
+         })
+      }
+      function closeNote(){
+         document.getElementById("divv2").style.display ='none';
+      }
   $(document).ready(function(){
     showPage('Signed_In_Header.php', 'header');
   })
@@ -129,13 +143,6 @@ if(!isset($_SESSION['email'])){
       function closeDiv(){
          document.getElementById("divv").style.display ='none';
          $('#darkBcground').css('display','none');
-      }
-      function show2(){
-         document.getElementById("divv2").style.display ='block';
-         document.getElementByTagName("body").style.backgroundColor ='black';
-      }
-      function closeDiv2(){
-         document.getElementById("divv2").style.display ='none';
       }
       function selectRate(starID){
         $('#star1, #star2, #star3, #star4, #star5').html('&#9734;').css('color','#a1a1a1');
@@ -188,9 +195,9 @@ if(!isset($_SESSION['email'])){
     </div>
     <div id="divv2">
       <div id="divCont2" class="d-flex flex-column align-items-center m-auto">
-        <button id="cancelBtn" class="align-self-end" onclick="closeDiv2()">X</button>
+        <button id="cancelBtn" class="align-self-end" onclick="closeNote()">X</button>
         <h3>Note</h3>
-        <p>My pet has allergy</p>
+        <p id="note"></p>
       </div>
     </div>
 <div class="mb-5">
