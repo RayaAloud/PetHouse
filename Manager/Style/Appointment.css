@@ -10,22 +10,22 @@ h1{
 }
 #table th{
     width:1%;
-    color: #A2ABD1;
+    color: #838cb1;
 }
-#div th{
-  color: #A2ABD1;
+th{
+  color: #757fa3;
 }
 .pet-image{
     width:40%;     
 }
 .bi-x-circle-fill{
   color: rgb(199, 74, 74);
-  font-size: 2em;
+  font-size: 1.8em;
   margin-left: .4em;
 }
 .bi-check-circle-fill{
   color: rgb(94, 214, 94);
-  font-size: 2em;
+  font-size: 1.8em;
   margin-right: .4em;
 }
 .bi-check-circle-fill:hover{
@@ -48,12 +48,13 @@ h1{
 p {
     margin-left: 5%;
     font-weight: bold;
-    color: #A2ABD1;
+    color: #8e96bc;
     font-size: 20px;
 }
 .upcoming-apt p {
+  color: #838cb1;
   padding-top: 70px; 
-  }
+}
 
 .upcoming-apt {
   margin: 5px 20px;
@@ -63,16 +64,25 @@ p {
   height: 56px; 
   border-radius: 50%; 
 }
-td {
-  padding: 0.8em;
+td{
+  padding: 1.2em;
   text-align: center;
+  font-size: 20px;
   border-bottom: 1px solid rgb(199, 199, 199);
+}
+th{
+  font-size: 20px;
 }
 .box{
   overflow-y: scroll;
-  max-height: 550px;
-  max-width: 955px;
+  max-height: 600px;
+  max-width: 1050px;
   margin-top: 4em;
+}
+#requests_table{
+  min-width: 930px;
+  padding: 1.5em;
+  border-spacing: 1em;
 }
 .box table{         
   padding: 1em;
@@ -81,7 +91,7 @@ td {
   width: 860px;
   box-shadow: 1px 1px 15px 1px #ebebeb;
   border-radius: 10px;
-  border-spacing: 0.5em;
+  border-spacing: 0.8em;
   background-color: white;
 }
 .btns{
@@ -165,4 +175,21 @@ td {
 #cancelBtn{
   border: none;
   background: none;
+}
+#Pet-Profile{ 
+  display: none;
+  left: 20em;
+  top: 5em;
+  box-shadow: 1px 1px 15px 1px #ebebeb;
+  min-width: 400px;
+  z-index: 3;
+  position: absolute;
+  background-color: white;
+  min-height:250px;
+}
+#Profile-content{
+  padding: 1.5em;
+}
+#pet-photo{
+  border-radius: 50%;
 }

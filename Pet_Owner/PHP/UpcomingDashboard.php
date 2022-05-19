@@ -25,7 +25,36 @@ if ($result) {
      );
     
   }  
+     <td>".dateFormat($appt['Date'])."</td>
+     <td>".timeFormat($appt['Time'])."</td>
+     <td><button onclick='showNote(this)'> <i class='bi bi-chat-square-dots-fill noteIcon'></i> </button></td>
+     <tr>"
+     );
+    }
+   
 } 
-else
-  echo "An error occured.";     
+function timeFormat($time){
+  $time = explode(":",$time);
+  if($time[0] < 12){
+    if($time[0] == 0)
+      $time = ($time[0]+12).":".$time[1]." AM";
+    else{
+      $time = $time[0].":".$time[1]." AM";
+    }
+  }
+  else{
+      if($time[0] == 12){
+          $time = $time[0].":".$time[1]." PM";
+      }
+      else{
+          $time = ($time[0]-12).":".$time[1]." PM";
+      }
+  }
+  return $time;
+}
+function dateFormat($date){
+  $date = explode("-",$date);
+  $date = $date[2]."/".$date[1]."/".$date[0];
+  return $date;
+}     
 ?>

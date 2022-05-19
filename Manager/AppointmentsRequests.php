@@ -14,21 +14,8 @@
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="Pet_Profile.js"></script>
 <style>
-      #Pet-Profile{ 
-        display: none;
-        left: 20em;
-        top: 5em;
-        box-shadow: 1px 1px 15px 1px #ebebeb;
-        width: 400px;
-        z-index: 3;
-        position: absolute;
-        background-color: white;
-        min-height:250px;
-      }
-      #Profile-content{
-        padding: 1.5em;
-      }
       #cancelBtn{
         border: none;
         background: none;
@@ -73,28 +60,6 @@
       }
       function closeNote(){
          document.getElementById("note-container").style.display ='none';
-      }
-      function showPetProfile(btn){
-         var appointmentID = $(btn).parent().parent().attr('id');
-         $.ajax({
-           url: 'PHP/Retrieve_Pet_Profile.php',
-           method: 'POST',
-           dataType: 'JSON',
-           data: {Appt_ID : appointmentID},
-         }).done(function(msg){
-           $('#pet-name').html(msg[0].Pet_Name);
-           $('#pet-dob').html(msg[0].DOB);
-           $('#pet-gender').html(msg[0].Gender);
-           $('#pet-breed').html(msg[0].Breed);
-           $('#pet-status').html(msg[0].Status);
-           $('#pet-MH').html(msg[0].Medical_History);
-           $('#pet-VL').html(msg[0].Vaccination_list);
-           $('#pet-photo').attr('src','data:image/png;charset=utf8;base64,'+msg[0].Photo);
-           $('#Pet-Profile').css('display', 'block');
-         })  
-      }
-      function closePetProfile(){
-         document.getElementById("Pet-Profile").style.display ='none';
       }
 </script>
 </head>
@@ -164,7 +129,7 @@
         <div class="line"></div>
       </div>
       <div class="box mb-5">
-       <table>
+       <table id="requests_table">
           <thead>
           <tr>
             <th class="text-center pt-4 pb-2">Pet</th>
