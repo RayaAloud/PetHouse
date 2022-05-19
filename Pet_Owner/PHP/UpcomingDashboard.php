@@ -10,15 +10,20 @@ $result=mysqli_query($connection, $query);
 
 if ($result) {
  while ($appt = mysqli_fetch_array($result)) {
+
+  $date = explode("-",$appt['Date']);
+  if($date > date("Y-m-d")){
+    $date = $date[2]."/".$date[1]."/".$date[0];
      print("
      <tr>      
      <td>".$appt['Name']."</td>
      <td>".$appt['Service_Name']."</td>
-     <td>".$appt['Date']."</td>
+     <td>".$date."</td>
      <td>".$appt['Time']."</td>
      <td><button onclick='showNote(this)'> <i class='bi bi-chat-square-dots-fill noteIcon'></i> </button></td>
      <tr>"
      );
+    }
   }  
   //<script>document.getElementsByTagName('tbody')[0].innerHTML +='
 } 
