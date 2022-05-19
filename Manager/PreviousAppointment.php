@@ -54,7 +54,7 @@
  </script>
 </head>
 <body>
-  <div id="div">
+  <!-- <div id="div">
     <div id="divCont" class="d-flex flex-column align-items-center m-auto">
       <button id="cancelBtn" class="align-self-end" onclick="closeDiv()">X</button>
       <div class="d-flex">
@@ -87,7 +87,7 @@
       <img src="../Images/catBabyBlue.png" width="70px" height="70px" class="align-self-center">
     </div>
     </div>
-  </div>
+  </div> -->
     <div class="mb-4">
         <div class="upcoming-apt">
           <p>Previous Appointments</p>
@@ -107,7 +107,7 @@
           </thead>
       
           <tbody>
-            <tr >
+            <!-- <tr >
               <td><img class="t-img" src="../Images/catPurple.png" alt=""></td>
               <td>Checkup</td>
               <td>27/1/2022</td>
@@ -152,11 +152,12 @@
               <td>27/2/2022</td>
               <td>10:30am</td>
               <td> <button class="btns"><i class="bi bi-chat-square-dots-fill noteIcon"></i></button></td>
-            </tr>
+            </tr> -->
           
           </tbody>
         </table>
        </div>
  
 </body>
+<?php include'PHP/RetrievePrevious.php'?>
 </html>

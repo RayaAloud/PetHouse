@@ -81,7 +81,8 @@
               <td>10:30am</td>
               <td> <button class="btns"><i class="bi bi-chat-square-dots-fill noteIcon"></i></button></td>
             </tr>
--->
+-->           
+
           </tbody>
         </table>
        </div>

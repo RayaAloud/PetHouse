@@ -24,10 +24,9 @@ while($row = mysqli_fetch_array($result)){
         }
     }
     $date = explode("-",$row['Date']);
-   $stat = explode(" ",$row['Status']);
-
-    if($date > date("Y-m-d"))
-       if( strcmp($stat[0],"Accepted") == 0 )
+   // $stat = explode("",$row['Status']);
+    if($date < date("Y-m-d"))
+       // if($stat != "Accepted")
     {
         $date = $date[2]."/".$date[1]."/".$date[0];
         
@@ -35,7 +34,7 @@ while($row = mysqli_fetch_array($result)){
         echo "<tr id=\'".$row['Request_ID']."\'>";
        // echo "<td>"./*pic*/."</td>";
         echo "<td>".$row['Service_Name']."</td>";
-        echo "<td>".$date."</td>";       
+        echo "<td>".$date."</td>";
         echo "<td>".$time."</td>";
         echo "<td>".$row['Note']."</td>";
         echo "</tr>'";
