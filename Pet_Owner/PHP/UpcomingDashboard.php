@@ -18,21 +18,14 @@ if ($result) {
      <tr id='".$appt['Request_ID']."'>      
      <td><img class='t-img' src='data:image/png;charset=utf8;base64,".base64_encode($pet['Photo'])."' alt='Pet Photo'><span class='fs-5'>&nbsp;&nbsp;".$pet['Name']."</span></td>
      <td>".$appt['Service_Name']."</td>
-     <td>".$appt['Date']."</td>
-     <td>".$appt['Time']."</td>
-     <td><button onclick='showNote(this)'> <i class='bi bi-chat-square-dots-fill noteIcon'></i> </button></td>
-     <tr>"
-     );
-    
-  }  
-     <td>".dateFormat($appt['Date'])."</td>
+    <td>".dateFormat($appt['Date'])."</td>
      <td>".timeFormat($appt['Time'])."</td>
-     <td><button onclick='showNote(this)'> <i class='bi bi-chat-square-dots-fill noteIcon'></i> </button></td>
+     <td><button onclick='showNote(this)'> <i class='bi bi-chat-square-dots-fill noteIcon'></i> </button></td> 
      <tr>"
      );
     }
-   
-} 
+  }
+
 function timeFormat($time){
   $time = explode(":",$time);
   if($time[0] < 12){

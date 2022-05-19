@@ -150,10 +150,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Fname = $_POST['First_Name'];
     $Lname = $_POST['Last_Name'];
     $PhoneNo = $_POST['PhoneNo'];
+    $profilePIC=$_POST['profile_photo']; 
 
     $OwnerEmail = $_SESSION['email'];
-    $profilePhotoFile=$_POST['Profile_Photo']; 
-    $query = "UPDATE Pet_Owner SET First_Name = '".$Fname."', Last_Name = '".$Lname."', PhoneNo = '".$PhoneNo."', Profile_Photo ='".$profilePhotoFile."' WHERE Email = '$OwnerEmail'";
+
+    $query = "UPDATE Pet_Owner SET First_Name = '".$Fname."', Last_Name = '".$Lname."', PhoneNo = '".$PhoneNo."', Profile_Photo ='".$profilePIC."' WHERE Email = '$OwnerEmail'";
     
     $result = mysqli_query($connection, $query);
 
@@ -163,6 +164,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 ?>
-
 
 
