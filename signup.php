@@ -120,11 +120,11 @@
                             Phone Number <br>
                             <input name="phone" type="tel" placeholder="Enter your phone number" required>
                         </label>
-                        <span id="pass-instructions" class="mt-4">
+                       <!-- <span id="pass-instructions" class="mt-4">
                         &#x25CF; Passsword should be at least 8 characters
                         <br>
                         &#x25CF; Password should contain at least one special character #,&,..
-                        </span>
+                        </span> -->
                     </div>
                     <div class="d-flex justify-content-between">
                     <label class="col-3">
