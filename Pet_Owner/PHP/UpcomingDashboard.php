@@ -16,7 +16,7 @@ if ($result) {
      <td>".$appt['Service_Name']."</td>
      <td>".$appt['Date']."</td>
      <td>".$appt['Time']."</td>
-     <td><button> <i class='bi bi-chat-square-dots-fill noteIcon'></i> </button></td>
+     <td><button onclick='showNote(this)'> <i class='bi bi-chat-square-dots-fill noteIcon'></i> </button></td>
      <tr>"
      );
   }  

@@ -53,6 +53,21 @@ if(!isset($_SESSION['email'])){
   $(document).ready(function(){
     showPage('Signed_In_Header.php', 'header');
   })
+
+  function showNote(btn){
+         var appointmentID = $(btn).parent().parent().attr('id');
+         $.ajax({
+           url: 'PHP/Retrieve_Notes.php',
+           method: 'POST',
+           data: {Appt_ID : appointmentID},
+         }).done(function(msg){
+           $('#note').html(msg);
+           $('#note-container').css('display', 'block');
+         })  
+      }
+      function closeNote(){
+         document.getElementById("note-container").style.display ='none';
+      }
 </script>
 
 </head>
@@ -119,6 +134,15 @@ if(!isset($_SESSION['email'])){
     <p>Upcoming Appointments</p>
   <div class="line"></div>
 </div>
+
+<div id="note-container">
+      <div id="note-content" class="d-flex flex-column align-items-center m-auto">
+        <button id="cancelBtn" class="align-self-end" onclick="closeNote()">X</button>
+        <h3>Note</h3>
+        <p id="note"></p>
+      </div>
+    </div>
+
 <div class="box mb-5">
  <table>
 
