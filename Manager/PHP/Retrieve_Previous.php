@@ -31,14 +31,13 @@ while($row = mysqli_fetch_array($result)){
         
         echo "<script> document.getElementsByTagName('tbody')[0].innerHTML +='";
         echo "<tr id=\'".$row['Request_ID']."\'>";
-        // echo "<td>".pic."</td>";
+       // echo "<td>"./*pic*/."</td>";
         echo "<td>".$row['Name']."</td>";
         echo "<td>".$row['Service_Name']."</td>";
-        echo "<td>".$date."</td>";       
+        echo "<td>".$date."</td>";
         echo "<td>".$time."</td>";
-        //echo "<td>".$row['Note']."</td>";
         echo "<td><button class=\'btns\' onclick=\'showNote(this)\'>";
-        echo "<i class=\'bi bi-chat-square-dots-fill noteIcon\' ></button></td>";  
+        echo "<i class=\'bi bi-chat-square-dots-fill noteIcon\'  ></button></td>";  
         echo "</tr>'";
         echo "</script>";
     }

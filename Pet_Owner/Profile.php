@@ -124,8 +124,8 @@ else {
         </div>
     </div>   
         <div class="m-auto col-6 py-3 pb-4 d-flex justify-content-around mt-3">
-          <button class="py-2 px-3" id="saveBtn" name="save">Save Changes</button>  
-          <a href = "PHP/DeletePetOwnerProfile.php?id =<?php echo $_SESSION['Email']; ?>"> <button type="button" class="btn btn-outline-danger" id="delAccountBtn">Delete Account</button></div> </a>
+          <button class="py-2 px-3" id="saveBtn">Save Changes</button>  
+          <a href = "PHP/DeletePetOwnerProfile.php"> <button type="button" class="btn btn-outline-danger" id="delAccountBtn">Delete Account</button></div> </a>
         </div> 
     </div>
   </div>
