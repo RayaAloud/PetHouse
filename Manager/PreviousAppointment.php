@@ -31,6 +31,20 @@
         top: 5em;
 
       }
+      #note-container{
+        display: none;
+        position: absolute;
+        box-shadow: 1px 1px 15px 1px #ebebeb;
+        background-color: white;
+        left: 55%;
+        top: 8vh;
+        width: 400px;
+        min-height:200px;
+        z-index: 3;
+      }
+      #note-content{  
+        padding: 1.5em;
+      }
       #cancelBtn{
         border: none;
         background: none;
@@ -41,53 +55,56 @@
         display: inline;
       }
     </style>
-    <script>
-
-      function show(){
-          document.getElementById("div").style.display ='block';
-       }
-       function closeDiv(){
-          document.getElementById("div").style.display ='none';
-       }
-       
- 
- </script>
+    <script>    
+      function showNote(btn){
+         var appointmentID = $(btn).parent().parent().attr('id');
+         $.ajax({
+           url: 'PHP/Retrieve_Notes.php',
+           method: 'POST',
+           data: {Appt_ID : appointmentID},
+         }).done(function(msg){
+           $('#note').html(msg);
+           $('#note-container').css('display', 'block');
+         })  
+      }
+      function closeNote(){
+         document.getElementById("note-container").style.display ='none';
+      }
+      function showPetProfile(btn){
+         var appointmentID = $(btn).parent().parent().attr('id');
+         $.ajax({
+           url: 'PHP/Retrieve_Pet_Profile.php',
+           method: 'POST',
+           dataType: 'JSON',
+           data: {Appt_ID : appointmentID},
+         }).done(function(msg){
+           $('#pet-name').html(msg[0].Pet_Name);
+           $('#pet-dob').html(msg[0].DOB);
+           $('#pet-gender').html(msg[0].Gender);
+           $('#pet-breed').html(msg[0].Breed);
+           $('#pet-status').html(msg[0].Status);
+           $('#pet-MH').html(msg[0].Medical_History);
+           $('#pet-VL').html(msg[0].Vaccination_list);
+           $('#pet-photo').attr('src','data:image/png;charset=utf8;base64,'+msg[0].Photo);
+           $('#Pet-Profile').css('display', 'block');
+         })  
+      }
+      function closePetProfile(){
+         document.getElementById("Pet-Profile").style.display ='none';
+      }
+</script>
 </head>
+
 <body>
-  <!-- <div id="div">
-    <div id="divCont" class="d-flex flex-column align-items-center m-auto">
-      <button id="cancelBtn" class="align-self-end" onclick="closeDiv()">X</button>
-      <div class="d-flex">
-      <table>
-        <tr>
-          <th>Pet Name</th>
-          <td>Java</td>
-        </tr>
-        <tr>
-          <th>Date of Birth</th>
-          <td>4/4/2021</td>
-        </tr>
-        <tr>
-          <th>Gender</th>
-          <td>Male</td>
-        </tr>
-        <tr>
-          <th>Breed</th>
-          <td>Domestic short-haired</td>
-        </tr>
-        <tr>
-          <th>Status</th>
-          <td>Alive</td>
-        </tr>
-        <tr>
-          <th>Medical History</th>
-          <td>Allergic</td>
-        </tr>
-      </table>
-      <img src="../Images/catBabyBlue.png" width="70px" height="70px" class="align-self-center">
+
+<div id="note-container">
+      <div id="note-content" class="d-flex flex-column align-items-center m-auto">
+        <button id="cancelBtn" class="align-self-end" onclick="closeNote()">X</button>
+        <h3>Note</h3>
+        <p id="note"></p>
+      </div>
     </div>
-    </div>
-  </div> -->
+
     <div class="mb-4">
         <div class="upcoming-apt">
           <p>Previous Appointments</p>
@@ -104,23 +121,23 @@
             <th class="text-center pt-4 pb-2">Time</th>
             <th class="text-center pt-4 pb-2">Notes</th>
           </tr>
-          </thead>
+          </thead> 
       
           <tbody>
-            <!-- 
-              <tr >
-                <td><img class="t-img" src="../Images/catPurple.png" alt=""></td>
-                <td>Checkup</td>
-                <td>27/1/2022</td>
-                <td>10:30am</td>
-                <td> <button class="btns"> <i class="bi bi-chat-square-dots-fill noteIcon"></i></button> </td>
-              </tr>
-            -->
+ 
           
           </tbody>
         </table>
        </div>
- 
+ <?php include'PHP/Retrieve_Previous.php'?>
 </body>
-<?php include'PHP/Retrieve_Previous.php'?>
+
+
+<script>
+    function closeMsg(){
+         $("#delete-confirmation").css('display','none'); 
+         $('#darkBcground').css('display','none');
+    } 
+  </script>
+
 </html>

@@ -25,19 +25,19 @@ while($row = mysqli_fetch_array($result)){
         }
     }
     $date = explode("-",$row['Date']);
-    if($date > date("Y-m-d"))
+    $date = $date[2]."/".$date[1]."/".$date[0];
+
+    if($date < date("Y/m/d"))
     {
-        $date = $date[2]."/".$date[1]."/".$date[0];
         
         echo "<script> document.getElementsByTagName('tbody')[0].innerHTML +='";
         echo "<tr id=\'".$row['Request_ID']."\'>";
-       // echo "<td>"./*pic*/."</td>";
         echo "<td>".$row['Name']."</td>";
         echo "<td>".$row['Service_Name']."</td>";
         echo "<td>".$date."</td>";
         echo "<td>".$time."</td>";
         echo "<td><button class=\'btns\' onclick=\'showNote(this)\'>";
-        echo "<i class=\'bi bi-chat-square-dots-fill noteIcon\'  ></button></td>";  
+        echo "<i class=\'bi bi-chat-square-dots-fill noteIcon\'></button></td>";  
         echo "</tr>'";
         echo "</script>";
     }

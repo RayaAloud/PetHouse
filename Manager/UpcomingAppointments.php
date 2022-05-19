@@ -15,20 +15,97 @@
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>  
     
-    
-  <!-- <script>       
-         function show2(){
-         document.getElementById("divv2").style.display ='block';
-         document.getElementByTagName("body").style.backgroundColor ='black';
+    <style>
+      #div{
+        
+        display: block;
       }
-      function closeDiv2(){
-         document.getElementById("divv2").style.display ='none';
+      #divCont{
+        box-shadow: 1px 1px 15px 1px #ebebeb;
+        width: 400px;
+        min-height:250px;
+        z-index: 3;
+        padding: 1.5em;
+        position: absolute;
+        background-color: white;
+        left: 20em;
+        top: 5em;
+
       }
-    </script> -->
+      #note-container{
+        display: none;
+        position: absolute;
+        box-shadow: 1px 1px 15px 1px #ebebeb;
+        background-color: white;
+        left: 55%;
+        top: 8vh;
+        width: 400px;
+        min-height:200px;
+        z-index: 3;
+      }
+      #note-content{  
+        padding: 1.5em;
+      }
+      #cancelBtn{
+        border: none;
+        background: none;
+        position: relative;
+        margin-top: -1em;
+      }
+      #div table{
+        display: inline;
+      }
+    </style>
+    <script>    
+      function showNote(btn){
+         var appointmentID = $(btn).parent().parent().attr('id');
+         $.ajax({
+           url: 'PHP/Retrieve_Notes.php',
+           method: 'POST',
+           data: {Appt_ID : appointmentID},
+         }).done(function(msg){
+           $('#note').html(msg);
+           $('#note-container').css('display', 'block');
+         })  
+      }
+      function closeNote(){
+         document.getElementById("note-container").style.display ='none';
+      }
+      function showPetProfile(btn){
+         var appointmentID = $(btn).parent().parent().attr('id');
+         $.ajax({
+           url: 'PHP/Retrieve_Pet_Profile.php',
+           method: 'POST',
+           dataType: 'JSON',
+           data: {Appt_ID : appointmentID},
+         }).done(function(msg){
+           $('#pet-name').html(msg[0].Pet_Name);
+           $('#pet-dob').html(msg[0].DOB);
+           $('#pet-gender').html(msg[0].Gender);
+           $('#pet-breed').html(msg[0].Breed);
+           $('#pet-status').html(msg[0].Status);
+           $('#pet-MH').html(msg[0].Medical_History);
+           $('#pet-VL').html(msg[0].Vaccination_list);
+           $('#pet-photo').attr('src','data:image/png;charset=utf8;base64,'+msg[0].Photo);
+           $('#Pet-Profile').css('display', 'block');
+         })  
+      }
+      function closePetProfile(){
+         document.getElementById("Pet-Profile").style.display ='none';
+      }
+</script>
 </head>
 
 
 <body>
+
+<div id="note-container">
+      <div id="note-content" class="d-flex flex-column align-items-center m-auto">
+        <button id="cancelBtn" class="align-self-end" onclick="closeNote()">X</button>
+        <h3>Note</h3>
+        <p id="note"></p>
+      </div>
+    </div>
 
     <div class="mb-4">
         <div class="upcoming-apt">
@@ -63,7 +140,14 @@
           </tbody>
         </table>
        </div>
-
+       <?php include'PHP/RetrieveUpcoming.php'?>
 </body>
-<?php include'PHP/RetrieveUpcoming.php'?>
+
+<script>
+    function closeMsg(){
+         $("#delete-confirmation").css('display','none'); 
+         $('#darkBcground').css('display','none');
+    } 
+  </script>
+
 </html>
