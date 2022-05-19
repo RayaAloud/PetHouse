@@ -3,7 +3,7 @@ body{
     overflow-x: hidden;
 }
 #container{
-    margin-top: 3em;   
+    margin-top: 3em;    
     display: flex;   
 }
 #box{
@@ -90,6 +90,10 @@ input[type="text"], [type="password"],[type="email"],[type="tel"]{
     padding-left: 1em;
     height: 40px;
     border:1px solid #979797;   
+}
+#pass-instructions{
+    width: 300px;
+    color: #6571a7;
 }
 input[type="radio"]{  
     margin-top: 0.5em;

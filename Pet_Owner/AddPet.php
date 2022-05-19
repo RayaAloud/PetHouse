@@ -52,7 +52,7 @@ if(!isset($_SESSION['email'])){
        request.send();
    }
    $(document).ready(function(){
-     showPage('Signed_In_Header.html','header')
+     showPage('Signed_In_Header.php','header')
    })
   </script>
     <body>
@@ -93,7 +93,7 @@ if(!isset($_SESSION['email'])){
             </div>
             <div class="d-flex justify-content-center mt-4">
               <div class="col-4 d-flex justify-content-around">
-                <a href="MyPets.html"><button class="btns">Cancel</button></a>
+                <a href="MyPets.php"><button class="btns">Cancel</button></a>
                 <button class="btns">Add</button>
               </div>
            </div>

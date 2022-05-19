@@ -1,5 +1,16 @@
 <!DOCTYPE html>
- 
+<?php 
+    session_start();
+    // Check if the user has already logged in
+    if(isset($_SESSION['email']))
+        // header() is used to send a raw HTTP header. It must be called before any actual output is sent.
+        header("Location: Pet_Owner/Dashboard.php");
+
+    else if(isset($_SESSION['manager_email']))
+    {
+        header("Location: Manager/SideMenu.php");
+    }
+?>
 <html>
  <head>
 
@@ -57,7 +68,7 @@
 </head>
     <body>
         <span id="header"></span>
-    <div id="container" class="mt-5">
+    <div id="container" class="mt-5 pb-5">
     <div id="box" class="d-flex m-auto">
             
             <div id="top" class="col-4 d-flex flex-column">
@@ -70,10 +81,12 @@
             
             
              <div id="inputs" class="d-flex flex-column col-8">
-             <?php if(isset($_GET['error']))
-                    echo "<div class='alert alert-danger' role='alert'>".$_GET['error']."</div>";
-             ?>
-               <form class="d-flex flex-column" action="PHP/Sign_up.php" method="post" enctype="multipart/form-data"> 
+                <?php if(isset($_SESSION['Sign_up_error'])){
+                        echo "<div class='alert alert-danger' role='alert'>".$_SESSION['Sign_up_error']."</div>";
+                        unset($_SESSION['Sign_up_error']);
+                    }
+                ?>
+               <form class="d-flex flex-column" action="PHP/Sign_up.php" method="post" enctype="multipart/form-data" id="sign_up_form"> 
                 <div id="addinPic" class="d-flex flex-column align-self-center mt-4">
                     <img id="profile-image" src="images/undraw_profile_pic_ic.png" alt="pet picture">
                     <input type="file" id="uploadFile" name="profile-img">
@@ -99,16 +112,22 @@
                         </label>
                         <label>
                             Password <br>
-                            <input name="password" type="password" placeholder="Enter your password" required>
-                            
+                            <input name="password" type="password" placeholder="Enter your password" required> 
                         </label>
                     </div>
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between mb-2">
                         <label>
                             Phone Number <br>
-                            <input name="phone" type="tel" placeholder="Enter your phone number" required >
+                            <input name="phone" type="tel" placeholder="Enter your phone number" required>
                         </label>
-                        <label class="col-3">
+                        <span id="pass-instructions" class="mt-4">
+                        &#x25CF; Passsword should be at least 8 characters
+                        <br>
+                        &#x25CF; Password should contain at least one special character #,&,..
+                        </span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                    <label class="col-3">
                             <span>Gender</span>
                             <br>
                             <input class="mt-3" name="gender" type="radio" value="male">
@@ -116,8 +135,6 @@
                             <input class="mt-3" name="gender" type="radio" value="female">
                             <span>female</span>       
                         </label>
-                        </label>
-                       <label>
                     </div>
                    
                     <button type="submit" id="signInBtn2" name="signup-submit" class="align-self-center mt-5">Sign up</button>   
@@ -136,5 +153,6 @@
     $('#uploadFile').change(function(){ 
         document.getElementById('profile-image').src = window.URL.createObjectURL(this.files[0]);
     })
+    
 </script>
 </html>

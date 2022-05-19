@@ -54,7 +54,7 @@ if(!isset($_SESSION['email'])){
             }
         
             $(document).ready(function(){
-                showPage('Signed_In_Header.html','header')
+                showPage('Signed_In_Header.php','header')
             })
         
         </script>
@@ -67,7 +67,7 @@ if(!isset($_SESSION['email'])){
         <div class="frame div">
            <p>
            <h2 id="MyPet-Listing">My Pets</h2>
-           <a class="anchors" href="AddPet.html"><button id="addNew" type="button" class="btns">Add New</button></a>
+           <a class="anchors" href="AddPet.php"><button id="addNew" type="button" class="btns">Add New</button></a>
           </p>
           
           <ul class="ul">

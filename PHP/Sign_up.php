@@ -16,16 +16,27 @@ session_start();
         $PhoneNo = $_POST['phone'];
         $Gender = $_POST['gender'];
         $Password = $_POST['password'];
-        $img = $_FILES['profile-img']['tmp_name'];
-        $img = addslashes(file_get_contents($img));
-
+        if($_FILES['profile-img']['size'] > 0){
+            $img = $_FILES['profile-img']['tmp_name'];
+            $img = addslashes(file_get_contents($img));
+        }
+        else{
+            $img = null;
+        }
+        if(strlen($Password) < 8){
+            $_SESSION['Sign_up_error'] = 'Password should be at leat 8 characters!';
+            header("Location: ../signup.php"); 
+            exit;
+        }
         //check if the email exits 
         $query = "SELECT * FROM pet_owner WHERE Email = '$Email' ";
-
-        $result=mysqli_query($con,$query);
-        if (mysqli_num_rows($result)>0)
+        $owner_result = mysqli_query($con,$query);
+        $query = "SELECT * FROM Manager WHERE Email = '$Email' ";
+        $manager_result = mysqli_query($con,$query);
+        if (mysqli_num_rows($owner_result)>0 || mysqli_num_rows( $manager_result)>0)
         {
-            header("Location: ../signup.php?error=Email exists!"); 
+            $_SESSION['Sign_up_error'] = 'Email exists!';
+            header("Location: ../signup.php"); 
             $con -> close();
             exit;
         }
@@ -34,12 +45,14 @@ session_start();
         //header("Location: signup.php?error=EMAIL syntax is wrong");
          //exit; -->
         //}
-
-        $query="INSERT INTO `pet_owner`(`Email`, `First_Name`, `Last_Name`, `PhoneNo` ,`Gender`, `Password`,`Profile_Photo`) VALUES ('$Email','$First_Name','$Last_Name','$PhoneNo','$Gender','$Password','$img')";
+        if($img == null)
+        $query="INSERT INTO `pet_owner` VALUES ('$Email','$First_Name','$Last_Name','$PhoneNo','$Gender','$Password', NULL)";
+        else
+        $query="INSERT INTO `pet_owner` VALUES ('$Email','$First_Name','$Last_Name','$PhoneNo','$Gender','$Password','$img')";
         if (mysqli_query($con, $query)) {
             echo "New record created successfully !";
             $_SESSION['email'] = $Email ; //!sure if email
-            header("Location: ../PetOwner/Dashboard.php");
+            header("Location: ../Pet_Owner/Dashboard.php");
             $con -> close();
             exit;
         } else {

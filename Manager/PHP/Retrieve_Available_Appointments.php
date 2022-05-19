@@ -8,6 +8,8 @@ $result = mysqli_query($connection,$query);
 
 while($row = mysqli_fetch_array($result)){
     $time = explode(":",$row['Time']);
+    $time[0] = (int)$time[0];
+    $time[1] = (int)$time[1];
     if($time[0] < 12){
       if($time[0] == 0)
         $time = ($time[0]+12).":".$time[1]." AM";

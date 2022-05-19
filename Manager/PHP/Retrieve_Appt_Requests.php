@@ -7,16 +7,14 @@ $query = "SELECT * FROM Appointment_Requests WHERE Status = 'Pending';";
 $result = mysqli_query($connection,$query);
 
 while($row = mysqli_fetch_array($result)){ 
-   $query = "SELECT Date, Time, Service_Name FROM Available_Appointment WHERE Appointment_ID =".$row['Appointment_ID'].";";
-   $sub_result = mysqli_fetch_array(mysqli_query($connection,$query));
    $query = "SELECT Photo FROM Pet WHERE ID = ".$row['PetID'].";";
    $pet_result = mysqli_fetch_array(mysqli_query($connection,$query));   
    echo "<script> document.getElementById('appointments').innerHTML +='";
-   echo "<tr id=\'".$row['Appointment_ID']."\'>";
+   echo "<tr id=\'".$row['Request_ID']."\'>";
    echo "<td><button class=\'btns\' onclick=\'showPetProfile(this)\'><img class=\'t-img\' src=\'data:image/png;charset=utf8;base64,".base64_encode($pet_result['Photo'])."\' alt=\'Pet Photo\'></button></td>";
-   echo "<td>".$sub_result['Service_Name']."</td>";
-   echo "<td>".dateFormat($sub_result['Date'])."</td>";
-   echo "<td>".timeFormat($sub_result['Time'])."</td>";      
+   echo "<td>".$row['Service_Name']."</td>";
+   echo "<td>".dateFormat($row['Date'])."</td>";
+   echo "<td>".timeFormat($row['Time'])."</td>";      
    echo "<td><button class=\'btns\' onclick=\'showNote(this)\'>";
    echo "<i class=\'bi bi-chat-square-dots-fill noteIcon\'></button></td>";          
    echo "<td><i class=\'bi bi-check-circle-fill accept\'></i><i class=\'bi bi-x-circle-fill decline\'></i></td>";

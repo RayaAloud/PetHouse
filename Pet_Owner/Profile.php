@@ -4,6 +4,28 @@ session_start();
 if(!isset($_SESSION['email'])){
   header("Location: ../index.php");
 }
+include 'PHP/Connection.php';
+$connection = mysqli_connect(host,Username,Password,db);
+if(!$connection) {
+    die('error in database'.mysqli_error($connection));
+}
+else {
+    $email = $_SESSION['email'];
+
+    $query = "SELECT * FROM pet_owner WHERE Email = '$email'";
+    $result = mysqli_query($connection,$query);
+
+    if (!empty($result -> num_rows) && ($result ->num_rows > 0)) {
+        while ($row = $result -> fetch_assoc()){
+            $Fname = $row['First_Name'];
+            $Lname = $row['Last_Name'];
+            $Email = $row['Email'];
+            $PhoneNo = $row['PhoneNo'];
+            $Gender = $row['Gender'];
+            $ProfilePhoto = $row['Profile_Photo'];
+        }
+        
+
 ?>
 <html>
 <head>
@@ -48,7 +70,7 @@ if(!isset($_SESSION['email'])){
         }
 
         $(document).ready(function(){
-            showPage('Signed_In_Header.html', 'header');
+            showPage('Signed_In_Header.php', 'header');
         })
   
    </script>
@@ -60,26 +82,46 @@ if(!isset($_SESSION['email'])){
   <div class="container-fluid d-flex mt-5 justify-content-center">
 <div class="wrapper bg-white mt-sm-5 col-sm-10">
      <div class="container-fluid d-flex justify-content-center">
-         <div id="profile-pic-div" class="d-flex flex-column align-items-center"> 
+       <?php
+       if($ProfilePhoto == null) {
+        echo "<div id='profile-pic-div' class='d-flex flex-column align-items-center'> 
+        <img src='../Images/undraw_profile_pic_ic.png' id='photo' alt='profile image'> 
+        <input type='file' id='file'>
+        <label for='file' id='uploadBtn'>Choose Photo</label>
+        </div>";
+    }
+    else {
+        echo "<div id='profile-pic-div' class='d-flex flex-column align-items-center'> 
+        <img src='data:image/png;charset=utf8;base64,".base64_encode($ProfilePhoto)."' id='photo' alt='profile image'>  
+        <input type='file' id='file'>
+        <label for='file' id='uploadBtn'>Choose Photo</label>
+        </div>";
+    }
+  }
+
+    }
+       ?>
+       <!--  <div id="profile-pic-div" class="d-flex flex-column align-items-center"> 
              <img src="../Images/undraw_profile_pic_ic.png" id="photo" alt="profile image"> 
              <input type="file" id="file">
              <label for="file" id="uploadBtn">Choose Photo</label>
-        </div>
+        </div> -->
     </div>
 <div class="container mt-5">
     <div class = "row py-2 mt-3"> 
-            <div class="col-md-6"> <label for="firstname"> First Name </label> <input type="text" class="bg-light form-control" placeholder = "First name" value="" required> </div>
-            <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname"> Last Name </label> <input type="text" class="bg-light form-control" placeholder = "Last name" value="" required> </div>
+            <div class="col-md-6"> <label for="firstname"> First Name </label> <input type="text" class="bg-light form-control" placeholder = "First name" value="<?php echo $Fname;?>" required> </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname"> Last Name </label> <input type="text" class="bg-light form-control" placeholder = "Last name" value="<?php echo $Lname;?>" required> </div>
     </div>
         
         <div class="row py-2"> 
-            <div class="col-md-6"> <label for="email"> Email Address </label> <input type="text" class="bg-light form-control" placeholder = "Email address" value="" required> </div>
-            <div class="col-md-6 pt-md-0 pt-3"> <label for="phonenumber"> Phone Number </label> <input type="text" class="bg-light form-control" placeholder = "Phone number" value="" required> </div>
+            <div class="col-md-6"> <label for="email"> Email Address </label> <input type="text" class="bg-light form-control" placeholder = "Email address" value="<?php echo $Email; ?>" required> </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="phonenumber"> Phone Number </label> <input type="text" class="bg-light form-control" placeholder = "Phone number" value="<?php echo $PhoneNo; ?>" required> </div>
         </div>
         
 
         <div class="row py-2">
             <div class="col-md-6"> <label for="gender"> Gender </label> <select name = "gender" id="gender" class="bg-light"> 
+                <option value = "hid" hidden> <?php echo $Gender; ?> </option>
                 <option value = "male"> Male </option>
                 <option value="female" selected> Female </option> 
             </select> </div>
@@ -87,7 +129,7 @@ if(!isset($_SESSION['email'])){
     </div>   
         <div class="m-auto col-6 py-3 pb-4 d-flex justify-content-around mt-3">
           <button class="py-2 px-3" id="saveBtn">Save Changes</button>  
-          <button type="button" class="btn btn-outline-danger" id="delAccountBtn">Delete Account</button></div>
+          <a href = "PHP/DeletePetOwnerProfile.php"> <button type="button" class="btn btn-outline-danger" id="delAccountBtn">Delete Account</button></div> </a>
         </div> 
     </div>
   </div>
@@ -104,3 +146,25 @@ if(!isset($_SESSION['email'])){
         })
     </script>
 </html>
+
+<?php
+if (isset($_POST['Reg'])) {
+    $Fname = $_POST['First_Name'];
+    $Lname = $_POST['Last_Name'];
+    $PhoneNo = $_POST['PhoneNo'];
+    $ProfilePhoto = $_POST ['Profile_Photo'];
+
+    $OwnerEmail = $_SESSION["Email"];
+
+    $query = "UPDATE pet_owner SET First_Name = '".$Fname."', Last_Name = '".$Lname."', PhoneNo = '".$PhoneNo."', Profile_Photo ='".$ProfilePhoto."' WHERE Email = '$OwnerEmail'";
+
+    $result = mysqli_query($connection, $query);
+
+    if(!$result)
+    echo "<script>alert('an error occurred, could not change profile.')</script>"; 
+
+}
+
+?>
+
+

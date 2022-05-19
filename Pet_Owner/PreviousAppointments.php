@@ -64,10 +64,13 @@ if(!isset($_SESSION['email'])){
       }
       #submitReviewBtn{
         border: none;
-        background-color: #111B47;
+        background-color: #232e54;
         color: white;
         border-radius: 40px;
         padding: 0.5em 1em 0.5em 1em;
+      }
+      #submitReviewBtn:hover{
+        background-color: #111B40;
       }
       #q{
         color:#1f2a5d;
@@ -111,14 +114,17 @@ if(!isset($_SESSION['email'])){
         request.send();
     }
   $(document).ready(function(){
-    showPage('Signed_In_Header.html', 'header');
+    showPage('Signed_In_Header.php', 'header');
   })
 </script>
 <script>
-      function show(){
+      function show(appointment){
         $('#star1, #star2, #star3, #star4, #star5').html('&#9734;').css('color','#a1a1a1');
         document.getElementById("divv").style.display ='block';
         $('#darkBcground').css('display','block');
+        var appt = appointment.parentNode.parentNode;
+        sessionStorage.setItem('Appt_to_be_reviewed', appt.getAttribute('id'));
+        sessionStorage.setItem('rate', 0);
       }
       function closeDiv(){
          document.getElementById("divv").style.display ='none';
@@ -136,18 +142,23 @@ if(!isset($_SESSION['email'])){
         switch(starID){
           case "star1": 
           $('#star1').html('&#9733;').css('color','#111B47');
+          sessionStorage.setItem('rate', 1);
           break;
           case "star2": 
           $('#star1, #star2').html('&#9733;').css('color','#111B47');
+          sessionStorage.setItem('rate', 2);
           break;
           case "star3":
           $('#star1, #star2, #star3').html('&#9733;').css('color','#111B47');
+          sessionStorage.setItem('rate', 3);
           break;
           case "star4": 
           $('#star1, #star2, #star3, #star4').html('&#9733;').css('color','#111B47');
+          sessionStorage.setItem('rate', 4);
           break;
           case "star5": 
           $('#star1, #star2, #star3, #star4, #star5').html('&#9733;').css('color','#111B47');
+          sessionStorage.setItem('rate', 5);
           break;
         }
       }
@@ -189,7 +200,6 @@ if(!isset($_SESSION['email'])){
   </div>
 <div class="box mb-5 mt-5">
  <table>
-
     <thead>
     <tr>
       <th class="text-center pt-4 pb-2">Pet</th>
@@ -200,69 +210,25 @@ if(!isset($_SESSION['email'])){
       <th class="text-center pt-4 pb-2">Review</th>
     </tr>
     </thead>
-
     <tbody>
-      <tr >
-        <td><img class="t-img" src="../Images/catPurple.png" alt=""></td>
-        <td>Checkup</td>
-        <td>27/1/2022</td>
-        <td>10:30am</td>
-        <td> <button class="noteBtn" onclick="show2()"> <i class="bi bi-chat-square-dots-fill noteIcon"></i></button> </td>
-        <td> <button class="reviewBtn" onclick="show()">Review</button></td>
-      </tr>
-
-      <tr>
-        <td><img class="t-img" src="../Images/catBabyBlue.png" alt=""></td>
-        <td>Washing</td>
-        <td>27/10/2022</td>
-        <td>10:30am</td>
-        <td> <button class="noteBtn" onclick="show2()"> <i class="bi bi-chat-square-dots-fill noteIcon"> </button></td>
-        <td class="reviewed">Reviewed</td>
-      </tr>
-
-      <tr>
-        <td><img class="t-img" src="../Images/catPurple.png" alt=""></td>
-        <td>Checkup</td>
-        <td>14/11/2022</td>
-        <td>10:30am</td>
-        <td> <button class="noteBtn" onclick="show2()"> <i class="bi bi-chat-square-dots-fill noteIcon"></button></td>
-        <td> <button class="reviewBtn" onclick="show()">Review</button></td>
-      </tr>
-
-      <tr>
-        <td><img class="t-img" src="../Images/catBabyBlue.png" alt=""></td>
-        <td>Washing</td>
-        <td>27/2/2022</td>
-        <td>10:30am</td>
-        <td> <button class="noteBtn" onclick="show2()"><i class="bi bi-chat-square-dots-fill noteIcon"></i></button></td>
-        <td class="reviewed">Reviewed</td>
-      </tr>
-      <tr>
-        <td><img class="t-img" src="../Images/catBabyBlue.png" alt=""></td>
-        <td>Washing</td>
-        <td>27/2/2022</td>
-        <td>10:30am</td>
-        <td> <button class="noteBtn" onclick="show2()"> <i class="bi bi-chat-square-dots-fill noteIcon"></i></button></td>
-        <td> <button class="reviewBtn" onclick="show()">Review</button></td>
-      </tr>
-   
-      <tr>
-        <td><img class="t-img" src="../Images/catBabyBlue.png" alt=""></td>
-        <td>Washing</td>
-        <td>27/2/2022</td>
-        <td>10:30am</td>
-        <td> <button class="noteBtn" onclick="show2()"><i class="bi bi-chat-square-dots-fill noteIcon"></i></button></td>
-        <td class="reviewed">Reviewed</td>
-      </tr>
     </tbody>
   </table>
-
-
-
 </div>
 </div>
-
 </div>
 </body>
+<?php include 'PHP/Retrieve_Previous_Appts.php'?>
+<script>
+  $('#submitReviewBtn').click(function(){
 
+    $.ajax({
+      url: 'PHP/Add_Review.php',
+      method: 'POST',
+      data: {rate : sessionStorage.getItem('rate'), opinion : ($(text).val() == "")? null : $(text).val(), appt_ID : sessionStorage.getItem('Appt_to_be_reviewed')}
+    }).done(function(msg){
+      alert(msg)
+    })
+    $('#cancelBtn').click();
+  })
+</script>
 </html>

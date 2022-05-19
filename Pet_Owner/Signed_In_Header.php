@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start()?>
 <html>
 <head>
   <!--Meta tags-->
@@ -60,7 +61,20 @@
           </div>
           <div id="User-Icon-Container">
               <div id="User-Icon-subContainer">
-                <img src="../Images/undraw_profile_pic_ic.png" id="UserIcon">
+                <?php
+                   include 'PHP/Connection.php';
+                   $connection = mysqli_connect(host,Username,Password,db);
+                   if(!$connection)
+                   die();
+                   $result = mysqli_query($connection,"SELECT Profile_Photo FROM Pet_Owner WHERE Email ='".$_SESSION['email']."';");
+                   $result = mysqli_fetch_array($result);
+                   if($result > 0){
+                     if($result['Profile_Photo'] == null)
+                      echo "<img src='../Images/undraw_profile_pic_ic.png' id='UserIcon' alt='Profile Photo'>";
+                     else
+                      echo "<img src='data:image/png;charset=utf8;base64,".base64_encode($result['Profile_Photo'])."' id='UserIcon' alt='Profile Photo'>";
+                   }
+                ?>
                 <span id="triangle">&#9662;</span>
               </div>
               <nav>
