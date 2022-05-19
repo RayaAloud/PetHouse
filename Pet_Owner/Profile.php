@@ -81,41 +81,37 @@ else {
   <img src="../Images/designer_1.png" id="bcBluePath">
   <div class="container-fluid d-flex mt-5 justify-content-center">
 <div class="wrapper bg-white mt-sm-5 col-sm-10">
+    <form method="post">
      <div class="container-fluid d-flex justify-content-center">
        <?php
-       if($ProfilePhoto == null) {
-        echo "<div id='profile-pic-div' class='d-flex flex-column align-items-center'> 
-        <img src='../Images/undraw_profile_pic_ic.png' id='photo' alt='profile image'> 
-        <input type='file' id='file'>
-        <label for='file' id='uploadBtn'>Choose Photo</label>
-        </div>";
-    }
-    else {
-        echo "<div id='profile-pic-div' class='d-flex flex-column align-items-center'> 
-        <img src='data:image/png;charset=utf8;base64,".base64_encode($ProfilePhoto)."' id='photo' alt='profile image'>  
-        <input type='file' id='file'>
-        <label for='file' id='uploadBtn'>Choose Photo</label>
-        </div>";
-    }
-  }
-
-    }
+            if($ProfilePhoto == null) {
+                echo "<div id='profile-pic-div' class='d-flex flex-column align-items-center'> 
+                <img src='../Images/undraw_profile_pic_ic.png' id='photo' alt='profile image'> 
+                <input type='file' id='file'>
+                <label for='file' id='uploadBtn'>Choose Photo</label>
+                </div>";
+            }
+            else {
+                echo "<div id='profile-pic-div' class='d-flex flex-column align-items-center'> 
+                <img src='data:image/png;charset=utf8;base64,".base64_encode($ProfilePhoto)."' id='photo' alt='profile image'>  
+                <input type='file' id='file'>
+                <label for='file' id='uploadBtn'>Choose Photo</label>
+                </div>";
+            }
+          }
+        }
        ?>
-       <!--  <div id="profile-pic-div" class="d-flex flex-column align-items-center"> 
-             <img src="../Images/undraw_profile_pic_ic.png" id="photo" alt="profile image"> 
-             <input type="file" id="file">
-             <label for="file" id="uploadBtn">Choose Photo</label>
-        </div> -->
+       
     </div>
 <div class="container mt-5">
     <div class = "row py-2 mt-3"> 
-            <div class="col-md-6"> <label for="firstname"> First Name </label> <input type="text" class="bg-light form-control" placeholder = "First name" value="<?php echo $Fname;?>" required> </div>
-            <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname"> Last Name </label> <input type="text" class="bg-light form-control" placeholder = "Last name" value="<?php echo $Lname;?>" required> </div>
+            <div class="col-md-6"> <label for="firstname"> First Name </label> <input name ="First_Name" type="text" class="bg-light form-control" placeholder = "First name" value="<?php echo $Fname;?>" required> </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname"> Last Name </label> <input name ="Last_Name" type="text" class="bg-light form-control" placeholder = "Last name" value="<?php echo $Lname;?>" required> </div>
     </div>
         
         <div class="row py-2"> 
             <div class="col-md-6"> <label for="email"> Email Address </label> <input type="text" class="bg-light form-control" placeholder = "Email address" value="<?php echo $Email; ?>" required> </div>
-            <div class="col-md-6 pt-md-0 pt-3"> <label for="phonenumber"> Phone Number </label> <input type="text" class="bg-light form-control" placeholder = "Phone number" value="<?php echo $PhoneNo; ?>" required> </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="phonenumber"> Phone Number </label> <input name = "PhoneNo" type="text" class="bg-light form-control" placeholder = "Phone number" value="<?php echo $PhoneNo; ?>" required> </div>
         </div>
         
 
@@ -128,11 +124,12 @@ else {
         </div>
     </div>   
         <div class="m-auto col-6 py-3 pb-4 d-flex justify-content-around mt-3">
-          <button class="py-2 px-3" id="saveBtn">Save Changes</button>  
-          <a href = "PHP/DeletePetOwnerProfile.php?id = <?php echo $_SESSION['Email']; ?>" onclick = "return confirm('Are you sure ?')"> <button type="button" class="btn btn-outline-danger" id="delAccountBtn">Delete Account</button></div> </a>
+          <button class="py-2 px-3" id="saveBtn" name="save">Save Changes</button>  
+          <a href = "PHP/DeletePetOwnerProfile.php?id =<?php echo $_SESSION['Email']; ?>"> <button type="button" class="btn btn-outline-danger" id="delAccountBtn">Delete Account</button></div> </a>
         </div> 
     </div>
   </div>
+  <form>
  </div>
 
     <div>
@@ -148,15 +145,18 @@ else {
 </html>
 
 <?php
-if (isset($_POST['Reg'])) {
+if (isset($_POST['save'])) {
     $Fname = $_POST['First_Name'];
     $Lname = $_POST['Last_Name'];
     $PhoneNo = $_POST['PhoneNo'];
-    $ProfilePhoto = $_POST ['Profile_Photo'];
-
     $OwnerEmail = $_SESSION["Email"];
-
-    $query = "UPDATE pet_owner SET First_Name = '".$Fname."', Last_Name = '".$Lname."', PhoneNo = '".$PhoneNo."', Profile_Photo ='".$ProfilePhoto."' WHERE Email = '$OwnerEmail'";
+    if($_POST['Profile_Photo']['size'] > 0){
+      $ProfilePhoto = $_POST['Profile_Photo']['tmp_name'];
+      $query = "UPDATE Pet_Owner SET First_Name = '".$Fname."', Last_Name = '".$Lname."', PhoneNo = '".$PhoneNo."', Profile_Photo ='".$ProfilePhoto."' WHERE Email = '$OwnerEmail'";
+    }
+    else{
+        $query = "UPDATE Pet_Owner SET First_Name = '".$Fname."', Last_Name = '".$Lname."', PhoneNo = ".$PhoneNo."  WHERE Email = '$OwnerEmail'";
+    }
 
     $result = mysqli_query($connection, $query);
 
