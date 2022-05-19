@@ -31,6 +31,20 @@
         top: 5em;
 
       }
+      #note-container{
+        display: none;
+        position: absolute;
+        box-shadow: 1px 1px 15px 1px #ebebeb;
+        background-color: white;
+        left: 55%;
+        top: 8vh;
+        width: 400px;
+        min-height:200px;
+        z-index: 3;
+      }
+      #note-content{  
+        padding: 1.5em;
+      }
       #cancelBtn{
         border: none;
         background: none;
@@ -86,6 +100,7 @@
 <div id="note-container">
       <div id="note-content" class="d-flex flex-column align-items-center m-auto">
         <button id="cancelBtn" class="align-self-end" onclick="closeNote()">X</button>
+        <h3>Note</h3>
         <p id="note"></p>
       </div>
     </div>
