@@ -25,9 +25,7 @@ while($row = mysqli_fetch_array($result)){
         }
     }
     $date = explode("-",$row['Date']);
-   // $stat = explode("",$row['Status']);
     if($date > date("Y-m-d"))
-       // if($stat == "Accepted")
     {
         $date = $date[2]."/".$date[1]."/".$date[0];
         
