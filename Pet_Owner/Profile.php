@@ -104,6 +104,7 @@ else {
        
     </div>
 <div class="container mt-5">
+    <form method = "post">
     <div class = "row py-2 mt-3"> 
             <div class="col-md-6"> <label for="firstname"> First Name </label> <input name ="First_Name" type="text" class="bg-light form-control" placeholder = "First name" value="<?php echo $Fname;?>" required> </div>
             <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname"> Last Name </label> <input name ="Last_Name" type="text" class="bg-light form-control" placeholder = "Last name" value="<?php echo $Lname;?>" required> </div>
@@ -124,7 +125,7 @@ else {
         </div>
     </div>   
         <div class="m-auto col-6 py-3 pb-4 d-flex justify-content-around mt-3">
-          <button class="py-2 px-3" id="saveBtn">Save Changes</button>  
+          <button class="py-2 px-3" name ="save" id="saveBtn">Save Changes</button>  
           <a href = "PHP/DeletePetOwnerProfile.php"> <button type="button" class="btn btn-outline-danger" id="delAccountBtn">Delete Account</button></div> </a>
         </div> 
     </div>
@@ -145,19 +146,15 @@ else {
 </html>
 
 <?php
-if (isset($_POST['save'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Fname = $_POST['First_Name'];
     $Lname = $_POST['Last_Name'];
     $PhoneNo = $_POST['PhoneNo'];
-    $OwnerEmail = $_SESSION["Email"];
-    if($_POST['Profile_Photo']['size'] > 0){
-      $ProfilePhoto = $_POST['Profile_Photo']['tmp_name'];
-      $query = "UPDATE Pet_Owner SET First_Name = '".$Fname."', Last_Name = '".$Lname."', PhoneNo = '".$PhoneNo."', Profile_Photo ='".$ProfilePhoto."' WHERE Email = '$OwnerEmail'";
-    }
-    else{
-        $query = "UPDATE Pet_Owner SET First_Name = '".$Fname."', Last_Name = '".$Lname."', PhoneNo = ".$PhoneNo."  WHERE Email = '$OwnerEmail'";
-    }
 
+    $OwnerEmail = $_SESSION['email'];
+    $profilePhotoFile=$_POST['Profile_Photo']; 
+    $query = "UPDATE Pet_Owner SET First_Name = '".$Fname."', Last_Name = '".$Lname."', PhoneNo = '".$PhoneNo."', Profile_Photo ='".$profilePhotoFile."' WHERE Email = '$OwnerEmail'";
+    
     $result = mysqli_query($connection, $query);
 
     if(!$result)
@@ -166,5 +163,6 @@ if (isset($_POST['save'])) {
 }
 
 ?>
+
 
 
