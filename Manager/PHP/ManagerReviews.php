@@ -1,6 +1,6 @@
 <?php
 
-if (!($database = mysqli_connect( "localhost:3306", "root", "")))
+if (!($database = mysqli_connect( "localhost:8889", "root", "")))
 die( "<p>Could not connect to database</p>" );
 if ( !mysqli_select_db($database, "PetHouse" ) )
 die( "<p>Could not open URL database</p>" );

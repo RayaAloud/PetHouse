@@ -3,7 +3,7 @@ include 'Connection.php';
 $connection = mysqli_connect(host,Username,Password,db);
   if(!$connection)
    die();
-$query = "Select * from Available_Appointment";
+$query = "SELECT * FROM Available_Appointment";
 $result = mysqli_query($connection,$query);
 
 while($row = mysqli_fetch_array($result)){
