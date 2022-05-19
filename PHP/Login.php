@@ -11,7 +11,7 @@
     $Email = $_POST['email'];
     $Password = $_POST['password'];
 
-    $query_pet_Owner = "SELECT * FROM pet_owner WHERE Email = '$Email' AND Password = '$Password'";
+    $query_pet_Owner = "SELECT * FROM pet_owner WHERE Email = '$Email' AND Binary Password = Binary '$Password'";
     $query_manager = "SELECT * FROM Manager WHERE Email = '$Email' AND Password = '$Password'";
     $result_owner = mysqli_query($con,$query_pet_Owner);
     $result_manager = mysqli_query($con,$query_manager);

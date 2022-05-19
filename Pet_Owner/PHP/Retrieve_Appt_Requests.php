@@ -4,7 +4,7 @@ $connection = mysqli_connect(host,Username,Password,db);
 if(!$connection)
 die();
 $email = $_SESSION['email'];
-$query = "SELECT * FROM Appointment_Requests WHERE PetID IN (SELECT ID FROM Pet WHERE Owner_Email = '$email');";
+$query = "SELECT * FROM Appointment_Requests WHERE (NOT EXISTS (Status = 'Accepted' AND Date < CURRENT_DATE())) AND PetID IN (SELECT ID FROM Pet WHERE Owner_Email = '$email');";
 $result = mysqli_query($connection, $query);
 while($row = mysqli_fetch_array($result)){
     $query = "SELECT Name, Photo FROM Pet WHERE ID = ".$row['PetID'].";";

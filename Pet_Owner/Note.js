@@ -7,7 +7,7 @@ function showNote(btn){
     }).done(function(msg){
      $('#note').html(msg);
      $('#divv2').css('display', 'block'); 
-     var position = this.getBoundingClientRect();
+     var position = $(this).getBoundingClientRect();
      alert(position.x)
     })
  }
