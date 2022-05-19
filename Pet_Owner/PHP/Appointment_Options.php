@@ -14,7 +14,7 @@ while($row = mysqli_fetch_array($result)){
    echo "</script>";
 
 }
-$query = "Select * from Service";
+$query = "SELECT * FROM Service";
     $result = mysqli_query($connection,$query);
     while($row = mysqli_fetch_array($result)){
         echo "<script>";

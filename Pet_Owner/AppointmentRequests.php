@@ -79,11 +79,20 @@ if(!isset($_SESSION['email'])){
       }
       #bcImg{
         position: absolute;
-        right:-4em;
+        left:-4em;
         height: 500px;
         z-index: -1;
-        transform: rotate(90deg);
-        top: 20vh;
+        top: 35vh;
+      }
+      #bcImg2{
+        position: absolute;
+        width: 600px;
+        height: 500px;
+        bottom: 0;
+        right: -3em;
+        z-index: -1;
+        top: 30%;
+        transform: rotate(270deg);
       }
 </style>
 <script>
@@ -182,6 +191,7 @@ if(!isset($_SESSION['email'])){
   <div id="cont">
     <span id="header"></span>
    <img src="../Images/Vector.png" id="bcImg">
+   <img src="../Images/designer_1.png" id="bcImg2">
     <div id="divv2">
       <div id="divCont2" class="d-flex flex-column align-items-center m-auto">
         <button id="cancelBtn" class="align-self-end" onclick="closeNote()">X</button>

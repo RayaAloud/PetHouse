@@ -4,14 +4,14 @@ $connection = mysqli_connect(host,Username,Password,db);
 if(!$connection)
 die();
 $email = $_SESSION['email'];
-$query = "SELECT * FROM Appointment_Requests WHERE PetID IN (SELECT ID FROM Pet WHERE Owner_Email = '$email')";
+$query = "SELECT * FROM Appointment_Requests WHERE PetID IN (SELECT ID FROM Pet WHERE Owner_Email = '$email');";
 $result = mysqli_query($connection, $query);
 while($row = mysqli_fetch_array($result)){
     $query = "SELECT Name, Photo FROM Pet WHERE ID = ".$row['PetID'].";";
     $pet_result = mysqli_fetch_array(mysqli_query($connection,$query));
     echo "<script> document.getElementsByTagName('tbody')[0].innerHTML +='";
     echo "<tr id=\'".$row['Request_ID']."\'>";
-    echo "<td pet_name=\'".$pet_result['Name']."\'><img class=\'t-img\' src=\'data:image/png;charset=utf8;base64,".base64_encode($pet_result['Photo'])."\' alt=\'Pet Photo\'></td>";
+    echo "<td pet_name=\'".$pet_result['Name']."\'><img class=\'t-img\' src=\'data:image/png;charset=utf8;base64,".base64_encode($pet_result['Photo'])."\' alt=\'Pet Photo\'><span class=\'fs-5\'>&nbsp;&nbsp;".$pet_result['Name']."</span></td>";
     echo "<td>".$row['Service_Name']."</td>";
     echo "<td>".dateFormat($row['Date'])."</td>";
     echo "<td>".timeFormat($row['Time'])."</td>";
