@@ -107,52 +107,15 @@
           </thead>
       
           <tbody>
-            <!-- <tr >
-              <td><img class="t-img" src="../Images/catPurple.png" alt=""></td>
-              <td>Checkup</td>
-              <td>27/1/2022</td>
-              <td>10:30am</td>
-              <td> <button class="btns"> <i class="bi bi-chat-square-dots-fill noteIcon"></i></button> </td>
-            </tr>
-      
-            <tr>
-              <td><img class="t-img" src="../Images/catBabyBlue.png" alt=""></td>
-              <td>Washing</td>
-              <td>27/10/2022</td>
-              <td>10:30am</td>
-              <td> <button class="btns"> <i class="bi bi-chat-square-dots-fill noteIcon"> </button></td>
-            </tr>
-      
-            <tr>
-              <td><img class="t-img" src="../Images/catPurple.png" alt=""></td>
-              <td>Checkup</td>
-              <td>14/11/2022</td>
-              <td>10:30am</td>
-              <td> <button class="btns"> <i class="bi bi-chat-square-dots-fill noteIcon"></button></td>
-            </tr>
-      
-            <tr>
-              <td><img class="t-img" src="../Images/catBabyBlue.png" alt=""></td>
-              <td>Washing</td>
-              <td>27/2/2022</td>
-              <td>10:30am</td>
-              <td> <button class="btns"><i class="bi bi-chat-square-dots-fill noteIcon"></i></button></td>
-            </tr>
-            <tr>
-              <td><img class="t-img" src="../Images/catBabyBlue.png" alt=""></td>
-              <td>Washing</td>
-              <td>27/2/2022</td>
-              <td>10:30am</td>
-              <td> <button class="btns"> <i class="bi bi-chat-square-dots-fill noteIcon"></i></button></td>
-            </tr>
-         
-            <tr>
-              <td><img class="t-img" src="../Images/catBabyBlue.png" alt=""></td>
-              <td>Washing</td>
-              <td>27/2/2022</td>
-              <td>10:30am</td>
-              <td> <button class="btns"><i class="bi bi-chat-square-dots-fill noteIcon"></i></button></td>
-            </tr> -->
+            <!-- 
+              <tr >
+                <td><img class="t-img" src="../Images/catPurple.png" alt=""></td>
+                <td>Checkup</td>
+                <td>27/1/2022</td>
+                <td>10:30am</td>
+                <td> <button class="btns"> <i class="bi bi-chat-square-dots-fill noteIcon"></i></button> </td>
+              </tr>
+            -->
           
           </tbody>
         </table>

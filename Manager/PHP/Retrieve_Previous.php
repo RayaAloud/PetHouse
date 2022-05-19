@@ -37,7 +37,7 @@ while($row = mysqli_fetch_array($result)){
         echo "<td>".$date."</td>";
         echo "<td>".$time."</td>";
         echo "<td><button class=\'btns\' onclick=\'showNote(this)\'>";
-        echo "<i class=\'bi bi-chat-square-dots-fill noteIcon\'></button></td>";  
+        echo "<i class=\'bi bi-chat-square-dots-fill noteIcon\'  ></button></td>";  
         echo "</tr>'";
         echo "</script>";
     }
