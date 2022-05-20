@@ -159,7 +159,7 @@
               url: 'PHP/Check_Email.php',
               method: 'POST',
               async: false,
-              data: {EnteredEmail : $('#email').val()}
+              data: {EnteredEmail : $('#email').val(), edit : 0}
           }).done(function(msg){
              if(msg == 0)
                 sessionStorage.setItem('email_exists', 0);
@@ -171,7 +171,7 @@
           var thereIsError = false;
           if(emailExists == 1)
             document.getElementById('error_alert').innerHTML += '&#9679; Email Exists!<br>';
-          if(!validPhone($('#phone').val())){
+          if(!validPhone($('#phone').val(),0)){
             document.getElementById('error_alert').innerHTML += '&#9679; Invalid Phone! Phone number must be 10 digits and should start with 05<br>'; 
             thereIsError = true;
           }

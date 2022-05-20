@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'Connection.php';
 $connection = mysqli_connect(host,Username,Password,db);
 if(!$connection)
@@ -10,7 +11,17 @@ if(!$connection)
  $manager_result = mysqli_query($connection,$query);
  if (mysqli_num_rows($owner_result)>0 || mysqli_num_rows( $manager_result)>0)
  {
-     echo 1;
+    if($_POST['edit'] == 1){
+      if($Email == $_SESSION['email']){
+          echo 0;
+      }
+      else{
+          echo 1;
+      }
+    }
+    else{
+        echo 1;
+    }
  }
  else 
      echo 0;

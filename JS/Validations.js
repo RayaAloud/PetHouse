@@ -30,6 +30,9 @@ function validPass(pass){
     }
     return eight === true && specialChar === true;
 }
-function validPhone(phone){
-  return /05+[0-9]{8}/.test(phone)
+function validPhone(phone,edit){
+    if(edit == 1)
+     return /5+[0-9]{8}/.test(phone)
+    else 
+     return /05+[0-9]{8}/.test(phone)
 }
