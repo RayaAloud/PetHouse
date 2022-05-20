@@ -198,7 +198,7 @@ if(!isset($_SESSION['email'])){
             <button id="okButton">OK</button>
         </div>
       </div>
-</div>
+   </div>
 <div class="mb-5">
   <div class="upcoming-apt">
     <p>Previous Appointments</p>

@@ -24,42 +24,28 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
      <!--AJAX-->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!--Script-->
-    <!--
-    <script>
-        $( function() {
-          $( "#datepicker" ).datepicker({
-            onSelect: function(){var currentDate = $( "#datepicker" ).datepicker( "getDate" )
-            },
-            minDate:0 ,
-            beforeShowDay: function(date) {
-              var day = date.getDate();
-              var month = date.getMonth();
-              return [true, ''];;
-           }
-          });
-        });
-       
-        </script>
-    -->
-        <style>
-            .ui-widget-header{
-                background: #A2ABD1 ;
-            }
-            .ui-datepicker-month, .ui-datepicker-year{
-                color: white;
-            } 
-        </style>
+
 </head>
 <body>
 <div id="darkBcground"></div>
     <div id="delete-confirmation">
       <div id="content-container" class="d-flex flex-column align-items-center m-auto">
         <button id="cancelBtn" class="align-self-end" onclick="closeMsg()">X</button>
-        <h3 class="mb-5">Are you sure you want to delete this appointment?</h3>
+        <h3 class="mb-5">Delete this appointment?</h3>
         <div>
-            <button id="cancelButton">Cancel</button>
+            <button id="cancelButton" onclick="closeMsg()">Cancel</button>
             <button class="confirm-action-Button" id="delete-Btn">Delete</button>
+        </div>
+      </div>
+    </div>
+    <!--confirmation MSG-->
+    <div id="success-confirmation">
+      <div id="content-container" class="d-flex flex-column align-items-center m-auto">
+        <button id="cancelBtn" class="align-self-end" onclick="closeMsg2()">X</button>
+        <i class="bi bi-check-circle-fill"></i>
+        <h4 class="mb-5 text-center msg">Appointment Deleted Successfully</h4>
+        <div id="btns-container">
+            <button id="okButton" onclick="closeMsg2()">OK</button>
         </div>
       </div>
     </div>
@@ -115,6 +101,10 @@
          $("#delete-confirmation").css('display','none'); 
          $('#darkBcground').css('display','none');
         }
+        function closeMsg2(){
+         $("#success-confirmation").css('display','none'); 
+         $('#darkBcground').css('display','none');
+        }
         var editBtns = document.getElementsByClassName('editBtn');
         for(let i = 0; i < editBtns.length; i++){
             $(editBtns[i]).click(function(){
@@ -143,13 +133,12 @@
             method: 'POST',
             data: {ApptID : apptID}
            }).done(function(msg){
-               alert(msg);
-               closeMsg();
+              closeMsg();
+              $("#success-confirmation").css('display','block'); 
+              $('#darkBcground').css('display','block');
            })
         })
-        $('#cancelButton').click(function(){
-            closeMsg();
-        })
+        
     </script>
 </body>
 </html>

@@ -14,7 +14,7 @@ body {
     margin-left: 5%;
     font-weight: bold;
     color: #828ab1;
-    font-size: 20px;
+    font-size: 22px;
 }
   .t-img {
     width: 56px;
@@ -23,7 +23,7 @@ body {
   th{
     color:#6e79a7;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 22px;
   }
   tr{
     border-bottom: 1px solid rgb(161, 161, 161);
@@ -31,6 +31,7 @@ body {
  td {
     padding: 0.8em;
     text-align: center;  
+    font-size: 18px;
   }
   .box{
     overflow-y: scroll;
@@ -98,7 +99,7 @@ body {
 #darkBcground{
     width: 100%;
     background-color: black;
-    height: 100vh;
+    height: 104%;
     position: absolute;
     z-index: 2;
     opacity: 25%;
@@ -128,10 +129,6 @@ body {
 #cancelButton:hover{
   background-color: rgb(158, 158, 158);
 }
-#cancelBtn{
-  border: none;
-  background: none;
-}
 .confirm-action-Button{
   border: none;
   background-color: rgb(185, 63, 63);
@@ -143,4 +140,48 @@ body {
 }
 .confirm-action-Button:hover{
   background-color: rgb(162, 52, 52);
+}
+.ui-widget-header{
+  background: #A2ABD1 ;
+}
+.ui-datepicker-month, .ui-datepicker-year{
+  color: white;
+} 
+#success-confirmation{
+  display: none;
+  position: absolute;
+  background-color: white;
+  margin-left: 20%;
+  margin-top: 21vh;
+  z-index: 3;
+}
+#content-container{
+  box-shadow: 1px 1px 15px 2px #d8d8d8;
+  width: 400px;
+  min-height: 100px;
+  z-index: 3;
+  padding: 2em;
+}
+#cancelBtn{
+  border: none;
+  background: none;
+}
+#okButton{
+  border: none;
+  background-color: rgb(87, 189, 87);;
+  border-radius: 50px;
+  padding: 0.3em 2em 0.3em 2em;
+  color: white;
+  font-size: 1.2em;
+}
+#okButton:hover{
+  background-color: rgb(72, 163, 72);;
+}
+.bi-check-circle-fill{
+color: rgb(93, 203, 93);
+font-size: 7em;
+}
+.msg{
+color:rgb(35, 35, 35);
+font-weight: 300;
 }

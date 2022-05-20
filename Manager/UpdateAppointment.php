@@ -73,6 +73,7 @@
   <div id="addService">
      <h2>Edit Appointment</h2>
      <div class="line"></div>
+     <div class="alert alert-success mt-4" id="success_alert" role="alert" style="display: none"></div>
       <form id="form">
          <div id="Servandtime" class="d-flex flex-column">
             <div id="serv">
@@ -126,13 +127,18 @@
       $('#time1').val(time);
       $('#serviceOptions').val(sessionStorage.getItem('Available_appt_toBe_Edited_service'));
       $('#form').submit(function(event){
+        $('#Servandtime').css('margin-top','4em');
+        $('#success_alert').html('');
+        $('#success_alert').css('display','none');
         event.preventDefault();
         $.ajax({
           url: 'PHP/Edit_appointment.php',
           method: 'POST',
           data: {ApptId : sessionStorage.getItem('Available_appt_toBe_Edited_Id'), service : $('#serviceOptions').val(), date : sessionStorage.getItem('current_selected_date'), time: $('#time1').val()}
         }).done(function(msg){
-          alert(msg);
+          $('#Servandtime').css('margin-top','.3em');
+          $('#success_alert').html('Appointment Updated Successfully');
+          $('#success_alert').css('display','block');
         })
       })
     
