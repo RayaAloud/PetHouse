@@ -30,13 +30,15 @@ if(!isset($_SESSION['email'])){
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<style>
+    <script src="Note.js"></script>
+    <style>
       #divv{
         display: none;
         position: absolute;
         margin-left: 25em;
         background-color: white;
         z-index: 3;
+        margin-top: 3em;
       }
       #divCont{
         box-shadow: 1px 1px 15px 2px #d8d8d8;
@@ -47,10 +49,10 @@ if(!isset($_SESSION['email'])){
       }
       #divv2{
         display: none;
+        z-index: 3;
         position: absolute;
-        margin-left: 30em;
         background-color: white;
-        margin-top: 5em;
+        width: fit-content;
       }
       #divCont2{
         box-shadow: 1px 1px 15px 2px #d8d8d8;
@@ -90,7 +92,7 @@ if(!isset($_SESSION['email'])){
         transform: rotate(90deg);
         top: 20vh;
       }
-</style>
+   </style>
 <script>
     function makeRequest(){
         var req;
@@ -113,20 +115,6 @@ if(!isset($_SESSION['email'])){
         request.open("Get", page, true);
         request.send();
     }
-    function showNote(btn){
-         var appointmentID = $(btn).parent().parent().attr('id'); 
-         $.ajax({
-           url: 'PHP/Retrieve_Notes.php',
-           method: 'POST',
-           data: {Appt_ID : appointmentID},
-         }).done(function(msg){
-          $('#note').html(msg);
-          $('#divv2').css('display', 'block'); 
-         })
-      }
-      function closeNote(){
-         document.getElementById("divv2").style.display ='none';
-      }
   $(document).ready(function(){
     showPage('Signed_In_Header.php', 'header');
   })
@@ -200,6 +188,17 @@ if(!isset($_SESSION['email'])){
         <p id="note"></p>
       </div>
     </div>
+    <!--Msg-->
+    <div id="delete-confirmation">
+      <div id="content-container" class="d-flex flex-column align-items-center m-auto">
+        <button id="cancelButton" class="align-self-end" onclick="closeMsg()">X</button>
+        <i class="bi bi-check-circle-fill"></i>
+        <h4 class="mb-5 text-center msg">Review Submitted Successfully</h4>
+        <div id="btns-container">
+            <button id="okButton">OK</button>
+        </div>
+      </div>
+</div>
 <div class="mb-5">
   <div class="upcoming-apt">
     <p>Previous Appointments</p>
@@ -227,15 +226,23 @@ if(!isset($_SESSION['email'])){
 <?php include 'PHP/Retrieve_Previous_Appts.php'?>
 <script>
   $('#submitReviewBtn').click(function(){
-
     $.ajax({
       url: 'PHP/Add_Review.php',
       method: 'POST',
       data: {rate : sessionStorage.getItem('rate'), opinion : ($(text).val() == "")? null : $(text).val(), appt_ID : sessionStorage.getItem('Appt_to_be_reviewed')}
     }).done(function(msg){
-      alert(msg)
+        $('#cancelBtn').click();
+        $("#delete-confirmation").css('display','block'); 
+        $('#darkBcground').css('display','block');
+        $('#text').val("");
     })
-    $('#cancelBtn').click();
   })
+  function closeMsg(){
+         $("#delete-confirmation").css('display','none'); 
+         $('#darkBcground').css('display','none');
+   }
+  $('#okButton').click(function(){
+       closeMsg();
+  });
 </script>
 </html>

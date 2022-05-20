@@ -190,6 +190,7 @@ if(!isset($_SESSION['email'])){
        var note = sessionStorage.getItem('Notes');
        var time = sessionStorage.getItem('Request_Appoinemtent_Time').split(" ");
        var date = new Date(sessionStorage.getItem('Current_Selected_Date'));
+       var avApptID = sessionStorage.getItem('available_appt_Id_for_Aptt_req')
        date = date.getFullYear() + "-" + (date.getMonth() +1) + "-" + date.getDate();
        var period = time[1];
        time = time[0].split(":");
@@ -212,7 +213,7 @@ if(!isset($_SESSION['email'])){
         $.ajax({
            url: 'PHP/Add_Appt_Request.php',
            method: 'POST',
-           data: {time : time, date : date, service_name : sessionStorage.getItem('Request_Appoinemtent_Service'), petID :  sessionStorage.getItem('Request_Appoinemtent_Pet'), note : (note == null)? null : note},
+           data: {avApptID : avApptID, time : time, date : date, service_name : sessionStorage.getItem('Request_Appoinemtent_Service'), petID :  sessionStorage.getItem('Request_Appoinemtent_Pet'), note : (note == null)? null : note},
         }).done(function(msg){
            if(msg == 1){
             $('#darkBcground').css('display','block');

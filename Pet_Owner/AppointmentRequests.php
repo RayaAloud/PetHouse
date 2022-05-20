@@ -29,6 +29,7 @@ if(!isset($_SESSION['email'])){
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="Note.js"></script>
 <style>
       #divv{
         display: none;
@@ -45,10 +46,10 @@ if(!isset($_SESSION['email'])){
       }
       #divv2{
         display: none;
+        z-index: 3;
         position: absolute;
-        margin-left: 30em;
         background-color: white;
-        margin-top: 5em;
+        width: fit-content;
       }
       #divCont2{
         box-shadow: 1px 1px 15px 2px #d8d8d8;
@@ -169,20 +170,6 @@ if(!isset($_SESSION['email'])){
   })
   
 
-      function showNote(btn){
-         var appointmentID = $(btn).parent().parent().attr('id'); 
-         $.ajax({
-           url: 'PHP/Retrieve_Notes.php',
-           method: 'POST',
-           data: {Appt_ID : appointmentID},
-         }).done(function(msg){
-          $('#note').html(msg);
-          $('#divv2').css('display', 'block'); 
-         })
-      }
-      function closeNote(){
-         document.getElementById("divv2").style.display ='none';
-      }
 </script>
 </head>
 

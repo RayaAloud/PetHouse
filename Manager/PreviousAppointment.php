@@ -31,19 +31,23 @@
         top: 5em;
 
       }
-      #note-container{
+      #divv2{
         display: none;
-        position: absolute;
-        box-shadow: 1px 1px 15px 1px #ebebeb;
-        background-color: white;
-        left: 55%;
-        top: 8vh;
-        width: 400px;
-        min-height:200px;
         z-index: 3;
+        position: absolute;
+        background-color: white;
+        width: fit-content;
       }
-      #note-content{  
-        padding: 1.5em;
+      #divCont2{
+        box-shadow: 1px 1px 15px 2px #d8d8d8;
+        width: 250px;
+        min-height: 100px;
+        z-index: 3;
+        padding: 1em;
+        padding-top: 1.5em;
+      }
+      #divCont2 p{
+        overflow-y: scroll;
       }
       #cancelBtn{
         border: none;
@@ -57,18 +61,20 @@
     </style>
     <script>    
       function showNote(btn){
-         var appointmentID = $(btn).parent().parent().attr('id');
-         $.ajax({
-           url: 'PHP/Retrieve_Notes.php',
-           method: 'POST',
-           data: {Appt_ID : appointmentID},
-         }).done(function(msg){
-           $('#note').html(msg);
-           $('#note-container').css('display', 'block');
-         })  
+        var appointmentID = $(btn).parent().parent().attr('id'); 
+        $.ajax({
+          url: 'PHP/Retrieve_Notes.php',
+          method: 'POST',
+          data: {Appt_ID : appointmentID},
+        }).done(function(msg){
+        $('#note').html(msg);
+        $('#divv2').css('top', $(btn).offset().top - 15);
+        $('#divv2').css('left', $(btn).offset().left - 10);
+        $('#divv2').css('display', 'block'); 
+        })
       }
       function closeNote(){
-         document.getElementById("note-container").style.display ='none';
+          document.getElementById("divv2").style.display ='none';
       }
       function showPetProfile(btn){
          var appointmentID = $(btn).parent().parent().attr('id');
@@ -134,8 +140,8 @@
     </div>
     </div>
     </div>
-<div id="note-container">
-      <div id="note-content" class="d-flex flex-column align-items-center m-auto">
+    <div id="divv2">
+      <div id="divCont2" class="d-flex flex-column align-items-center m-auto">
         <button id="cancelBtn" class="align-self-end" onclick="closeNote()">X</button>
         <h3>Note</h3>
         <p id="note"></p>

@@ -107,6 +107,10 @@
         });
        })
     })
+    $('#timeSelect').change(function(){
+        var option = $(this).find("option:selected");
+        sessionStorage.setItem('available_appt_Id_for_Aptt_req', $(option).attr('appt_id'));
+      })
       /*
       var today =  document.getElementsByClassName('ui-state-default');
           console.log(today[0]);

@@ -129,14 +129,6 @@ if(!isset($_SESSION['email'])){
   <div class="line"></div>
 </div>
 
-<div id="note-container">
-      <div id="note-content" class="d-flex flex-column align-items-center m-auto">
-        <button id="cancelBtn" class="align-self-end" onclick="closeNote()">X</button>
-        <h3>Note</h3>
-        <p id="note"></p>
-      </div>
-    </div>
-
 <div class="box mb-5">
  <table>
 

@@ -6,9 +6,9 @@ function showNote(btn){
       data: {Appt_ID : appointmentID},
     }).done(function(msg){
      $('#note').html(msg);
+     $('#divv2').css('top', $(btn).offset().top - 15);
+     $('#divv2').css('left', $(btn).offset().left - 10);
      $('#divv2').css('display', 'block'); 
-     var position = $(this).getBoundingClientRect();
-     alert(position.x)
     })
  }
  function closeNote(){

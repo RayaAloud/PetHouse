@@ -3,6 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: aliceblue;
     overflow-x: hidden;
+    padding-bottom: 2em;
 }        
 .card-title {
   text-align: center;
@@ -28,21 +29,6 @@ body {
   height: 70px;
   font-size: 1.5em;
 }
-
-.noteIcon{
-  color: #A2ABD1;
-  font-size: 1.5em;
-}
-#divCont2{
-  box-shadow: 1px 1px 15px 2px #d8d8d8;
-  width: 250px;
-  min-height: 100px;
-  z-index: 3;
-  padding: 1em;
-}
-#divCont2 p{
-  overflow-y: scroll;
-}
 #divv{
   display: none;
   position: absolute;
@@ -58,25 +44,20 @@ body {
 }
 #divv2{
   display: none;
-  position: absolute;
-  margin-left: 30em;
-  background-color: white;
-  margin-top: 5em;
-}
-
-#note-container{
-  display: none;
-  position: absolute;
-  box-shadow: 1px 1px 15px 1px #ebebeb;
-  background-color: white;
-  left: 55%;
-  top: 8vh;
-  width: 400px;
-  min-height:200px;
   z-index: 3;
+  position: absolute;
+  background-color: white;
+  width: fit-content;
 }
-#note-content{  
-  padding: 1.5em;
+#divCont2{
+  box-shadow: 1px 1px 15px 2px #d8d8d8;
+  width: 250px;
+  min-height: 100px;
+  z-index: 3;
+  padding: 1em;
+}
+#divCont2 p{
+  overflow-y: scroll;
 }
 #cancelBtn{
   border: none;
@@ -135,6 +116,7 @@ th{
   overflow-y: scroll;
   max-height: 800px;
   max-width: 1200px;
+  margin-bottom: 2em;
 }
 .box table{         
   padding: 1.8em;
@@ -160,21 +142,4 @@ button{
 }
 #myPets{
   margin-left: -20px;
-}
-#divv2{
-  display: none;
-  position: absolute;
-  margin-left: 35em;
-  background-color: white;
-  margin-top: 20%;
-}
-#divCont2{
-  box-shadow: 1px 1px 15px 2px #d8d8d8;
-  width: 250px;
-  min-height: 100px;
-  z-index: 4;
-  padding: 1em;
-}
-#divCont2 p{
-  overflow-y: scroll;
 }
