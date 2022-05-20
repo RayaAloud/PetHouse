@@ -6,6 +6,22 @@ die();
 $email = $_SESSION['email'];
 $query = "SELECT * FROM Appointment_Requests WHERE NOT ((Status = 'Accepted' And Date < CURRENT_DATE()) OR (Status = 'Accepted' And Date = CURRENT_DATE() AND Time < CURRENT_TIME())) AND (PetID IN (SELECT ID FROM Pet WHERE Owner_Email = '$email'));";
 $result = mysqli_query($connection, $query);
+if($result){
+if($result -> num_rows > 0){
+  print('<div class="box mb-5 mt-5">
+  <table>
+     <thead>
+     <tr>
+       <th class="text-center pt-4 pb-2">Pet</th>
+       <th class="text-center pt-4 pb-2">Service</th>
+       <th class="text-center pt-4 pb-2">Date</th>
+       <th class="text-center pt-4 pb-2">Time</th>
+       <th class="text-center pt-4 pb-2">Notes</th>
+       <th class="text-center pt-4 pb-2">Status</th>
+       <th class="text-center pt-4 pb-2"></th>
+     </tr>
+     </thead>
+     <tbody>');
 while($row = mysqli_fetch_array($result)){
     $query = "SELECT Name, Photo FROM Pet WHERE ID = ".$row['PetID'].";";
     $pet_result = mysqli_fetch_array(mysqli_query($connection,$query));
@@ -26,6 +42,16 @@ while($row = mysqli_fetch_array($result)){
       echo "</td>";
     }
     echo "</tr>'</script>"; 
+  }
+  print('</tbody></table></div></div>');
+ }
+ else{
+  print(' <div class="d-flex text-center flex-column col-10 noAppt align-items-center mt-5 pt-5">
+  <div class="d-flex flex-column">
+   <img src="../Images/undraw_sign_in.png" height="330px">
+   <p class="noApptTxt fs-4 mt-5 w-100">You Have No Appointment Requests</p>
+  </div></div>');
+ }
 }
 function timeFormat($time){
   $time = explode(":",$time);

@@ -203,27 +203,8 @@ if(!isset($_SESSION['email'])){
     <p>My Appointments Requests</p>
   <div class="line"></div>
 </div>
-<div class="box mb-5 mt-5">
- <table>
-
-    <thead>
-    <tr>
-      <th class="text-center pt-4 pb-2">Pet</th>
-      <th class="text-center pt-4 pb-2">Service</th>
-      <th class="text-center pt-4 pb-2">Date</th>
-      <th class="text-center pt-4 pb-2">Time</th>
-      <th class="text-center pt-4 pb-2">Notes</th>
-      <th class="text-center pt-4 pb-2">Status</th>
-      <th class="text-center pt-4 pb-2"></th>
-    </tr>
-    </thead>
-    <tbody>
       <!--Appointment Requests Here..-->
-    </tbody>
-  </table>
-</div>
-</div>
+      <?php include'PHP/Retrieve_Appt_Requests.php'?>
 </div>
 </body>
-<?php include'PHP/Retrieve_Appt_Requests.php'?>
 </html>

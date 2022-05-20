@@ -248,7 +248,7 @@ if(!isset($_SESSION['email'])){
 </div>
 
 <div class="container pt-4 d-flex justify-content-end px-2 mb-5">
-  <div class="d-flex flex-column px-5">
+  <div class="d-flex flex-column px-5" id="div-box">
     <div class="row mb-3">
         <div id="timeLine" class="d-flex">
             <div class="outerCircle d-flex"><div id="circle1" class="innerCircle align-self-center activeCircle m-auto"></div></div>
@@ -259,7 +259,7 @@ if(!isset($_SESSION['email'])){
         </div>
       </div>
       <div class="row d-flex justify-content-center">
-        <span id="msg" class="col-7"></span>
+        <span id="msg" class="col-5"></span>
         <div id="AppointmentOptions" class=""></div>
       </div>
       <div class="row justify-content-center mt-2">

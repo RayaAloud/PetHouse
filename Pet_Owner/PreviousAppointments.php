@@ -32,6 +32,9 @@ if(!isset($_SESSION['email'])){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="Note.js"></script>
     <style>
+      body{
+        padding-bottom: 2em;
+      }
       #divv{
         display: none;
         position: absolute;
@@ -87,9 +90,9 @@ if(!isset($_SESSION['email'])){
       #bcImg{
         position: absolute;
         right:-4em;
-        height: 500px;
+        height: 650px;
         z-index: -1;
-        transform: rotate(90deg);
+        transform: rotate(95deg);
         top: 20vh;
       }
    </style>
@@ -204,23 +207,6 @@ if(!isset($_SESSION['email'])){
     <p>Previous Appointments</p>
     <div class="line"></div>
   </div>
-<div class="box mb-5 mt-5">
- <table>
-    <thead>
-    <tr>
-      <th class="text-center pt-4 pb-2">Pet</th>
-      <th class="text-center pt-4 pb-2">Service</th>
-      <th class="text-center pt-4 pb-2">Date</th>
-      <th class="text-center pt-4 pb-2">Time</th>
-      <th class="text-center pt-4 pb-2">Notes</th>
-      <th class="text-center pt-4 pb-2">Review</th>
-    </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
-</div>
-</div>
 </div>
 </body>
 <?php include 'PHP/Retrieve_Previous_Appts.php'?>

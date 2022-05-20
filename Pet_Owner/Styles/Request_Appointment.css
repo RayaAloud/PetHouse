@@ -144,6 +144,9 @@ td{
   color:rgb(35, 35, 35);
   font-weight: 300;
 }
+#div-box{
+  max-width: 840px;
+}
   @media screen and (max-width: 991px) {
     .lines{
       width: 110px;
