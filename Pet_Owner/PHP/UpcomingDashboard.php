@@ -9,6 +9,19 @@ $query="SELECT * FROM Appointment_Requests A, Pet P WHERE (Date > CURRENT_DATE()
 $result=mysqli_query($connection, $query);
 
 if ($result) {
+  if($result -> num_rows > 0){
+    print(' <div class="box mb-5">
+    <table>
+        <thead>
+        <tr>
+          <th class="text-center pt-4 pb-2">Pet</th>
+          <th class="text-center pt-4 pb-2">Service</th>
+          <th class="text-center pt-4 pb-2">Date</th>
+          <th class="text-center pt-4 pb-2">Time</th>
+          <th class="text-center pt-4 pb-2">Notes</th>
+        </tr>
+        </thead>
+          <tbody>');
  while ($appt = mysqli_fetch_array($result)) {
      $pet = mysqli_query($connection,"SELECT * FROM Pet WHERE ID =".$appt['PetID'].";");
      $pet = mysqli_fetch_array($pet);
@@ -22,6 +35,11 @@ if ($result) {
      <tr>"
      );
     }
+    print('</tbody></table></div>');
+   }
+   else{
+     
+   }
   }
 
 function timeFormat($time){

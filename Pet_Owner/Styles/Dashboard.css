@@ -85,11 +85,12 @@ body {
 p {
   margin-left: 5%;
   font-weight: bold;
-  color: #A2ABD1;
+  color: #969fc6;
   font-size: 20px;
 }
 .upcoming-apt p {
   padding-top: 70px;  
+  font-size: 23px;
 }
 .upcoming-apt {
   margin: 5px 20px;

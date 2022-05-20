@@ -30,7 +30,13 @@ if(!isset($_SESSION['email'])){
     <!--Bootsrap Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script src="Note.js"></script>
-   
+   <style>
+
+     .noAppt{
+      
+
+     }
+   </style>
 <script>
     function makeRequest(){
         var req;
@@ -128,25 +134,15 @@ if(!isset($_SESSION['email'])){
     <p>Upcoming Appointments</p>
   <div class="line"></div>
 </div>
+  <?php include 'PHP/UpcomingDashboard.php'?>
 
-<div class="box mb-5">
- <table>
+     <div class="d-flex text-center flex-column col-10 noAppt align-items-center">
+      <div class="d-flex flex-column">
+       <img src="../Images/Park_Picture.png" height='520px'>
+       <p class="noApptTxt fs-4">You Have No Appointments</p>
+      </div>
+     </div>
 
-    <thead>
-    <tr>
-      <th class="text-center pt-4 pb-2">Pet</th>
-      <th class="text-center pt-4 pb-2">Service</th>
-      <th class="text-center pt-4 pb-2">Date</th>
-      <th class="text-center pt-4 pb-2">Time</th>
-      <th class="text-center pt-4 pb-2">Notes</th>
-    </tr>
-    </thead>
-
-      <tbody>
-      </tbody>
-      <?php include 'PHP/UpcomingDashboard.php'?>
-      </table>
-    </div>
    </div>
   </body>
   
