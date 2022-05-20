@@ -26,11 +26,11 @@ session_start();
         
         $validateEmail = preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $Email);
         $specialChars = preg_match('@[^\w]@', $Password);
-      if(!$validateEmail){
-        $_SESSION['Sign_up_error'] = "Invalid email address.";
-        header("Location: ../signup.php"); 
-            exit;
-      }
+        if(!$validateEmail){
+            $_SESSION['Sign_up_error'] = "Invalid email address.";
+            header("Location: ../signup.php"); 
+                exit;
+        }
         if( !$specialChars && strlen($Password) < 8) {
             $_SESSION['Sign_up_error'] = 'Password must be at leat 8 characters and contain at least one special character #,&,..';
             header("Location: ../signup.php"); 
@@ -63,10 +63,7 @@ session_start();
             exit;
         }
         
-        //else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        //header("Location: signup.php?error=EMAIL syntax is wrong");
-         //exit; -->
-        //}
+        
         if($img == null)
         $query="INSERT INTO `pet_owner` VALUES ('$Email','$First_Name','$Last_Name','$PhoneNo','$Gender','$Password', NULL)";
         else

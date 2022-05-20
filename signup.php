@@ -35,10 +35,9 @@
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <!--Bootstrap-->
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
+    <script src="JS/Validations.js"></script>
     <script>
         function makeRequest(){
             var req;
@@ -79,13 +78,10 @@
               <img src="Images/Park_Picture.png" id="smallImg">
             </div>
             
-            
              <div id="inputs" class="d-flex flex-column col-8">
-                <?php if(isset($_SESSION['Sign_up_error'])){
-                        echo "<div class='alert alert-danger' role='alert'>".$_SESSION['Sign_up_error']."</div>";
-                        unset($_SESSION['Sign_up_error']);
-                    }
-                ?>
+             <div class='alert alert-danger' role='alert' id="error_alert" style="display: none"></div>
+              <div class="alert alert-success" id="success_alert" role="alert" style="display: none"></div>
+              <iframe id="iframe" name="my_iframe"></iframe>
                <form class="d-flex flex-column" action="PHP/Sign_up.php" method="post" enctype="multipart/form-data" id="sign_up_form"> 
                 <div id="addinPic" class="d-flex flex-column align-self-center mt-4">
                     <img id="profile-image" src="images/undraw_profile_pic_ic.png" alt="pet picture">
@@ -95,36 +91,36 @@
                     <div class="d-flex justify-content-between mb-2">
                         <label>
                             First Name <br>
-                            <input name="fname" type="text"  placeholder="Enter first name" required>
+                            <input name="fname" type="text"  placeholder="Enter first name" id="fname" required>
                             
                         </label>
                         <label>
                             Last Name <br>
-                            <input name="lname" type="text" placeholder="Enter last name" required>
+                            <input name="lname" type="text" placeholder="Enter last name" id="lname" required>
                             
                         </label>
                     </div>
                     <div class="d-flex justify-content-between mb-2">
                         <label>
                             Email <br>
-                            <input name="email" type="email"  placeholder="Enter email" required>
+                            <input name="email" type="email" id="email" placeholder="Enter email" required>
                             
                         </label>
                         <label>
                             Password <br>
-                            <input name="password" type="password" placeholder="Enter your password" required> 
+                            <input name="password" type="password" placeholder="Enter your password" id="pass" required> 
                         </label>
                     </div>
                     <div class="d-flex justify-content-between mb-2">
                         <label>
                             Phone Number <br>
-                            <input name="phone" type="tel" placeholder="Enter your phone number" required>
+                            <input name="phone" type="tel" placeholder="Enter your phone number" id="phone" required>
                         </label>
-                       <!-- <span id="pass-instructions" class="mt-4">
-                        &#x25CF; Passsword should be at least 8 characters
+                       <span id="pass-instructions" class="mt-4">
+                        &#x25CF; Passsword should be at least <br>&nbsp;&nbsp;&nbsp;&nbsp;8 characters
                         <br>
-                        &#x25CF; Password should contain at least one special character #,&,..
-                        </span> -->
+                        &#x25CF; Password should contain at least one<br>&nbsp;&nbsp;&nbsp; special character #,&,..
+                        </span>
                     </div>
                     <div class="d-flex justify-content-between">
                     <label class="col-3">
@@ -152,6 +148,63 @@
   <script>
     $('#uploadFile').change(function(){ 
         document.getElementById('profile-image').src = window.URL.createObjectURL(this.files[0]);
+    })
+    $('#sign_up_form').submit(function(e){
+          $('#error_alert').html("");
+          $('#error_alert').css('display', 'none');
+          $('#success_alert').html("");
+          $('#success_alert').css('display', 'none');
+          $('#sign_up_form').removeAttr('target')
+          $.ajax({
+              url: 'PHP/Check_Email.php',
+              method: 'POST',
+              async: false,
+              data: {EnteredEmail : $('#email').val()}
+          }).done(function(msg){
+             if(msg == 0)
+                sessionStorage.setItem('email_exists', 0);
+             else if(msg == 1){
+                sessionStorage.setItem('email_exists', 1);
+             }
+          })
+          var emailExists = sessionStorage.getItem('email_exists');
+          var thereIsError = false;
+          if(emailExists == 1)
+            document.getElementById('error_alert').innerHTML += '&#9679; Email Exists!<br>';
+          if(!validPhone($('#phone').val())){
+            document.getElementById('error_alert').innerHTML += '&#9679; Invalid Phone! Phone number must be 10 digits and should start with 05<br>'; 
+            thereIsError = true;
+          }
+          if(!validEmail($('#email').val())){
+            document.getElementById('error_alert').innerHTML += '&#9679; Invalid Email Address!<br>'; 
+            thereIsError = true;
+          }
+          if(!validPass($('#pass').val())){
+            document.getElementById('error_alert').innerHTML += '&#9679; Password should be at least 8 characters and should contain at least one special character<br>'; 
+            thereIsError = true;
+          }
+          if(!validFirstName($('#fname').val())){
+            document.getElementById('error_alert').innerHTML += '&#9679; First name should be maximum 30, and should not contain special characters or digits<br>'; 
+            thereIsError = true;
+          }
+          if(!validLastName($('#lname').val())){
+            document.getElementById('error_alert').innerHTML += '&#9679; Last name should be at least 1 letters and maximum 30, and should not contain special characters or digits<br>'; 
+            thereIsError = true;
+          }
+          if(!notEmptyRadio($('input[name="gender"]'))){
+            document.getElementById('error_alert').innerHTML += '&#9679; Please select gender<br>'; 
+            thereIsError = true;
+          }
+          if((emailExists == 1) || (thereIsError === true)){
+             e.preventDefault();
+             $('#sign_up_form').attr('target','my_iframe')
+             $('#error_alert').css('display', 'block');
+          }
+          else{
+             $('#success_alert').html('Service Added Successfully');
+             $('#success_alert').css('display', 'block');
+          }
+             
     })
     
 </script>

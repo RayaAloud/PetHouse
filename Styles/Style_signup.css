@@ -102,4 +102,10 @@ input[type="radio"]{
 .alert{
     padding: 0.5em !important;
 }
+iframe{
+    height: 0;
+}
+#error_alert{
+    max-width: 700px;
+}
 
