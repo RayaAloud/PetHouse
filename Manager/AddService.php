@@ -11,6 +11,7 @@
      <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
      <!--External CSS-->
      <link rel="stylesheet" href="Style/Add_Service.css">
+     <script src="Forms_Validations.js"></script>
     <script>
         $('#imgUpload').change(function(){
             document.getElementById('pet-image').src = window.URL.createObjectURL(this.files[0]);
@@ -19,27 +20,23 @@
 </head>
 <body>
     <div class="form-container d-flex flex-column offset-2">
-        <?php if(isset($_SESSION['Add_Service_Error'])){
-            echo "<div class='alert alert-danger' role='alert'>".$_SESSION['Add_Service_Error']."</div>";
-            unset($_SESSION['Add_Service_Error']);
-        }
-        ?>
-        <iframe id="iframe" name="my_iframe">
-        </iframe>
+        <iframe id="iframe" name="my_iframe"></iframe>
+        <div class='alert alert-danger' role='alert' id="error_alert" style="display: none"></div>
+        <div class="alert alert-success" id="success_alert" role="alert" style="display: none"></div>
         <form method="POST" action="PHP/Add_Service.php" enctype="multipart/form-data" target="my_iframe" id="add_service_form">
         <div class="container d-flex justify-content-between">
         <div class="d-flex flex-column" id="inputFields">
         <div class="row">
             <label>Service Name</label>
-            <input type="text" name="ServiceName">
+            <input type="text" name="ServiceName" id="service_name" required>
         </div>
         <div class="row">
             <label>Service Price</label>
-            <input type="number" name="Price">
+            <input type="number" name="Price" id = "price" required>
         </div>
         <div class="row">
             <label>Description</label>
-            <textarea name="Description" id="Description" class="p-3"></textarea>
+            <textarea name="Description" id="Description" class="p-3" required></textarea>
         </div>
         </div>
         <div class="d-flex flex-column justify-content-center align-items-end">
@@ -58,6 +55,46 @@
     </div>
 </body>
     <script>
-
+      $('#add_service_form').submit(function(e){
+          $('#error_alert').html("");
+          $('#error_alert').css('display', 'none');
+          $('#success_alert').html("");
+          $('#success_alert').css('display', 'none');
+          $.ajax({
+              url: 'PHP/Check_Services.php',
+              method: 'POST',
+              async: false,
+              data: {service_name : $('#service_name').val()}
+          }).done(function(msg){
+             if(msg == 0)
+                sessionStorage.setItem('service_exists', 0);
+             else if(msg == 1){
+                sessionStorage.setItem('service_exists', 1);
+             }
+          })
+          var img = document.getElementById('imgUpload');
+          var serviceExists = sessionStorage.getItem('service_exists');
+          var thereIsError = false;
+          if(serviceExists == 1)
+            document.getElementById('error_alert').innerHTML += '&#9679; Service Exists!<br>';
+          if(isnegativeNumber($('#price').val())){
+            document.getElementById('error_alert').innerHTML += '&#9679; Price Cannot be negative!<br>'; 
+            thereIsError = true;
+          }
+          if(emptyImage(img)){
+            document.getElementById('error_alert').innerHTML += '&#9679; Service photo is required<br>'; 
+            thereIsError = true;
+          }
+          if((serviceExists == 1) || (thereIsError === true)){
+             e.preventDefault();
+             $('#error_alert').css('display', 'block');
+          }
+          else{
+             $('#success_alert').html('Service Added Successfully');
+             $('#success_alert').css('display', 'block');
+          }
+             
+          
+      })
     </script>
 </html>

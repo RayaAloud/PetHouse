@@ -49,6 +49,11 @@
             .ui-datepicker-month, .ui-datepicker-year{
                 color: white;
             } 
+            .ui-state-highlight, .ui-widget-content .ui-state-highlight{
+            border: 1px solid #A2ABD1;
+            background: #8d94b7;
+            color: white;
+            }
         </style>
 </head>
 <body>

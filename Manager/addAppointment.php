@@ -41,9 +41,10 @@
               color: white;
           }
           .ui-state-highlight, .ui-widget-content .ui-state-highlight{
-            border: 1px solid #A2ABD1;
-            background: #8d94b7;
-            color: white;
+            border: 1px solid #c5c5c5;
+            background: #f6f6f6;
+            font-weight: normal;
+            color: #454545;
           }
           .ui-datepicker{
             width: 20rem;
