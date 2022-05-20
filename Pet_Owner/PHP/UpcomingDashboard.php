@@ -38,7 +38,12 @@ if ($result) {
     print('</tbody></table></div>');
    }
    else{
-     
+     print(' <div class="d-flex text-center flex-column col-10 noAppt align-items-center">
+     <div class="d-flex flex-column">
+      <img src="../Images/Park_Picture.png" height="520px">
+      <p class="noApptTxt fs-4">You Have No Appointments</p>
+     </div>
+    </div>');
    }
   }
 
