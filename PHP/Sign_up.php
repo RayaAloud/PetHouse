@@ -23,11 +23,33 @@ session_start();
         else{
             $img = null;
         }
+        
+        $validateEmail = preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $Email);
+        $specialChars = preg_match('@[^\w]@', $Password);
+      if(!$validateEmail){
+        $_SESSION['Sign_up_error'] = "Invalid email address.";
+        header("Location: ../signup.php"); 
+            exit;
+      }
+        if( !$specialChars && strlen($Password) < 8) {
+            $_SESSION['Sign_up_error'] = 'Password must be at leat 8 characters and contain at least one special character #,&,..';
+            header("Location: ../signup.php"); 
+            exit;
+        }
         if(strlen($Password) < 8){
             $_SESSION['Sign_up_error'] = 'Password should be at leat 8 characters!';
             header("Location: ../signup.php"); 
             exit;
         }
+       
+        
+        if( !$specialChars ) {
+            $_SESSION['Sign_up_error'] = 'Password must contain at least one special character #,&,..';
+            header("Location: ../signup.php"); 
+            exit;
+        }
+        
+
         //check if the email exits 
         $query = "SELECT * FROM pet_owner WHERE Email = '$Email' ";
         $owner_result = mysqli_query($con,$query);
