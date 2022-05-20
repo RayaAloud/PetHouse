@@ -19,3 +19,8 @@ function isnegativeNumber(num){
     return true;
     return false;
 }
+function emptyTime(time){
+    if(time.val() == "")
+    return true;
+    return false;
+}

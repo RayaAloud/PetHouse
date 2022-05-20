@@ -76,7 +76,6 @@ if(!isset($_SESSION['email'])){
    }
    function checkDate(){
       var date = sessionStorage.getItem('Current_Selected_Date');
-      console.log(date);
       if (date == '')
         return false;
       return true;
