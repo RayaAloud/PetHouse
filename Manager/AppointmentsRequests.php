@@ -49,6 +49,46 @@
       #div table{
         display: inline;
       }
+      #success-confirmation{
+      display: none;
+      position: absolute;
+      background-color: white;
+      margin-left: 20%;
+      margin-top: 21vh;
+      z-index: 3;
+    }
+    #success-content-container{
+      box-shadow: 1px 1px 15px 2px #d8d8d8;
+      width: 400px;
+      min-height: 100px;
+      z-index: 3;
+      padding: 2em;
+    }
+    #cancel_Btn{
+      border: none;
+      background: none;
+    }
+    #okButton{
+      border: none;
+      background-color: rgb(87, 189, 87);;
+      border-radius: 50px;
+      padding: 0.3em 2em 0.3em 2em;
+      color: white;
+      font-size: 1.2em;
+    }
+    #okButton:hover{
+      background-color: rgb(72, 163, 72);;
+    }
+    #success_icon{
+    color: rgb(93, 203, 93);
+    font-size: 7em;
+    margin-left: 0.4em;
+    }
+    #acc-dec-msg{
+    color:rgb(35, 35, 35);
+    font-weight: 300;
+    }
+
 </style>
 <script>    
       function showNote(btn){
@@ -118,7 +158,7 @@
         <p id="note"></p>
       </div>
     </div>
-
+    <!--Delete Confirmation-->
     <div id="delete-confirmation">
       <div id="content-container" class="d-flex flex-column align-items-center m-auto">
         <button id="cancelBtn" class="align-self-end" onclick="closeMsg()">X</button>
@@ -128,6 +168,18 @@
         </div>
       </div>
     </div>
+    <!--success-->
+    <div id="success-confirmation">
+      <div id="success-content-container" class="d-flex flex-column align-items-center m-auto text-center">
+        <button id="cancel_Btn" class="align-self-end" onclick="closeMsg2()">X</button>
+        <i class="bi bi-check-circle-fill" id="success_icon"></i>
+        <h4 class="mb-5 text-center" id="acc-dec-msg">Appointment Request Successfully</h4>
+        <div id="btns-container">
+            <button id="okButton" onclick="closeMsg2()">OK</button>
+        </div>
+      </div>
+    </div>
+
 
     <div class="mb-4">
         <div class="upcoming-apt">
@@ -164,8 +216,10 @@
         method: 'POST',
         data: {apptID : apptID, status : status}
         }).done(function(msg){
-            alert(msg);
             closeMsg();
+            $('#acc-dec-msg').html("Appointment Request "+status+" Successfully")
+            $("#success-confirmation").css('display','block'); 
+            $('#darkBcground').css('display','block');
         })
     }
     var apptID;
@@ -209,5 +263,9 @@
         $('#cancelButton').click(function(){
             closeMsg();
         })
+        function closeMsg2(){
+         $("#success-confirmation").css('display','none'); 
+         $('#darkBcground').css('display','none');
+        }
   </script>
 </html>
