@@ -15,10 +15,10 @@ body {
 #bcImg{
   position: absolute;
   right:-4em;
-  height: 500px;
+  height: 570px;
   z-index: -1;
-  transform: rotate(90deg);
-  top: 45vh;
+  transform: rotate(95deg);
+  top: 54vh;
 }
 
 .noteBtn{
