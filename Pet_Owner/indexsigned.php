@@ -189,7 +189,7 @@
       }
 
     $(document).ready(function(){
-      showPage('Signed_In_Header.html', 'header');
+      showPage('Signed_In_Header.php', 'header');
     })
 </script>
 </head>
@@ -254,4 +254,21 @@
 
 </body>
 <?php include '../PHP/index.php'?>
+<script>
+      var acc = document.getElementsByClassName("collap");
+      var acc2 = document.getElementsByClassName("content");
+      for(let i = 0; i<acc.length; i++){
+        $(acc[i]).click(function(){
+          this.classList.toggle('active');
+          var j = 0;
+          if($(acc2[i]).css('display') === "block"){
+            $(acc2[i]).css('display', 'none');  
+          }
+          else if($(acc2[i]).css('display') === "none"){
+            $(acc2[i]).css('display', 'block');    
+          }
+          j++;
+        });
+      }
+    </script>
 </html>

@@ -88,6 +88,10 @@
     color:rgb(35, 35, 35);
     font-weight: 300;
     }
+    .noAppt{
+      margin-left: 85%;
+      margin-top: 5em;
+    }
 
 </style>
 <script>    
@@ -185,24 +189,10 @@
         <div class="upcoming-apt">
           <p>Appointments Requests</p>
         <div class="line"></div>
-      </div>
-      <div class="box mb-5">
-       <table id="requests_table">
-          <thead>
-          <tr>
-            <th class="text-center pt-4 pb-2">Pet</th>
-            <th class="text-center pt-4 pb-2">Service</th>
-            <th class="text-center pt-4 pb-2">Date</th>
-            <th class="text-center pt-4 pb-2">Time</th>
-            <th class="text-center pt-4 pb-2">Notes</th>
-            <th class="text-center pt-4 pb-2">Accept/Decline</th>
-          </tr>
-          </thead>
-          <tbody id="appointments">
+    </div>
+      
            <!--Appointment Requests Here -->
-          </tbody>
-        </table>
-       </div>
+          
        <?php include 'PHP/Retrieve_Appt_Requests.php' ?>
 </body>
   <script>
