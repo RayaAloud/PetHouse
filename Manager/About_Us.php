@@ -23,6 +23,9 @@
 <body>
   
     <div id="container" class="w-100 container">
+    <div class='alert alert-danger' role='alert' id="error_alert" style="display: none"></div>
+    <div class="alert alert-success" id="success_alert" role="alert" style="display: none"></div>
+    <iframe id="iframe" name="my_iframe"></iframe>
      <form method="POST" action="PHP/About_us.php" class="container" enctype="multipart/form-data" id="about_us_form">
         <h3 class="d-inline titles"><i class="bi bi-image-fill"></i>&nbsp;&nbsp;Photo</h3>  
         <div class="col-9 mb-5 mt-5 d-flex justify-content-between">
@@ -32,7 +35,7 @@
         <div class="">
             <h3 class="d-inline titles"><i class="bi bi-file-text"></i>&nbsp;&nbsp;Description</h3>
             <div class="d-flex container justify-content-between">
-              <input type="text" class="inputs" name="description" id="desc" >
+              <input type="text" class="inputs" name="description" id="desc">
             </div>
         </div>
         <div class="mt-5">
@@ -54,14 +57,23 @@
             document.getElementById('aboutus-img').src = window.URL.createObjectURL(this.files[0]);
         })
         $('#about_us_form').submit(function(e){
-          var inputFields = [];
-          inputFields[0] = 'desc';
-          inputFields[1] = 'loc';
-          var emptyField = checkIfEmpty(inputFields);
-          if(emptyField){
+          $('#error_alert').html('');
+          $('#error_alert').css('display', 'none');
+          $('#success_alert').html('Appointment Added Successfully');
+          $('#success_alert').css('display', 'block');
+          $('#success_alert').html('');
+          $('#success_alert').css('display', 'none');
+          if(bigDescription($('#desc')) === true){
               e.preventDefault();
-              alert("All Fields Are required");
+              $(this).attr('target','my_iframe')
+              $('#error_alert').html('Description should be maximum 250 characters');
+              $('#error_alert').css('display', 'block');
           }      
+          else{
+            $(this).attr('target','my_iframe')
+            $('#success_alert').html('Changes Saved Successfully');
+            $('#success_alert').css('display', 'block');
+          }
        })
 
     </script>

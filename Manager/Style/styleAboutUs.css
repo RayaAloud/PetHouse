@@ -14,8 +14,11 @@ label{
     font-size:large;
     font-weight: 700;
 }
+iframe{
+    height: 0;
+}
 #desc{
-    height: 15em;
+    height: 17em;
 }
 .inputs{
     display: block;

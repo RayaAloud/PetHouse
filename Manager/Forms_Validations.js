@@ -24,3 +24,6 @@ function emptyTime(time){
     return true;
     return false;
 }
+function bigDescription(des){
+    return $(des).val().length > 250;
+}
