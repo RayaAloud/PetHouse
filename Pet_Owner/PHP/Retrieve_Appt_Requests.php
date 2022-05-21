@@ -23,10 +23,10 @@ if($result -> num_rows > 0){
      </thead>
      <tbody>');
 while($row = mysqli_fetch_array($result)){
-    $query = "SELECT Name, Photo FROM Pet WHERE ID = ".$row['PetID'].";";
+    $query = "SELECT ID,Name, Photo FROM Pet WHERE ID = ".$row['PetID'].";";
     $pet_result = mysqli_fetch_array(mysqli_query($connection,$query));
     echo "<script> document.getElementsByTagName('tbody')[0].innerHTML +='";
-    echo "<tr id=\'".$row['Request_ID']."\'>";
+    echo "<tr id=\'".$row['Request_ID']."\' pet-id=\'".$pet_result['ID']."\'>";
     echo "<td pet_name=\'".$pet_result['Name']."\'><img class=\'t-img\' src=\'data:image/png;charset=utf8;base64,".base64_encode($pet_result['Photo'])."\' alt=\'Pet Photo\'><span class=\'fs-5\'>&nbsp;&nbsp;".$pet_result['Name']."</span></td>";
     echo "<td>".$row['Service_Name']."</td>";
     echo "<td>".dateFormat($row['Date'])."</td>";
