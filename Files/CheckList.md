@@ -3,20 +3,21 @@
 - [x] Request Appointment1
 - [x] Request Appointment2
 - [x] Request Appointment3
+- [ ] Owner Edit Appointment Request
 - [x] Owner Login
 - [x] Owner Register 
 - [ ] Owner Appointment Requests
-- [ ] Owner Previous Appointment 
+- [x] Owner Previous Appointment 
 - [x] Owner Profile
-- [ ] Owner Dashboard
+- [x] Owner Dashboard
 - [ ] Pets list
 - [ ] Add pet
 - [ ] Pet Profile
 - [x] Admin Login
-- [ ] Admin Available appointment
+- [x] Admin Available appointment
 - [ ] Admin appointment requests
 - [x] Admin previous appointment
-- [ ] Admin about us
+- [x] Admin about us
 - [x] Admin Reviews
 - [ ] Admin services
 - [x] Admin upcoming appointments

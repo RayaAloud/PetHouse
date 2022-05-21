@@ -129,6 +129,7 @@ if(!isset($_SESSION['email'])){
       $(editBtns[i]).click(function(){
           var appointment = $(this).parent().parent();
           sessionStorage.setItem('Appt_Request_ID', $(appointment).attr('id'));
+          sessionStorage.setItem('Edit_Appt_Pet', $(appointment).attr('pet-id'));
           sessionStorage.setItem('Appt_Request_Service', $(appointment).children()[1].innerHTML);
           sessionStorage.setItem('Appt_Request_Pet', $(appointment).children()[0].getAttribute('pet_name'));
           var dateString = ($(appointment).children()[2].innerHTML).split("/");

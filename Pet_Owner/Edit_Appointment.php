@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
- session_start();
+session_start();
+if(!isset($_SESSION['email'])){
+  header("Location: ../index.php");
+}
 ?>
 <html>
 <head>
@@ -80,22 +83,6 @@
       return true;
    }
    
-   function update(){
-       var date = new Date(sessionStorage.getItem('Current_Selected_Date'));
-       var time = sessionStorage.getItem('Request_Appoinemtent_Time');
-       var service = sessionStorage.getItem('Request_Appoinemtent_Service');
-       var note = sessionStorage.getItem('Notes');
-       date = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
-        $.ajax({
-           url: 'PHP/Add_Appt_Request.php',
-           method: 'POST',
-           data: {petName : 'Java', date : date, time : time, service : service, note : (note == null)? null : note},
-        }).done(function(msg){
-           alert(msg)
-        })
-    }
-   
-
    
     </script>
 </head>
@@ -109,9 +96,10 @@
       <p>Edit Appointment</p>
       <div class="line"></div>
     </div>
+    <div class='alert alert-warning mt-4 w-75' role='alert' id="warning_alert" style="display: none"></div>
+    <div class="alert alert-success mt-4 w-75" id="success_alert" role="alert" style="display: none"></div>
     <form id="Edit_Appt_Form">
       <div class="d-flex flex-column align-items-center mt-5">
-        <span id="msg" class="col-7"></span>
         <div id="AppointmentOptions" class="text-center">
           <div id="pet" class="pb-5 d-flex justify-content-around align-items-center">
             <div>
@@ -221,7 +209,7 @@
                   time = (time[0]-12)+":"+time[1]+" PM";
                   }
               }  
-            document.getElementById('timeSelect').innerHTML += "<option>"+time+"</option>";
+            document.getElementById('timeSelect').innerHTML += "<option av-id="+dates[i].Appt_ID+">"+time+"</option>";
            }
        }     
     }
@@ -239,14 +227,16 @@
         onSelect: function(){
             currentDate = $("#datepicker").datepicker("getDate");
             sessionStorage.setItem('Current_Selected_Date', currentDate);
-            displayTimes();    
+            displayTimes();
         },
         minDate:0,
         beforeShowDay: function(date) {
           var day = date.getDate();
           var month = date.getMonth();
           var year = date.getFullYear();
-          return [checkIfExists(day,month,year), ''];
+          var thisDate = new Date(sessionStorage.getItem('Appt_Request_Date'))
+          var show = (thisDate.getDate() === day) && (thisDate.getMonth() === month) && (thisDate.getFullYear() === year);
+          return [checkIfExists(day,month,year) || show === true, ''];
           },
         })
         var appt_date = new Date(sessionStorage.getItem('Appt_Request_Date'));
@@ -256,25 +246,32 @@
           cells[k].parentNode.getAttribute('data-month') == appt_date.getMonth() &&
           cells[k].getAttribute('data-date') == appt_date.getDate()){
             cells[k].click();
+            //sessionStorage.setItem('Current_Selected_Date', sessionStorage.getItem('Appt_Request_Date'));
+            var allOpt = $('#timeSelect').children();
+            var exists = false;
+            for(var m = 0; m<allOpt.length; m++){
+              if(allOpt[m].innerHTML = sessionStorage.getItem('Appt_Request_Time'))
+                exists = true;
+            }
+            if(exists === false){
+               document.getElementById('timeSelect').innerHTML += " <option selected>"+sessionStorage.getItem('Appt_Request_Time')+"</option>"; 
+            }
           }
         }
-        $('#timeSelect').val(sessionStorage.getItem('Appt_Request_Time'));
        })
     }
 
     $(document).ready(function(){
         showPage('Signed_In_Header.php', 'header');
         displayDates(sessionStorage.getItem('Appt_Request_Service'));
-         
-        //sessionStorage.setItem('Appt_Request_ID', $(appointment).attr('id'));  
         $('#petsList').val(sessionStorage.getItem('Appt_Request_Pet'));
         $('#'+sessionStorage.getItem('Appt_Request_Service')).prop('checked', true);
-       // $("#datepicker").datepicker("setDate", sessionStorage.getItem('Appt_Request_Date'));
-        $('#note').val(sessionStorage.getItem('Appt_Request_Note'));
-        
+        $('#note').val(sessionStorage.getItem('Appt_Request_Note')); 
     })
     sessionStorage.setItem('Edit_Appt_service', sessionStorage.getItem('Appt_Request_Service'));
     $('input:radio[name="service"]').change(function(){
+      sessionStorage.setItem('Current_Selected_Date', '');
+      document.getElementById('timeSelect').innerHTML = "<option>Select Time</option>";
       sessionStorage.setItem('Edit_Appt_service', $(this).val());
       $.ajax({
             url: 'PHP/Retrieve_Available_Appt_for_Service.php',
@@ -313,15 +310,40 @@
          }
         })
       })
-      var option = $('#petsList').find("option:selected");
-      sessionStorage.setItem('Edit_Appt_Pet', sessionStorage.getItem('Request_Appoinemtent_Pet'));
+     
       $('#petsList').change(function(){
         var option = $(this).find("option:selected");
         sessionStorage.setItem('Edit_Appt_Pet', $(option).attr('id'));
       })
       $('#Edit_Appt_Form').submit(function(e){
+         $('#warning_alert').css('display', 'none');
+         $('#warning_alert').html('');
+         $('#success_alert').css('display', 'none');
+         $('#success_alert').html('');
          e.preventDefault();
-         if(checkService() && checkDate() && checkTime()){
+         var thereIsError = false;
+         var checkService1 = checkService();
+         var checkDate1 = checkDate();
+         var checkTime1 = checkTime();
+         if(checkDate1 === false && checkTime1 === false){
+          document.getElementById('warning_alert').innerHTML += 'Please select date and time<br>'; 
+          thereIsError = true
+         }
+         else if(checkDate1 === false){
+          document.getElementById('warning_alert').innerHTML += 'Please select date<br>'; 
+          thereIsError = true
+         }
+         else if(checkTime1 === false){
+          document.getElementById('warning_alert').innerHTML += 'Please select time<br>'; 
+          thereIsError = true
+          }
+         if(thereIsError === false){
+            var avID = $('#timeSelect').find("option:selected");
+            avID = $(avID).attr('av-id');
+            var checkBit = 1
+            if(avID == undefined){
+              checkBit = 0;
+            }
             var time = $('#timeSelect').val().split(" ");
             var date = new Date(sessionStorage.getItem('Current_Selected_Date'));
             date = date.getFullYear() + "-" + (date.getMonth() +1) + "-" + date.getDate();
@@ -346,10 +368,15 @@
          $.ajax({
            method: 'POST',
            url: 'PHP/Edit_Appt_Request.php',
-           data: {appt_ID : sessionStorage.getItem('Appt_Request_ID'), date : date, time : time, service : sessionStorage.getItem('Edit_Appt_service'), note : $('#note').val(), petID :  sessionStorage.getItem('Edit_Appt_Pet')}
+           data: {appt_ID : sessionStorage.getItem('Appt_Request_ID'), date : date, time : time, service : sessionStorage.getItem('Edit_Appt_service'), note : $('#note').val(), petID :  sessionStorage.getItem('Edit_Appt_Pet'), avID : (checkBit == 1)? avID : -1}
          }).done(function(msg){
-           alert(msg);
+          $('#success_alert').html('Appointment Updated Successfully');
+          $('#success_alert').css('display', 'block');
+          sessionStorage.setItem('Appt_Request_Date', new Date(sessionStorage.getItem('Current_Selected_Date')));
          })
+        }
+        else{
+          $('#warning_alert').css('display', 'block');
         }
       })
   </script>
